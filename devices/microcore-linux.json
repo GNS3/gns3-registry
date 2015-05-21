@@ -1,0 +1,27 @@
+{
+    "name": "Micro Core Linux",
+    "category": "guest", 
+    "emulator": "qemu", 
+    "vendor_name": "Team Tiny Core", 
+    "vendor_url": "http://distro.ibiblio.org/tinycorelinux", 
+    "documentation_url": "http://wiki.tinycorelinux.net/", 
+    "product_name": "Micro Core Linux",
+    "product_url": "http://distro.ibiblio.org/tinycorelinux", 
+    "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/", 
+    "repository_version": 1, 
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "dev@gns3.net",
+ 
+    "adapter_type": "e1000",
+    "adapters": 1,
+    "hda_disk_image": [
+        {
+            "filename": "linux-microcore-3.4.1.img",
+            "version": "3.4.1",
+            "sha1sum": "5f42d71b30bc682e44ccf7340e20ea7ea8967ef5"  
+        }
+    ],
+    "ram": 32,
+    "processor": "i386"
+}
