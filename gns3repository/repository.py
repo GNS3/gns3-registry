@@ -37,11 +37,13 @@ class Repository:
 
         #TODO: Manage open error
         devices_path = self._get_devices_path()
-        for file in os.listdir(devices_path):
-            with open(os.path.join(devices_path, file)) as f:
-                config = json.load(f)
-                if self._image_match(image, config):
-                    configurations.append(config)
+        for (dirpath, dirnames, filenames) in os.walk(devices_path):
+            for filename in filenames:
+                file = os.path.join(dirpath, filename)
+                with open(os.path.join(devices_path, file)) as f:
+                    config = json.load(f)
+                    if self._image_match(image, config):
+                        configurations.append(config)
 
         return configurations
 

@@ -25,7 +25,7 @@ from gns3repository.repository import Repository
 
 def test_detect_image(linux_microcore_img):
 
-    with open("devices/microcore-linux.json") as f:
+    with open("devices/qemu/microcore-linux.json") as f:
         config = json.load(f)
 
     repository = Repository()

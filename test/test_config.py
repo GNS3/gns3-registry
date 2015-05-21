@@ -76,7 +76,7 @@ def empty_config(tmpdir):
 
 
 def test_add_image(empty_config, linux_microcore_img):
-    with open("devices/microcore-linux.json") as f:
+    with open("devices/qemu/microcore-linux.json") as f:
         config = json.load(f)
     image = Image(linux_microcore_img)
     image.version = "3.4.1"
@@ -107,7 +107,7 @@ def test_add_image(empty_config, linux_microcore_img):
 
 
 def test_add_image_uniq(empty_config, linux_microcore_img):
-    with open("devices/microcore-linux.json") as f:
+    with open("devices/qemu/microcore-linux.json") as f:
         config = json.load(f)
     image = Image(linux_microcore_img)
     image.version = "3.4.1"
@@ -120,7 +120,7 @@ def test_add_image_uniq(empty_config, linux_microcore_img):
 
 def test_save(empty_config, linux_microcore_img):
 
-    with open("devices/microcore-linux.json") as f:
+    with open("devices/qemu/microcore-linux.json") as f:
         config = json.load(f)
     empty_config.add_image(config)
     empty_config.save()
