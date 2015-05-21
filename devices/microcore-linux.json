@@ -7,7 +7,6 @@
     "documentation_url": "http://wiki.tinycorelinux.net/", 
     "product_name": "Micro Core Linux",
     "product_url": "http://distro.ibiblio.org/tinycorelinux", 
-    "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/", 
     "repository_version": 1, 
     "status": "stable",
     "maintainer": "GNS3 Team",
@@ -19,7 +18,16 @@
         {
             "filename": "linux-microcore-3.4.1.img",
             "version": "3.4.1",
-            "sha1sum": "5f42d71b30bc682e44ccf7340e20ea7ea8967ef5"  
+            "sha1sum": "5f42d71b30bc682e44ccf7340e20ea7ea8967ef5",
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",     
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-3.4.1.img"            
+        },
+        {
+            "filename": "linux-microcore-4.0.2-clean.img",
+            "version": "4.0.2",
+            "sha1sum": "0252f2c913519c993b812325bbd553af2d77218a",
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",             
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-4.0.2-clean.img"
         }
     ],
     "ram": 32,
