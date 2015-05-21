@@ -41,6 +41,13 @@ class Config:
         with open(self.path) as f:
             self._config = json.load(f)
 
+    @property
+    def images_dir(self):
+        """
+        :returns: Localion of the images directory on the server
+        """
+        return self._config["LocalServer"]["images_path"]
+
     def _get_standard_config_file_path(self):
         if sys.platform.startswith("win"):
             filename = "gns3_gui.ini"
@@ -111,5 +118,5 @@ class Config:
         Save the configuration file
         """
         with open(self.path, "w+") as f:
-            json.dump(self._config, f)
+            json.dump(self._config, f, indent=4)
 

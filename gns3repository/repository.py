@@ -20,6 +20,8 @@
 import hashlib
 import json
 import os
+import re
+import urllib.request
 
 from gns3repository.image import Image
 
@@ -36,16 +38,44 @@ class Repository:
         configurations = []
 
         #TODO: Manage open error
+        for config in self._all_configs():
+            if self._image_match(image, config):
+                configurations.append(config)
+
+        return configurations
+
+
+    def download_image(self, sha1sum, images_dir):
+        for config in self._all_configs():
+             for file in config.get("hda_disk_image", []):
+                 if file["sha1sum"] == sha1sum:
+                    path = os.path.join(images_dir, file["filename"])
+
+                    print("Download {} to {}".format(file["direct_download_url"], path))
+                    #TODO: Skip download if file already exist with same sha1
+                    urllib.request.urlretrieve(file["direct_download_url"], path)
+                    return path
+
+    def search_device(self, query):
+        results = []
+        for config in self._all_configs():
+            if re.match(r".*{}.*".format(query), config["name"], flags=re.IGNORECASE):
+                results.append(config)
+        return results
+
+    def _all_configs(self):
+        """
+        Iterate on all configs available on devices
+        """
         devices_path = self._get_devices_path()
         for (dirpath, dirnames, filenames) in os.walk(devices_path):
             for filename in filenames:
                 file = os.path.join(dirpath, filename)
-                with open(os.path.join(devices_path, file)) as f:
-                    config = json.load(f)
-                    if self._image_match(image, config):
-                        configurations.append(config)
-
-        return configurations
+                if file.endswith(".json"):
+                    with open(os.path.join(devices_path, file)) as f:
+                        config = json.load(f)
+                        config["filename"] = file[:-5]
+                        yield config
 
     def _image_match(self, image, config):
         """

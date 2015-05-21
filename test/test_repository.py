@@ -37,3 +37,9 @@ def test_detect_image(linux_microcore_img):
 def test_detect_unknow_image(empty_file):
     repository = Repository()
     assert repository.detect_image(empty_file) == []
+
+
+def test_search_device():
+    repository = Repository()
+    results = repository.search_device("Micro Core Linux")
+    assert len(results) == 1
