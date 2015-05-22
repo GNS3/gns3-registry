@@ -80,7 +80,7 @@ def test_add_image(empty_config, linux_microcore_img):
         config = json.load(f)
     image = Image(linux_microcore_img)
     image.version = "3.4.1"
-    config["hda_disk_image"] = image
+    config["images"]["hda_disk_image"] = image
     empty_config.add_image(config)
     assert empty_config._config["Qemu"]["vms"][0] == {
         "adapter_type": "e1000",

@@ -31,7 +31,7 @@ def test_detect_image(linux_microcore_img):
     registry = Registry()
     detected = registry.detect_image(linux_microcore_img)
     assert detected[0]["name"] == "Micro Core Linux"
-    assert detected[0]["hda_disk_image"].version == "3.4.1"
+    assert detected[0]["images"]["hda_disk_image"].version == "3.4.1"
 
 
 def test_detect_unknow_image(empty_file):

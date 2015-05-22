@@ -44,21 +44,21 @@ class Registry:
 
         return configurations
 
-
     def download_image(self, sha1sum, images_dir):
         for config in self._all_configs():
-             for file in config.get("hda_disk_image", []):
-                 if file["sha1sum"] == sha1sum:
-                    path = os.path.join(images_dir, file["filename"])
+            for image_type in config.get("images", {}):
+                for file in config["images"].get(image_type, []):
+                    if file["sha1sum"] == sha1sum:
+                        path = os.path.join(images_dir, "QEMU", file["filename"])
 
-                    if "direct_download_url" in file:
-                        print("Download {} to {}".format(file["direct_download_url"], path))
-                        #TODO: Skip download if file already exist with same sha1
-                        urllib.request.urlretrieve(file["direct_download_url"], path)
-                        return path
-                    else:
-                        print("You need to download by hand the image {filename} from:\n{download_url}\n\nAnd run: ./bin/gns3-get --add {filename}".format(filename=file["filename"], download_url=file["download_url"]))
-                        return None
+                        if "direct_download_url" in file:
+                            print("Download {} to {}".format(file["direct_download_url"], path))
+                            #TODO: Skip download if file already exist with same sha1
+                            urllib.request.urlretrieve(file["direct_download_url"], path)
+                            return path
+                        else:
+                            print("You need to manually download the image {filename} from:\n{download_url}\n\nAnd run: ./bin/gns3-get --add {filename}".format(filename=file["filename"], download_url=file["download_url"]))
+                            return None
 
     def search_device(self, query):
         results = []
@@ -78,19 +78,19 @@ class Registry:
                 if file.endswith(".json"):
                     with open(os.path.join(devices_path, file)) as f:
                         config = json.load(f)
-                        config["filename"] = file[:-5]
                         yield config
 
     def _image_match(self, image, config):
         """
         :returns: True if image is present in configuration
         """
-        for file in config.get("hda_disk_image", []):
-            if file.get("sha1sum", None) == image.sha1sum:
-                image.version = file["version"]
-                config["hda_disk_image"] = image
-                return True
-        return False
+        for image_type in config.get("images", {}):
+            for file in config["images"].get(image_type, []):
+                if file.get("sha1sum", None) == image.sha1sum:
+                    image.version = file["version"]
+                    config["images"][image_type] = image
+                    return True
+            return False
 
     def _get_devices_path(self):
         """

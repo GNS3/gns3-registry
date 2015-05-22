@@ -1,7 +1,6 @@
 {
     "name": "Arista vEOS",
     "category": "router", 
-    "emulator": "qemu", 
     "vendor_name": "Arista", 
     "vendor_url": "http://www.arista.com/", 
     "documentation_url": "http://www.arista.com/docs/Manuals/ConfigGuide.pdf", 
@@ -12,26 +11,31 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
  
-    "adapter_type": "e1000",
-    "adapters": 8,
-    "hda_disk_image": [
-        {
-            "filename": "Aboot-veos-2.1.0.iso",
-            "version": "2.1.0",
-            "sha1sum": "ea9dc1989764fc6db1d388b061340743016214a7",
-            "download_url": "https://www.arista.com/en/support/software-download"     
-        }
-    ],
-    "hdb_disk_image": [
-        {
-            "filename": "vEOS-lab-4.13.8M.vmdk",
-            "version": "4.13.8M",
-            "sha1sum": "5f42d71b30bc682e44ccf7340e20ea7ea8967ef5",
-            "download_url": "https://www.arista.com/en/support/software-download"    
-        }
-    ],
-    "options": "-nographics",
-    "kvm_support": true,
-    "ram": 2048,
-    "processor": "x64"
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 8,
+        "options": "-nographics",
+        "kvm_support": true,
+        "ram": 2048,
+        "processor": "x64"
+    },
+
+    "images": {
+        "hda_disk_image": [
+            {
+                "filename": "Aboot-veos-2.1.0.iso",
+                "version": "2.1.0",
+                "sha1sum": "ea9dc1989764fc6db1d388b061340743016214a7",
+                "download_url": "https://www.arista.com/en/support/software-download"     
+            }
+        ],
+        "hdb_disk_image": [
+            {
+                "filename": "vEOS-lab-4.13.8M.vmdk",
+                "version": "4.13.8M",
+                "sha1sum": "ff50656fe817c420e9f7fbb0c0ee41f1ca52fee2",
+                "download_url": "https://www.arista.com/en/support/software-download"    
+            }
+        ]
+    }
 }

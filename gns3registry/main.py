@@ -71,10 +71,13 @@ if __name__ == "__main__":
     if args.add_image:
         add_image(args.add_image)
     elif args.search:
+        print("Available images\n")
         for res in registry.search_device(args.search):
             print("{}: ".format(res["name"]))
-            for file in res["hda_disk_image"]:
-                print(" * {} {}: {}".format(file["version"], file["filename"], file["sha1sum"]))
+            for image_type in res["images"]:
+                print(" * {}:".format(image_type))
+                for file in res["images"][image_type]:
+                    print("   * {} {}: {}".format(file["version"], file["filename"], file["sha1sum"]))
     elif args.install:
         image = registry.download_image(args.install, config.images_dir)
         if image:

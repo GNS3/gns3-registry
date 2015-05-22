@@ -76,15 +76,15 @@ class Config:
         }
         if device_config["category"] == "guest":
             new_config["category"] = 2
-        if device_config["emulator"] == "qemu":
+        if "qemu" in device_config:
             self._add_qemu_config(new_config, device_config)
 
     def _add_qemu_config(self, new_config, device_config):
 
-        new_config["adapter_type"] = device_config["adapter_type"]
-        new_config["adapters"] = device_config["adapters"]
+        new_config["adapter_type"] = device_config["qemu"]["adapter_type"]
+        new_config["adapters"] = device_config["qemu"]["adapters"]
         new_config["cpu_throttling"] = 0
-        new_config["ram"] = device_config["ram"]
+        new_config["ram"] = device_config["qemu"]["ram"]
         new_config["legacy_networking"] = False
         new_config["process_priority"] = "normal"
 
@@ -97,16 +97,16 @@ class Config:
         new_config["hdd_disk_image"] = ""
 
         #TODO: Manage Windows
-        if device_config["processor"] == "i386":
+        if device_config["qemu"]["processor"] == "i386":
             new_config["qemu_path"] = "qemu-system-i386"
 
         if device_config["category"] == "guest":
             new_config["default_symbol"] = ":/symbols/qemu_guest.normal.svg"
             new_config["hover_symbol"] = ":/symbols/qemu_guest.selected.svg"
 
-        if isinstance(device_config["hda_disk_image"], Image):
-            new_config["name"] += " {}".format(device_config["hda_disk_image"].version)
-            new_config["hda_disk_image"] = device_config["hda_disk_image"].path
+        if isinstance(device_config["images"]["hda_disk_image"], Image):
+            new_config["name"] += " {}".format(device_config["images"]["hda_disk_image"].version)
+            new_config["hda_disk_image"] = device_config["images"]["hda_disk_image"].path
 
         # Remove VM with the same Name
         self._config["Qemu"]["vms"] = [item for item in self._config["Qemu"]["vms"] if item["name"] != new_config["name"]]
