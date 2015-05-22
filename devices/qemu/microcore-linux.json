@@ -10,7 +10,7 @@
     "repository_version": 1, 
     "status": "stable",
     "maintainer": "GNS3 Team",
-    "maintainer_email": "dev@gns3.net",
+    "maintainer_email": "developers@gns3.net",
  
     "adapter_type": "e1000",
     "adapters": 1,

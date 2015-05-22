@@ -77,7 +77,8 @@ if __name__ == "__main__":
                 print(" * {} {}: {}".format(file["version"], file["filename"], file["sha1sum"]))
     elif args.install:
         image = registry.download_image(args.install, config.images_dir)
-        add_image(image)
+        if image:
+            add_image(image)
     else:
         parser.print_help()
         sys.exit(1)

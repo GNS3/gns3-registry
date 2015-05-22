@@ -51,10 +51,14 @@ class Registry:
                  if file["sha1sum"] == sha1sum:
                     path = os.path.join(images_dir, file["filename"])
 
-                    print("Download {} to {}".format(file["direct_download_url"], path))
-                    #TODO: Skip download if file already exist with same sha1
-                    urllib.request.urlretrieve(file["direct_download_url"], path)
-                    return path
+                    if "direct_download_url" in file:
+                        print("Download {} to {}".format(file["direct_download_url"], path))
+                        #TODO: Skip download if file already exist with same sha1
+                        urllib.request.urlretrieve(file["direct_download_url"], path)
+                        return path
+                    else:
+                        print("You need to download by hand the image {filename} from:\n{download_url}\n\nAnd run: ./bin/gns3-get --add {filename}".format(filename=file["filename"], download_url=file["download_url"]))
+                        return None
 
     def search_device(self, query):
         results = []
