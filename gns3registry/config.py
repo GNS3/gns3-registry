@@ -23,6 +23,10 @@ import os
 from gns3registry.image import Image
 
 
+class ConfigException(Exception):
+    pass
+
+
 class Config:
     """
     GNS3 config file
@@ -66,9 +70,9 @@ class Config:
             home = os.path.expanduser("~")
             return os.path.join(home, ".config", appname, filename)
 
-    def add_image(self, device_config):
+    def add_images(self, device_config):
         """
-        Add an image to the user configuration
+        Add images to the user configuration
         """
         new_config = {
             "server": "local",
@@ -76,6 +80,9 @@ class Config:
         }
         if device_config["category"] == "guest":
             new_config["category"] = 2
+        elif device_config["category"] == "router":
+            new_config["category"] = 0
+
         if "qemu" in device_config:
             self._add_qemu_config(new_config, device_config)
 
@@ -99,19 +106,32 @@ class Config:
         #TODO: Manage Windows
         if device_config["qemu"]["processor"] == "i386":
             new_config["qemu_path"] = "qemu-system-i386"
+        elif device_config["qemu"]["processor"] == "x64":
+            new_config["qemu_path"] = "qemu-system-x86_64"
 
         if device_config["category"] == "guest":
             new_config["default_symbol"] = ":/symbols/qemu_guest.normal.svg"
             new_config["hover_symbol"] = ":/symbols/qemu_guest.selected.svg"
+        elif device_config["category"] == "router":
+            new_config["default_symbol"] = ":/symbols/router.normal.svg"
+            new_config["hover_symbol"] = ":/symbols/router.selected.svg"
 
-        if isinstance(device_config["images"]["hda_disk_image"], Image):
-            new_config["name"] += " {}".format(device_config["images"]["hda_disk_image"].version)
-            new_config["hda_disk_image"] = device_config["images"]["hda_disk_image"].path
+        disks = ["hda_disk_image", "hdb_disk_image", "hdc_disk_image", "hdd_disk_image"]
+        for disk in disks:
+            if disk in device_config["images"]:
+                if isinstance(device_config["images"][disk], list):
+                    require_images = ""
+                    for image in device_config["images"][disk]:
+                        require_images += "* {}\n".format(image["filename"])
+                        raise ConfigException("Missing image for {} you should provide one of the following images:\n{}".format(disk, require_images))
+                else:
+                    new_config["name"] += " {}".format(device_config["images"][disk].version)
+                    new_config[disk] = device_config["images"][disk].path
 
         # Remove VM with the same Name
         self._config["Qemu"]["vms"] = [item for item in self._config["Qemu"]["vms"] if item["name"] != new_config["name"]]
 
-        self._config["Qemu"]["vms"] .append(new_config)
+        self._config["Qemu"]["vms"].append(new_config)
 
     def save(self):
         """

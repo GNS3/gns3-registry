@@ -25,21 +25,31 @@ import urllib.request
 
 from gns3registry.image import Image
 
+
 class Registry:
     def __init__(self):
         pass
 
-    def detect_image(self, image_path):
+    def detect_images(self, images_path):
         """
         :returns: Array of configuration corresponding to the image
         """
 
-        image = Image(image_path)
+        images = []
+
+        for path in images_path:
+            images.append(Image(path))
+
         configurations = []
 
         #TODO: Manage open error
         for config in self._all_configs():
-            if self._image_match(image, config):
+
+            matched = False
+            for image in images:
+                if self._image_match(image, config):
+                    matched = True
+            if matched:
                 configurations.append(config)
 
         return configurations
@@ -85,11 +95,16 @@ class Registry:
         :returns: True if image is present in configuration
         """
         for image_type in config.get("images", {}):
-            for file in config["images"].get(image_type, []):
-                if file.get("sha1sum", None) == image.sha1sum:
-                    image.version = file["version"]
-                    config["images"][image_type] = image
-                    return True
+            images = config["images"].get(image_type, [])
+            # If it's not a list it's mean we have already detect the image
+            if not isinstance(images, list):
+                continue
+            for file in images:
+                if isinstance(file, dict):
+                    if file.get("sha1sum", None) == image.sha1sum:
+                        image.version = file["version"]
+                        config["images"][image_type] = image
+                        return True
             return False
 
     def _get_devices_path(self):
@@ -98,5 +113,3 @@ class Registry:
         """
         path = os.path.abspath(os.path.dirname(__file__))
         return os.path.join(path, "..", "devices")
-
-

@@ -24,7 +24,7 @@ from distutils.util import strtobool
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from gns3registry.registry import Registry
-from gns3registry.config import Config
+from gns3registry.config import Config, ConfigException
 
 registry = Registry()
 config = Config()
@@ -37,25 +37,29 @@ def yes_no(message):
         except ValueError:
             pass
 
-def add_image(image):
+def add_images(images):
     print("WARNING WARNING WARNING")
     print("It's experimental")
     print("Please close the GUI before using it")
     print("")
 
-    confs = registry.detect_image(image)
+    confs = registry.detect_images(images)
     if len(confs) > 0:
         print("Found: {} devices configuration".format(len(confs)))
         for conf in confs:
             if yes_no("Add {}?".format(conf["name"])):
-                config.add_image(conf)
+                try:
+                    config.add_images(conf)
+                except ConfigException as e:
+                    print(e, file=sys.stderr)
+                    sys.exit(1)
         config.save()
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Manage GNS3 registry")
-    parser.add_argument("--add", dest="add_image", action="store",
-                       help="Add an image to GNS3")
+    parser.add_argument("--add", dest="add_images", action="store", nargs='+',
+                       help="Add images to GNS3")
     parser.add_argument("--search", dest="search", action="store",
                        help="Search an image for GNS3")
     parser.add_argument("--install", dest="install", action="store",
@@ -68,8 +72,8 @@ if __name__ == "__main__":
     if args.test:
         sys.exit(0)
 
-    if args.add_image:
-        add_image(args.add_image)
+    if args.add_images:
+        add_images(args.add_images)
     elif args.search:
         print("Available images\n")
         for res in registry.search_device(args.search):
@@ -81,7 +85,7 @@ if __name__ == "__main__":
     elif args.install:
         image = registry.download_image(args.install, config.images_dir)
         if image:
-            add_image(image)
+            add_images([image])
     else:
         parser.print_help()
         sys.exit(1)

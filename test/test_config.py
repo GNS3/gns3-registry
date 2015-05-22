@@ -19,12 +19,13 @@
 
 import pytest
 import json
+from unittest.mock import MagicMock
 
-from gns3registry.config import Config
+from gns3registry.config import Config, ConfigException
 from gns3registry.image import Image
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def empty_config(tmpdir):
     config = {
         "LocalServer": {
@@ -75,13 +76,13 @@ def empty_config(tmpdir):
     return Config(path)
 
 
-def test_add_image(empty_config, linux_microcore_img):
+def test_add_images_guest(empty_config, linux_microcore_img):
     with open("devices/qemu/microcore-linux.json") as f:
         config = json.load(f)
     image = Image(linux_microcore_img)
     image.version = "3.4.1"
     config["images"]["hda_disk_image"] = image
-    empty_config.add_image(config)
+    empty_config.add_images(config)
     assert empty_config._config["Qemu"]["vms"][0] == {
         "adapter_type": "e1000",
         "adapters": 1,
@@ -106,23 +107,88 @@ def test_add_image(empty_config, linux_microcore_img):
     }
 
 
-def test_add_image_uniq(empty_config, linux_microcore_img):
+def test_add_images_router_two_disk(empty_config):
+    with open("devices/qemu/arista-veos.json") as f:
+        config = json.load(f)
+
+    image = MagicMock()
+    image.version = "2.1.0"
+    image.sha1sum = "ea9dc1989764fc6db1d388b061340743016214a7"
+    image.path = "/a"
+    config["images"]["hda_disk_image"] = image
+
+    image = MagicMock()
+    image.version = "4.13.8M"
+    image.sha1sum = "ff50656fe817c420e9f7fbb0c0ee41f1ca52fee2"
+    image.path = "/b"
+    config["images"]["hdb_disk_image"] = image
+
+    empty_config.add_images(config)
+    assert empty_config._config["Qemu"]["vms"][0]["name"] == "Arista vEOS 2.1.0 4.13.8M"
+
+    assert empty_config._config["Qemu"]["vms"][0] == {
+        "adapter_type": "e1000",
+        "adapters": 8,
+        "category": 0,
+        "cpu_throttling": 0,
+        "default_symbol": ":/symbols/router.normal.svg",
+        "hda_disk_image": "/a",
+        "hdb_disk_image": "/b",
+        "hdc_disk_image": "",
+        "hdd_disk_image": "",
+        "hover_symbol": ":/symbols/router.selected.svg",
+        "initrd": "",
+        "kernel_command_line": "",
+        "kernel_image": "",
+        "legacy_networking": False,
+        "name": "Arista vEOS 2.1.0 4.13.8M",
+        "options": "",
+        "process_priority": "normal",
+        "qemu_path": "qemu-system-x86_64",
+        "ram": 2048,
+        "server": "local"
+    }
+
+
+def test_add_images_uniq(empty_config, linux_microcore_img):
     with open("devices/qemu/microcore-linux.json") as f:
         config = json.load(f)
+
     image = Image(linux_microcore_img)
     image.version = "3.4.1"
-    config["hda_disk_image"] = image
-    empty_config.add_image(config)
-    config["adapters"] = 2
-    empty_config.add_image(config)
+    config["images"]["hda_disk_image"] = image
+
+    empty_config.add_images(config)
+    config["qemu"]["adapters"] = 2
+    empty_config.add_images(config)
     assert len(empty_config._config["Qemu"]["vms"]) == 1
+    assert empty_config._config["Qemu"]["vms"][0]["adapters"] == 2
+
+
+def test_add_images_two_disk_one_missing(empty_config):
+    with open("devices/qemu/arista-veos.json") as f:
+        config = json.load(f)
+
+    image = MagicMock()
+    image.version = "2.1.0"
+    image.sha1sum = "ea9dc1989764fc6db1d388b061340743016214a7"
+    config["images"]["hda_disk_image"] = image
+
+    with pytest.raises(ConfigException):
+        empty_config.add_images(config)
+    assert len(empty_config._config["Qemu"]["vms"]) == 0
 
 
 def test_save(empty_config, linux_microcore_img):
 
     with open("devices/qemu/microcore-linux.json") as f:
         config = json.load(f)
-    empty_config.add_image(config)
+
+    image = Image(linux_microcore_img)
+    image.version = "3.4.1"
+    config["images"]["hda_disk_image"] = image
+
+    empty_config.add_images(config)
     empty_config.save()
     with open(empty_config.path) as f:
         assert "Micro Core" in f.read()

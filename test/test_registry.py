@@ -29,14 +29,25 @@ def test_detect_image(linux_microcore_img):
         config = json.load(f)
 
     registry = Registry()
-    detected = registry.detect_image(linux_microcore_img)
+    detected = registry.detect_images([linux_microcore_img])
+    assert detected[0]["name"] == "Micro Core Linux"
+    assert detected[0]["images"]["hda_disk_image"].version == "3.4.1"
+
+
+def test_detect_two_image(linux_microcore_img):
+
+    with open("devices/qemu/microcore-linux.json") as f:
+        config = json.load(f)
+
+    registry = Registry()
+    detected = registry.detect_images([linux_microcore_img])
     assert detected[0]["name"] == "Micro Core Linux"
     assert detected[0]["images"]["hda_disk_image"].version == "3.4.1"
 
 
 def test_detect_unknow_image(empty_file):
     registry = Registry()
-    assert registry.detect_image(empty_file) == []
+    assert registry.detect_images([empty_file]) == []
 
 
 def test_search_device():
