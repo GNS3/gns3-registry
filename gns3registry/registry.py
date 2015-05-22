@@ -94,6 +94,8 @@ class Registry:
         """
         :returns: True if image is present in configuration
         """
+        matched = False
+
         for image_type in config.get("images", {}):
             images = config["images"].get(image_type, [])
             # If it's not a list it's mean we have already detect the image
@@ -104,8 +106,8 @@ class Registry:
                     if file.get("sha1sum", None) == image.sha1sum:
                         image.version = file["version"]
                         config["images"][image_type] = image
-                        return True
-            return False
+                        matched = True
+        return matched
 
     def _get_devices_path(self):
         """
