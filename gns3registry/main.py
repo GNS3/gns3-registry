@@ -23,10 +23,10 @@ from distutils.util import strtobool
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from gns3registry.registry import Repository
+from gns3registry.registry import Registry
 from gns3registry.config import Config
 
-registry = Repository()
+registry = Registry()
 config = Config()
 
 
@@ -38,6 +38,11 @@ def yes_no(message):
             pass
 
 def add_image(image):
+    print("WARNING WARNING WARNING")
+    print("It's experimental")
+    print("Please close the GUI before using it")
+    print("")
+
     confs = registry.detect_image(image)
     if len(confs) > 0:
         print("Found: {} devices configuration".format(len(confs)))
@@ -55,13 +60,13 @@ if __name__ == "__main__":
                        help="Search an image for GNS3")
     parser.add_argument("--install", dest="install", action="store",
                        help="Download and install an image for GNS3")
+    parser.add_argument("--test", dest="test", action="store_true",
+                       help="Test if installation of gns3 registry is OK")
 
     args = parser.parse_args()
 
-    print("WARNING WARNING WARNING")
-    print("It's experimental")
-    print("Please close the GUI before using it")
-    print("")
+    if args.test:
+        sys.exit(0)
 
     if args.add_image:
         add_image(args.add_image)

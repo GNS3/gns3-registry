@@ -1,0 +1,44 @@
+#!/bin/bash
+
+SCRIPT_PATH="${BASH_SOURCE[0]}";
+GNS3_REPOSITORY_DIR=`dirname ${SCRIPT_PATH}`/..
+
+# Detect Python 3.4 installation
+
+PY34_TEST="import sys; sys.exit(1) if sys.version_info[0] != 3 or sys.version_info[1] < 4 else sys.exit(0)"
+
+if python -c "$PY34_TEST" 2> /dev/null
+then
+    PYTHON="python"
+elif python3 -c "$PY34_TEST" 2> /dev/null
+then
+    PYTHON="python3"
+elif python3.4 -c "$PY34_TEST" 2> /dev/null
+then
+    PYTHON="python3.4"
+elif python34 -c "$PY34_TEST" 2> /dev/null
+then
+    PYTHON="python34"
+else
+    echo "No Python 3.4 installation"
+
+    echo "On debian based distribution":
+    echo "apt-get install python3"
+
+    echo "On MacOSX:"
+    echo "brew install python3"
+    echo "port install python34"
+    exit 1
+fi
+
+$PYTHON -m venv $GNS3_REPOSITORY_DIR/.venv
+source $GNS3_REPOSITORY_DIR/.venv/bin/activate
+
+$PYTHON $GNS3_REPOSITORY_DIR/gns3registry/main.py --test
+if [ $? -ne 0 ]
+then
+    $PYTHON -m pip install -r $GNS3_REPOSITORY_DIR/requirements.txt
+fi
+
+$PYTHON $GNS3_REPOSITORY_DIR/gns3registry/main.py $*
+
