@@ -23,9 +23,9 @@ import os
 import re
 import urllib.request
 
-from gns3repository.image import Image
+from gns3registry.image import Image
 
-class Repository:
+class Registry:
     def __init__(self):
         pass
 
@@ -90,7 +90,7 @@ class Repository:
 
     def _get_devices_path(self):
         """
-        Get the path where the repository files are located
+        Get the path where the registry files are located
         """
         path = os.path.abspath(os.path.dirname(__file__))
         return os.path.join(path, "..", "devices")

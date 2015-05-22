@@ -20,7 +20,7 @@
 import pytest
 import json
 
-from gns3repository.repository import Repository
+from gns3registry.registry import Registry
 
 
 def test_detect_image(linux_microcore_img):
@@ -28,18 +28,18 @@ def test_detect_image(linux_microcore_img):
     with open("devices/qemu/microcore-linux.json") as f:
         config = json.load(f)
 
-    repository = Repository()
-    detected = repository.detect_image(linux_microcore_img)
+    registry = Registry()
+    detected = registry.detect_image(linux_microcore_img)
     assert detected[0]["name"] == "Micro Core Linux"
     assert detected[0]["hda_disk_image"].version == "3.4.1"
 
 
 def test_detect_unknow_image(empty_file):
-    repository = Repository()
-    assert repository.detect_image(empty_file) == []
+    registry = Registry()
+    assert registry.detect_image(empty_file) == []
 
 
 def test_search_device():
-    repository = Repository()
-    results = repository.search_device("Micro Core Linux")
+    registry = Registry()
+    results = registry.search_device("Micro Core Linux")
     assert len(results) == 1

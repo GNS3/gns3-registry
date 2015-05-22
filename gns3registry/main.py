@@ -23,10 +23,10 @@ from distutils.util import strtobool
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from gns3repository.repository import Repository
-from gns3repository.config import Config
+from gns3registry.registry import Repository
+from gns3registry.config import Config
 
-repository = Repository()
+registry = Repository()
 config = Config()
 
 
@@ -38,7 +38,7 @@ def yes_no(message):
             pass
 
 def add_image(image):
-    confs = repository.detect_image(image)
+    confs = registry.detect_image(image)
     if len(confs) > 0:
         print("Found: {} devices configuration".format(len(confs)))
         for conf in confs:
@@ -48,7 +48,7 @@ def add_image(image):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Manage GNS3 repository")
+    parser = argparse.ArgumentParser(description="Manage GNS3 registry")
     parser.add_argument("--add", dest="add_image", action="store",
                        help="Add an image to GNS3")
     parser.add_argument("--search", dest="search", action="store",
@@ -66,12 +66,12 @@ if __name__ == "__main__":
     if args.add_image:
         add_image(args.add_image)
     elif args.search:
-        for res in repository.search_device(args.search):
+        for res in registry.search_device(args.search):
             print("{}: ".format(res["name"]))
             for file in res["hda_disk_image"]:
                 print(" * {} {}: {}".format(file["version"], file["filename"], file["sha1sum"]))
     elif args.install:
-        image = repository.download_image(args.install, config.images_dir)
+        image = registry.download_image(args.install, config.images_dir)
         add_image(image)
     else:
         parser.print_help()

@@ -20,7 +20,7 @@
 import json
 import sys
 import os
-from gns3repository.image import Image
+from gns3registry.image import Image
 
 
 class Config:

@@ -20,8 +20,8 @@
 import pytest
 import json
 
-from gns3repository.config import Config
-from gns3repository.image import Image
+from gns3registry.config import Config
+from gns3registry.image import Image
 
 
 @pytest.fixture
