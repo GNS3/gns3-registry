@@ -70,5 +70,3 @@ class Image:
                     m.update(buf)
             self._sha1sum = m.hexdigest()
         return self._sha1sum
-
-

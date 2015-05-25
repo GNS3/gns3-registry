@@ -16,7 +16,7 @@
         "adapters": 1,
         "ram": 32,
         "processor": "i386",
-        "graphics": false
+        "graphic": false
     },
 
     "images": {

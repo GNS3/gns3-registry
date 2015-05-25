@@ -1,0 +1,37 @@
+{
+    "name": "HP VSR1001",
+    "category": "router", 
+    "vendor_name": "HP", 
+    "vendor_url": "http://www.hp.com", 
+    "documentation_url": "http://h20564.www2.hp.com/portal/site/hpsc/public/psi/home/?sp4ts.oid=5443163", 
+    "product_name": "VSR1001",
+    "product_url": "http://www8.hp.com/us/en/products/networking-routers/product-detail.html?oid=5443163", 
+    "repository_version": 1, 
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+ 
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 16,
+        "ram": 1024,
+        "processor": "x64",
+        "graphic": false,
+        "kvm": true,
+        "hda_disk_image": "vsr1000-hp.img",
+        "hda_disk_size": "8G",
+        "install_cdrom_to_hda": true,
+        "install_instructions": "* Wait for boot.\n* Run fresh install."
+    },
+
+    "images": {
+        "cdrom": [
+            {
+                "filename": "VSR1000_HP-CMW710-R0204P01-X64.iso",
+                "version": "7.10.R0204P01",
+                "sha1sum": "9ead89601e84aa7dd341869c1d7933a583ab2794",
+                "download_url": "https://h10145.www1.hp.com/Downloads/DownloadSoftware.aspx?SoftwareReleaseUId=11832&ProductNumber=JG811AAE&lang=en&cc=us&prodSeriesId=5443163&OrderNumber=&PurchaseDate="
+            }
+        ]
+    }
+}

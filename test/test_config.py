@@ -19,7 +19,8 @@
 
 import pytest
 import json
-from unittest.mock import MagicMock
+import os
+from unittest.mock import MagicMock, patch
 
 from gns3registry.config import Config, ConfigException
 from gns3registry.image import Image
@@ -99,10 +100,56 @@ def test_add_images_guest(empty_config, linux_microcore_img):
         "kernel_image": "",
         "legacy_networking": False,
         "name": "Micro Core Linux 3.4.1",
-        "options": "-nographics",
+        "options": "-nographic",
         "process_priority": "normal",
         "qemu_path": "qemu-system-i386",
         "ram": 32,
+        "server": "local"
+    }
+
+
+def test_add_images_cdrom(empty_config, linux_microcore_img):
+    with open("devices/qemu/hp-vsr1001.json") as f:
+        config = json.load(f)
+
+    hda = os.path.join(empty_config.images_dir, "QEMU", "vsr1000-hp.img")
+
+    image = Image(linux_microcore_img)
+    image.version = "7.10.R0204P01"
+    config["images"]["cdrom"] = image
+
+    with patch("subprocess.call") as mock_qemu_img:
+        with patch("gns3registry.config.Config._qemu_run") as mock_qemu:
+            mock_qemu.return_value = hda
+            empty_config.add_images(config)
+    assert mock_qemu_img.called
+    args, kwargs = mock_qemu_img.call_args
+    assert args[0] == ["qemu-img", "create", "-f", "qcow2", hda, "8G"]
+
+    assert mock_qemu.called
+    args, kwargs = mock_qemu.call_args
+    assert args[1] == "-cdrom {} -m 1024 {}".format(image.path, hda)
+
+    assert empty_config._config["Qemu"]["vms"][0] == {
+        "adapter_type": "e1000",
+        "adapters": 16,
+        "category": 0,
+        "cpu_throttling": 0,
+        "default_symbol": ":/symbols/router.normal.svg",
+        "hda_disk_image": hda,
+        "hdb_disk_image": "",
+        "hdc_disk_image": "",
+        "hdd_disk_image": "",
+        "hover_symbol": ":/symbols/router.selected.svg",
+        "initrd": "",
+        "kernel_command_line": "",
+        "kernel_image": "",
+        "legacy_networking": False,
+        "name": "HP VSR1001 7.10.R0204P01",
+        "options": "-nographic",
+        "process_priority": "normal",
+        "qemu_path": "qemu-system-x86_64",
+        "ram": 1024,
         "server": "local"
     }
 
@@ -142,7 +189,7 @@ def test_add_images_router_two_disk(empty_config):
         "kernel_image": "",
         "legacy_networking": False,
         "name": "Arista vEOS 2.1.0 4.13.8M",
-        "options": "-nographics",
+        "options": "-nographic",
         "process_priority": "normal",
         "qemu_path": "qemu-system-x86_64",
         "ram": 2048,
