@@ -14,7 +14,7 @@
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 8,
-        "options": "-nographics",
+        "graphics": false,        
         "kvm_support": true,
         "ram": 2048,
         "processor": "x64"

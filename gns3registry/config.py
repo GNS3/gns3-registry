@@ -98,7 +98,14 @@ class Config:
         new_config["initrd"] = ""
         new_config["kernel_command_line"] = ""
         new_config["kernel_image"] = ""
-        new_config["options"] = ""
+
+        if device_config["qemu"].get("graphics", False):
+            options = ""
+        else:
+            options = "-nographics "
+        options += device_config["qemu"].get("options", "")
+
+        new_config["options"] = options.strip()
         new_config["hdb_disk_image"] = ""
         new_config["hdc_disk_image"] = ""
         new_config["hdd_disk_image"] = ""
