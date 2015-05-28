@@ -19,15 +19,13 @@
 import argparse
 import sys
 import os
+import math
 from distutils.util import strtobool
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from gns3registry.registry import Registry
 from gns3registry.config import Config, ConfigException
-
-registry = Registry()
-config = Config()
 
 
 def yes_no(message):
@@ -36,6 +34,24 @@ def yes_no(message):
             return strtobool(input("{} (y/n) ".format(message)).lower())
         except ValueError:
             pass
+
+def download_progress_callback(count, blockSize, totalSize):
+    """
+    Callback called when a file is downloading
+    """
+
+    if totalSize == -1:
+        sys.stdout.write("Unknow size downloading...\n")
+
+    percent = int(count * blockSize * 100/totalSize)
+    sys.stdout.write("\r[{}{}] {} %".format("#" * math.floor(percent / 2), " " * math.ceil(100 / 2 - percent / 2), percent))
+    if count * blockSize == totalSize:
+        sys.stdout.write("\n")
+    sys.stdout.flush()
+
+registry = Registry(download_progress_callback=download_progress_callback)
+config = Config()
+
 
 def add_images(images):
     print("WARNING WARNING WARNING")

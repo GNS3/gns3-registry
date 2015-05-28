@@ -27,11 +27,15 @@ from gns3registry.image import Image
 
 
 class Registry:
-    def __init__(self):
-        pass
+    def __init__(self, download_progress_callback=None):
+        """
+        :param download_progress_callback: Callback called when a file is downloaded
+        """
+        self._download_progress_callback = download_progress_callback
 
     def detect_images(self, images_path):
         """
+        :param images_path: Array of path to images
         :returns: Array of configuration corresponding to the image
         """
 
@@ -64,7 +68,7 @@ class Registry:
                         if "direct_download_url" in file:
                             print("Download {} to {}".format(file["direct_download_url"], path))
                             #TODO: Skip download if file already exist with same sha1
-                            urllib.request.urlretrieve(file["direct_download_url"], path)
+                            urllib.request.urlretrieve(file["direct_download_url"], path, reporthook=self._download_progress_callback)
                             return path
                         else:
                             print("You need to manually download the image {filename} from:\n{download_url}\n\nAnd run: ./bin/gns3-get --add {filename}".format(filename=file["filename"], download_url=file["download_url"]))
