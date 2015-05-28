@@ -226,6 +226,18 @@ def test_add_images_two_disk_one_missing(empty_config):
     assert len(empty_config._config["Qemu"]["vms"]) == 0
 
 
+def test_add_image_path_relative_to_images_dir(empty_config, tmpdir, linux_microcore_img):
+    with open("devices/microcore-linux.json") as f:
+        config = json.load(f)
+    image = Image(linux_microcore_img)
+    image.version = "3.4.1"
+    image.path = str(tmpdir / "linux-microcore-3.4.1.img")
+
+    config["images"]["hda_disk_image"] = image
+    empty_config.add_images(config)
+    assert empty_config._config["Qemu"]["vms"][0]["hda_disk_image"] == "linux-microcore-3.4.1.img"
+
+
 def test_save(empty_config, linux_microcore_img):
 
     with open("devices/microcore-linux.json") as f:

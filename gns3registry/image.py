@@ -27,16 +27,9 @@ class Image:
         """
         :params: path of the image
         """
-        self._path = path
+        self.path = path
         self._md5sum = None
         self._version = None
-
-    @property
-    def path(self):
-        """
-        :returns: Image path
-        """
-        return self._path
 
     @property
     def version(self):
@@ -62,7 +55,7 @@ class Image:
 
         if self._md5sum is None:
             m = hashlib.md5()
-            with open(self._path, "rb") as f:
+            with open(self.path, "rb") as f:
                 while True:
                     buf = f.read(4096)
                     if not buf:

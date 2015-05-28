@@ -133,7 +133,7 @@ class Config:
                         raise ConfigException("Missing image for {} you should provide one of the following images:\n{}".format(disk, require_images))
                 else:
                     new_config["name"] += " {}".format(device_config["images"][disk].version)
-                    new_config[disk] = device_config["images"][disk].path
+                    new_config[disk] = self._relative_image_path(device_config["images"][disk].path)
 
 
         if device_config["qemu"].get("install_cdrom_to_hda", False):
@@ -146,6 +146,16 @@ class Config:
         self._config["Qemu"]["vms"] = [item for item in self._config["Qemu"]["vms"] if item["name"] != new_config["name"]]
 
         self._config["Qemu"]["vms"].append(new_config)
+
+    def _relative_image_path(self, path):
+        """
+        :returns: Path relative to image directory if image is inside or full path
+        """
+        print(os.path.dirname(path))
+        print(self.images_dir)
+        if os.path.dirname(path) == self.images_dir:
+            return os.path.basename(path)
+        return path
 
     def _get_qemu_binary(self, device_config):
         """
