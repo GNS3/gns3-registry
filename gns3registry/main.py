@@ -97,7 +97,7 @@ if __name__ == "__main__":
             for image_type in res["images"]:
                 print(" * {}:".format(image_type))
                 for file in res["images"][image_type]:
-                    print("   * {} {}: {}".format(file["version"], file["filename"], file["sha1sum"]))
+                    print("   * {} {}: {}".format(file["version"], file["filename"], file["md5sum"]))
     elif args.install:
         image = registry.download_image(args.install, config.images_dir)
         if image:
