@@ -25,7 +25,7 @@ from gns3registry.registry import Registry
 
 def test_detect_image(linux_microcore_img):
 
-    with open("devices/qemu/microcore-linux.json") as f:
+    with open("devices/microcore-linux.json") as f:
         config = json.load(f)
 
     registry = Registry()
@@ -36,7 +36,7 @@ def test_detect_image(linux_microcore_img):
 
 def test_detect_two_image(linux_microcore_img):
 
-    with open("devices/qemu/microcore-linux.json") as f:
+    with open("devices/microcore-linux.json") as f:
         config = json.load(f)
 
     registry = Registry()

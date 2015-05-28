@@ -78,7 +78,7 @@ def empty_config(tmpdir):
 
 
 def test_add_images_guest(empty_config, linux_microcore_img):
-    with open("devices/qemu/microcore-linux.json") as f:
+    with open("devices/microcore-linux.json") as f:
         config = json.load(f)
     image = Image(linux_microcore_img)
     image.version = "3.4.1"
@@ -109,7 +109,7 @@ def test_add_images_guest(empty_config, linux_microcore_img):
 
 
 def test_add_images_cdrom(empty_config, linux_microcore_img):
-    with open("devices/qemu/hp-vsr1001.json") as f:
+    with open("devices/hp-vsr1001.json") as f:
         config = json.load(f)
 
     hda = os.path.join(empty_config.images_dir, "QEMU", "vsr1000-hp.img")
@@ -155,7 +155,7 @@ def test_add_images_cdrom(empty_config, linux_microcore_img):
 
 
 def test_add_images_router_two_disk(empty_config):
-    with open("devices/qemu/arista-veos.json") as f:
+    with open("devices/arista-veos.json") as f:
         config = json.load(f)
 
     image = MagicMock()
@@ -198,7 +198,7 @@ def test_add_images_router_two_disk(empty_config):
 
 
 def test_add_images_uniq(empty_config, linux_microcore_img):
-    with open("devices/qemu/microcore-linux.json") as f:
+    with open("devices/microcore-linux.json") as f:
         config = json.load(f)
 
     image = Image(linux_microcore_img)
@@ -213,7 +213,7 @@ def test_add_images_uniq(empty_config, linux_microcore_img):
 
 
 def test_add_images_two_disk_one_missing(empty_config):
-    with open("devices/qemu/arista-veos.json") as f:
+    with open("devices/arista-veos.json") as f:
         config = json.load(f)
 
     image = MagicMock()
@@ -228,7 +228,7 @@ def test_add_images_two_disk_one_missing(empty_config):
 
 def test_save(empty_config, linux_microcore_img):
 
-    with open("devices/qemu/microcore-linux.json") as f:
+    with open("devices/microcore-linux.json") as f:
         config = json.load(f)
 
     image = Image(linux_microcore_img)
