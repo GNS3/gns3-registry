@@ -55,9 +55,9 @@ class Image:
     @property
     def md5sum(self):
         """
-        Compute a sha1 hash for file
+        Compute a md5 hash for file
 
-        :returns: hexadecimal sha1
+        :returns: hexadecimal md5
         """
 
         if self._md5sum is None:
