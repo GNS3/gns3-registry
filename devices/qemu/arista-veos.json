@@ -25,7 +25,7 @@
             {
                 "filename": "Aboot-veos-2.1.0.iso",
                 "version": "2.1.0",
-                "sha1sum": "ea9dc1989764fc6db1d388b061340743016214a7",
+                "md5sum": "44177f7f9157354f213a1545c65e92ec",
                 "download_url": "https://www.arista.com/en/support/software-download"     
             }
         ],
@@ -33,7 +33,7 @@
             {
                 "filename": "vEOS-lab-4.13.8M.vmdk",
                 "version": "4.13.8M",
-                "sha1sum": "ff50656fe817c420e9f7fbb0c0ee41f1ca52fee2",
+                "md5sum": "a47145b9e6e7a24171c0850f8755535e",
                 "download_url": "https://www.arista.com/en/support/software-download"    
             }
         ]

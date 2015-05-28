@@ -146,7 +146,7 @@ def test_add_images_cdrom(empty_config, linux_microcore_img):
         "kernel_image": "",
         "legacy_networking": False,
         "name": "HP VSR1001 7.10.R0204P01",
-        "options": "-nographic",
+        "options": "",
         "process_priority": "normal",
         "qemu_path": "qemu-system-x86_64",
         "ram": 1024,
@@ -160,13 +160,13 @@ def test_add_images_router_two_disk(empty_config):
 
     image = MagicMock()
     image.version = "2.1.0"
-    image.sha1sum = "ea9dc1989764fc6db1d388b061340743016214a7"
+    image.md5sum = "ea9dc1989764fc6db1d388b061340743016214a7"
     image.path = "/a"
     config["images"]["hda_disk_image"] = image
 
     image = MagicMock()
     image.version = "4.13.8M"
-    image.sha1sum = "ff50656fe817c420e9f7fbb0c0ee41f1ca52fee2"
+    image.md5sum = "ff50656fe817c420e9f7fbb0c0ee41f1ca52fee2"
     image.path = "/b"
     config["images"]["hdb_disk_image"] = image
 
@@ -218,7 +218,7 @@ def test_add_images_two_disk_one_missing(empty_config):
 
     image = MagicMock()
     image.version = "2.1.0"
-    image.sha1sum = "ea9dc1989764fc6db1d388b061340743016214a7"
+    image.md5sum = "ea9dc1989764fc6db1d388b061340743016214a7"
     config["images"]["hda_disk_image"] = image
 
     with pytest.raises(ConfigException):

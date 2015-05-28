@@ -58,11 +58,11 @@ class Registry:
 
         return configurations
 
-    def download_image(self, sha1sum, images_dir):
+    def download_image(self, md5sum, images_dir):
         for config in self._all_configs():
             for image_type in config.get("images", {}):
                 for file in config["images"].get(image_type, []):
-                    if file["sha1sum"] == sha1sum:
+                    if file["md5sum"] == md5sum:
                         path = os.path.join(images_dir, "QEMU", file["filename"])
 
                         if "direct_download_url" in file:
@@ -107,7 +107,7 @@ class Registry:
                 continue
             for file in images:
                 if isinstance(file, dict):
-                    if file.get("sha1sum", None) == image.sha1sum:
+                    if file.get("md5sum", None) == image.md5sum:
                         image.version = file["version"]
                         config["images"][image_type] = image
                         matched = True

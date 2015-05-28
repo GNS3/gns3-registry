@@ -28,7 +28,7 @@ class Image:
         :params: path of the image
         """
         self._path = path
-        self._sha1sum = None
+        self._md5sum = None
         self._version = None
 
     @property
@@ -53,20 +53,20 @@ class Image:
         self._version = version
 
     @property
-    def sha1sum(self):
+    def md5sum(self):
         """
         Compute a sha1 hash for file
 
         :returns: hexadecimal sha1
         """
 
-        if self._sha1sum is None:
-            m = hashlib.sha1()
+        if self._md5sum is None:
+            m = hashlib.md5()
             with open(self._path, "rb") as f:
                 while True:
-                    buf = f.read(128)
+                    buf = f.read(4096)
                     if not buf:
                         break
                     m.update(buf)
-            self._sha1sum = m.hexdigest()
-        return self._sha1sum
+            self._md5sum = m.hexdigest()
+        return self._md5sum
