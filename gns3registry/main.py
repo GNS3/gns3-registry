@@ -56,7 +56,6 @@ config = Config()
 def add_images(images):
     print("WARNING WARNING WARNING")
     print("It's experimental")
-    print("Please close the GUI before using it")
     print("")
 
     confs = registry.detect_images(images)
