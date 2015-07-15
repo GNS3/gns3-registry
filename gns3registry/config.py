@@ -60,10 +60,7 @@ class Config:
         else:
             filename = "gns3_gui.conf"
 
-        if sys.platform.startswith("darwin"):
-            appname = "gns3.net"
-        else:
-            appname = "GNS3"
+        appname = "GNS3"
 
         if sys.platform.startswith("win"):
             appdata = os.path.expandvars("%APPDATA%")
