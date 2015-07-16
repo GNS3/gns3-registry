@@ -46,6 +46,7 @@ def render(template_file, out, **kwargs):
     log.info('Build %s', out)
     env = Environment(loader=FileSystemLoader('templates'))
     env.filters['jsonify'] = json.dumps
+    env.filters['escape_quote'] = lambda x: x.replace('"','\\"')
     template = env.get_template(template_file)
     template.stream(**kwargs).dump(os.path.join('build', out))
 

@@ -13,7 +13,7 @@
                 <h3>{{image["filename"]}}</h3>
                 Version: {{image["version"]}}<br />
                 Checksum: {{image["md5sum"]}}<br />
-                <button class="btn btn-primary btn-lg" type="button" onclick='gns3.install({{device|jsonify}}, "{{image["md5sum"]}}")'>Install</button>
+                <button class="btn btn-primary btn-lg" type="button" onclick='gns3.install("{{device|jsonify|escape_quote}}", "{{image["md5sum"]}}")'>Install</button>
             {% endfor %}
         </ul>
     {% endfor %}
