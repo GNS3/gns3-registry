@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
 #
 # Copyright (C) 2015 GNS3 Technologies Inc.
 #
@@ -15,24 +15,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
-import pytest
-import urllib.request
-import tempfile
 import os
+import http.server
+import socketserver
 
-@pytest.fixture
-def linux_microcore_img():
+PORT = 8001
 
-    path = os.path.join(tempfile.tempdir, "linux-microcore-3.4.1.img")
-    if not os.path.exists(path):
-        urllib.request.urlretrieve("http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-3.4.1.img?r=&ts=1432209459&use_mirror=heanet", path)
-    return path
+os.chdir('build')
+Handler = http.server.SimpleHTTPRequestHandler
+httpd = socketserver.TCPServer(('', PORT), Handler)
 
-
-@pytest.fixture
-def empty_file(tmpdir):
-
-    path = str(tmpdir / "a")
-    open(path, "w+").close()
-    return path
+print('Serving at port', PORT)
+httpd.serve_forever()

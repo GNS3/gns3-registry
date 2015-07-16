@@ -1,0 +1,8 @@
+{% extends "layout/default.html" %}
+{% block body %}
+    <ul>
+        {% for device in devices %}
+        <li><a href="/devices/{{device["id"]}}.html">{{device["name"]}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
