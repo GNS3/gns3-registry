@@ -40,6 +40,7 @@ if os.path.exists('build'):
 else:
     os.mkdir('build')
 os.mkdir(os.path.join('build', 'devices'))
+os.mkdir(os.path.join('build', 'images'))
 
 
 def render(template_file, out, **kwargs):
@@ -63,5 +64,9 @@ for file in os.listdir('devices'):
     render('device.html', os.path.join('devices', filename + '.html'), device=device)
     devices.append(device)
 
+
+    for image_type in device['images']:
+        for image in device['images'][image_type]:
+            render('device.html', os.path.join('images', image['md5sum'] + '.html'), device=device)
 
 render('devices.html', os.path.join('devices', 'index.html'), devices=devices)

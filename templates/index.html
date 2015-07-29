@@ -1,7 +1,16 @@
 {% extends "layout/default.html" %}
+{% block script %}
+
+function importDevice() {
+    md5 = gns3.importDevice();
+    window.location = "/images/" + md5 + ".html"
+}
+
+{% endblock %}
 {% block body %}
 <div class="jumbotron">
   <h1>Hello Networker!</h1>
   <p><a class="btn btn-primary btn-lg" href="/devices" role="button">Show devices</a></p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button" onclick="importDevice()">Import device</a></p>
 </div>
 {% endblock %}
