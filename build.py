@@ -67,6 +67,9 @@ for file in os.listdir('devices'):
 
     for image_type in device['images']:
         for image in device['images'][image_type]:
-            render('device.html', os.path.join('images', image['md5sum'] + '.html'), device=device)
+            # We keep only this image in the page
+            image_device = device
+            image_device['images'][image_type] = [ image ]
+            render('device.html', os.path.join('images', image['md5sum'] + '.html'), device=image_device)
 
 render('devices.html', os.path.join('devices', 'index.html'), devices=devices)
