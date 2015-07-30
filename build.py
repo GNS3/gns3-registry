@@ -53,6 +53,7 @@ def render(template_file, out, **kwargs):
 
 
 render('index.html', 'index.html')
+render('chat.html', 'chat.html')
 
 
 devices = []
