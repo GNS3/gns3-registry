@@ -54,6 +54,7 @@ def render(template_file, out, **kwargs):
 
 render('index.html', 'index.html')
 render('chat.html', 'chat.html')
+render('downloads.html', 'downloads.html')
 
 
 devices = []
