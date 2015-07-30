@@ -2,19 +2,31 @@
 {% block body %}
     <div class="jumbotron">
         <h1>{{ device["name"] }}</h1>
-        Vendor: <a href="{{ device["vendor_url"] }}">{{ device["vendor_name"] }}</a>
-        <br />
-        Documentation: <a href="{{ device["documentation_url"] }}">{{ device["documentation_url"] }}</a>
+        Category {{ device["category"] }}<br />
+        Product: <a href="{{ device["product_url"] }}">{{ device["product_name"] }}</a><br />
+        Vendor: <a href="{{ device["vendor_url"] }}">{{ device["vendor_name"] }}</a><br />
+        Documentation: <a href="{{ device["documentation_url"] }}">{{ device["documentation_url"] }}</a><br />
+        Status: {{ device["status"] }}<br />
+        Maintainer: <a href="mailto:{{ device["maintainer_email"] }}">{{ device["maintainer"] }}</a>
     </div>
+    {% if "qemu" in device %}
+        <h2>Qemu settings</h2>
+        {% for key in device["qemu"] %}
+            {{ key }}: {{ device["qemu"][key] }}<br />
+        {% endfor %}
+    {% endif %}
     {% for image_type in device["images"] %}
         <h2>Images for {{image_type}}</h2> 
-        <ul>
-            {% for image in device["images"][image_type] %}
-                <h3>{{image["filename"]}}</h3>
-                Version: {{image["version"]}}<br />
-                Checksum: {{image["md5sum"]}}<br />
-                <button class="btn btn-primary btn-lg" type="button" onclick='gns3.install("{{device|jsonify|escape_quote}}", "{{image["md5sum"]}}")'>Install</button>
-            {% endfor %}
-        </ul>
+        {% for image in device["images"][image_type] %}
+            <h3>{{image["filename"]}}</h3>
+            Version: {{image["version"]}}<br />
+            Checksum: {{image["md5sum"]}}<br />
+            Download url: <a href="{{image["download_url"]}}">{{image["download_url"]}}</a><br />
+            {% if "direct_download_url" in image %}
+            Direct download url: <a href="{{image["direct_download_url"]}}">{{image["direct_download_url"]}}</a><br />
+                <button class="btn btn-primary btn-lg" type="button" onclick='gns3.download("{{device|jsonify|escape_quote}}", "{{image["md5sum"]}}")'>Download</button>
+            {% endif %}
+            <button class="btn btn-primary btn-lg" type="button" onclick='gns3.install("{{device|jsonify|escape_quote}}", "{{image["md5sum"]}}")'>Install</button>
+        {% endfor %}
     {% endfor %}
 {% endblock %}
