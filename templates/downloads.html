@@ -7,9 +7,16 @@ $(function() {
     for (var i in downloads) {
         download_info = downloads[i];
         var div = $("<div>");
+        div.attr("id", "download" + download_info.id);
         div.text(download_info.url + " " + download_info.received + "/" + download_info.total);
         downloads_div.append(div);
     }
+
+    gns3.downloadProgress.connect(function(download_info) {
+        console.log("blu");
+        var div = $("#download" + download_info.id);   
+        div.text(download_info.url + " " + download_info.received + "/" + download_info.total);
+    });
 });
 
 {% endblock %}
