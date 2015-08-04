@@ -20,22 +20,28 @@
         "processor": "x64"
     },
 
-    "images": {
-        "hda_disk_image": [
-            {
-                "filename": "Aboot-veos-2.1.0.iso",
-                "version": "2.1.0",
-                "md5sum": "44177f7f9157354f213a1545c65e92ec",
-                "download_url": "https://www.arista.com/en/support/software-download"     
+    "images": [
+        {
+            "filename": "Aboot-veos-2.1.0.iso",
+            "version": "2.1.0",
+            "md5sum": "44177f7f9157354f213a1545c65e92ec",
+            "download_url": "https://www.arista.com/en/support/software-download"
+        },
+        {
+            "filename": "vEOS-lab-4.13.8M.vmdk",
+            "version": "4.13.8M",
+            "md5sum": "a47145b9e6e7a24171c0850f8755535e",
+            "download_url": "https://www.arista.com/en/support/software-download" 
+        }
+    ],
+
+    "versions": [
+        {
+            "name": "4.13.8M",
+            "images": {
+                "hda_disk_image": "Aboot-veos-2.1.0.iso",
+                "hdb_disk_image": "vEOS-lab-4.13.8M.vmdk"
             }
-        ],
-        "hdb_disk_image": [
-            {
-                "filename": "vEOS-lab-4.13.8M.vmdk",
-                "version": "4.13.8M",
-                "md5sum": "a47145b9e6e7a24171c0850f8755535e",
-                "download_url": "https://www.arista.com/en/support/software-download"    
-            }
-        ]
-    }
+        }
+    ]
 }

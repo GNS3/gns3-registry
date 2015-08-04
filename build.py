@@ -19,6 +19,7 @@ import os
 import sys
 import json
 import shutil
+import copy
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -52,26 +53,60 @@ def render(template_file, out, **kwargs):
     template.stream(**kwargs).dump(os.path.join('build', out))
 
 
+def keep_only_version_with_device(md5sum, device):
+    """
+    Filter device version in order to keep only the
+    version where the image is present.
+
+    :param md5sum: Md5sum of the image
+    :param device: Device hash
+    :returns: List of version
+    """
+
+    new_versions = []
+    for version in device["versions"]:
+        found = False
+        for image in version["images"].values():
+            if image["md5sum"] == md5sum:
+                found = True
+                break
+        if found:
+            new_versions.append(version)
+    return new_versions
+
+
 render('index.html', 'index.html')
 render('chat.html', 'chat.html')
 render('downloads.html', 'downloads.html')
 
 
 devices = []
-for file in os.listdir('devices'):
-    filename = file[:-5]
-    with open(os.path.join('devices', file)) as f:
+for device_file in os.listdir('devices'):
+    print("Process " + device_file)
+    out_filename = device_file[:-5]
+    with open(os.path.join('devices', device_file)) as f:
         device = json.load(f)
-    device['id'] = filename
-    render('device.html', os.path.join('devices', filename + '.html'), device=device)
+    device['id'] = out_filename
+
+    # Resolve version image to the corresponding file
+    for version in device['versions']:
+        for image_type, filename in version['images'].items():
+            for file in device['images']:
+                if file['filename'] == filename:
+                    version['images'][image_type] = copy.copy(file)
+                    version['images'][image_type]["type"] = image_type
+
+    render('device.html', os.path.join('devices', out_filename + '.html'), device=device)
+    print(device)
     devices.append(device)
 
-
-    for image_type in device['images']:
-        for image in device['images'][image_type]:
-            # We keep only this image in the page
-            image_device = device
-            image_device['images'][image_type] = [ image ]
-            render('device.html', os.path.join('images', image['md5sum'] + '.html'), device=image_device)
+    # Build a page named with the md5sum of each file of the device
+    # it's allow to get the device informations via HTTP with just an md5sum
+    # it's what powered the import feature
+    for image in device['images']:
+        # We keep only version with this image in the page
+        image_device = copy.copy(device)
+        image_device['versions'] = keep_only_version_with_device(image['md5sum'], device)
+        render('device.html', os.path.join('images', image['md5sum'] + '.html'), device=image_device)
 
 render('devices.html', os.path.join('devices', 'index.html'), devices=devices)
