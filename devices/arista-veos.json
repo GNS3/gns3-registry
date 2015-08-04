@@ -22,9 +22,9 @@
 
     "images": [
         {
-            "filename": "Aboot-veos-2.1.0.iso",
+            "filename": "Aboot-veos-serial-2.1.0.iso",
             "version": "2.1.0",
-            "md5sum": "44177f7f9157354f213a1545c65e92ec",
+            "md5sum": "2687534f2ff11b998dec0511066457c0",
             "download_url": "https://www.arista.com/en/support/software-download"
         },
         {
@@ -39,7 +39,7 @@
         {
             "name": "4.13.8M",
             "images": {
-                "hda_disk_image": "Aboot-veos-2.1.0.iso",
+                "hda_disk_image": "Aboot-veos-serial-2.1.0.iso",
                 "hdb_disk_image": "vEOS-lab-4.13.8M.vmdk"
             }
         }
