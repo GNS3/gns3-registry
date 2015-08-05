@@ -2,7 +2,7 @@
 {% block script %}
 
 function importDevice() {
-    gns3.importDevice();
+    gns3.button(function() { return gns3.importDevice(); });
     return false;
 }
 
