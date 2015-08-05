@@ -17,7 +17,7 @@
     {% endif %}
     {% for version in device["versions"] | reverse %}
         <h2>{{ device["name"] }} {{version["name"]}}</h2>
-        <button class="btn btn-primary btn-lg" type="button" onclick='gns3.install("{{device|jsonify|escape_quote}}", "{{version["name"]}}")'>Install</button>
+        <button class="btn btn-primary btn-lg" type="button" onclick='gns3.install("{{device|jsonify|b64encode}}", "{{version["name"]}}")'>Install</button>
         <h3>Require files</h3>
         {% for image in version.images.values() %}
             <h4>{{image["filename"]}}</h4>
@@ -27,7 +27,7 @@
             Download url: <a href="{{image["download_url"]}}">{{image["download_url"]}}</a><br />
             {% if "direct_download_url" in image %}
             Direct download url: <a href="{{image["direct_download_url"]}}">{{image["direct_download_url"]}}</a><br />
-                <button class="btn btn-primary btn-lg" type="button" onclick='gns3.download("{{device|jsonify|escape_quote}}", "{{image["md5sum"]}}")'>Download</button>
+                <button class="btn btn-primary btn-lg" type="button" onclick='gns3.download("{{device|jsonify|b64encode}}", "{{image["md5sum"]}}")'>Download</button>
             {% endif %}
             <hr />
         {% endfor %}

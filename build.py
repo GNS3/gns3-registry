@@ -20,6 +20,7 @@ import sys
 import json
 import shutil
 import copy
+import base64
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -48,7 +49,7 @@ def render(template_file, out, **kwargs):
     log.info('Build %s', out)
     env = Environment(loader=FileSystemLoader('templates'))
     env.filters['jsonify'] = json.dumps
-    env.filters['escape_quote'] = lambda x: x.replace('"','\\"')
+    env.filters['b64encode'] = lambda s: base64.b64encode(s.encode()).decode("utf-8")
     template = env.get_template(template_file)
     template.stream(**kwargs).dump(os.path.join('build', out))
 
