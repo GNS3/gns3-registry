@@ -1,21 +1,49 @@
 {% extends "layout/default.html" %}
 {% block script %}
 
+function humanFileSize(bytes) {
+    var exp = Math.log(bytes) / Math.log(1024) | 0;
+    var result = (bytes / Math.pow(1024, exp)).toFixed(2);
+
+    return result + ' ' + (exp == 0 ? 'bytes': 'KMGTPEZY'[exp - 1] + 'B');
+}
+
+function update_progress_download_div(div, download_info) {
+    var percent = Math.round(100 / download_info.total * download_info.received)
+    div.text(percent + "% "+ humanFileSize(download_info.received) + " / " + humanFileSize(download_info.total));
+    div.attr("aria-valuenow", percent);
+    div.attr("style", "width: " + percent + "%");
+    if (percent == 100) {
+        div.removeClass("active");
+        div.removeClass("progress-bar-striped");
+    }
+}
+
 $(function() {
     var downloads_div = $("#downloads");
-    var downloads = gns3.downloads()
+    var downloads = gns3.downloads().reverse();
     for (var i in downloads) {
         download_info = downloads[i];
+        var parent_div = $("<div>");
+        parent_div.text(download_info.url);
+
+        var progress_div =  $("<div>");
+        progress_div.addClass("progress");
         var div = $("<div>");
+        div.addClass("progress-bar progress-bar-striped active");
         div.attr("id", "download" + download_info.id);
-        div.text(download_info.url + " " + download_info.received + "/" + download_info.total);
-        downloads_div.append(div);
+        div.attr("role", "progressbar");
+        div.attr("aria-valuemin", 0);
+        div.attr("aria-valuemax", 100);
+        update_progress_download_div(div, download_info);
+        progress_div.append(div);
+        parent_div.append(progress_div);
+        downloads_div.append(parent_div);
     }
 
     gns3.downloadProgress.connect(function(download_info) {
-        console.log("blu");
-        var div = $("#download" + download_info.id);   
-        div.text(download_info.url + " " + download_info.received + "/" + download_info.total);
+        var div = $("#download" + download_info.id);
+        update_progress_download_div(div, download_info);
     });
 });
 
