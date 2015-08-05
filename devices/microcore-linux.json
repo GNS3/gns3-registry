@@ -16,7 +16,8 @@
         "adapters": 1,
         "ram": 32,
         "processor": "i386",
-        "graphic": false
+        "graphic": false,
+        "console_type": "telnet"        
     },
 
     "images": [ 

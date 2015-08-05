@@ -1,0 +1,40 @@
+{
+    "name": "Cumulus VX",
+    "category": "router", 
+    "vendor_name": "Cumulus Network", 
+    "vendor_url": "https://www.cumulusnetworks.com", 
+    "documentation_url": "http://docs.cumulusnetworks.com/", 
+    "product_name": "Cumulus VX",
+    "product_url": "https://cumulusnetworks.com/cumulus-vx/",
+    "repository_version": 1, 
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+ 
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 8,
+        "graphic": false,        
+        "console_type": "vnc",
+        "ram": 2048,
+        "processor": "x64"
+    },
+
+    "images": [
+        {
+            "filename": "CumulusVX-2.5.3-4eb681f3df86c478.qcow2",
+            "version": "2.5.3",
+            "md5sum": "5128aec2568991ea0586293cb85f7a97",
+            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/thanks/kvm/"
+        }
+    ],
+
+    "versions": [
+        {
+            "name": "2.5.3",
+            "images": {
+                "hda_disk_image": "CumulusVX-2.5.3-4eb681f3df86c478.qcow2"
+            }
+        }
+    ]
+}
