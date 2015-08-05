@@ -82,7 +82,7 @@ render('downloads.html', 'downloads.html')
 
 devices = []
 for device_file in os.listdir('devices'):
-    print("Process " + device_file)
+    log.info("Process " + device_file)
     out_filename = device_file[:-5]
     with open(os.path.join('devices', device_file)) as f:
         device = json.load(f)
@@ -97,7 +97,6 @@ for device_file in os.listdir('devices'):
                     version['images'][image_type]["type"] = image_type
 
     render('device.html', os.path.join('devices', out_filename + '.html'), device=device)
-    print(device)
     devices.append(device)
 
     # Build a page named with the md5sum of each file of the device

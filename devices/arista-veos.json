@@ -39,7 +39,7 @@
         {
             "name": "4.13.8M",
             "images": {
-                "hda_disk_image": "Aboot-veos-2.1.0.iso",
+                "hda_disk_image": "Aboot-veos-serial-2.1.0.iso",
                 "hdb_disk_image": "vEOS-lab-4.13.8M.vmdk"
             }
         }
