@@ -10,13 +10,17 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
- 
+    "symbol": ":/symbols/multilayer_switch.svg",
+    "first_port_name": "eth0",
+    "port_name_format": "swp{0}",
+    "port_segment_size": 0,
+
     "qemu": {
-        "adapter_type": "e1000",
-        "adapters": 8,
-        "graphic": false,        
+        "adapter_type": "virtio-net-pci",
+        "adapters": 4,
+        "graphic": false,
         "console_type": "vnc",
-        "ram": 2048,
+        "ram": 256,
         "processor": "x64"
     },
 
