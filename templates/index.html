@@ -2,10 +2,7 @@
 {% block script %}
 
 function importDevice() {
-    md5 = gns3.importDevice();
-    if (md5 != null) {
-        window.location = "/images/" + md5 + ".html"
-    }
+    gns3.importDevice();
     return false;
 }
 
