@@ -91,10 +91,17 @@ for device_file in os.listdir('devices'):
     # Resolve version image to the corresponding file
     for version in device['versions']:
         for image_type, filename in version['images'].items():
+            found = False
             for file in device['images']:
                 if file['filename'] == filename:
                     version['images'][image_type] = copy.copy(file)
                     version['images'][image_type]["type"] = image_type
+                    found = True
+                    break
+            if not found:
+                log.critical('Image for {} {} with filename {} is missing'.format(device["name"], version["name"], file['filename']))
+                sys.exit(1)
+
 
     render('device.html', os.path.join('devices', out_filename + '.html'), device=device)
     devices.append(device)
