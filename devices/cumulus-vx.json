@@ -12,11 +12,11 @@
     "maintainer_email": "developers@gns3.net",
  
     "qemu": {
-        "adapter_type": "e1000",
-        "adapters": 8,
+        "adapter_type": "virtio",
+        "adapters": 4,
         "graphic": false,        
         "console_type": "vnc",
-        "ram": 2048,
+        "ram": 256,
         "processor": "x64"
     },
 
