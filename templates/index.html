@@ -3,7 +3,10 @@
 
 function importDevice() {
     md5 = gns3.importDevice();
-    window.location = "/images/" + md5 + ".html"
+    if (md5 != null) {
+        window.location = "/images/" + md5 + ".html"
+    }
+    return false;
 }
 
 {% endblock %}
@@ -14,6 +17,6 @@ function importDevice() {
   </div
   <p>
     <a class="btn btn-primary btn-lg" href="/devices" role="button">Show devices</a>
-    <a class="btn btn-primary btn-lg" href="#" role="button" onclick="importDevice()">Import device</a>
+    <a class="btn btn-primary btn-lg" href="#" role="button" onclick="return importDevice()">Import device</a>
   </p>
 {% endblock %}
