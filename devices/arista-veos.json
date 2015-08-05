@@ -14,7 +14,6 @@
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 8,
-        "graphic": false,        
         "ram": 2048,
         "processor": "x64",
         "console_type": "telnet"
