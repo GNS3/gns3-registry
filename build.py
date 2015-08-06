@@ -41,7 +41,7 @@ if os.path.exists('build'):
             os.remove(os.path.join('build', file))
 else:
     os.mkdir('build')
-os.mkdir(os.path.join('build', 'devices'))
+os.mkdir(os.path.join('build', 'appliances'))
 os.mkdir(os.path.join('build', 'images'))
 
 
@@ -54,18 +54,18 @@ def render(template_file, out, **kwargs):
     template.stream(**kwargs).dump(os.path.join('build', out))
 
 
-def keep_only_version_with_device(md5sum, device):
+def keep_only_version_with_appliance(md5sum, appliance):
     """
-    Filter device version in order to keep only the
+    Filter appliance version in order to keep only the
     version where the image is present.
 
     :param md5sum: Md5sum of the image
-    :param device: Device hash
+    :param appliance: Device hash
     :returns: List of version
     """
 
     new_versions = []
-    for version in device["versions"]:
+    for version in appliance["versions"]:
         found = False
         for image in version["images"].values():
             if image["md5sum"] == md5sum:
@@ -81,39 +81,39 @@ render('chat.html', 'chat.html')
 render('downloads.html', 'downloads.html')
 
 
-devices = []
-for device_file in os.listdir('devices'):
-    log.info("Process " + device_file)
-    out_filename = device_file[:-5]
-    with open(os.path.join('devices', device_file)) as f:
-        device = json.load(f)
-    device['id'] = out_filename
+appliances = []
+for appliance_file in os.listdir('appliances'):
+    log.info("Process " + appliance_file)
+    out_filename = appliance_file[:-5]
+    with open(os.path.join('appliances', appliance_file)) as f:
+        appliance = json.load(f)
+    appliance['id'] = out_filename
 
     # Resolve version image to the corresponding file
-    for version in device['versions']:
+    for version in appliance['versions']:
         for image_type, filename in version['images'].items():
             found = False
-            for file in device['images']:
+            for file in appliance['images']:
                 if file['filename'] == filename:
                     version['images'][image_type] = copy.copy(file)
                     version['images'][image_type]["type"] = image_type
                     found = True
                     break
             if not found:
-                log.critical('Image for {} {} with filename {} is missing'.format(device["name"], version["name"], file['filename']))
+                log.critical('Image for {} {} with filename {} is missing'.format(appliance["name"], version["name"], file['filename']))
                 sys.exit(1)
 
 
-    render('device.html', os.path.join('devices', out_filename + '.html'), device=device)
-    devices.append(device)
+    render('appliance.html', os.path.join('appliances', out_filename + '.html'), appliance=appliance)
+    appliances.append(appliance)
 
-    # Build a page named with the md5sum of each file of the device
-    # it's allow to get the device informations via HTTP with just an md5sum
+    # Build a page named with the md5sum of each file of the appliance
+    # it's allow to get the appliance informations via HTTP with just an md5sum
     # it's what powered the import feature
-    for image in device['images']:
+    for image in appliance['images']:
         # We keep only version with this image in the page
-        image_device = copy.copy(device)
-        image_device['versions'] = keep_only_version_with_device(image['md5sum'], device)
-        render('device.html', os.path.join('images', image['md5sum'] + '.html'), device=image_device)
+        image_appliance = copy.copy(appliance)
+        image_appliance['versions'] = keep_only_version_with_appliance(image['md5sum'], appliance)
+        render('appliance.html', os.path.join('images', image['md5sum'] + '.html'), appliance=image_appliance)
 
-render('devices.html', os.path.join('devices', 'index.html'), devices=devices)
+render('appliances.html', os.path.join('appliances', 'index.html'), appliances=appliances)

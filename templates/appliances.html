@@ -1,0 +1,8 @@
+{% extends "layout/default.html" %}
+{% block body %}
+    <ul>
+        {% for appliance in appliances %}
+        <li><a href="/appliances/{{appliance["id"]}}.html">{{appliance["name"]}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
