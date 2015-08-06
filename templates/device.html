@@ -24,6 +24,15 @@ function download(device, md5sum) {
         Status: {{ device["status"] }}<br />
         Maintainer: <a href="mailto:{{ device["maintainer_email"] }}">{{ device["maintainer"] }}</a>
     </div>
+
+    {% if device["status"] == "broken" %}
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            This appliance is actually not working
+        </div>
+    {% endif %}
+
     {% if "qemu" in device %}
         <h2>Qemu settings</h2>
         {% for key in device["qemu"] %}
