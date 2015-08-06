@@ -48,6 +48,7 @@ os.mkdir(os.path.join('build', 'images'))
 def render(template_file, out, **kwargs):
     log.info('Build %s', out)
     env = Environment(loader=FileSystemLoader('templates'))
+    env.filters['nl2br'] = lambda s: s.replace('\n', '<br />')
     env.filters['jsonify'] = json.dumps
     env.filters['b64encode'] = lambda s: base64.b64encode(s.encode()).decode("utf-8")
     template = env.get_template(template_file)

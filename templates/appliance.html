@@ -16,6 +16,13 @@ function download(appliance, md5sum) {
 
 {% block body %}
     <div class="jumbotron">
+        {% if appliance["status"] == "broken" %}
+            <div class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                This appliance is actually not working
+            </div>
+        {% endif %}
         <h1>{{ appliance["name"] }}</h1>
         Category {{ appliance["category"] }}<br />
         Product: <a href="{{ appliance["product_url"] }}">{{ appliance["product_name"] }}</a><br />
@@ -23,15 +30,11 @@ function download(appliance, md5sum) {
         Documentation: <a href="{{ appliance["documentation_url"] }}">{{ appliance["documentation_url"] }}</a><br />
         Status: {{ appliance["status"] }}<br />
         Maintainer: <a href="mailto:{{ appliance["maintainer_email"] }}">{{ appliance["maintainer"] }}</a>
+
+        <p>{{ appliance["description"] | nl2br }}</p>
     </div>
 
-    {% if appliance["status"] == "broken" %}
-        <div class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span>
-            This appliance is actually not working
-        </div>
-    {% endif %}
+
 
     {% if "qemu" in appliance %}
         <h2>Qemu settings</h2>
