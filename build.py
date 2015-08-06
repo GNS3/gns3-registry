@@ -61,7 +61,7 @@ def keep_only_version_with_appliance(md5sum, appliance):
     version where the image is present.
 
     :param md5sum: Md5sum of the image
-    :param appliance: Device hash
+    :param appliance: Appliance hash
     :returns: List of version
     """
 

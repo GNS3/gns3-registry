@@ -1,8 +1,8 @@
 {% extends "layout/default.html" %}
 {% block script %}
 
-function importDevice() {
-    gns3_button(function() { return gns3.importDevice(); });
+function importAppliance() {
+    gns3_button(function() { return gns3.importAppliance(); });
     return false;
 }
 
@@ -14,6 +14,6 @@ function importDevice() {
   </div
   <p>
     <a class="btn btn-primary btn-lg" href="/appliances" role="button">Show appliances</a>
-    <a class="btn btn-primary btn-lg" href="#" role="button" onclick="return importDevice()">Import appliance</a>
+    <a class="btn btn-primary btn-lg" href="#" role="button" onclick="return importAppliance()">Import appliance</a>
   </p>
 {% endblock %}
