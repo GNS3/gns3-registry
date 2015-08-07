@@ -16,7 +16,7 @@
         "adapter_type": "e1000",
         "adapters": 8,
         "ram": 2048,
-        "processor": "x64",
+        "processor": "x86_64",
         "console_type": "telnet"
     },
 
