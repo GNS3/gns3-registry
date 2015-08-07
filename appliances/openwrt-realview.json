@@ -8,10 +8,10 @@
     "product_name": "OpenWrt",
     "product_url": "http://openwrt.org", 
     "repository_version": 1, 
-    "status": "broken",
+    "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
- 
+
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 2,
@@ -35,7 +35,7 @@
         {
             "name": "Barrier Breaker 14.07",
             "images": {
-                "kernel": "openwrt-realview-vmlinux-initramfs-14.07.elf"
+                "kernel_image": "openwrt-realview-vmlinux-initramfs-14.07.elf"
             }
         }
     ]
