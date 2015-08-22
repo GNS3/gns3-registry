@@ -22,7 +22,7 @@
         "graphic": false,
         "console_type": "vnc",
         "ram": 256,
-        "processor": "x86_64"
+        "arch": "x86_64"
     },
 
     "images": [

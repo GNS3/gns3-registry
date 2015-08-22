@@ -16,7 +16,7 @@
         "adapter_type": "e1000",
         "adapters": 2,
         "ram": 128,
-        "processor": "arm",
+        "arch": "arm",
         "console_type": "telnet",
         "options": "-M realview-eb-mpcore"
     },
