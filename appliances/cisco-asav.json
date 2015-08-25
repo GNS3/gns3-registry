@@ -1,0 +1,52 @@
+{
+    "name": "Cisco ASAv",
+    "category": "firewall",
+    "description": "N/A",
+    "vendor_name": "Cisco",
+    "vendor_url": "http://www.cisco.com/",
+    "documentation_url": "http://www.cisco.com/c/en/us/support/security/virtual-adaptive-security-appliance-firewall/products-installation-guides-list.html",
+    "product_name": "ASAv",
+    "product_url": "http://www.cisco.com/c/en/us/products/security/virtual-adaptive-security-appliance-firewall/index.html",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+ 
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 8,
+        "ram": 2048,
+        "arch": "x86_64",
+        "console_type": "telnet"
+    },
+
+    "images": [
+        {
+            "filename": "asav941-202.qcow2",
+            "version": "9.4.1-202",
+            "md5sum": "6992d2a35d5682a99b124b5eaf5c603a",
+            "download_url": "N/A"
+        },
+        {
+            "filename": "asav932-200.qcow2",
+            "version": "9.3.2-200",
+            "md5sum": "bcf3a9a4735a195fb70599637936ab38",
+            "download_url": "N/A"
+        }
+    ],
+
+    "versions": [
+        {
+            "name": "9.4.1-202",
+            "images": {
+                "hda_disk_image": "asav941-202.qcow2"
+            }
+        },
+        {
+            "name": "9.3.2-200",
+            "images": {
+                "hda_disk_image": "asav932-200.qcow2"
+            }
+        }
+    ]
+}
