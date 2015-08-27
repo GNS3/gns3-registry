@@ -32,9 +32,14 @@ function download(appliance, md5sum) {
         Maintainer: <a href="mailto:{{ appliance["maintainer_email"] }}">{{ appliance["maintainer"] }}</a>
 
         <p>{{ appliance["description"] | nl2br }}</p>
+
+
     </div>
 
-
+    {% if appliance["usage"] %}
+        <h2>Usage</h2>
+        <p>{{ appliance["usage"] | nl2br }}</p>
+    {% endif %}
 
     {% if "qemu" in appliance %}
         <h2>Qemu settings</h2>

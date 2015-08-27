@@ -1,0 +1,43 @@
+{
+    "name": "Ostinato Drone",
+    "category": "guest",
+    "description": "Ostinato is an open-source, cross-platform network packet crafter/traffic generator and analyzer with a friendly GUI. Craft and send packets of several streams with different protocols at different rates.",
+    "vendor_name": "Ostinato", 
+    "vendor_url": "http://ostinato.org/", 
+    "documentation_url": "http://ostinato.org/docs.html", 
+    "product_name": "Drone",
+    "product_url": "http://ostinato.org/", 
+    "repository_version": 1, 
+    "status": "stable",
+    "maintainer": "Bernhard Ehler",
+    "maintainer_email": "be@bernhard-ehlers.de",
+    "usage": "The traffic generator listen on port 50001.\n Use the Ostinato GUI to control it. If you want to use two traffic geneator at the same time you need to modify the port in the VM Qemu options.\nThe drone VM and the Ostinato GUI must use the same version.",
+ 
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 1,
+        "ram": 128,
+        "arch": "i386",
+        "console_type": "telnet",
+        "options": "-net nic,vlan=999,model=e1000 -net user,vlan=999,hostfwd=tcp::50001-:7878"
+    },
+
+    "images": [ 
+        {
+            "filename": "ost-drone-0.7-v1.qcow2",
+            "version": "0.7",
+            "md5sum": "6c20f767f89782e66929e6cbb7143ab1",
+            "download_url": "http://www.bernhard-ehlers.de/projects/ostinato4gns3/install-qemu.html",     
+            "direct_download_url": "http://www.bernhard-ehlers.de/projects/ostinato4gns3/ost-drone-0.7-v1.qcow2"            
+        }
+    ],
+
+    "versions": [
+        {
+            "name": "0.7",
+            "images": {
+                "hda_disk_image": "ost-drone-0.7-v1.qcow2"
+            }
+        }
+    ]
+}
