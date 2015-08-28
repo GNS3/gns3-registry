@@ -80,6 +80,7 @@ def keep_only_version_with_appliance(md5sum, appliance):
 render('index.html', 'index.html')
 render('chat.html', 'chat.html')
 render('downloads.html', 'downloads.html')
+render('myimages.html', 'myimages.html')
 
 
 appliances = []
