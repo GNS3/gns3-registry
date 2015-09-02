@@ -23,6 +23,13 @@ function download(appliance, md5sum) {
                 This appliance is actually not working
             </div>
         {% endif %}
+        {% if appliance["status"] == "experimental" %}
+            <div class="alert alert-warning" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>
+                This appliance is actually experimental
+            </div>
+        {% endif %}
         <h1>{{ appliance["name"] }}</h1>
         Category {{ appliance["category"] }}<br />
         Product: <a href="{{ appliance["product_url"] }}">{{ appliance["product_name"] }}</a><br />
@@ -55,6 +62,7 @@ function download(appliance, md5sum) {
             <h4>{{image["filename"]}}</h4>
             Slot: {{image["type"]}}<br />
             File Version: {{image["version"]}}<br />
+            Size: {{ image["filesize"] | human_filesize}}<br />
             Checksum: {{image["md5sum"]}}<br />
             Download url: <a href="{{image["download_url"]}}">{{image["download_url"]}}</a><br />
             {% if "direct_download_url" in image %}

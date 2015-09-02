@@ -138,6 +138,10 @@
             "format": "md5",
             "title": "md5sum of the file"
           },
+          "filesize": {
+              "type": "integer",
+              "title": "File size in bytes"
+          },
           "download_url": {
             "type": "string",
             "format": "uri",
@@ -153,6 +157,7 @@
             "filename",
             "version",
             "md5sum",
+            "filesize",
             "download_url"
         ]
       }

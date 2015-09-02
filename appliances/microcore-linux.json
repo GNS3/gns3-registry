@@ -25,6 +25,7 @@
             "filename": "linux-microcore-3.4.1.img",
             "version": "3.4.1",
             "md5sum": "fa2ec4b1fffad67d8103c3391bbf9df2",
+            "filesize": 24969216,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",     
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-3.4.1.img"            
         },
@@ -32,6 +33,7 @@
             "filename": "linux-microcore-4.0.2-clean.img",
             "version": "4.0.2",
             "md5sum": "e13d0d1c0b3999ae2386bba70417930c",
+            "filesize": 26411008, 
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",             
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-4.0.2-clean.img"
         }

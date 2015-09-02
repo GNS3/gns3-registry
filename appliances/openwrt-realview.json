@@ -26,6 +26,7 @@
             "filename": "openwrt-realview-vmlinux-initramfs-14.07.elf",
             "version": "14.07",
             "md5sum": "2411307d0794baa618537c5dfcb19575",
+            "filesize": 2183520,
             "download_url": "http://downloads.openwrt.org/barrier_breaker/14.07/realview/generic/",     
             "direct_download_url": "http://downloads.openwrt.org/barrier_breaker/14.07/realview/generic/openwrt-realview-vmlinux-initramfs.elf"            
         }

@@ -28,6 +28,7 @@
         {
             "filename": "CumulusVX-2.5.3-4eb681f3df86c478.qcow2",
             "version": "2.5.3",
+            "filesize": 1040973824,
             "md5sum": "5128aec2568991ea0586293cb85f7a97",
             "download_url": "https://cumulusnetworks.com/cumulus-vx/download/thanks/kvm/"
         }

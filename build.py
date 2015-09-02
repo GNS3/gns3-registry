@@ -48,12 +48,21 @@ os.mkdir(os.path.join('build', 'appliances'))
 os.mkdir(os.path.join('build', 'images'))
 
 
+def human_filesize(num):
+    for unit in ['B','KB','MB','GB']:
+        if abs(num) < 1024.0:
+            return "%3.1f%s" % (num, unit)
+        num /= 1024.0
+    return "%.1f%s" % (num, 'TB')
+
+
 def render(template_file, out, **kwargs):
     log.info('Build %s', out)
     env = Environment(loader=FileSystemLoader('templates'))
     env.filters['nl2br'] = lambda s: s.replace('\n', '<br />')
     env.filters['jsonify'] = json.dumps
     env.filters['b64encode'] = lambda s: base64.b64encode(s.encode()).decode("utf-8")
+    env.filters['human_filesize'] = human_filesize
     template = env.get_template(template_file)
     template.stream(**kwargs).dump(os.path.join('build', out))
 

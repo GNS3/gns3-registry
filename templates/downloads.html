@@ -1,13 +1,6 @@
 {% extends "layout/default.html" %}
 {% block script %}
 
-function humanFileSize(bytes) {
-    var exp = Math.log(bytes) / Math.log(1024) | 0;
-    var result = (bytes / Math.pow(1024, exp)).toFixed(2);
-
-    return result + ' ' + (exp == 0 ? 'bytes': 'KMGTPEZY'[exp - 1] + 'B');
-}
-
 function update_progress_download_div(div, download_info) {
     var percent = Math.round(100 / download_info.total * download_info.received)
     div.text(percent + "% "+ humanFileSize(download_info.received) + " / " + humanFileSize(download_info.total));

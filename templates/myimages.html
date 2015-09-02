@@ -9,7 +9,7 @@ $(function() {
         var tr = $("<tr>");
         tr.append($("<td>").text(image_info.filename));
         tr.append($("<td>").text(image_info.md5sum));
-
+        tr.append($("<td>").text(humanFileSize(image_info.filesize)));
         var a = $("<a>");
         a.attr("href", "/images/" + image_info.md5sum + ".html");
         a.append($("<button>").attr("class", "btn btn-primary btn-lg").text("Search appliance"));
@@ -25,6 +25,7 @@ $(function() {
     <tr>
         <th>Filename</th>
         <th>MD5 sum</th>
+        <th>Size</th>
         <th>Action</th>
     </tr>
 </table>
