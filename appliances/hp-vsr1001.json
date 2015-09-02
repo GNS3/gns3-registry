@@ -8,16 +8,18 @@
     "product_name": "VSR1001",
     "product_url": "http://www8.hp.com/us/en/products/networking-routers/product-detail.html?oid=5443163", 
     "registry_version": 1, 
-    "status": "broken",
+    "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
+    "usage": "At first boot the router will be installed from the cdrom.",
  
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 16,
         "ram": 1024,
         "arch": "x86_64",
-        "console_type": "vnc" 
+        "console_type": "vnc",
+        "boot_priority": "dc"
     },
 
     "images": [
@@ -27,14 +29,24 @@
             "md5sum": "d0b539f3ba9723ad8c3ed46f6d772627",
             "filesize": 236687360,
             "download_url": "https://h10145.www1.hp.com/Downloads/DownloadSoftware.aspx?SoftwareReleaseUId=11832&ProductNumber=JG811AAE&lang=en&cc=us&prodSeriesId=5443163&OrderNumber=&PurchaseDate="
+        },
+        {
+            "filename": "empty8G.qcow2",
+            "version": "1.0",
+            "md5sum": "f1d2c25b6990f99bd05b433ab603bdb4",
+            "filesize": 197120,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Empty Qemu disk/empty8G.qcow2"
         }
+
     ],
 
     "versions": [
         {
             "name": "7.10.R0204P01",
             "images": {
-                "cdrom": "VSR1000_HP-CMW710-R0204P01-X64.iso"
+                "cdrom_image": "VSR1000_HP-CMW710-R0204P01-X64.iso",
+                "hda_disk_image": "empty8G.qcow2"
             }
         }
     ]
