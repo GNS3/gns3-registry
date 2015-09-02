@@ -58,6 +58,8 @@ def human_filesize(num):
 
 def render(template_file, out, **kwargs):
     log.info('Build %s', out)
+    directory = os.path.dirname(out)
+    os.makedirs(os.path.join('build', directory), exist_ok=True)
     env = Environment(loader=FileSystemLoader('templates'))
     env.filters['nl2br'] = lambda s: s.replace('\n', '<br />')
     env.filters['jsonify'] = json.dumps
@@ -88,6 +90,26 @@ def keep_only_version_with_appliance(md5sum, appliance):
             new_versions.append(version)
     return new_versions
 
+
+def generate_appliances_pages(group_by, appliances):
+    """
+    This will generate page by grouping appliances
+
+    :param: Group appliance by this key
+    :param: Array of appliances
+    """
+
+    keys = set()
+    for appliance in appliances:
+        keys.add(appliance[group_by])
+
+    for key in keys:
+        filtered_appliances = []
+        for appliance in appliances:
+            if appliance[group_by] == key:
+                filtered_appliances.append(appliance)
+        render('appliances.html', os.path.join('appliances', group_by, key + '.html'), appliances=filtered_appliances, title=key)
+    render('group_by.html', os.path.join('appliances', group_by, 'index.html'), keys=keys, group_by=group_by)
 
 render('index.html', 'index.html')
 render('chat.html', 'chat.html')
@@ -133,4 +155,9 @@ for appliance_file in os.listdir('appliances'):
         image_appliance['versions'] = keep_only_version_with_appliance(image['md5sum'], appliance)
         render('appliance.html', os.path.join('images', image['md5sum'] + '.html'), appliance=image_appliance)
 
-render('appliances.html', os.path.join('appliances', 'index.html'), appliances=appliances)
+render('appliances.html', os.path.join('appliances', 'index.html'), appliances=appliances, title="All", show_filter=True)
+
+generate_appliances_pages("category", appliances)
+generate_appliances_pages("status", appliances)
+generate_appliances_pages("vendor_name", appliances)
+

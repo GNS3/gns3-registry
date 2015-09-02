@@ -1,7 +1,16 @@
 {% extends "layout/default.html" %}
 {% block body %}
+    {% if show_filter %}
+    <h1>Filter by</h1>
     <ul>
-        {% for appliance in appliances %}
+        <li><a href="/appliances/category">Category</a></li>
+        <li><a href="/appliances/status">Status</a></li>
+        <li><a href="/appliances/vendor_name">Vendor</a></li>
+    </ul>
+    {% endif %}
+    <h1>{{title | capitalize | replace("_", " ")}} appliances</h1>
+    <ul>
+        {% for appliance in appliances|sort(attribute='name') %}
         <li><a href="/appliances/{{appliance["id"]}}.html">{{appliance["name"]}}</a></li>
         {% endfor %}
     </ul>
