@@ -23,15 +23,18 @@ import copy
 import base64
 
 from jinja2 import Environment, FileSystemLoader
+from check import check_schema
 
 import logging
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
+
 handler = logging.StreamHandler(sys.stdout)
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 handler.setFormatter(formatter)
 log.addHandler(handler)
+
 
 if os.path.exists('build'):
     for file in os.listdir('build'):
@@ -85,6 +88,9 @@ render('myimages.html', 'myimages.html')
 
 appliances = []
 for appliance_file in os.listdir('appliances'):
+    log.info("Check the schema for " + appliance_file)
+    check_schema(appliance_file)
+
     log.info("Process " + appliance_file)
     out_filename = appliance_file[:-5]
     with open(os.path.join('appliances', appliance_file)) as f:

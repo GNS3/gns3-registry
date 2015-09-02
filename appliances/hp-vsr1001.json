@@ -17,11 +17,7 @@
         "adapters": 16,
         "ram": 1024,
         "arch": "x86_64",
-        "console_type": "vnc", 
-        "hda_disk_image": "vsr1000-hp.img",
-        "hda_disk_size": "8G",
-        "install_cdrom_to_hda": true,
-        "install_instructions": "* Wait for boot\n* Run fresh install\n* Say yes to reboot\nClose the window after reboot success"
+        "console_type": "vnc" 
     },
 
     "images": [

@@ -1,0 +1,232 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "JSON schema validating a GNS3 appliance",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Appliance name"
+    },
+    "category": {
+      "enum": [
+          "router",
+          "multilayer_switch",
+          "firewall",
+          "guest"
+      ],
+      "title": "Category of the appliance"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description of the appliance. Could be a marketing description"
+    },
+    "vendor_name": {
+      "type": "string",
+      "title": "Name of the vendor"
+    },
+    "vendor_url": {
+      "type": "string",
+      "format": "uri",
+      "title": "Website of the vendor"
+    },
+    "documentation_url": {
+      "type": "string",
+      "format": "uri",
+      "title": "Documentation for using the appliance on vendor website"
+    },
+    "product_name": {
+      "type": "string",
+      "title": "Product name"
+    },
+    "product_url": {
+      "type": "string",
+      "format": "uri",
+      "title": "Product url on vendor website"
+    },
+    "registry_version": {
+      "enum": [1],
+      "title": "Version of the registry compatible with this appliance"
+    },
+    "status": {
+      "enum": ["stable", "experimental", "broken"],
+      "title": "Document if the appliance is working or not"
+    },
+    "maintainer": {
+      "type": "string",
+      "title": "Maintainer name"
+    },
+    "maintainer_email": {
+      "type": "string",
+      "format": "email",
+      "title": "Maintainer email"
+    },
+    "usage": {
+        "type": "string",
+        "title": "How to use the appliance"
+    },
+    "symbol": {
+      "type": "string",
+      "title": "An optional symbol for the appliance"
+    },
+    "first_port_name": {
+        "type": "string",
+        "title": "Optional name of the first networking port example: eth0"
+    },
+    "port_name_format": {
+        "type": "string",
+        "title": "Optional formating of the newtorking port example: eth{0}"
+    },
+    "port_segment_size": {
+        "type": "integer"
+    },
+
+    "qemu": {
+      "type": "object",
+      "title": "Qemu specific options",
+      "properties": {
+        "adapter_type": {
+          "enum": ["e1000", "i82551", "i82557b", "i82559er", "ne2k_pci", "pcnet", "rtl8139", "virtio", "virtio-net-pci"],
+          "title": "Type of network adapter"
+        },
+        "adapters": {
+          "type": "integer",
+          "title": "Number of adapters"
+        },
+        "ram": {
+          "type": "integer",
+          "title": "Ram allocated to the appliance"
+        },
+        "arch": {
+          "enum": ["aarch64", "alpha", "arm", "cris", "i386", "lm32", "m68k", "microblaze", "microblazeel", "mips", "mips64", "mips64el", "mipsel", "moxie", "or32", "ppc", "ppc64", "ppcemb", "s390x", "sh4", "sh4eb", "sparc", "sparc64", "tricore", "unicore32", "x86_64", "xtensa", "xtensaeb"],
+          "title": "Architecture emulated"
+        },
+        "console_type": {
+          "enum": ["telnet", "vnc"],
+          "title": "Type of console connection for the administration of the appliance"
+        },
+        "options": {
+            "type": "string",
+            "title": "Optionnal additional qemu command line options"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+          "adapter_type",
+          "adapters",
+          "ram",
+          "arch",
+          "console_type"
+      ]
+    },
+    "images": {
+      "type": "array",
+      "title": "Images for this appliance",
+      "items": {
+        "type": "object",
+        "title": "An image file",
+        "properties": {
+          "filename": {
+            "type": "string",
+            "title": "Filename"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version of the file"
+          },
+          "md5sum": {
+            "type": "string",
+            "format": "md5",
+            "title": "md5sum of the file"
+          },
+          "download_url": {
+            "type": "string",
+            "format": "uri",
+            "title": "Download url where you can download the appliance from a browser"
+          },
+          "direct_download_url": {
+            "type": "string",
+            "title": "Optional. Non authenticated url to the image file where you can download the image."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+            "filename",
+            "version",
+            "md5sum",
+            "download_url"
+        ]
+      }
+    },
+    "versions": {
+      "type": "array",
+      "title": "Versions of the appliance",
+      "items": {
+        "type": "object",
+        "title": "A version of the appliance",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name of the version"
+          },
+          "images": {
+            "type": "object",
+            "title": "Images used for this version",
+            "properties": {
+              "kernel_image": {
+                "type": "string",
+                "title": "Kernel image"
+              },
+              "initrd_image": {
+                "type": "string",
+                "title": "Hda disk image"
+              },
+              "hda_disk_image": {
+                "type": "string",
+                "title": "Hdb disk image"
+              },
+              "hdb_disk_image": {
+                "type": "string",
+                "title": "Hdc disk image"
+              },
+              "hdc_disk_image": {
+                "type": "string",
+                "title": "Hdd disk image"
+              },
+              "hdd_disk_image": {
+                "type": "string",
+                "title": "Hdd diskimage"
+              },
+              "cdrom": {
+                "type": "string",
+                "title": "cdrom image"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+            "name"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "category",
+    "description",
+    "vendor_name",
+    "vendor_url",
+    "documentation_url",
+    "product_name",
+    "product_url",
+    "registry_version",
+    "status",
+    "maintainer",
+    "maintainer_email",
+    "qemu",
+    "images",
+    "versions"
+  ]
+}
