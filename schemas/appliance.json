@@ -77,7 +77,8 @@
         "title": "Optional formating of the newtorking port example: eth{0}"
     },
     "port_segment_size": {
-        "type": "integer"
+        "type": "integer",
+        "title": "Optional port segment size"
     },
 
     "qemu": {
@@ -94,7 +95,7 @@
         },
         "ram": {
           "type": "integer",
-          "title": "Ram allocated to the appliance"
+          "title": "Ram allocated to the appliance (MB)"
         },
         "arch": {
           "enum": ["aarch64", "alpha", "arm", "cris", "i386", "lm32", "m68k", "microblaze", "microblazeel", "mips", "mips64", "mips64el", "mipsel", "moxie", "or32", "ppc", "ppc64", "ppcemb", "s390x", "sh4", "sh4eb", "sparc", "sparc64", "tricore", "unicore32", "x86_64", "xtensa", "xtensaeb"],
@@ -229,7 +230,6 @@
     "vendor_url",
     "documentation_url",
     "product_name",
-    "product_url",
     "registry_version",
     "status",
     "maintainer",

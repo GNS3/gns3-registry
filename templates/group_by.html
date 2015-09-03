@@ -1,9 +1,9 @@
 {% extends "layout/default.html" %}
 {% block body %}
-    <h1>{{group_by|capitalize|replace("_", " ")}}</h1>
+    <h1>{{group_by|replace("_", " ")}}</h1>
     <ul>
         {% for key in keys|sort %}
-        <li><a href="/appliances/{{group_by}}/{{key}}.html">{{key|capitalize|replace("_", " ")}}</a></li>
+        <li><a href="/appliances/{{group_by}}/{{key}}.html">{{key|replace("_", " ")}}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}
