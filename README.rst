@@ -15,7 +15,8 @@ Two way to create a new appliance:
 After that you can send us a pull request on Github.
 
 
-In schemas/appliance.json you have a JSON with a schema for controlling the file.
+In schemas/appliance.json you have a JSON with a schema for controlling the file
+and can be use as documentation for each fields.
 
 
 Tools
