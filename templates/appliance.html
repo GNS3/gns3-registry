@@ -66,9 +66,10 @@ function download(appliance, md5sum) {
             Checksum: {{image["md5sum"]}}<br />
             Download url: <a href="{{image["download_url"]}}">{{image["download_url"]}}</a><br />
             {% if "direct_download_url" in image %}
-            Direct download url: <a href="{{image["direct_download_url"]}}">{{image["direct_download_url"]}}</a><br />
-            <button class="btn btn-primary btn-lg" type="button" onclick='return download("{{appliance|jsonify|b64encode}}", "{{image["md5sum"]}}")'>Download</button>
+                Direct download url: <a href="{{image["direct_download_url"]}}">{{image["direct_download_url"]}}</a><br />
+                <button class="btn btn-primary btn-lg" type="button" onclick='return download("{{appliance|jsonify|b64encode}}", "{{image["md5sum"]}}")'>Download</button>
             {% endif %}
+            <button class="btn btn-primary btn-lg" type="button" onclick="gns3_button(function() { return gns3.importAppliance(); })">Import file</button> 
             <hr />
         {% endfor %}
     {% endfor %}
