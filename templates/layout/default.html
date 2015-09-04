@@ -16,16 +16,24 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+        <style>
+            #notif {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                z-index: 10;
+                width: 100%;
+            }
+        </style>
+
         <script>
             if (gns3.marketplace_api_version() != 1) {
                 alert("Your client is out of date please update it");
-            }    
-
+            }
 
             function gns3_notif(type, msg) {
                 var notif = $("#notif")
                 notif.append("<div class=\"alert alert-" + type + " alert-dismissible fade in\" role=\"alert\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">×</span></button>" + msg + "</div>")
-
             }
 
             gns3.error.connect(function(msg) {
@@ -41,7 +49,7 @@
             */
             gns3_button = function(callback) {
                 var button = event.target;
-                $(button).removeClass("btn-primary");                
+                $(button).removeClass("btn-primary");
                 if (callback()) {
                     $(button).addClass("btn-success");
                     button.onclick = null;
@@ -66,6 +74,8 @@
         </script>
     </head>
     <body>
+    <div id="notif">
+    </div>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -90,8 +100,6 @@
             </div>
         </div>
     </nav>
-    <div id="notif">
-    </div>
     <div class="container-fluid">
         {% block body %}{% endblock %}
     </div>
