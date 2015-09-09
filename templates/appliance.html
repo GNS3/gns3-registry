@@ -14,6 +14,12 @@ function download(appliance, md5sum) {
 
 var installable_versions = gns3.installableVersions("{{appliance|jsonify|b64encode}}");
 
+var images_md5sum = [];
+var images = gns3.images();
+for (var i in images) {
+    images_md5sum.push(images[i].md5sum);
+}
+
 {% endblock %}
 
 {% block body %}
@@ -59,9 +65,13 @@ var installable_versions = gns3.installableVersions("{{appliance|jsonify|b64enco
 
     {% for version in appliance["versions"] | reverse %}
         <h2>{{ appliance["name"] }} {{version["name"]}}</h2>
-        <button class="btn btn-primary btn-lg" id="download_button_{{loop.index}}" type="button">Install</button>
-        <script>gns3_show_if("#download_button_{{loop.index}}", installable_versions.indexOf("{{version["name"]}}") != -1)</script>
+        <button class="btn btn-primary btn-lg" id="install_button_{{loop.index}}" type="button">Install</button>
+        <script>
+            gns3_show_if("#install_button_{{loop.index}}", installable_versions.indexOf("{{version["name"]}}") != -1)
+        </script>
         <h3>Require files</h3>
+
+        {% set version_id = loop.index %}
         {% for image in version.images.values() %}
             <h4>{{image["filename"]}}</h4>
             Slot: {{image["type"]}}<br />
@@ -69,11 +79,19 @@ var installable_versions = gns3.installableVersions("{{appliance|jsonify|b64enco
             Size: {{ image["filesize"] | human_filesize}}<br />
             Checksum: {{image["md5sum"]}}<br />
             Download url: <a href="{{image["download_url"]}}">{{image["download_url"]}}</a><br />
+
             {% if "direct_download_url" in image %}
                 Direct download url: <a href="{{image["direct_download_url"]}}">{{image["direct_download_url"]}}</a><br />
-                <button class="btn btn-primary btn-lg" type="button" onclick='return download("{{appliance|jsonify|b64encode}}", "{{image["md5sum"]}}")'>Download</button>
+                <button id="download_button_{{version_id}}_{{loop.index}}" class="btn btn-primary btn-lg" type="button" onclick='return download("{{appliance|jsonify|b64encode}}", "{{image["md5sum"]}}")'>Download</button>
             {% endif %}
-            <button class="btn btn-primary btn-lg" type="button" onclick="gns3_button(function() { return gns3.importAppliance(); })">Import file</button>
+            
+            <button id="import_button_{{version_id}}_{{loop.index}}" class="btn btn-primary btn-lg" type="button" onclick="gns3_button(function() { return gns3.importAppliance(); })">Import file</button>
+            
+            <script>
+                gns3_show_if("#download_button_{{version_id}}_{{loop.index}}", images_md5sum.indexOf("{{image["md5sum"]}}") == -1)
+                gns3_show_if("#import_button_{{version_id}}_{{loop.index}}", images_md5sum.indexOf("{{image["md5sum"]}}") == -1)
+            </script>
+            
             <hr />
         {% endfor %}
     {% endfor %}
