@@ -2,7 +2,8 @@ GNS3-registry
 ================
 
 
-This is the GNS3 registry.
+This is the GNS3 registry where user can share
+appliances configurations.
 
 
 Add a new appliance
@@ -27,22 +28,6 @@ All tools require python3 and the installation of dependencies via:
 .. code:: bash 
 
     pip3 install -r requirements.txt
-
-
-Build website
---------------
-
-.. code:: bash
-    
-    python3 build.py
-
-
-Run website
--------------
-
-.. code:: bash
-    
-    python3 server.py
 
 
 Check appliance files

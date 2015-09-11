@@ -1,2 +1,1 @@
-Jinja2==2.7.3
 json-schema==2.4.0

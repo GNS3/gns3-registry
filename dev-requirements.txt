@@ -1,3 +1,0 @@
--rrequirements.txt
-
-pytest==2.6.4
