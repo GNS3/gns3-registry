@@ -15,7 +15,7 @@
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 1,
-        "ram": 32,
+        "ram": 64,
         "arch": "i386",
         "console_type": "telnet"        
     },
