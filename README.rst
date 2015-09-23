@@ -1,6 +1,8 @@
 GNS3-registry
 ================
 
+.. image:: https://travis-ci.org/GNS3/gns3-registry.svg
+    :target: https://travis-ci.org/GNS3/gns3-registry
 
 This is the GNS3 registry where user can share
 appliances configurations.
