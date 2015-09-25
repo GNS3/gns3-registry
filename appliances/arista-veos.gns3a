@@ -1,6 +1,6 @@
 {
     "name": "Arista vEOS",
-    "category": "router",
+    "category": "multilayer_switch",
     "description": "Arista EOS® is the core of Arista cloud networking solutions for next-generation data centers and cloud networks. Cloud architectures built with Arista EOS scale to tens of thousands of compute and storage nodes with management and provisioning capabilities that work at scale. Through its programmability, EOS enables a set of software applications that deliver workflow automation, high availability, unprecedented network visibility and analytics and rapid integration with a wide range of third-party applications for virtualization, management, automation and orchestration services.\n\nArista Extensible Operating System (EOS) is a fully programmable and highly modular, Linux-based network operation system, using familiar industry standard CLI and runs a single binary software image across the Arista switching family. Architected for resiliency and programmability, EOS has a unique multi-process state sharing architecture that separates state information and packet forwarding from protocol processing and application logic.", 
     "vendor_name": "Arista", 
     "vendor_url": "http://www.arista.com/", 
@@ -11,11 +11,12 @@
     "status": "experimental",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
+    "symbol": ":/symbols/multilayer_switch.svg",
  
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 8,
-        "ram": 2048,
+        "ram": 1024,
         "arch": "x86_64",
         "console_type": "telnet"
     },
