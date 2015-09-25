@@ -1,7 +1,7 @@
 {
     "name": "Cisco ASAv",
     "category": "firewall",
-    "description": "N/A",
+    "description": "The Adaptive Security Virtual Appliance is a virtualized network security solution based on the market-leading Cisco ASA 5500-X Series firewalls. It supports both traditional and next-generation software-defined network (SDN) and Cisco Application Centric Infrastructure (ACI) environments to provide policy enforcement and threat inspection across heterogeneous multisite environments.",
     "vendor_name": "Cisco",
     "vendor_url": "http://www.cisco.com/",
     "documentation_url": "http://www.cisco.com/c/en/us/support/security/virtual-adaptive-security-appliance-firewall/products-installation-guides-list.html",
@@ -23,32 +23,45 @@
 
     "images": [
         {
+            "filename": "asav951-200.qcow2",
+            "version": "9.5.1-200",
+            "filesize": 160038912,
+            "md5sum": "f1419cbcfc701a287a059981c7d4c5c1",
+            "download_url": "https://software.cisco.com/download/release.html?mdfid=286119613&softwareid=280775065&release=9.5.1.200"
+        },
+        {
+            "filename": "asav942.qcow2",
+            "version": "9.4.2",
+            "filesize": 154271744,
+            "md5sum": "425e67104ab51789bd5c41f610bcbe93",
+            "download_url": "https://software.cisco.com/download/release.html?mdfid=286119613&softwareid=280775065&release=9.4.2"
+        },
+        {
             "filename": "asav941-202.qcow2",
             "version": "9.4.1-202",
             "filesize": 155713536,
             "md5sum": "6992d2a35d5682a99b124b5eaf5c603a",
-            "download_url": "N/A"
-        },
-        {
-            "filename": "asav932-200.qcow2",
-            "version": "9.3.2-200",
-            "filesize": 150208512,
-            "md5sum": "bcf3a9a4735a195fb70599637936ab38",
-            "download_url": "N/A"
+            "download_url": "https://software.cisco.com/download/release.html?mdfid=286119613&softwareid=280775065&release=9.4.1.200"
         }
     ],
 
     "versions": [
         {
-            "name": "9.4.1-202",
+            "name": "9.5.1-200",
             "images": {
-                "hda_disk_image": "asav941-202.qcow2"
+                "hda_disk_image": "asav951-200.qcow2"
             }
         },
         {
-            "name": "9.3.2-200",
+            "name": "9.4.2",
             "images": {
-                "hda_disk_image": "asav932-200.qcow2"
+                "hda_disk_image": "asav942.qcow2"
+            }
+        },
+        {
+            "name": "9.4.1-202",
+            "images": {
+                "hda_disk_image": "asav941-202.qcow2"
             }
         }
     ]
