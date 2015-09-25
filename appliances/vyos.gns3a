@@ -1,0 +1,68 @@
+{
+    "name": "VyOS",
+    "category": "router",
+    "description": "VyOS is a community fork of Vyatta, a Linux-based network operating system that provides software-based network routing, firewall, and VPN functionality.",
+    "vendor_name": "Linux",
+    "vendor_url": "http://vyos.net/",
+    "documentation_url": "http://vyos.net/wiki/User_Guide",
+    "product_name": "VyOS",
+    "product_url": "http://vyos.net/",
+    "registry_version": 1, 
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "At first boot the router will be installed from the cdrom.",
+    "port_name_format": "eth{0}",
+
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 3,
+        "console_type": "telnet",
+        "ram": 512,
+        "arch": "x86_64"
+        "boot_priority": "dc"
+    },
+
+    "images": [
+        {
+            "filename": "vyos-1.1.6-amd64.iso",
+            "version": "1.1.6",
+            "md5sum": "3128954d026e567402a924c2424ce2bf",
+            "filesize": 245366784,
+            "download_url": "http://mirror.vyos.net/iso/release/1.1.6/vyos-1.16-amd64.iso"
+        },
+        {
+            "filename": "vyos-1.1.5-amd64.iso",
+            "version": "1.1.5",
+            "md5sum": "193179532011ceaa87ee725bd8f22022",
+            "filesize": 247463936,
+            "download_url": "http://mirror.vyos.net/iso/release/1.1.5/vyos-1.1.5-amd64.iso"
+        },
+        {
+            "filename": "empty8G.qcow2",
+            "version": "1.0",
+            "md5sum": "f1d2c25b6990f99bd05b433ab603bdb4",
+            "filesize": 197120,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Empty Qemu disk/empty8G.qcow2"
+        }
+
+    ],
+
+    "versions": [
+        {
+            "name": "1.1.6",
+            "images": {
+                "cdrom_image": "vyos-1.1.6-amd64.iso",
+                "hda_disk_image": "empty8G.qcow2"
+            }
+        }
+        {
+            "name": "1.1.5",
+            "images": {
+                "cdrom_image": "vyos-1.1.5-amd64.iso",
+                "hda_disk_image": "empty8G.qcow2"
+            }
+        }
+    ]
+}
