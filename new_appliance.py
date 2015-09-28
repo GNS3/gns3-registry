@@ -54,6 +54,7 @@ def ask(question, type='string', optional=False):
             sys.stdout.write(question + "(optional leave blank for skip) : ")
         else:
             sys.stdout.write(question + ": ")
+        sys.stdout.flush()
         val = sys.stdin.readline().strip()
         if len(val) == 0:
             if optional:
