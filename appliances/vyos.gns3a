@@ -19,7 +19,7 @@
         "adapters": 3,
         "console_type": "telnet",
         "ram": 512,
-        "arch": "x86_64"
+        "arch": "x86_64",
         "boot_priority": "dc"
     },
 
@@ -56,7 +56,7 @@
                 "cdrom_image": "vyos-1.1.6-amd64.iso",
                 "hda_disk_image": "empty8G.qcow2"
             }
-        }
+        },
         {
             "name": "1.1.5",
             "images": {
