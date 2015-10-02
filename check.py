@@ -18,7 +18,7 @@
 import os
 import jsonschema
 import json
-
+import sys
 
 def check_schema(appliance):
     with open('schemas/appliance.json') as f:
@@ -29,10 +29,23 @@ def check_schema(appliance):
         jsonschema.validate(appliance_json, schema)
 
 
+def check_symbol(symbol):
+    licence_file = os.path.join('symbols', symbol.replace('.svg', '.txt'))
+    if not os.path.exists(licence_file):
+        print("Missing licence {} for {}".format(licence_file, symbol))
+        sys.exit(1)
+
+
 def main():
+    print("=> Check appliances")
     for appliance in os.listdir('appliances'):
         print('Check {}'.format(appliance))
         check_schema(appliance)
+    print("=> Check symbols")
+    for symbol in os.listdir('symbols'):
+        if symbol.endswith('.svg'):
+            print('Check {}'.format(symbol))
+            check_symbol(symbol)
 
 if __name__ == '__main__':
     main()
