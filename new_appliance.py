@@ -92,7 +92,7 @@ with open(os.path.join('schemas', 'appliance.json')) as f:
 appliance_name = ask('Appliance id (example: cisco-asav)')
 
 # TODO check if file exists
-with open(os.path.join('appliances', appliance_name + '.json'), 'w+') as f:
+with open(os.path.join('appliances', appliance_name + '.gns3a'), 'w+') as f:
     appliance = {}
     appliance = ask_from_schema(schema)
     appliance['qemu'] = ask_from_schema(schema['properties']['qemu'])
