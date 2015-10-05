@@ -5,7 +5,11 @@ GNS3-registry
     :target: https://travis-ci.org/GNS3/gns3-registry
 
 This is the GNS3 registry where user can share
-appliances configurations.
+appliances configurations and symbols.
+
+Add a new symbol
+################
+Look for examples in the symbols directory.
 
 
 Add a new appliance
