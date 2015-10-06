@@ -1,0 +1,48 @@
+{
+  "builders":
+    [
+        {
+          "type": "qemu",
+          "iso_url": "http://distro.ibiblio.org/tinycorelinux/6.x/x86/release/Core-6.4.iso",
+          "iso_checksum": "c8e04e26de234e5528e6eac8ecb1bdda",
+          "iso_checksum_type": "md5",
+          "shutdown_command": "sudo poweroff",
+          "format": "qcow2",
+          "headless": false,
+          "ssh_username": "gns3",
+          "ssh_password": "gns3",
+          "accelerator": "none",
+          "vm_name": "tinycore-linux",
+          "disk_interface": "ide",
+          "net_device": "e1000",
+          "disk_size": 50,
+          "boot_wait": "10s",
+          "http_directory": "http",
+          "boot_command":
+            [
+                "mc user=gns3<enter><wait10><wait10><wait10>",
+                "sudo passwd gns3<enter>gns3<enter>gns3<enter>",
+                "tce-load -wi openssh<enter><wait10>",
+                "sudo /usr/local/etc/init.d/openssh start<enter>"
+            ]
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/hd-install.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/serial.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/packages.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/post_setup.sh"
+        }
+    ]
+}

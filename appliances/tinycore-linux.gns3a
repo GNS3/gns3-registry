@@ -1,0 +1,44 @@
+{
+    "name": "Tiny Core Linux",
+    "category": "guest",
+    "description": "Core Linux is a smaller variant of Tiny Core without a graphical desktop.\n\nIt's provide a complete Linux system in few MB.",
+    "vendor_name": "Team Tiny Core",
+    "vendor_url": "http://distro.ibiblio.org/tinycorelinux",
+    "documentation_url": "http://wiki.tinycorelinux.net/",
+    "product_name": "Tiny Core Linux",
+    "product_url": "http://distro.ibiblio.org/tinycorelinux",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "Login is gns3/gns3. sudo works without password",
+    "symbol": "linux_guest.svg",
+
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 1,
+        "ram": 96,
+        "arch": "i386",
+        "console_type": "telnet"
+    },
+
+    "images": [
+        {
+            "filename": "linux-tinycore-6.4.qcow2",
+            "version": "6.4",
+            "md5sum": "bcd99ff8b3a9e7097455dcebe66ba2dd",
+            "filesize": 23855104,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
+            "direct_download_url": "http://no.public.repository.yet/linux-tinycore-6.4.qcow2"
+        }
+    ],
+
+    "versions": [
+        {
+            "name": "6.4",
+            "images": {
+                "hda_disk_image": "linux-tinycore-6.4.qcow2"
+            }
+        }
+    ]
+}
