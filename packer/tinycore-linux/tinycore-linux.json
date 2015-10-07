@@ -1,28 +1,31 @@
 {
-  "builders":
-    [
+    "variables": {
+        "tc_iso_url": null,
+        "tc_iso_checksum": null
+    },
+    "builders": [
         {
-          "type": "qemu",
-          "iso_url": "http://distro.ibiblio.org/tinycorelinux/6.x/x86/release/Core-6.4.iso",
-          "iso_checksum": "c8e04e26de234e5528e6eac8ecb1bdda",
-          "iso_checksum_type": "md5",
-          "shutdown_command": "sudo poweroff",
-          "format": "qcow2",
-          "headless": false,
-          "ssh_username": "gns3",
-          "ssh_password": "gns3",
-          "accelerator": "none",
-          "vm_name": "tinycore-linux",
-          "disk_interface": "ide",
-          "net_device": "e1000",
-          "disk_size": 50,
-          "boot_wait": "10s",
-          "http_directory": "http",
-          "boot_command":
-            [
+            "type": "qemu",
+            "iso_url": "{{user `tc_iso_url`}}",
+            "iso_checksum": "{{user `tc_iso_checksum`}}",
+            "iso_checksum_type": "md5",
+            "shutdown_command": "sudo poweroff",
+            "format": "qcow2",
+            "headless": false,
+            "ssh_username": "gns3",
+            "ssh_password": "gns3",
+            "accelerator": "none",
+            "vm_name": "tinycore-linux",
+            "disk_interface": "ide",
+            "disk_size": 50,
+            "net_device": "e1000",
+            "http_directory": "http",
+            "boot_wait": "10s",
+            "boot_command": [
                 "mc user=gns3<enter><wait10><wait10><wait10>",
                 "sudo passwd gns3<enter>gns3<enter>gns3<enter>",
                 "tce-load -wi openssh<enter><wait10>",
+                "cd /usr/local/etc/ssh; [ -f sshd_config.example ] && sudo cp -a sshd_config.example sshd_config; cd<enter>",
                 "sudo /usr/local/etc/init.d/openssh start<enter>"
             ]
         }

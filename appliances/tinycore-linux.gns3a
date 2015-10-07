@@ -26,10 +26,18 @@
         {
             "filename": "linux-tinycore-6.4.qcow2",
             "version": "6.4",
-            "md5sum": "bcd99ff8b3a9e7097455dcebe66ba2dd",
-            "filesize": 23855104,
+            "md5sum": "786a1c2f2e9db61d0580ed58a37da5dd",
+            "filesize": 23920640,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
             "direct_download_url": "http://no.public.repository.yet/linux-tinycore-6.4.qcow2"
+        },
+        {
+            "filename": "linux-tinycore-4.7.7.qcow2",
+            "version": "4.7.7",
+            "md5sum": "bb4559be28875500bba2a32d3f75f6d4",
+            "filesize": 26804224,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
+            "direct_download_url": "http://no.public.repository.yet/linux-tinycore-4.7.7.qcow2"
         }
     ],
 
@@ -38,6 +46,12 @@
             "name": "6.4",
             "images": {
                 "hda_disk_image": "linux-tinycore-6.4.qcow2"
+            }
+        },
+        {
+            "name": "4.7.7",
+            "images": {
+                "hda_disk_image": "linux-tinycore-4.7.7.qcow2"
             }
         }
     ]
