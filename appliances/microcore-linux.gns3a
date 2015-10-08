@@ -42,8 +42,8 @@
         {
             "filename": "linux-microcore-6.4.img",
             "version": "6.4",
-            "md5sum": "b714d7045c5fd66ffee328e00ff798bf",
-            "filesize": 52363264, 
+            "md5sum": "877419f975c4891c019947ceead5c696",
+            "filesize": 16580608, 
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",             
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-6.4.img"
         }
