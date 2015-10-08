@@ -1,0 +1,61 @@
+{
+    "variables": {
+        "tc_iso_url": "http://distro.ibiblio.org/tinycorelinux/6.x/x86/release/Core-6.4.iso",
+        "tc_iso_checksum": "c8e04e26de234e5528e6eac8ecb1bdda",
+        "vm_name": "linux-tinycore-linux-6.4.img",
+        "setup_script": "core.sh"        
+    },
+    "builders": [
+        {
+            "type": "qemu",
+            "iso_url": "{{user `tc_iso_url`}}",
+            "iso_checksum": "{{user `tc_iso_checksum`}}",
+            "iso_checksum_type": "md5",
+            "shutdown_command": "sudo poweroff",
+            "format": "qcow2",
+            "headless": false,
+            "ssh_username": "gns3",
+            "ssh_password": "gns3",
+            "accelerator": "none",
+            "vm_name": "{{user `vm_name`}}",
+            "disk_interface": "ide",
+            "disk_size": 1000,
+            "net_device": "e1000",
+            "http_directory": "http",
+            "boot_wait": "5s",
+            "boot_command": [
+                "mc user=gns3<enter><wait10><wait10><wait10><wait10><wait10><wait10>",
+                "sudo passwd gns3<enter>gns3<enter>gns3<enter>",
+                "tce-load -wi openssh<enter><wait10>",
+                "cd /usr/local/etc/ssh; [ -f sshd_config.example ] && sudo cp -a sshd_config.example sshd_config; cd<enter>",
+                "sudo /usr/local/etc/init.d/openssh start<enter>"
+            ]
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/hd-install.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/serial.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/packages.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/gui.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/{{user `setup_script`}}"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/post_setup.sh"
+        }
+    ]
+}

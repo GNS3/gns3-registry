@@ -1,0 +1,4 @@
+{
+    "vm_name": "linux-tinycore-linux-6.4-firefox.img",
+    "setup_script": "firefox.sh"
+}
