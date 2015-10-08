@@ -11,7 +11,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "Login is tc. sudo work without password",
+    "usage": "For version >= 6.4 Login is gns3 and password gns3. For older version it's tc. sudo work without password",
     "symbol": "linux_guest.svg",
 
     "qemu": {
@@ -38,6 +38,14 @@
             "filesize": 26411008, 
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",             
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-4.0.2-clean.img"
+        },
+        {
+            "filename": "linux-microcore-6.4.img",
+            "version": "6.4",
+            "md5sum": "b714d7045c5fd66ffee328e00ff798bf",
+            "filesize": 52363264, 
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",             
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-6.4.img"
         }
     ],
 
@@ -52,6 +60,12 @@
             "name": "4.0.2",
             "images": {
                 "hda_disk_image": "linux-microcore-4.0.2-clean.img"
+            }
+        },
+        {
+            "name": "6.4",
+            "images": {
+                "hda_disk_image": "linux-microcore-linux-6.4.img"
             }
         }
     ]

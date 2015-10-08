@@ -29,6 +29,17 @@ def check_schema(appliance):
         jsonschema.validate(appliance_json, schema)
 
 
+def check_packer(packer):
+    path = os.path.join('packer', packer)
+    if not os.path.isdir(path):
+        return
+    for file in os.listdir(path):
+        if file.endswith('.json'):
+            print('Check {}/{}'.format(packer, file))
+            with open(os.path.join('packer', packer, file)) as f:
+                json.load(f)
+
+
 def check_symbol(symbol):
     licence_file = os.path.join('symbols', symbol.replace('.svg', '.txt'))
     if not os.path.exists(licence_file):
@@ -46,6 +57,9 @@ def main():
         if symbol.endswith('.svg'):
             print('Check {}'.format(symbol))
             check_symbol(symbol)
+    print("=> Check packer files")
+    for packer in os.listdir('packer'):
+        check_packer(packer)
 
 if __name__ == '__main__':
     main()

@@ -18,7 +18,7 @@ sudo mv /mnt/sda1/boot/isolinux /mnt/sda1/boot/extlinux
 cd /mnt/sda1/boot/extlinux
 sudo rm boot.cat isolinux.bin
 sudo mv isolinux.cfg extlinux.conf
-sudo sed -i -e '/append / s/$/ user=gns3/' -e 's/timeout .*/timeout 30/' extlinux.conf
+sudo sed -i -e '/append / s/$/ user=gns3/' -e 's/timeout .*/timeout 1/' extlinux.conf
 cd
 
 # make disk bootable

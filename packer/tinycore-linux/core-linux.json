@@ -1,7 +1,9 @@
 {
     "variables": {
-        "tc_iso_url": null,
-        "tc_iso_checksum": null
+        "tc_iso_url": "http://distro.ibiblio.org/tinycorelinux/6.x/x86/release/Core-6.4.iso",
+        "tc_iso_checksum": "c8e04e26de234e5528e6eac8ecb1bdda",
+        "vm_name": "linux-microcore-linux-6.4.img",
+        "setup_script": "core.sh"        
     },
     "builders": [
         {
@@ -15,14 +17,14 @@
             "ssh_username": "gns3",
             "ssh_password": "gns3",
             "accelerator": "none",
-            "vm_name": "tinycore-linux",
+            "vm_name": "{{user `vm_name`}}",
             "disk_interface": "ide",
-            "disk_size": 50,
+            "disk_size": 50000,
             "net_device": "e1000",
             "http_directory": "http",
-            "boot_wait": "10s",
+            "boot_wait": "5s",
             "boot_command": [
-                "mc user=gns3<enter><wait10><wait10><wait10>",
+                "mc user=gns3 secure=gns3<enter><wait10><wait10><wait10><wait10><wait10><wait10>",
                 "sudo passwd gns3<enter>gns3<enter>gns3<enter>",
                 "tce-load -wi openssh<enter><wait10>",
                 "cd /usr/local/etc/ssh; [ -f sshd_config.example ] && sudo cp -a sshd_config.example sshd_config; cd<enter>",
@@ -42,6 +44,10 @@
         {
             "type": "shell",
             "script": "scripts/packages.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/{{user `setup_script`}}"
         },
         {
             "type": "shell",
