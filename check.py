@@ -19,6 +19,7 @@ import os
 import jsonschema
 import json
 import sys
+import subprocess
 
 def check_schema(appliance):
     with open('schemas/appliance.json') as f:
@@ -44,6 +45,10 @@ def check_symbol(symbol):
     licence_file = os.path.join('symbols', symbol.replace('.svg', '.txt'))
     if not os.path.exists(licence_file):
         print("Missing licence {} for {}".format(licence_file, symbol))
+        sys.exit(1)
+    height = int(subprocess.check_output(['identify', '-format', '%h', os.path.join('symbols', symbol)], shell=False))
+    if height > 70:
+        print("Symbol height of {} is too big {} > 70".format(symbol, height))
         sys.exit(1)
 
 

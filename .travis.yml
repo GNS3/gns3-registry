@@ -3,5 +3,6 @@ python:
 - '3.4'
 install:
 - pip install -rrequirements.txt
+- apt-get install imagemagick
 script:
 - python check.py
