@@ -17,6 +17,15 @@ The only added packages are:
 
     packer build core-linux.json
 
+Openvswitch
+''''''''''''
+
+A build of Core with Openvswitch preinstalled.
+
+.. code:: bash
+
+    packer build -var-file=openvswitch.json core64-linux.json
+
 
 
 Tiny Core Linux installation

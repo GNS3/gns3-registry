@@ -1,0 +1,5 @@
+{
+    "vm_name": "openvswitch-3.16.6-tinycore64.img",
+    "setup_script": "openvswitch.sh",
+    "disk_size": "500"
+}
