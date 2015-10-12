@@ -16,7 +16,7 @@
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 2,
-        "ram": 128,
+        "ram": 96,
         "arch": "i386",
         "console_type": "telnet",
         "options": "-nographic"
@@ -24,20 +24,20 @@
 
     "images": [
         {
-            "filename": "NETem-v1.qcow2",
-            "version": "0.1",
-            "md5sum": "6afc2581324827eec78f1e5d99973cd6",
-            "filesize": 22872064,
-            "download_url": "http://bernhard-ehlers.de/projects/netem/NETem-v1.qcow2",
-            "direct_download_url": "http://bernhard-ehlers.de/projects/netem/NETem-v1.qcow2"
+            "filename": "NETem-v3.qcow2",
+            "version": "0.3",
+            "md5sum": "88297839b5f014ac15a434053f51690f",
+            "filesize": 23461888,
+            "download_url": "http://bernhard-ehlers.de/projects/netem/NETem-v3.qcow2",
+            "direct_download_url": "http://bernhard-ehlers.de/projects/netem/NETem-v3.qcow2"
         }
     ],
 
     "versions": [
         {
-            "name": "0.1",
+            "name": "0.3",
             "images": {
-                "hda_disk_image": "NETem-v1.qcow2"
+                "hda_disk_image": "NETem-v3.qcow2"
             }
         }
     ]
