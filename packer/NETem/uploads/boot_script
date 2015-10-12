@@ -1,0 +1,26 @@
+. /etc/init.d/tc-functions
+
+# default LANG=C.UTF-8
+[ ! -f /etc/sysconfig/language ] || [ "`cat /etc/sysconfig/language`" = "LANG=C" ] && \
+	echo "LANG=C.UTF-8" > /etc/sysconfig/language
+
+# Configure network interfaces only when boot parameter "nodhcp" is used
+if grep -q -w nodhcp /proc/cmdline; then
+	echo -en "${BLUE}Configuring network interfaces... ${NORMAL}"
+
+	# This waits until all devices have registered
+	/sbin/udevadm settle --timeout=10
+
+	ip link add name br0 type bridge
+	ip link set dev eth0 promisc on
+	ip link set dev eth0 mtu 2000
+	ip link set dev eth0 up
+	ip link set dev eth0 master br0
+	ip link set dev eth1 promisc on
+	ip link set dev eth1 mtu 2000
+	ip link set dev eth1 up
+	ip link set dev eth1 master br0
+	ip link set dev br0 up
+
+	echo -e "${GREEN}Done.${NORMAL}"
+fi
