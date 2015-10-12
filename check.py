@@ -21,7 +21,13 @@ import json
 import sys
 import subprocess
 
-def check_schema(appliance):
+
+def check_appliance(appliance):
+    global images
+    images = set()
+    global md5sums
+    md5sums = set()
+
     with open('schemas/appliance.json') as f:
         schema = json.load(f)
 
@@ -29,6 +35,15 @@ def check_schema(appliance):
         appliance_json = json.load(f)
         jsonschema.validate(appliance_json, schema)
 
+    for image in appliance_json['images']:
+        if image['filename'] in images:
+            print('Duplicate image filename ' + image['filename'])
+            sys.exit(1)
+        if image['md5sum'] in md5sums:
+            print('Duplicate image md5sum ' + image['md5sum'])
+            sys.exit(1)
+        images.add(image['filename'])
+        md5sums.add(image['md5sum'])
 
 def check_packer(packer):
     path = os.path.join('packer', packer)
@@ -56,7 +71,7 @@ def main():
     print("=> Check appliances")
     for appliance in os.listdir('appliances'):
         print('Check {}'.format(appliance))
-        check_schema(appliance)
+        check_appliance(appliance)
     print("=> Check symbols")
     for symbol in os.listdir('symbols'):
         if symbol.endswith('.svg'):
