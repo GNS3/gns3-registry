@@ -20,6 +20,7 @@ import jsonschema
 import json
 import sys
 import subprocess
+import urllib.request
 
 
 def check_appliance(appliance):
@@ -44,6 +45,13 @@ def check_appliance(appliance):
             sys.exit(1)
         images.add(image['filename'])
         md5sums.add(image['md5sum'])
+        if 'direct_download_url' in image:
+            try:
+                req = urllib.request.Request(image['direct_download_url'], method='HEAD')
+                urllib.request.urlopen(req)
+            except (urllib.error.HTTPError, urllib.error.URLError):
+                print('File error ' + image['direct_download_url'])
+                sys.exit(1)
 
     for version in appliance_json['versions']:
         for image in version['images'].values():

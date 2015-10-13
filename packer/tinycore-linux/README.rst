@@ -33,6 +33,9 @@ Tiny Core Linux installation
 
 Tiny Core is Micro Core with a light GUI installed.
 
+.. code:: bash
+
+    packer build tinycore-linux.json
 
 Firefox
 '''''''''
