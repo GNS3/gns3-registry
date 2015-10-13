@@ -45,6 +45,18 @@ def check_appliance(appliance):
         images.add(image['filename'])
         md5sums.add(image['md5sum'])
 
+    for version in appliance_json['versions']:
+        for image in version['images'].values():
+            found = False
+            for i in appliance_json['images']:
+                if i['filename'] in image:
+                    found = True
+
+            if not found:
+                print('Missing relation ' + i['filename'] + ' ' + ' in ' + appliance)
+                sys.exit(1)
+
+
 def check_packer(packer):
     path = os.path.join('packer', packer)
     if not os.path.isdir(path):
