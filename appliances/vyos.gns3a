@@ -7,7 +7,7 @@
     "documentation_url": "http://vyos.net/wiki/User_Guide",
     "product_name": "VyOS",
     "product_url": "http://vyos.net/",
-    "registry_version": 1, 
+    "registry_version": 1,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
@@ -29,14 +29,16 @@
             "version": "1.1.6",
             "md5sum": "3128954d026e567402a924c2424ce2bf",
             "filesize": 245366784,
-            "download_url": "http://mirror.vyos.net/iso/release/1.1.6/vyos-1.16-amd64.iso"
+            "download_url": "http://mirror.vyos.net/iso/release/1.1.6/",
+            "direct_download_url": "http://mirror.vyos.net/iso/release/1.1.6/vyos-1.1.6-amd64.iso"
         },
         {
             "filename": "vyos-1.1.5-amd64.iso",
             "version": "1.1.5",
             "md5sum": "193179532011ceaa87ee725bd8f22022",
             "filesize": 247463936,
-            "download_url": "http://mirror.vyos.net/iso/release/1.1.5/vyos-1.1.5-amd64.iso"
+            "download_url": "http://mirror.vyos.net/iso/release/1.1.5/",
+            "direct_download_url": "http://mirror.vyos.net/iso/release/1.1.5/vyos-1.1.5-amd64.iso"
         },
         {
             "filename": "empty8G.qcow2",
