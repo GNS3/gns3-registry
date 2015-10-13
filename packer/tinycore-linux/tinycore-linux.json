@@ -3,7 +3,8 @@
         "tc_iso_url": "http://distro.ibiblio.org/tinycorelinux/6.x/x86/release/Core-6.4.iso",
         "tc_iso_checksum": "c8e04e26de234e5528e6eac8ecb1bdda",
         "vm_name": "linux-tinycore-linux-6.4.img",
-        "setup_script": "core.sh"        
+        "setup_script": "core.sh",
+        "disk_size": 1000
     },
     "builders": [
         {
@@ -19,7 +20,7 @@
             "accelerator": "none",
             "vm_name": "{{user `vm_name`}}",
             "disk_interface": "ide",
-            "disk_size": 1000,
+            "disk_size": "{{user `disk_size`}}",
             "net_device": "e1000",
             "http_directory": "http",
             "boot_wait": "5s",
