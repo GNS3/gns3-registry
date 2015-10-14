@@ -21,6 +21,8 @@ import json
 import sys
 import subprocess
 import urllib.request
+from multiprocessing import Pool
+
 
 class MyHTTPRedirectHandler(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, hdrs, newurl):
@@ -29,8 +31,6 @@ class MyHTTPRedirectHandler(urllib.request.HTTPRedirectHandler):
 urllib.request.install_opener(urllib.request.build_opener(MyHTTPRedirectHandler))
 
 def check_url(url, appliance):
-    if url in check_url.url_ok:
-        return
     try:
         req = urllib.request.Request(url, method='HEAD')
         urllib.request.urlopen(req)
@@ -41,9 +41,6 @@ def check_url(url, appliance):
     except urllib.error.URLError:
         print('Invalid URL ' + url)
         sys.exit(1)
-    check_url.url_ok[url] = True
-
-check_url.url_ok={}
 
 
 def check_appliance(appliance):
@@ -68,16 +65,6 @@ def check_appliance(appliance):
             sys.exit(1)
         images.add(image['filename'])
         md5sums.add(image['md5sum'])
-        if 'direct_download_url' in image:
-            check_url(image['direct_download_url'], appliance)
-        if 'download_url' in image:
-            check_url(image['download_url'], appliance)
-        if 'vendor_url' in image:
-            check_url(image['vendor_url'], appliance)
-        if 'documentation_url' in image:
-            check_url(image['documentation_url'], appliance)
-        if 'product_url' in image:
-            check_url(image['product_url'], appliance)
 
     for version in appliance_json['versions']:
         for image in version['images'].values():
@@ -89,6 +76,24 @@ def check_appliance(appliance):
             if not found:
                 print('Missing relation ' + i['filename'] + ' ' + ' in ' + appliance)
                 sys.exit(1)
+
+
+def check_urls(pool, appliance):
+    with open(os.path.join('appliances', appliance)) as f:
+        appliance_json = json.load(f)
+
+    for image in appliance_json['images']:
+        if 'direct_download_url' in image:
+            pool.apply_async(check_url, [image['direct_download_url'], appliance])
+        if 'download_url' in image:
+            pool.apply_async(check_url, [image['download_url'], appliance])
+
+    if 'vendor_url' in appliance_json:
+        pool.apply_async(check_url, [appliance_json['vendor_url'], appliance])
+    if 'documentation_url' in appliance_json:
+        pool.apply_async(check_url, [appliance_json['documentation_url'], appliance])
+    if 'product_url' in appliance_json:
+        pool.apply_async(check_url, [appliance_json['product_url'], appliance])
 
 
 def check_packer(packer):
@@ -114,10 +119,13 @@ def check_symbol(symbol):
 
 
 def main():
+    pool = Pool(processes=8)
+
     print("=> Check appliances")
     for appliance in os.listdir('appliances'):
         print('Check {}'.format(appliance))
         check_appliance(appliance)
+        check_urls(pool, appliance)
     print("=> Check symbols")
     for symbol in os.listdir('symbols'):
         if symbol.endswith('.svg'):
@@ -126,6 +134,9 @@ def main():
     print("=> Check packer files")
     for packer in os.listdir('packer'):
         check_packer(packer)
+    print("=> Check URL in appliances")
+    pool.close()
+    pool.join()
 
 if __name__ == '__main__':
     main()
