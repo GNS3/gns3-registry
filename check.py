@@ -22,14 +22,28 @@ import sys
 import subprocess
 import urllib.request
 
+class MyHTTPRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, hdrs, newurl):
+        return None
+
+urllib.request.install_opener(urllib.request.build_opener(MyHTTPRedirectHandler))
 
 def check_url(url, appliance):
+    if url in check_url.url_ok:
+        return
     try:
         req = urllib.request.Request(url, method='HEAD')
         urllib.request.urlopen(req)
-    except (urllib.error.HTTPError, urllib.error.URLError):
-        print('Error with url ' + url + ' in appliance ' + appliance)
+    except urllib.error.HTTPError as err:
+        if err.getcode() >= 400:
+            print('Error with url ' + url + ' - ' + str(err))
+            sys.exit(1)
+    except urllib.error.URLError:
+        print('Invalid URL ' + url)
         sys.exit(1)
+    check_url.url_ok[url] = True
+
+check_url.url_ok={}
 
 
 def check_appliance(appliance):
