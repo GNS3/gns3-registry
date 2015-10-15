@@ -9,3 +9,7 @@ rm -rf /usr/local/tce.installed/*
 
 tce-load -wi ipv6-`uname -r` iptables iproute2
 
+
+echo "modprobe ipv6" >> /opt/bootlocal.sh
+echo "sysctl -w net.ipv4.ip_forward=1" >> /opt/bootlocal.sh
+echo "sysctl -w net.ipv6.conf.all.forwarding=1" >> /opt/bootlocal.sh

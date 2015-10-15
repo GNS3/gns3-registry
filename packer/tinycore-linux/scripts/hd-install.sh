@@ -31,7 +31,3 @@ sudo mkdir /mnt/sda1/tce
 sudo chgrp staff /mnt/sda1/tce
 sudo chmod 775 /mnt/sda1/tce
 
-# base system modifications
-echo -e "\nusername 'gns3', password 'gns3'\n" >> /etc/issue
-echo 'etc/issue' >> /opt/.filetool.lst
-echo 'etc/shadow' >> /opt/.filetool.lst

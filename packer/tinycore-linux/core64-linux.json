@@ -25,7 +25,7 @@
             "http_directory": "http",
             "boot_wait": "5s",
             "boot_command": [
-                "corepure64 user=gns3<enter><wait10><wait10><wait10><wait10><wait10><wait10>",
+                "corepure64 user=gns3<enter><wait10><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
                 "sudo passwd gns3<enter><wait>gns3<enter>gns3<enter>",
                 "tce-load -wi openssh<enter><wait10>",
                 "cd /usr/local/etc/ssh; [ -f sshd_config_example ] && sudo cp -a sshd_config_example sshd_config; cd<enter>",
@@ -36,7 +36,7 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "scripts/hd-install.sh"
+            "script": "scripts/hd-install-64bits.sh"
         },
         {
             "type": "shell",
