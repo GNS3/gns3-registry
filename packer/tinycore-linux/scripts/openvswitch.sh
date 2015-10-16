@@ -34,6 +34,6 @@ sudo /opt/bootlocal.sh
 
 sudo ovs-vsctl add-br br0
 
-echo 'for interface in `ip link | cut -d " " -f2 | grep "eth" | sed "s/:$//"`;do ovs-vsctl add-port br0 $interface; done'  >> /opt/bootlocal.sh
+echo 'for interface in `ip link | cut -d " " -f2 | grep "eth" | sed "s/:$//"`;do ip link set dev $interface up; ovs-vsctl add-port br0 $interface; done'  >> /opt/bootlocal.sh
 
 exit 0
