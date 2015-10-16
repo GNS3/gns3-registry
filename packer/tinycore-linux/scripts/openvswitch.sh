@@ -3,10 +3,14 @@
 set -x
 
 
-# We need gcc because it contain some dependencies of openvswitch
-tce-load -wi gcc.tcz
+# We need gcc libs because it contain some dependencies of openvswitch
+tce-load -wi gcc_libs
 
 tce-load -wi openvswitch-3.16.6-tinycore64
+
+# disable automatic interface configuration with dhcp
+sudo sed -i -e '/label .*core/,/append / s/\(append .*\)/\1 nodhcp/' /mnt/sda1/boot/extlinux/extlinux.conf
+echo '/sbin/udevadm settle --timeout=10' >> /opt/bootlocal.sh
 
 
 sudo modprobe openvswitch
@@ -30,6 +34,6 @@ sudo /opt/bootlocal.sh
 
 sudo ovs-vsctl add-br br0
 
-echo 'for interface in `ip link | cut -d " " -f2 | grep "eth" | sed "s/:$//"`;do ovs-vsctl add-port br0 $interface; done'  >> /opt/bootlocal.sh
+echo 'for interface in `ip link | cut -d " " -f2 | grep "eth" | sed "s/:$//"`;do ip link set dev $interface up; ovs-vsctl add-port br0 $interface; done'  >> /opt/bootlocal.sh
 
 exit 0
