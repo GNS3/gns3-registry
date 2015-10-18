@@ -1,0 +1,44 @@
+{
+    "name": "Cisco NX-OSv",
+    "category": "multilayer_switch",
+    "description": "NX-OSv is a reference platform for an implementation of the Cisco Nexus operating system, based on the Nexus 7000-series platforms, running as a full virtual machine on a hypervisor.",
+    "vendor_name": "Cisco",
+    "vendor_url": "http://www.cisco.com/",
+    "product_name": "IOSv",
+    "product_url": "http://virl.cisco.com/",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "The default username/password is admin/admin. A default configuration is present.",
+    "first_port_name": "mgmt0",
+    "port_name_format": "Ethernet2/{0}",
+
+    "qemu": {
+        "adapter_type": "e1000",
+        "console_type": "telnet",
+        "ram": 3072,
+        "arch": "x86_64",
+        "adapters": 16
+    },
+
+    "images": [
+        {
+            "filesize": 361103360,
+            "md5sum": "0ee38c7d717840cb4ca822f4870671d0",
+            "version": "7.2.0.D1.1",
+            "download_url": "http://virl.cisco.com/",
+            "filename": "NXOSv-7.2.0.D1.1.qcow2"
+        }
+    ],
+
+    "versions": [
+        {
+            "name": "7.2.0.D1.1",
+            "images": {
+                "hda_disk_image": "NXOSv-7.2.0.D1.1.qcow2"
+            }
+
+        }
+    ]
+}
