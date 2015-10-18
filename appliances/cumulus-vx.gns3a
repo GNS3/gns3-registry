@@ -11,10 +11,9 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "symbol": ":/symbols/multilayer_switch.svg",
+    "usage": "Default username is cumulus and password is CumulusLinux!",
     "first_port_name": "eth0",
     "port_name_format": "swp{0}",
-    "port_segment_size": 0,
 
     "qemu": {
         "adapter_type": "virtio-net-pci",
