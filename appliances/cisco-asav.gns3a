@@ -12,13 +12,16 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "symbol": ":/symbols/asa.svg",
+    "usage": "There is no default password and enable password. A default configuration is present.",
+    "first_port_name": "Management0/0",
+    "port_name_format": "GigabitEthernet0/{0}",
 
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 8,
         "ram": 2048,
         "arch": "x86_64",
-        "console_type": "telnet"
+        "console_type": "vnc"
     },
 
     "images": [
