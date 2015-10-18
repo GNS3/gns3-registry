@@ -1,0 +1,43 @@
+{
+    "name": "Cisco CSR1000v",
+    "category": "router",
+    "description": "The Cisco Cloud Services Router 1000V (CSR 1000V) is a router and network services platform in virtual form factor that is intended for deployment in cloud and virtual data centers. It is optimized to serve as a single-tenant or multitenant WAN gateway. Using proven, industry-leading Cisco IOS® XE Software networking and security features, the CSR 1000V enables enterprises to transparently extend their WANs into external provider-hosted clouds and cloud providers to offer their tenants enterprise-class networking services.",
+    "vendor_name": "Cisco",
+    "vendor_url": "http://www.cisco.com/",
+    "documentation_url": "http://www.cisco.com/c/en/us/support/routers/cloud-services-router-1000v-series/products-installation-and-configuration-guides-list.html",
+    "product_name": "CSR1000v",
+    "product_url": "http://www.cisco.com/c/en/us/support/routers/cloud-services-router-1000v-series/tsd-products-support-series-home.html",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "There is no default password and enable password. A default configuration is present.",
+    "port_name_format": "GigabitEthernet{0}",
+
+    "qemu": {
+        "adapter_type": "virtio-net-pci",
+        "adapters": 4,
+        "ram": 3072,
+        "arch": "x86_64",
+        "console_type": "telnet"
+    },
+
+    "images": [
+        {
+            "filename": "csr1000v-universalk9.03.16.00.S.155-3.S-ext.qcow2",
+            "version": "3.16.0S",
+            "filesize": 1390936064,
+            "md5sum": "dfc2e11f880d9e2dfa13e841552cc3ed",
+            "download_url": "https://software.cisco.com/download/release.html?mdfid=284364978&softwareid=282046477&release=3.16.0S"
+        }
+    ],
+
+    "versions": [
+        {
+            "name": "3.16.0S",
+            "images": {
+                "hda_disk_image": "csr1000v-universalk9.03.16.00.S.155-3.S-ext.qcow2"
+            }
+        }
+    ]
+}
