@@ -1,0 +1,44 @@
+{
+    "name": "Cisco IOSv",
+    "category": "router",
+    "description": "Cisco Virtual IOS allows user to run IOS on a standard computer.",
+    "vendor_name": "Cisco",
+    "vendor_url": "http://www.cisco.com/",
+    "documentation_url": "",
+    "product_name": "IOSv",
+    "product_url": "http://virl.cisco.com/",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "There is no default password and enable password. There is no default configuration present.",
+    "port_name_format": "GigabitEthernet0/{0}",
+
+    "qemu": {
+        "adapter_type": "e1000",
+        "console_type": "telnet",
+        "ram": 512,
+        "arch": "i386",
+        "adapters": 4
+    },
+
+    "images": [
+        {
+            "filesize": 127926272,
+            "md5sum": "b3b6d7ac3bde84e51388afe17040b457",
+            "version": "15.5.3M",
+            "download_url": "http://virl.cisco.com/",
+            "filename": "IOSv-15.5.3M.qcow2"
+        }
+    ],
+
+    "versions": [
+        {
+            "name": "15.5.3M",
+            "images": {
+                "hda_disk_image": "IOSv-15.5.3M.qcow2"
+            }
+
+        }
+    ]
+}
