@@ -4,7 +4,6 @@
     "description": "Cisco Virtual IOS allows user to run IOS on a standard computer.",
     "vendor_name": "Cisco",
     "vendor_url": "http://www.cisco.com/",
-    "documentation_url": "",
     "product_name": "IOSvL2",
     "product_url": "http://virl.cisco.com/",
     "registry_version": 1,
@@ -29,7 +28,7 @@
             "md5sum": "0fb3c7e158e14e3ffbfa36bee6d592da",
             "version": "15.2(4.0.55)E",
             "download_url": "http://virl.cisco.com/",
-            "filename": "IOSvL2-15.2.4.0.55E.qcow2"
+            "filename": "IOSvL2-15.2.4055E.qcow2"
         }
     ],
 
@@ -37,7 +36,7 @@
         {
             "name": "15.2(4.0.55)E",
             "images": {
-                "hda_disk_image": "IOSvL2-15.2.4.0.55E.qcow2"
+                "hda_disk_image": "IOSvL2-15.2.4055E.qcow2"
             }
 
         }

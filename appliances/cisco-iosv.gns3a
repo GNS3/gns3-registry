@@ -4,7 +4,6 @@
     "description": "Cisco Virtual IOS allows user to run IOS on a standard computer.",
     "vendor_name": "Cisco",
     "vendor_url": "http://www.cisco.com/",
-    "documentation_url": "",
     "product_name": "IOSv",
     "product_url": "http://virl.cisco.com/",
     "registry_version": 1,

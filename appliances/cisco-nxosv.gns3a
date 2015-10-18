@@ -4,7 +4,7 @@
     "description": "NX-OSv is a reference platform for an implementation of the Cisco Nexus operating system, based on the Nexus 7000-series platforms, running as a full virtual machine on a hypervisor.",
     "vendor_name": "Cisco",
     "vendor_url": "http://www.cisco.com/",
-    "product_name": "IOSv",
+    "product_name": "NX-OSv",
     "product_url": "http://virl.cisco.com/",
     "registry_version": 1,
     "status": "stable",

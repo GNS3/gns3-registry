@@ -1,7 +1,7 @@
 {
     "name": "Micro Core Linux",
     "category": "guest",
-    "description": "Micro Core Linux is a smaller variant of Tiny Core without a graphical desktop.\n\nIt's provide a complete Linux system in few MB.",
+    "description": "Micro Core Linux is a smaller variant of Tiny Core without a graphical desktop.\n\nThis is complete Linux system needing few resources to run.",
     "vendor_name": "Team Tiny Core",
     "vendor_url": "http://distro.ibiblio.org/tinycorelinux",
     "documentation_url": "http://wiki.tinycorelinux.net/",
@@ -11,7 +11,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "For version >= 6.4 Login is gns3 and password gns3. For older version it's tc. sudo work without password",
+    "usage": "For version >= 6.4, login/password is gns3. For older version it is tc. Note that sudo works without any password",
     "symbol": "linux_guest.svg",
 
     "qemu": {
