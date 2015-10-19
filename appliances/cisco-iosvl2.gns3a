@@ -26,17 +26,17 @@
         {
             "filesize": 96862208,
             "md5sum": "0fb3c7e158e14e3ffbfa36bee6d592da",
-            "version": "15.2(4.0.55)E",
+            "version": "15.2.4055",
             "download_url": "http://virl.cisco.com/",
-            "filename": "IOSvL2-15.2.4055E.qcow2"
+            "filename": "IOSvL2-15.2.4055.qcow2"
         }
     ],
 
     "versions": [
         {
-            "name": "15.2(4.0.55)E",
+            "name": "15.2.4055",
             "images": {
-                "hda_disk_image": "IOSvL2-15.2.4055E.qcow2"
+                "hda_disk_image": "IOSvL2-15.2.4055.qcow2"
             }
 
         }

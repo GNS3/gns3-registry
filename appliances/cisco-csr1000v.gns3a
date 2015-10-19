@@ -25,7 +25,7 @@
     "images": [
         {
             "filename": "csr1000v-universalk9.03.16.00.S.155-3.S-ext.qcow2",
-            "version": "3.16.0S",
+            "version": "3.16",
             "filesize": 1390936064,
             "md5sum": "dfc2e11f880d9e2dfa13e841552cc3ed",
             "download_url": "https://software.cisco.com/download/release.html?mdfid=284364978&softwareid=282046477&release=3.16.0S"
@@ -34,7 +34,7 @@
 
     "versions": [
         {
-            "name": "3.16.0S",
+            "name": "3.16",
             "images": {
                 "hda_disk_image": "csr1000v-universalk9.03.16.00.S.155-3.S-ext.qcow2"
             }

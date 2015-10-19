@@ -26,17 +26,17 @@
         {
             "filesize": 361103360,
             "md5sum": "0ee38c7d717840cb4ca822f4870671d0",
-            "version": "7.2.0.D1.1",
+            "version": "7.2.0.121",
             "download_url": "http://virl.cisco.com/",
-            "filename": "NXOSv-7.2.0.D1.1.qcow2"
+            "filename": "NXOSv-7.2.0.121.qcow2"
         }
     ],
 
     "versions": [
         {
-            "name": "7.2.0.D1.1",
+            "name": "7.2.0.121",
             "images": {
-                "hda_disk_image": "NXOSv-7.2.0.D1.1.qcow2"
+                "hda_disk_image": "NXOSv-7.2.0.121.qcow2"
             }
 
         }
