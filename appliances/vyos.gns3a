@@ -11,8 +11,9 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "At first boot the router will be installed from the cdrom.",
+    "usage": "Default username/password is vyos/vyos. At first boot the router will start from the cdrom, login and then type install system and follow the instructions. Finally type poweroff and activate the linked base setting in your VM template in the GNS3 preferences.",
     "port_name_format": "eth{0}",
+    "linked_base": false,
 
     "qemu": {
         "adapter_type": "e1000",
