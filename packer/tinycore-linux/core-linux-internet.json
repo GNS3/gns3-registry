@@ -1,0 +1,4 @@
+{
+    "vm_name": "core-linux-6.4-internet.img",
+    "setup_script": "internet.sh"
+}
