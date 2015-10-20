@@ -45,7 +45,7 @@
             "filesize": 155713536,
             "md5sum": "6992d2a35d5682a99b124b5eaf5c603a",
             "download_url": "https://software.cisco.com/download/release.html?mdfid=286119613&softwareid=280775065&release=9.4.1.200"
-        }
+        },
         {
             "filename": "asav941-200.qcow2",
             "version": "9.4.1-202",

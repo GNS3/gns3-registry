@@ -32,8 +32,9 @@ urllib.request.install_opener(urllib.request.build_opener(MyHTTPRedirectHandler)
 
 def check_url(url, appliance):
     try:
+        print("Check " + url)
         req = urllib.request.Request(url, method='HEAD')
-        urllib.request.urlopen(req)
+        urllib.request.urlopen(req, 5)
     except urllib.error.HTTPError as err:
         if err.getcode() >= 400:
             print('Error with url ' + url + ' - ' + str(err))

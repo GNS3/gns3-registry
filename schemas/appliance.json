@@ -32,7 +32,7 @@
     "documentation_url": {
       "type": "string",
       "format": "uri",
-      "title": "Documentation for using the appliance on vendor website"
+      "title": "An optional documentation for using the appliance on vendor website"
     },
     "product_name": {
       "type": "string",
@@ -41,7 +41,7 @@
     "product_url": {
       "type": "string",
       "format": "uri",
-      "title": "Product url on vendor website"
+      "title": "An optional product url on vendor website"
     },
     "registry_version": {
       "enum": [1],
@@ -80,6 +80,10 @@
         "type": "integer",
         "title": "Optional port segment size. A port segment is a block of port. For example Ethernet0/0 Ethernet0/1 is the module 0 with a port segment size of 2"
     },
+    "linked_base": {
+        "type": "boolean",
+        "title": "False if you don't want to use a single image for all nodes"
+    },
 
     "qemu": {
       "type": "object",
@@ -109,9 +113,29 @@
             "type": "string",
             "title": "Optional define the disk boot priory. Refer to -boot option in qemu manual for more details."
         },
+        "kernel_command_line": {
+            "type": "string",
+            "title": "Command line parameters send to the kernel"
+        },
         "options": {
             "type": "string",
             "title": "Optional additional qemu command line options"
+        },
+        "cpu_throttling": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "title": "Throttle the CPU"
+        },
+        "process_priority": {
+            "description": "Process priority for QEMU",
+            "enum": ["realtime",
+                     "very high",
+                     "high",
+                     "normal",
+                     "low",
+                     "very low",
+                     "null"]
         }
       },
       "additionalProperties": false,
@@ -186,9 +210,9 @@
                 "type": "string",
                 "title": "Kernel image"
               },
-              "initrd_image": {
+              "initrd": {
                 "type": "string",
-                "title": "Hda disk image"
+                "title": "Initrd disk image"
               },
               "hda_disk_image": {
                 "type": "string",
@@ -228,7 +252,6 @@
     "description",
     "vendor_name",
     "vendor_url",
-    "documentation_url",
     "product_name",
     "registry_version",
     "status",

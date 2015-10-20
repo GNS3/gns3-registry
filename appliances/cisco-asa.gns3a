@@ -7,7 +7,7 @@
     "product_name": "ASAv",
     "product_url": "http://www.cisco.com/c/en/us/products/security/adaptive-security-appliance-asa-software/index.html",
     "registry_version": 1,
-    "status": "unstable",
+    "status": "experimental",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "symbol": ":/symbols/asa.svg",
