@@ -13,7 +13,7 @@
     "status": "experimental",
     "vendor_url": "https://www.juniper.net",
     "registry_version": 1,
-    
+
     "qemu": {
         "console_type": "telnet",
         "ram": 2000,
@@ -30,6 +30,13 @@
             "filename": "junos-vsrx-12.1X47-D10.4-domestic.ova",
             "md5sum": "008b50d56c3a56445fd5d89616881de5",
             "filesize": 238397440,
+            "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/"
+        },
+        {
+            "version": "12.1X47-D20.7-domestic",
+            "filename": "junos-vsrx-12.1X47-D20.7-domestic.ova",
+            "filesize": 235960320
+            "md5sum": 5a992d618b8b40fa4a3cffd234636643,
             "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/"
         }
     ],
