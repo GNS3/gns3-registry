@@ -128,7 +128,7 @@
             "title": "Throttle the CPU"
         },
         "process_priority": {
-            "description": "Process priority for QEMU",
+            "title": "Process priority for QEMU",
             "enum": ["realtime",
                      "very high",
                      "high",
