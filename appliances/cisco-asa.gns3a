@@ -4,7 +4,7 @@
     "description": "Cisco ASA firewall",
     "vendor_name": "Cisco",
     "vendor_url": "http://www.cisco.com/",
-    "product_name": "ASAv",
+    "product_name": "ASA",
     "product_url": "http://www.cisco.com/c/en/us/products/security/adaptive-security-appliance-asa-software/index.html",
     "registry_version": 1,
     "status": "experimental",
