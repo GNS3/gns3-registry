@@ -28,5 +28,5 @@ brew install imagemagick --with-librsvg
 For resizing with a height of 70:
 
 ```
-convert symbols/firefox.svg -resize x70 firefox.svg
+convert -background none symbols/firefox.svg -resize x70 firefox.svg
 ```
