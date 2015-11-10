@@ -22,12 +22,12 @@
 
     "images": [
         {
-            "filename": "bird-tinycore64.img",
+            "filename": "bird-tinycore64-1.5.0.img",
             "version": "1.5.0",
             "filesize": 22413312,
-            "md5sum": "3745838f18f345febe85232d74d1627a",
+            "md5sum": "08d50ba2b1b262e2e03e4babf90abf69",
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/bird-tinycore64.img"
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/bird-tinycore64-1.5.0.img"
         }
     ],
 
@@ -35,7 +35,7 @@
         {
             "name": "1.5.0",
             "images": {
-                "hda_disk_image": "bird-tinycore64.img"
+                "hda_disk_image": "bird-tinycore64-1.5.0.img"
             }
         }
     ]
