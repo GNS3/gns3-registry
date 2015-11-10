@@ -19,6 +19,7 @@ import os
 import jsonschema
 import json
 import sys
+import socket
 import subprocess
 import urllib.request
 from multiprocessing import Pool
@@ -30,18 +31,19 @@ class MyHTTPRedirectHandler(urllib.request.HTTPRedirectHandler):
 
 urllib.request.install_opener(urllib.request.build_opener(MyHTTPRedirectHandler))
 
-def check_url(url, appliance):
+def check_url(args):
+    url, appliance = args
     try:
         print("Check " + url)
         req = urllib.request.Request(url, method='HEAD')
-        urllib.request.urlopen(req, 5)
+        urllib.request.urlopen(req, timeout=20)
     except urllib.error.HTTPError as err:
         if err.getcode() >= 400:
-            print('Error with url ' + url + ' - ' + str(err))
-            sys.exit(1)
-    except urllib.error.URLError:
-        print('Invalid URL ' + url)
-        sys.exit(1)
+            raise Exception('Error with url ' + url + ' - ' + str(err))
+    except urllib.error.URLError as err:
+        raise Exception('Invalid URL ' + url)
+    except socket.timeout as e:
+        raise Exception('Timeout URL ' + url)
 
 
 def check_appliance(appliance):
@@ -83,19 +85,21 @@ def check_urls(pool, appliance):
     with open(os.path.join('appliances', appliance)) as f:
         appliance_json = json.load(f)
 
+    calls = []
+
     for image in appliance_json['images']:
         if 'direct_download_url' in image:
-            pool.apply_async(check_url, [image['direct_download_url'], appliance])
+            calls.append((image['direct_download_url'], appliance))
         if 'download_url' in image:
-            pool.apply_async(check_url, [image['download_url'], appliance])
+            calls.append((image['download_url'], appliance))
 
     if 'vendor_url' in appliance_json:
-        pool.apply_async(check_url, [appliance_json['vendor_url'], appliance])
+        calls.append((appliance_json['vendor_url'], appliance))
     if 'documentation_url' in appliance_json:
-        pool.apply_async(check_url, [appliance_json['documentation_url'], appliance])
+        calls.append((appliance_json['documentation_url'], appliance))
     if 'product_url' in appliance_json:
-        pool.apply_async(check_url, [appliance_json['product_url'], appliance])
-
+        calls.append((appliance_json['product_url'], appliance))
+    return calls
 
 def check_packer(packer):
     path = os.path.join('packer', packer)
@@ -122,11 +126,12 @@ def check_symbol(symbol):
 def main():
     pool = Pool(processes=8)
 
+    calls_check_url = []
     print("=> Check appliances")
     for appliance in os.listdir('appliances'):
         print('Check {}'.format(appliance))
         check_appliance(appliance)
-        check_urls(pool, appliance)
+        calls_check_url += check_urls(pool, appliance)
     print("=> Check symbols")
     for symbol in os.listdir('symbols'):
         if symbol.endswith('.svg'):
@@ -136,8 +141,14 @@ def main():
     for packer in os.listdir('packer'):
         check_packer(packer)
     print("=> Check URL in appliances")
+    try:
+        pool.map_async(check_url, calls_check_url).get()
+    except Exception as e:
+        print(e)
+        sys.exit(1)
     pool.close()
     pool.join()
+    print("Everything is ok!")
 
 if __name__ == '__main__':
     main()
