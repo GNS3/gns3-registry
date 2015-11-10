@@ -1,6 +1,6 @@
 {
     "variables": {
-        "tc_iso_url": "http://distro.ibiblio.org/tinycorelinux/6.x/x86/release/Core-6.4.iso",
+        "tc_iso_url": "http://distro.ibiblio.org/tinycorelinux/6.x/x86/archive/6.4/Core-6.4.iso",
         "tc_iso_checksum": "c8e04e26de234e5528e6eac8ecb1bdda",
         "vm_name": "linux-tinycore-linux-6.4.img",
         "setup_script": "core.sh",
