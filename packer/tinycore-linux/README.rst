@@ -17,6 +17,17 @@ The only added packages are:
 
     packer build core-linux.json
 
+
+BIRD
+'''''
+
+A build of Core with BIRD Internet Routing Daemon preinstalled.
+
+.. code:: bash
+
+    packer build -var-file=bird.json core64-linux.json
+
+
 Openvswitch
 ''''''''''''
 

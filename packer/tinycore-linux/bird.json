@@ -1,0 +1,5 @@
+{
+    "vm_name": "bird-tinycore64.img",
+    "setup_script": "bird.sh",
+    "disk_size": "500"
+}
