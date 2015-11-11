@@ -31,7 +31,7 @@ Tools
 
 All tools require python3 and the installation of dependencies via:
 
-.. code:: bash 
+.. code:: bash
 
     pip3 install -r requirements.txt
 
@@ -40,9 +40,11 @@ Check appliance files
 -----------------------
 
 .. code:: bash
-    
-    python3 check.py
 
+    python3 check.py
+    python3 check_urls.py
+
+You need to install `imagemagick` before running check.py.
 
 Create a new appliance
 -----------------------

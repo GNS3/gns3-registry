@@ -9,7 +9,7 @@
     "product_url": "https://www.juniper.net/us/en/products-services/security/srx-series/vsrx/",
     "category": "firewall",
     "status": "experimental",
-    "vendor_url": "https://www.juniper.net",
+    "vendor_url": "https://www.juniper.net/us/en/",
     "registry_version": 1,
     "usage": "Initial username is root, no password",
     "port_name_format": "ge-0/0/{0}",
