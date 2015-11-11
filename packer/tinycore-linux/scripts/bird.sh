@@ -15,13 +15,13 @@ sudo ln -s bird/bird.conf /usr/local/etc/bird.conf
 sudo mv /usr/local/etc/bird6.conf /usr/local/etc/bird/bird6.conf.example
 sudo cp -p /usr/local/etc/bird/bird6.conf.example /usr/local/etc/bird/bird6.conf
 sudo ln -s bird/bird6.conf /usr/local/etc/bird6.conf
-sudo sed -i -e 's/^#\( *router  *id \)/\1/' /usr/local/etc/bird/bird6.conf
+sudo sed -i -e 's/^#\( *router  *id\)/\1/' /usr/local/etc/bird/bird6.conf
 sudo chown -R gns3:staff /usr/local/etc/bird
 
 # add bird configuration to backup list
-echo "usr/local/etc/bird/" >> /opt/.filetool.lst
-echo "usr/local/etc/bird.conf/" >> /opt/.filetool.lst
-echo "usr/local/etc/bird6.conf/" >> /opt/.filetool.lst
+echo "usr/local/etc/bird" >> /opt/.filetool.lst
+echo "usr/local/etc/bird.conf" >> /opt/.filetool.lst
+echo "usr/local/etc/bird6.conf" >> /opt/.filetool.lst
 
 #  add startup script for bird
 cat >> /opt/bootlocal.sh <<'EOF'
