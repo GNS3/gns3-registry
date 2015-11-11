@@ -21,6 +21,7 @@ import sys
 import socket
 import time
 import urllib.request
+import http.client
 from multiprocessing import Pool
 
 class CheckError(Exception):
@@ -56,6 +57,8 @@ def check_url(args):
             else:
                 # We allow error code like 302
                 return
+        except http.client.BadStatusLine as err:
+            error = CheckError('Bad status line {} ({})'.format(url, str(err)))
         except urllib.error.URLError as err:
             error = CheckError('Invalid URL {} ({})'.format(url, str(err)))
         except socket.timeout as err:
