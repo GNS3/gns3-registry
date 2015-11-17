@@ -182,7 +182,7 @@
           },
           "compression": {
             "enum": ["bzip2", "gzip", "lzma", "xz", "rar", "zip"],
-            "title": "Optional. compression type of direct download url."
+            "title": "Optional, compression type of direct download url image."
           }
         },
         "additionalProperties": false,
