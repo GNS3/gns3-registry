@@ -179,6 +179,10 @@
           "direct_download_url": {
             "type": "string",
             "title": "Optional. Non authenticated url to the image file where you can download the image."
+          },
+          "compression": {
+            "enum": ["bzip2", "gzip", "lzma", "xz", "rar", "zip"],
+            "title": "Optional. compression type of direct download url."
           }
         },
         "additionalProperties": false,

@@ -28,7 +28,8 @@
             "md5sum": "c8f2635f1cc637b20bbf2fccefb77a1a",
             "filesize": 55050240,
             "download_url": "http://downloads.openwrt.org/chaos_calmer/15.05/x86/kvm_guest/",
-            "direct_download_url": "http://downloads.openwrt.org/chaos_calmer/15.05/x86/kvm_guest/openwrt-15.05-x86-kvm_guest-combined-ext4.img.gz"
+            "direct_download_url": "http://downloads.openwrt.org/chaos_calmer/15.05/x86/kvm_guest/openwrt-15.05-x86-kvm_guest-combined-ext4.img.gz",
+            "compression": "gzip"
         }
     ],
 
