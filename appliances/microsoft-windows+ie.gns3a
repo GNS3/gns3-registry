@@ -16,7 +16,7 @@
         "adapter_type": "pcnet",
         "adapters": 2,
         "arch": "i386",
-        "options": "-vga std -soundhw es1370"
+        "options": "-vga std -soundhw es1370 -usbdevice tablet"
     },
 
     "images": [
