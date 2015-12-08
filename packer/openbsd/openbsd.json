@@ -1,0 +1,47 @@
+{
+  "builders":
+    [
+        {
+          "type": "qemu",
+          "iso_url": "http://ftp.fr.openbsd.org/pub/OpenBSD/5.8/amd64/install58.iso",
+          "iso_checksum": "2edd369c4b5f1960f9c974ee7f7bbe4105137968c1542d37411e83cb79f7f6f2",
+          "iso_checksum_type": "sha256",
+          "shutdown_command": "/sbin/halt -p",
+          "format": "qcow2",
+          "headless": false,
+          "ssh_username": "root",
+          "ssh_password": "gns3",
+          "vm_name": "openbsd-5.8",
+          "accelerator": "none",
+          "disk_interface": "ide",
+          "net_device": "e1000",
+          "disk_size": 5000,
+          "boot_wait": "120s",
+          "http_directory": "http",
+          "ssh_wait_timeout": "60m",
+          "boot_command": [
+            "S<enter>",
+            "cat <<EOF >>install.conf<enter>",
+            "System hostname = openbsd58<enter>",
+            "Password for root = gns3<enter>",
+            "Allow root ssh login = yes<enter>",
+            "What timezone are you in = UTC<enter>",
+            "Location of sets = cd<enter>",
+            "Set name(s) = -game*.tgz -x*.tgz<enter>",
+            "Directory does not contain SHA256.sig. Continue without verification = yes<enter>",
+            "EOF<enter>",
+            "install -af install.conf && reboot<enter>"
+          ]
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [ "echo \"set tty com0\" >> /etc/boot.conf" ]
+        },
+        {
+            "type": "shell",
+            "inline": [ "echo 'console \"/usr/libexec/getty std.9600\" vt100 on secure' >> /etc/ttys" ]
+        }
+    ]
+}
