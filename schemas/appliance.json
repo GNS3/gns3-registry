@@ -181,7 +181,7 @@
             "title": "Optional. Non authenticated url to the image file where you can download the image."
           },
           "compression": {
-            "enum": ["bzip2", "gzip", "lzma", "xz", "rar", "zip"],
+            "enum": ["bzip2", "gzip", "lzma", "xz", "rar", "zip", "7z"],
             "title": "Optional, compression type of direct download url image."
           }
         },
