@@ -44,7 +44,7 @@
       "title": "An optional product url on vendor website"
     },
     "registry_version": {
-      "enum": [1],
+      "enum": [1, 2],
       "title": "Version of the registry compatible with this appliance"
     },
     "status": {
@@ -83,6 +83,40 @@
     "linked_base": {
         "type": "boolean",
         "title": "False if you don't want to use a single image for all nodes"
+    },
+
+    "iou": {
+        "type": "object",
+        "title": "IOU specific options",
+        "properties": {
+            "ethernet_adapters": {
+                "type": "integer",
+                "title": "Number of ethernet adapters"
+            },
+            "serial_adapters": {
+                "type": "integer",
+                "title": "Number of serial adapters"
+            },
+            "nvram": {
+                "type": "integer",
+                "title": "Host NVRAM"
+            },
+            "ram": {
+                "type": "integer",
+                "title": "Host RAM"
+            },
+            "startup_config": {
+                "type": "string",
+                "title": "Config loaded at startup"
+            }
+        },
+        "required": [
+            "ethernet_adapters",
+            "serial_adapters",
+            "nvram",
+            "ram",
+            "startup_config"
+        ]
     },
 
     "qemu": {
@@ -190,8 +224,7 @@
             "filename",
             "version",
             "md5sum",
-            "filesize",
-            "download_url"
+            "filesize"
         ]
       }
     },
@@ -218,9 +251,13 @@
                 "type": "string",
                 "title": "Initrd disk image"
               },
+              "image": {
+                "type": "string",
+                "title": "OS image"
+              },
               "hda_disk_image": {
                 "type": "string",
-                "title": "Hdb disk image"
+                "title": "Hda disk image"
               },
               "hdb_disk_image": {
                 "type": "string",
@@ -261,7 +298,6 @@
     "status",
     "maintainer",
     "maintainer_email",
-    "qemu",
     "images",
     "versions"
   ]
