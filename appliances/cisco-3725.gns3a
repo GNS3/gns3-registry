@@ -1,0 +1,39 @@
+{
+    "category": "router",
+    "status": "experimental",
+    "maintainer": "GNS3 Team",
+    "name": "Cisco 3725",
+    "vendor_name": "Cisco",
+    "product_name": "3725",
+    "vendor_url": "http://www.cisco.com",
+    "description": "Cisco 3725 Router",
+    "registry_version": 2,
+    "maintainer_email": "developers@gns3.net",
+    "documentation_url": "http://www.cisco.com/c/en/us/support/index.html",
+
+    "dynamips": {
+        "platform": "c3725",
+        "ram": 128,
+        "nvram": 256,
+        "startup_config": "ios_base_startup-config.txt",
+        "slot0": "GT96100-FE"
+    },
+
+    "versions": [
+        {
+            "images": {
+                "image": "c3725-adventerprisek9-mz.124-15.T14.image"
+            },
+            "idlepc": "0x60c09aa0",
+            "name": "124-25.T14"
+        }
+    ],
+    "images": [
+        {
+            "filesize": 97859480,
+            "md5sum": "64f8c427ed48fd21bd02cf1ff254c4eb",
+            "version": "124-25.T14",
+            "filename": "c3725-adventerprisek9-mz.124-15.T14.image"
+        }
+    ]
+}

@@ -12,7 +12,6 @@
     "documentation_url": "http://www.cisco.com/c/en/us/products/routers/7200-series-routers/index.html",
 
     "dynamips": {
-        "chassis": "",
         "platform": "c7200",
         "ram": 512,
         "nvram": 512,
