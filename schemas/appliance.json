@@ -90,7 +90,28 @@
       "title": "Qemu specific options",
       "properties": {
         "adapter_type": {
-          "enum": ["e1000", "i82551", "i82557b", "i82559er", "ne2k_pci", "pcnet", "rtl8139", "virtio", "virtio-net-pci"],
+          "enum": [
+              "e1000",
+              "i82550",
+              "i82551",
+              "i82557a",
+              "i82557b",
+              "i82557c",
+              "i82558a",
+              "i82558b",
+              "i82559a",
+              "i82559b",
+              "i82559c",
+              "i82559er",
+              "i82562",
+              "i82801",
+              "ne2k_pci",
+              "pcnet",
+              "rtl8139",
+              "virtio",
+              "virtio-net-pci",
+              "vmxnet3"
+          ],
           "title": "Type of network adapter"
         },
         "adapters": {
@@ -100,6 +121,22 @@
         "ram": {
           "type": "integer",
           "title": "Ram allocated to the appliance (MB)"
+        },
+        "hda_disk_interface": {
+            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio"],
+            "title": "Disk interface for the installed hda_disk_image"
+        },
+        "hdb_disk_interface": {
+            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio"],
+            "title": "Disk interface for the installed hdb_disk_image"
+        },
+        "hdc_disk_interface": {
+            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio"],
+            "title": "Disk interface for the installed hdc_disk_image"
+        },
+        "hdd_disk_interface": {
+            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio"],
+            "title": "Disk interface for the installed hdd_disk_image"
         },
         "arch": {
           "enum": ["aarch64", "alpha", "arm", "cris", "i386", "lm32", "m68k", "microblaze", "microblazeel", "mips", "mips64", "mips64el", "mipsel", "moxie", "or32", "ppc", "ppc64", "ppcemb", "s390x", "sh4", "sh4eb", "sparc", "sparc64", "tricore", "unicore32", "x86_64", "xtensa", "xtensaeb"],
@@ -178,6 +215,7 @@
           },
           "direct_download_url": {
             "type": "string",
+            "format": "uri",
             "title": "Optional. Non authenticated url to the image file where you can download the image."
           },
           "compression": {
