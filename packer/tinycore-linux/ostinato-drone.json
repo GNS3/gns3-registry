@@ -1,0 +1,5 @@
+{
+    "vm_name": "ostinato-drone.qcow2",
+    "setup_script": "ostinato-drone.sh",
+    "disk_size": "200"
+}
