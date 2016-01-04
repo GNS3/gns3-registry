@@ -14,7 +14,6 @@ touch /mnt/sda1/tce/optional/qt-4.x-base.tcz.dep
 tce-load -i /mnt/sda1/tce/optional/qt-4.x-base.tcz
 
 # load the remaining dependencies for ostinato
-tce-load -wi qt-4.x-base
 tce-load -wi qt-4.x-script
 tce-load -wi glib2
 tce-load -wi openssl
