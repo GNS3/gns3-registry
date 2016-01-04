@@ -9,5 +9,5 @@ addons:
     - imagemagick
 script:
 - python check.py
-- python check_urls.py
+  #- python check_urls.py
 
