@@ -38,6 +38,21 @@ A build of Core with Openvswitch preinstalled.
     packer build -var-file=openvswitch.json core64-linux.json
 
 
+Ostinato
+'''''''''
+
+A build of Core with Ostinato drone preinstalled.
+
+.. code:: bash
+
+    packer build -var-file=ostinato.json core-linux.json
+
+A drone-only VM can be build with:
+
+.. code:: bash
+
+    packer build -var-file=ostinato-drone.json core-linux.json
+
 
 Tiny Core Linux installation
 ****************************

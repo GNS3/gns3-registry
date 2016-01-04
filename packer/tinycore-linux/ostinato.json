@@ -1,0 +1,5 @@
+{
+    "vm_name": "ostinato.qcow2",
+    "setup_script": "ostinato.sh",
+    "disk_size": "200"
+}
