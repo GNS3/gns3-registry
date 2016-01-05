@@ -2,6 +2,17 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "title": "JSON schema validating a GNS3 appliance",
+
+  "definitions": {
+    "dynamips_slot": {
+        "enum": ["C2600-MB-2FE", "C2600-MB-1E", "PA-A1", "PA-8E", "C1700-MB-1FE", "PA-8T", "PA-2FE-TX", "PA-FE-TX", "PA-GE", "C2600-MB-2E", "C7200-IO-FE", "NM-4T", "C2600-MB-1FE", "C7200-IO-2FE", "PA-POS-OC3", "PA-4T+", "C1700-MB-WIC1", "NM-16ESW", "C7200-IO-GE-E", "NM-4E", "GT96100-FE", "NM-1FE-TX", "Leopard-2FE", "NM-1E", "PA-4E", ""]
+    },
+
+    "dynamips_wic": {
+        "enum": ["WIC-1ENET", "WIC-1T", "WIC-2T", ""]
+    }
+  },
+
   "properties": {
     "name": {
       "type": "string",
@@ -44,7 +55,7 @@
       "title": "An optional product url on vendor website"
     },
     "registry_version": {
-      "enum": [1],
+      "enum": [1, 2],
       "title": "Version of the registry compatible with this appliance"
     },
     "status": {
@@ -83,6 +94,86 @@
     "linked_base": {
         "type": "boolean",
         "title": "False if you don't want to use a single image for all nodes"
+    },
+
+    "iou": {
+        "type": "object",
+        "title": "IOU specific options",
+        "properties": {
+            "ethernet_adapters": {
+                "type": "integer",
+                "title": "Number of ethernet adapters"
+            },
+            "serial_adapters": {
+                "type": "integer",
+                "title": "Number of serial adapters"
+            },
+            "nvram": {
+                "type": "integer",
+                "title": "Host NVRAM"
+            },
+            "ram": {
+                "type": "integer",
+                "title": "Host RAM"
+            },
+            "startup_config": {
+                "type": "string",
+                "title": "Config loaded at startup"
+            }
+        },
+        "additionalProperties": false,
+        "required": [
+            "ethernet_adapters",
+            "serial_adapters",
+            "nvram",
+            "ram",
+            "startup_config"
+        ]
+    },
+
+    "dynamips": {
+        "type": "object",
+        "title": "Dynamips specific options",
+        "properties": {
+            "chassis": {
+                "title": "Chassis type",
+                "enum": ["1720", "1721", "1750", "1751", "1760", "2610", "2620", "2610XM", "2620XM", "2650XM", "2621", "2611XM", "2621XM", "2651XM", "3620", "3640", "3660", ""]
+            },
+            "platform": {
+                "title": "Platform type",
+                "enum": ["c1700", "c2600", "c2691", "c3725", "c3745", "c3600", "c7200"]
+            },
+            "ram": {
+                "title": "Amount of ram",
+                "type": "integer",
+                "minimum": 1
+            },
+            "nvram": {
+                "title": "Amount of nvram",
+                "type": "integer",
+                "minimum": 1
+            },
+            "startup_config": {
+                "type": "string",
+                "title": "Config loaded at startup"
+            },
+            "wic0": { "$ref": "#/definitions/dynamips_wic" },
+            "wic1": { "$ref": "#/definitions/dynamips_wic" },
+            "wic2": { "$ref": "#/definitions/dynamips_wic" },
+            "slot0": { "$ref": "#/definitions/dynamips_slot" },
+            "slot1": { "$ref": "#/definitions/dynamips_slot" },
+            "slot2": { "$ref": "#/definitions/dynamips_slot" },
+            "slot3": { "$ref": "#/definitions/dynamips_slot" },
+            "slot4": { "$ref": "#/definitions/dynamips_slot" },
+            "slot5": { "$ref": "#/definitions/dynamips_slot" },
+            "slot6": { "$ref": "#/definitions/dynamips_slot" }
+        },
+        "additionalProperties": false,
+        "required": [
+            "platform",
+            "ram",
+            "nvram"
+        ]
     },
 
     "qemu": {
@@ -228,8 +319,7 @@
             "filename",
             "version",
             "md5sum",
-            "filesize",
-            "download_url"
+            "filesize"
         ]
       }
     },
@@ -244,6 +334,7 @@
             "type": "string",
             "title": "Name of the version"
           },
+          "idlepc": {"type": "string", "pattern": "^0x[0-9a-f]{8}"},
           "images": {
             "type": "object",
             "title": "Images used for this version",
@@ -256,9 +347,13 @@
                 "type": "string",
                 "title": "Initrd disk image"
               },
+              "image": {
+                "type": "string",
+                "title": "OS image"
+              },
               "hda_disk_image": {
                 "type": "string",
-                "title": "Hdb disk image"
+                "title": "Hda disk image"
               },
               "hdb_disk_image": {
                 "type": "string",
@@ -299,7 +394,6 @@
     "status",
     "maintainer",
     "maintainer_email",
-    "qemu",
     "images",
     "versions"
   ]
