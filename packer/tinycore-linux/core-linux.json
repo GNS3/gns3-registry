@@ -25,7 +25,8 @@
             "http_directory": "http",
             "boot_wait": "5s",
             "boot_command": [
-                "mc user=gns3<enter><wait10><wait10><wait10><wait10><wait10><wait10>",
+                "mc user=gns3<enter><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
+                "sudo udhcpc<enter>",
                 "sudo passwd gns3<enter>gns3<enter>gns3<enter>",
                 "tce-load -wi openssh<enter><wait10>",
                 "cd /usr/local/etc/ssh; [ -f sshd_config.example ] && sudo cp -a sshd_config.example sshd_config; cd<enter>",

@@ -54,6 +54,16 @@ A drone-only VM can be build with:
     packer build -var-file=ostinato-drone.json core-linux.json
 
 
+Internet
+''''''''
+An appliance for simulating a domestic modem. eth0 as a dhcp and eth1 should be a nat interface.
+
+.. code:: bash
+
+    packer build -var-file=core-linux-internet.json core-linux.json
+
+
+
 Tiny Core Linux installation
 ****************************
 
