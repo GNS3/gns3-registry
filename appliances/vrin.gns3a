@@ -1,0 +1,38 @@
+{
+    "registry_version": 1,
+    "name": "vRIN",
+    "description": "VM appliance capable to inject high number of routes into a network",
+    "vendor_name": "Andras Dosztal",
+    "status": "stable",
+    "product_name": "vRIN",
+    "maintainer_email": "developers@gns3.net",
+    "maintainer": "Andras Dosztal",
+    "category": "guest",
+    "vendor_url": "https://sourceforge.net/projects/vrin/",
+    "images": [
+        {
+            "filename": "vRIN-0.6.qcow2",
+            "direct_download_url": "http://sourceforge.net/projects/vrin/files/vRIN-0.6.qcow2.bz2/download",
+            "md5sum": "6c763f609c05b5b9a3b1d422ab89dbac",
+            "version": "0.6",
+            "download_url": "https://sourceforge.net/projects/vrin/files",
+            "compression": "bzip2",
+            "filesize": 609681408
+        }
+    ],
+    "qemu": {
+        "arch": "x86_64",
+        "adapters": 1,
+        "ram": 256,
+        "adapter_type": "e1000",
+        "console_type": "vnc"
+    },
+    "versions": [
+        {
+            "images": {
+                "hda_disk_image": "vRIN-0.6.qcow2"
+            },
+            "name": "0.6"
+        }
+    ]
+}
