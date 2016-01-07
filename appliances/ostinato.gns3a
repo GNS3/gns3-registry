@@ -12,6 +12,7 @@
     "maintainer": "Bernhard Ehlers",
     "maintainer_email": "be@bernhard-ehlers.de",
     "usage": "Use interfaces starting with eth1 as traffic interfaces, eth0 is only for the (optional) management of the server/drone.",
+    "symbol": "ostinato-3d-icon.svg",
     "port_name_format": "eth{0}",
 
     "qemu": {
