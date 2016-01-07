@@ -11,6 +11,15 @@
     "vendor_url": "https://sourceforge.net/projects/vrin/",
     "images": [
         {
+            "filename": "vRIN-0.7.qcow2",
+            "direct_download_url": "http://sourceforge.net/projects/vrin/files/vRIN-0.7.qcow2.bz2/download",
+            "md5sum": "2e9802c403e34a91871922b9a26592ad",
+            "version": "0.7",
+            "download_url": "https://sourceforge.net/projects/vrin/files",
+            "compression": "bzip2",
+            "filesize": 614268928
+        },
+        {
             "filename": "vRIN-0.6.qcow2",
             "direct_download_url": "http://sourceforge.net/projects/vrin/files/vRIN-0.6.qcow2.bz2/download",
             "md5sum": "6c763f609c05b5b9a3b1d422ab89dbac",
@@ -25,9 +34,15 @@
         "adapters": 1,
         "ram": 256,
         "adapter_type": "e1000",
-        "console_type": "vnc"
+        "console_type": "telnet"
     },
     "versions": [
+        {
+            "images": {
+                "hda_disk_image": "vRIN-0.7.qcow2"
+            },
+            "name": "0.7"
+        },
         {
             "images": {
                 "hda_disk_image": "vRIN-0.6.qcow2"
