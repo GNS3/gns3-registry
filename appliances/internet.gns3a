@@ -18,6 +18,7 @@
         "ram": 64,
         "arch": "i386",
         "console_type": "telnet",
+        "kvm": "allow",
         "options": "-device e1000,netdev=internet0 -netdev vde,sock=/var/run/vde2/qemu0.ctl,id=internet0"
     },
     "images": [

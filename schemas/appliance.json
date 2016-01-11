@@ -245,6 +245,10 @@
             "type": "string",
             "title": "Command line parameters send to the kernel"
         },
+        "kvm": {
+            "title": "KVM requirements",
+            "enum": ["require", "allow", "disable"]
+        },
         "options": {
             "type": "string",
             "title": "Optional additional qemu command line options"
@@ -272,7 +276,8 @@
           "adapters",
           "ram",
           "arch",
-          "console_type"
+          "console_type",
+          "kvm"
       ]
     },
     "images": {

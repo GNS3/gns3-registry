@@ -18,7 +18,8 @@
         "ram": 1024,
         "arch": "x86_64",
         "console_type": "vnc",
-        "boot_priority": "dc"
+        "boot_priority": "dc",
+        "kvm": "require"
     },
     "images": [
         {
