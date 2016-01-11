@@ -13,7 +13,6 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "For version >= 6.4, login/password is gns3. For older version it is tc. Note that sudo works without any password",
     "symbol": "linux_guest.svg",
-
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 1,
@@ -21,15 +20,14 @@
         "arch": "i386",
         "console_type": "telnet"
     },
-
     "images": [
         {
-            "filename": "linux-microcore-3.4.1.img",
-            "version": "3.4.1",
-            "md5sum": "fa2ec4b1fffad67d8103c3391bbf9df2",
-            "filesize": 24969216,
+            "filename": "linux-microcore-6.4.img",
+            "version": "6.4",
+            "md5sum": "877419f975c4891c019947ceead5c696",
+            "filesize": 16580608,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-3.4.1.img"
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-6.4.img"
         },
         {
             "filename": "linux-microcore-4.0.2-clean.img",
@@ -40,20 +38,19 @@
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-4.0.2-clean.img"
         },
         {
-            "filename": "linux-microcore-6.4.img",
-            "version": "6.4",
-            "md5sum": "877419f975c4891c019947ceead5c696",
-            "filesize": 16580608,
+            "filename": "linux-microcore-3.4.1.img",
+            "version": "3.4.1",
+            "md5sum": "fa2ec4b1fffad67d8103c3391bbf9df2",
+            "filesize": 24969216,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-6.4.img"
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-microcore-3.4.1.img"
         }
     ],
-
     "versions": [
         {
-            "name": "3.4.1",
+            "name": "6.4",
             "images": {
-                "hda_disk_image": "linux-microcore-3.4.1.img"
+                "hda_disk_image": "linux-microcore-6.4.img"
             }
         },
         {
@@ -63,9 +60,9 @@
             }
         },
         {
-            "name": "6.4",
+            "name": "3.4.1",
             "images": {
-                "hda_disk_image": "linux-microcore-6.4.img"
+                "hda_disk_image": "linux-microcore-3.4.1.img"
             }
         }
     ]

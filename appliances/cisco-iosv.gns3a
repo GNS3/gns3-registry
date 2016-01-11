@@ -12,32 +12,28 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "There is no default password and enable password. There is no default configuration present.",
     "port_name_format": "GigabitEthernet0/{0}",
-
     "qemu": {
         "adapter_type": "e1000",
-        "console_type": "telnet",
+        "adapters": 4,
         "ram": 512,
         "arch": "i386",
-        "adapters": 4
+        "console_type": "telnet"
     },
-
     "images": [
         {
-            "filesize": 127926272,
-            "md5sum": "b3b6d7ac3bde84e51388afe17040b457",
+            "filename": "IOSv-15.5.3M.qcow2",
             "version": "15.5.3M",
-            "download_url": "http://virl.cisco.com/",
-            "filename": "IOSv-15.5.3M.qcow2"
+            "md5sum": "b3b6d7ac3bde84e51388afe17040b457",
+            "filesize": 127926272,
+            "download_url": "http://virl.cisco.com/"
         }
     ],
-
     "versions": [
         {
             "name": "15.5.3M",
             "images": {
                 "hda_disk_image": "IOSv-15.5.3M.qcow2"
             }
-
         }
     ]
 }

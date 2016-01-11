@@ -14,7 +14,6 @@
     "usage": "Use interfaces starting with eth1 as traffic interfaces, eth0 is only for the (optional) management of the server/drone.",
     "symbol": "ostinato-3d-icon.svg",
     "port_name_format": "eth{0}",
-
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 4,
@@ -23,7 +22,6 @@
         "console_type": "vnc",
         "options": "-vga std -usbdevice tablet"
     },
-
     "images": [
         {
             "filename": "ostinato-0.7.1-2.qcow2",
@@ -34,7 +32,6 @@
             "direct_download_url": "http://www.bernhard-ehlers.de/projects/ostinato4gns3/ostinato-0.7.1-2.qcow2"
         }
     ],
-
     "versions": [
         {
             "name": "0.7.1",

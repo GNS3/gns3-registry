@@ -14,32 +14,29 @@
     "usage": "Default username is cumulus and password is CumulusLinux!",
     "first_port_name": "eth0",
     "port_name_format": "swp{0}",
-
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 4,
-        "console_type": "vnc",
         "ram": 256,
-        "arch": "x86_64"
+        "arch": "x86_64",
+        "console_type": "vnc"
     },
-
     "images": [
-        {
-            "filename": "CumulusVX-2.5.3-4eb681f3df86c478.qcow2",
-            "version": "2.5.3",
-            "filesize": 1040973824,
-            "md5sum": "5128aec2568991ea0586293cb85f7a97",
-            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/"
-        },
         {
             "filename": "CumulusVX-2.5.5-cc665123486ac43d.qcow2",
             "version": "2.5.5",
-            "filesize": 1092550656,
             "md5sum": "e0cad2491d47f859828703a0b50cf633",
+            "filesize": 1092550656,
+            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/"
+        },
+        {
+            "filename": "CumulusVX-2.5.3-4eb681f3df86c478.qcow2",
+            "version": "2.5.3",
+            "md5sum": "5128aec2568991ea0586293cb85f7a97",
+            "filesize": 1040973824,
             "download_url": "https://cumulusnetworks.com/cumulus-vx/download/"
         }
     ],
-
     "versions": [
         {
             "name": "2.5.5",

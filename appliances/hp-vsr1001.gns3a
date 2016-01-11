@@ -12,7 +12,6 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "At first boot the router will be installed from the cdrom.",
-
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 16,
@@ -21,7 +20,6 @@
         "console_type": "vnc",
         "boot_priority": "dc"
     },
-
     "images": [
         {
             "filename": "VSR1000_HP-CMW710-R0204P01-X64.iso",
@@ -38,15 +36,13 @@
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Empty Qemu disk/empty8G.qcow2"
         }
-
     ],
-
     "versions": [
         {
             "name": "7.10.R0204P01",
             "images": {
-                "cdrom_image": "VSR1000_HP-CMW710-R0204P01-X64.iso",
-                "hda_disk_image": "empty8G.qcow2"
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "VSR1000_HP-CMW710-R0204P01-X64.iso"
             }
         }
     ]

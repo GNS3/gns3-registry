@@ -3,15 +3,14 @@
     "category": "router",
     "description": "OpenWrt is a highly extensible GNU/Linux distribution for embedded devices (typically wireless routers). Unlike many other distributions for these routers, OpenWrt is built from the ground up to be a full-featured, easily modifiable operating system for your router. In practice, this means that you can have all the features you need with none of the bloat, powered by a Linux kernel that's more recent than most other distributions.\n\nThe realview platform is meant for use with QEMU for emulating an ARM system.",
     "vendor_name": "OpenWrt",
-    "vendor_url": "http://openwrt.org", 
-    "documentation_url": "http://wiki.openwrt.org/doc/", 
+    "vendor_url": "http://openwrt.org",
+    "documentation_url": "http://wiki.openwrt.org/doc/",
     "product_name": "OpenWrt",
-    "product_url": "http://openwrt.org", 
-    "registry_version": 1, 
+    "product_url": "http://openwrt.org",
+    "registry_version": 1,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 2,
@@ -20,18 +19,16 @@
         "console_type": "telnet",
         "options": "-M realview-eb-mpcore"
     },
-
-    "images": [ 
+    "images": [
         {
             "filename": "openwrt-realview-vmlinux-initramfs-14.07.elf",
             "version": "14.07",
             "md5sum": "2411307d0794baa618537c5dfcb19575",
             "filesize": 2183520,
-            "download_url": "http://downloads.openwrt.org/barrier_breaker/14.07/realview/generic/",     
-            "direct_download_url": "http://downloads.openwrt.org/barrier_breaker/14.07/realview/generic/openwrt-realview-vmlinux-initramfs.elf"            
+            "download_url": "http://downloads.openwrt.org/barrier_breaker/14.07/realview/generic/",
+            "direct_download_url": "http://downloads.openwrt.org/barrier_breaker/14.07/realview/generic/openwrt-realview-vmlinux-initramfs.elf"
         }
     ],
-
     "versions": [
         {
             "name": "Barrier Breaker 14.07",

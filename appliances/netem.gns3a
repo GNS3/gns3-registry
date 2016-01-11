@@ -12,7 +12,6 @@
     "maintainer_email": "be@bernhard-ehlers.de",
     "usage": "Insert the NETem VM between two network elements and connect it to them. NETem is fully transparent, it bridges the traffic from one interface to the other one. As NETem only bridges, it needs no IP addresses. On start a menu on the console allows a user-friendy configuration of the line parameters.",
     "port_name_format": "eth{0}",
-
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 2,
@@ -21,7 +20,6 @@
         "console_type": "telnet",
         "options": "-nographic"
     },
-
     "images": [
         {
             "filename": "NETem-v3.qcow2",
@@ -32,7 +30,6 @@
             "direct_download_url": "http://bernhard-ehlers.de/projects/netem/NETem-v3.qcow2"
         }
     ],
-
     "versions": [
         {
             "name": "0.3",

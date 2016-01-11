@@ -1,24 +1,79 @@
 {
-    "registry_version": 1,
-    "maintainer": "GNS3 Team",
-    "maintainer_email": "developers@gns3.net",
-    "status": "stable",
+    "name": "MikroTik CHR",
     "category": "router",
+    "description": "Cloud Hosted Router (CHR) is a RouterOS version meant for running as a virtual machine. It supports x86 64-bit architecture and can be used on most of popular hypervisors such as VMWare, Hyper-V, VirtualBox, KVM and others. CHR has full RouterOS features enabled by default but has a different licensing model than other RouterOS versions.",
     "vendor_name": "MikroTik",
     "vendor_url": "http://mikrotik.com/",
+    "documentation_url": "http://wiki.mikrotik.com/wiki/Manual:CHR",
     "product_name": "MikroTik Cloud Hosted Router",
     "product_url": "http://www.mikrotik.com/download",
-    "documentation_url": "http://wiki.mikrotik.com/wiki/Manual:CHR",
-    "name": "MikroTik CHR",
-    "description": "Cloud Hosted Router (CHR) is a RouterOS version meant for running as a virtual machine. It supports x86 64-bit architecture and can be used on most of popular hypervisors such as VMWare, Hyper-V, VirtualBox, KVM and others. CHR has full RouterOS features enabled by default but has a different licensing model than other RouterOS versions.",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "If you'd like a different sized main disk, resize the image before booting the VM for the first time.\n\nOn first boot, RouterOS is actually being installed, formatting the whole main virtual disk, before finally rebooting. That whole process may take a minute or so.\n\nThe console will become available after the installation is complete. Most Telnet/SSH clients (certainly SuperPutty) will keep retrying to connect, thus letting you know when installation is done.\n\nFrom that point on, everything about RouterOS is also true about Cloud Hosted Router, including the default credentials: Username \"admin\" and an empty password.\n\nThe primary differences between RouterOS and CHR are in support for virtual devices (this appliance comes with them being selected), and in the different license model, for which you can read more about at http://wiki.mikrotik.com/wiki/Manual:CHR.",
     "symbol": ":/symbols/router_firewall.svg",
     "port_name_format": "ether{port1}",
-    "usage": "If you'd like a different sized main disk, resize the image before booting the VM for the first time.\n\nOn first boot, RouterOS is actually being installed, formatting the whole main virtual disk, before finally rebooting. That whole process may take a minute or so.\n\nThe console will become available after the installation is complete. Most Telnet/SSH clients (certainly SuperPutty) will keep retrying to connect, thus letting you know when installation is done.\n\nFrom that point on, everything about RouterOS is also true about Cloud Hosted Router, including the default credentials: Username \"admin\" and an empty password.\n\nThe primary differences between RouterOS and CHR are in support for virtual devices (this appliance comes with them being selected), and in the different license model, for which you can read more about at http://wiki.mikrotik.com/wiki/Manual:CHR.",
+    "qemu": {
+        "adapter_type": "vmxnet3",
+        "adapters": 2,
+        "ram": 64,
+        "hda_disk_interface": "virtio",
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "boot_priority": "c",
+        "options": "-nographic"
+    },
+    "images": [
+        {
+            "filename": "chr-6.33.5.vmdk",
+            "version": "6.33.3 (.vmdk)",
+            "md5sum": "cd284e28aa02ae59f55ed8f43ff27fbf",
+            "filesize": 23920640,
+            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.vmdk"
+        },
+        {
+            "filename": "chr-6.33.3.vmdk",
+            "version": "6.33.3 (.vmdk)",
+            "md5sum": "08532a5af1a830182d65c416eab2b089",
+            "filesize": 23920640,
+            "download_url": "http://download2.mikrotik.com/routeros/6.33.3/chr-6.33.3.vmdk"
+        },
+        {
+            "filename": "chr-6.33.5.vdi",
+            "version": "6.33.3 (.vdi)",
+            "md5sum": "fa84e63a558e7c61d7d338386cfd08c9",
+            "filesize": 24118272,
+            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.vdi"
+        },
+        {
+            "filename": "chr-6.33.5.img",
+            "version": "6.33.3 (.img)",
+            "md5sum": "210cc8ad06f25c9f27b6b99f6e00bd91",
+            "filesize": 67108864,
+            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.img.zip",
+            "compression": "zip"
+        },
+        {
+            "filename": "chr-6.33.2.vmdk",
+            "version": "6.33.2 (.vmdk)",
+            "md5sum": "6291893c2c9626603c6d38d23390a8be",
+            "filesize": 23920640,
+            "download_url": "http://download2.mikrotik.com/routeros/6.33.2/chr-6.33.2.vmdk"
+        },
+        {
+            "filename": "chr-6.33.vmdk",
+            "version": "6.33 (.vmdk)",
+            "md5sum": "63bee5405fa1e209388adc6b5f78bb70",
+            "filesize": 23920640,
+            "download_url": "http://download2.mikrotik.com/routeros/6.33/chr-6.33.vmdk"
+        }
+    ],
     "versions": [
         {
-            "name": "6.33.5 (.img)",
+            "name": "6.33.5 (.vmdk)",
             "images": {
-                "hda_disk_image": "chr-6.33.5.img"
+                "hda_disk_image": "chr-6.33.5.vmdk"
             }
         },
         {
@@ -28,9 +83,9 @@
             }
         },
         {
-            "name": "6.33.5 (.vmdk)",
+            "name": "6.33.5 (.img)",
             "images": {
-                "hda_disk_image": "chr-6.33.5.vmdk"
+                "hda_disk_image": "chr-6.33.5.img"
             }
         },
         {
@@ -51,60 +106,5 @@
                 "hda_disk_image": "chr-6.33.vmdk"
             }
         }
-     ],
-    "images": [
-        {
-            "filesize": 67108864,
-            "md5sum": "210cc8ad06f25c9f27b6b99f6e00bd91",
-            "filename": "chr-6.33.5.img",
-            "version": "6.33.3 (.img)",
-            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.img.zip",
-            "compression": "zip"
-        },
-        {
-            "filesize": 24118272,
-            "md5sum": "fa84e63a558e7c61d7d338386cfd08c9",
-            "filename": "chr-6.33.5.vdi",
-            "version": "6.33.3 (.vdi)",
-            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.vdi"
-        },
-        {
-            "filesize": 23920640,
-            "md5sum": "cd284e28aa02ae59f55ed8f43ff27fbf",
-            "filename": "chr-6.33.5.vmdk",
-            "version": "6.33.3 (.vmdk)",
-            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.vmdk"
-        },
-        {
-            "filesize": 23920640,
-            "md5sum": "08532a5af1a830182d65c416eab2b089",
-            "filename": "chr-6.33.3.vmdk",
-            "version": "6.33.3 (.vmdk)",
-            "download_url": "http://download2.mikrotik.com/routeros/6.33.3/chr-6.33.3.vmdk"
-        },
-        {
-            "filesize": 23920640,
-            "md5sum": "6291893c2c9626603c6d38d23390a8be",
-            "filename": "chr-6.33.2.vmdk",
-            "version": "6.33.2 (.vmdk)",
-            "download_url": "http://download2.mikrotik.com/routeros/6.33.2/chr-6.33.2.vmdk"
-        },
-        {
-            "filesize": 23920640,
-            "md5sum": "63bee5405fa1e209388adc6b5f78bb70",
-            "filename": "chr-6.33.vmdk",
-            "version": "6.33 (.vmdk)",
-            "download_url": "http://download2.mikrotik.com/routeros/6.33/chr-6.33.vmdk"
-        }
-    ],
-    "qemu": {
-        "arch": "x86_64",
-        "adapter_type": "vmxnet3",
-        "hda_disk_interface": "virtio",
-        "boot_priority": "c",
-        "ram": 64,
-        "options": "-nographic",
-        "console_type": "telnet",
-        "adapters": 2
-    }
+    ]
 }

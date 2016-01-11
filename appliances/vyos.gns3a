@@ -14,16 +14,14 @@
     "usage": "Default username/password is vyos/vyos. At first boot the router will start from the cdrom, login and then type install system and follow the instructions. Finally type poweroff and activate the linked base setting in your VM template in the GNS3 preferences.",
     "port_name_format": "eth{0}",
     "linked_base": false,
-
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 3,
-        "console_type": "telnet",
         "ram": 512,
         "arch": "x86_64",
+        "console_type": "telnet",
         "boot_priority": "dc"
     },
-
     "images": [
         {
             "filename": "vyos-1.1.6-amd64.iso",
@@ -49,22 +47,20 @@
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Empty Qemu disk/empty8G.qcow2"
         }
-
     ],
-
     "versions": [
         {
             "name": "1.1.6",
             "images": {
-                "cdrom_image": "vyos-1.1.6-amd64.iso",
-                "hda_disk_image": "empty8G.qcow2"
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "vyos-1.1.6-amd64.iso"
             }
         },
         {
             "name": "1.1.5",
             "images": {
-                "cdrom_image": "vyos-1.1.5-amd64.iso",
-                "hda_disk_image": "empty8G.qcow2"
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "vyos-1.1.5-amd64.iso"
             }
         }
     ]
