@@ -9,6 +9,7 @@
     "maintainer": "Andras Dosztal",
     "category": "guest",
     "vendor_url": "https://sourceforge.net/projects/vrin/",
+    "symbol": "vRIN.svg",
     "images": [
         {
             "filename": "vRIN-0.7.qcow2",
