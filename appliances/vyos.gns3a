@@ -20,7 +20,8 @@
         "ram": 512,
         "arch": "x86_64",
         "console_type": "telnet",
-        "boot_priority": "dc"
+        "boot_priority": "dc",
+        "kvm": "allow"
     },
     "images": [
         {

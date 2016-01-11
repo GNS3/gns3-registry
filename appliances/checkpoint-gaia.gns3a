@@ -18,6 +18,7 @@
         "arch": "x86_64",
         "console_type": "telnet",
         "boot_priority": "dc",
+        "kvm": "require",
         "process_priority": "normal"
     },
     "images": [

@@ -19,6 +19,7 @@
         "ram": 96,
         "arch": "i386",
         "console_type": "vnc",
+        "kvm": "allow",
         "options": "-vga std -usbdevice tablet"
     },
     "images": [
