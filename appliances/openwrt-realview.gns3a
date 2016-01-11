@@ -17,6 +17,7 @@
         "ram": 128,
         "arch": "arm",
         "console_type": "telnet",
+        "kvm": "allow",
         "options": "-M realview-eb-mpcore"
     },
     "images": [

@@ -18,6 +18,7 @@
         "ram": 96,
         "arch": "i386",
         "console_type": "telnet",
+        "kvm": "allow",
         "options": "-nographic"
     },
     "images": [
