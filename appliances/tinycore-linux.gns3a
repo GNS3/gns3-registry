@@ -13,16 +13,23 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "Login is gns3/gns3. sudo works without password",
     "symbol": "linux_guest.svg",
-
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 1,
         "ram": 96,
         "arch": "i386",
-        "console_type": "vnc"
+        "console_type": "vnc",
+        "options": "-vga std -usbdevice tablet"
     },
-
     "images": [
+        {
+            "filename": "linux-tinycore-6.4-2.img",
+            "version": "6.4",
+            "md5sum": "15c8d14d8b81524fac84f6627ad8867a",
+            "filesize": 35389440,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-tinycore-linux-6.4-2.img"
+        },
         {
             "filename": "linux-tinycore-6.4.img",
             "version": "6.4",
@@ -32,10 +39,15 @@
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-tinycore-linux-6.4.img"
         }
     ],
-
     "versions": [
         {
-            "name": "6.4",
+            "name": "6.4~2",
+            "images": {
+                "hda_disk_image": "linux-tinycore-6.4-2.img"
+            }
+        },
+        {
+            "name": "6.4~1",
             "images": {
                 "hda_disk_image": "linux-tinycore-6.4.img"
             }

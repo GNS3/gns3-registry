@@ -4,7 +4,7 @@
         "tc_iso_checksum": "c8e04e26de234e5528e6eac8ecb1bdda",
         "vm_name": "linux-tinycore-linux-6.4.img",
         "setup_script": "core.sh",
-        "disk_size": 1000
+        "disk_size": "1000"
     },
     "builders": [
         {
@@ -25,7 +25,8 @@
             "http_directory": "http",
             "boot_wait": "5s",
             "boot_command": [
-                "mc user=gns3<enter><wait10><wait10><wait10><wait10><wait10><wait10>",
+                "mc user=gns3<enter><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
+                "sudo udhcpc<enter>",
                 "sudo passwd gns3<enter>gns3<enter>gns3<enter>",
                 "tce-load -wi openssh<enter><wait10>",
                 "cd /usr/local/etc/ssh; [ -f sshd_config.example ] && sudo cp -a sshd_config.example sshd_config; cd<enter>",
