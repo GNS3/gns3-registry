@@ -1,31 +1,33 @@
 {
-    "vendor_name": "Kali Linux",
+    "name": "Kali Linux",
     "category": "guest",
+    "description": "From the creators of BackTrack comes Kali Linux, the most advanced and versatile penetration testing platform  ever created. We have a set of amazing features lined up in our security distribution geared at streamlining the penetration testing experience.",
+    "vendor_name": "Kali Linux",
+    "vendor_url": "https://www.kali.org/",
+    "documentation_url": "https://www.kali.org/kali-linux-documentation/",
+    "product_name": "Kali Linux",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "Default password is toor",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 8,
+        "ram": 1024,
+        "arch": "x86_64",
+        "console_type": "vnc"
+    },
     "images": [
         {
             "filename": "kali-linux-2.0-amd64.iso",
-            "md5sum": "ef192433017c5d99a156eaef51fd389d",
             "version": "2.0",
-            "direct_download_url": "http://images.kali.org/Kali-Linux-2.0.0-vm-amd64.7z",
+            "md5sum": "ef192433017c5d99a156eaef51fd389d",
             "filesize": 3320512512,
-            "download_url": "https://www.offensive-security.com/kali-linux-vmware-arm-image-download/"
+            "download_url": "https://www.offensive-security.com/kali-linux-vmware-arm-image-download/",
+            "direct_download_url": "http://images.kali.org/Kali-Linux-2.0.0-vm-amd64.7z"
         }
     ],
-    "documentation_url": "https://www.kali.org/kali-linux-documentation/",
-    "maintainer": "GNS3 Team",
-    "name": "Kali Linux",
-    "maintainer_email": "developers@gns3.net",
-    "qemu": {
-        "ram": 1024,
-        "adapters": 8,
-        "adapter_type": "e1000",
-        "console_type": "vnc",
-        "arch": "x86_64"
-    },
-    "registry_version": 1,
-    "description": "From the creators of BackTrack comes Kali Linux, the most advanced and versatile penetration testing platform  ever created. We have a set of amazing features lined up in our security distribution geared at streamlining the penetration testing experience.",
-    "usage": "Default password is toor",
-    "status": "stable",
     "versions": [
         {
             "name": "2.0",
@@ -33,7 +35,5 @@
                 "cdrom_image": "kali-linux-2.0-amd64.iso"
             }
         }
-    ],
-    "product_name": "Kali Linux",
-    "vendor_url": "https://www.kali.org/"
+    ]
 }

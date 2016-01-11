@@ -11,7 +11,6 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Configure interfaces in /opt/bootlocal.sh, BIRD configuration is done in /usr/local/etc/bird",
-
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 4,
@@ -19,18 +18,16 @@
         "arch": "x86_64",
         "console_type": "telnet"
     },
-
     "images": [
         {
             "filename": "bird-tinycore64-1.5.0.img",
             "version": "1.5.0",
-            "filesize": 22413312,
             "md5sum": "08d50ba2b1b262e2e03e4babf90abf69",
+            "filesize": 22413312,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/bird-tinycore64-1.5.0.img"
         }
     ],
-
     "versions": [
         {
             "name": "1.5.0",

@@ -1,15 +1,14 @@
 {
+    "name": "Cisco IOU L3",
     "category": "router",
+    "description": "Cisco IOS on UNIX Layer 3 image.",
+    "vendor_name": "Cisco",
+    "vendor_url": "http://www.cisco.com",
+    "product_name": "Cisco IOU L3",
+    "registry_version": 2,
     "status": "experimental",
     "maintainer": "GNS3 Team",
-    "name": "Cisco IOU L3",
-    "vendor_name": "Cisco",
-    "product_name": "Cisco IOU L3",
-    "vendor_url": "http://www.cisco.com",
-    "description": "Cisco IOS on UNIX Layer 3 image.",
-    "registry_version": 2,
     "maintainer_email": "developers@gns3.net",
-
     "iou": {
         "ethernet_adapters": 2,
         "serial_adapters": 2,
@@ -17,34 +16,32 @@
         "ram": 256,
         "startup_config": "iou_l3_base_startup-config.txt"
     },
-
-    "versions": [
-        {
-            "images": {
-                "image": "i86bi-linux-l3-adventerprisek9-15.4.1T.bin"
-            },
-            "name": "15.4.1T"
-        },
-        {
-            "images": {
-                "image": "i86bi-linux-l3-adventerprisek9-ms.155-2.T.bin"
-            },
-            "name": "155-2T"
-        }
-
-    ],
     "images": [
         {
-            "filesize": 152677848,
-            "md5sum": "2eabae17778316c49cbc80e8e81262f9",
-            "version": "15.4.1T",
-            "filename": "i86bi-linux-l3-adventerprisek9-15.4.1T.bin"
+            "filename": "i86bi-linux-l3-adventerprisek9-ms.155-2.T.bin",
+            "version": "155-2T",
+            "md5sum": "45e99761a95cbd3ee3924ecf0f3d89e5",
+            "filesize": 172982492
         },
         {
-            "filesize": 172982492,
-            "md5sum": "45e99761a95cbd3ee3924ecf0f3d89e5",
-            "version": "155-2T",
-            "filename": "i86bi-linux-l3-adventerprisek9-ms.155-2.T.bin"
+            "filename": "i86bi-linux-l3-adventerprisek9-15.4.1T.bin",
+            "version": "15.4.1T",
+            "md5sum": "2eabae17778316c49cbc80e8e81262f9",
+            "filesize": 152677848
+        }
+    ],
+    "versions": [
+        {
+            "name": "155-2T",
+            "images": {
+                "image": "i86bi-linux-l3-adventerprisek9-ms.155-2.T.bin"
+            }
+        },
+        {
+            "name": "15.4.1T",
+            "images": {
+                "image": "i86bi-linux-l3-adventerprisek9-15.4.1T.bin"
+            }
         }
     ]
 }

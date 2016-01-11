@@ -1,34 +1,31 @@
 {
-    "maintainer": "GNS3 Team",
-    "vendor_name": "Microsoft",
-    "product_name": "Windows",
     "name": "Windows",
-    "description": "Microsoft Windows (or simply Windows) is a graphical operating system developed, marketed, and sold by Microsoft.\n\nMicrosoft releases time limited VMs for testing Internet Explorer.\n\nOn the download site select the VM, as platform select VirtualBox, then download the zip file, afterwards unzip it.",
-    "maintainer_email": "developers@gns3.net",
     "category": "guest",
-    "status": "experimental",
+    "description": "Microsoft Windows (or simply Windows) is a graphical operating system developed, marketed, and sold by Microsoft.\n\nMicrosoft releases time limited VMs for testing Internet Explorer.\n\nOn the download site select the VM, as platform select VirtualBox, then download the zip file, afterwards unzip it.",
+    "vendor_name": "Microsoft",
     "vendor_url": "https://dev.microsoft.com/",
+    "product_name": "Windows",
     "registry_version": 1,
-
+    "status": "experimental",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
     "qemu": {
-        "console_type": "vnc",
-        "ram": 512,
         "adapter_type": "pcnet",
         "adapters": 2,
+        "ram": 512,
         "arch": "i386",
+        "console_type": "vnc",
         "options": "-vga std -soundhw es1370 -usbdevice tablet"
     },
-
     "images": [
         {
-            "version": "XP+IE8",
             "filename": "IE8 - WinXP.ova",
-            "filesize": 1241329152,
+            "version": "XP+IE8",
             "md5sum": "88c74f288bc81a7aad3d610a351680ce",
+            "filesize": 1241329152,
             "download_url": "http://dev.windows.com/en-us/microsoft-edge/tools/vms/windows/"
         }
     ],
-
     "versions": [
         {
             "name": "XP+IE8",

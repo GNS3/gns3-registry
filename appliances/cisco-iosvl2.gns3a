@@ -13,32 +13,28 @@
     "usage": "There is no default password and enable password. There is no default configuration present.",
     "port_name_format": "GigabitEthernet{1}/{0}",
     "port_segment_size": 4,
-
     "qemu": {
         "adapter_type": "e1000",
-        "console_type": "telnet",
+        "adapters": 16,
         "ram": 768,
         "arch": "i386",
-        "adapters": 16
+        "console_type": "telnet"
     },
-
     "images": [
         {
-            "filesize": 96862208,
-            "md5sum": "0fb3c7e158e14e3ffbfa36bee6d592da",
+            "filename": "IOSvL2-15.2.4055.qcow2",
             "version": "15.2.4055",
-            "download_url": "http://virl.cisco.com/",
-            "filename": "IOSvL2-15.2.4055.qcow2"
+            "md5sum": "0fb3c7e158e14e3ffbfa36bee6d592da",
+            "filesize": 96862208,
+            "download_url": "http://virl.cisco.com/"
         }
     ],
-
     "versions": [
         {
             "name": "15.2.4055",
             "images": {
                 "hda_disk_image": "IOSvL2-15.2.4055.qcow2"
             }
-
         }
     ]
 }

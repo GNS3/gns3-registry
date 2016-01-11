@@ -14,7 +14,6 @@
     "usage": "Default username/password: admin/admin, cisco/cisco and lab/lab. There is no default configuration present.",
     "first_port_name": "MgmtEth0/0/CPU0/0",
     "port_name_format": "GigabitEthernet0/0/0/{0}",
-
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 4,
@@ -22,17 +21,15 @@
         "arch": "i386",
         "console_type": "telnet"
     },
-
     "images": [
         {
             "filename": "iosxrv-k9-demo-5.3.2.qcow2",
             "version": "5.3.2",
-            "filesize": 687669248,
             "md5sum": "b14f3b554586c28984f1235ad5963419",
+            "filesize": 687669248,
             "download_url": "http://virl.cisco.com/"
         }
     ],
-
     "versions": [
         {
             "name": "5.3.2",

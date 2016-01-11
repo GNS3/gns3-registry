@@ -1,26 +1,24 @@
 {
+    "name": "Firefox",
     "category": "guest",
+    "description": "A light Linux based on TinyCore Linux with Firefox preinstalled",
+    "vendor_name": "Mozilla Foundation",
+    "vendor_url": "http://www.mozilla.org",
+    "documentation_url": "https://support.mozilla.org",
+    "product_name": "Firefox",
+    "product_url": "https://www.mozilla.org/firefox",
+    "registry_version": 1,
     "status": "stable",
     "maintainer": "GNS3 team",
-    "name": "Firefox",
-    "versions": [],
-    "symbol": "firefox.svg",
-    "registry_version": 1,
     "maintainer_email": "developers@gns3.net",
-    "product_url": "https://www.mozilla.org/firefox",
-    "documentation_url": "https://support.mozilla.org",
-    "images": [],
-    "vendor_name": "Mozilla Foundation",
+    "symbol": "firefox.svg",
     "qemu": {
         "adapter_type": "e1000",
-        "console_type": "vnc",
+        "adapters": 1,
         "ram": 256,
         "arch": "i386",
-        "adapters": 1
+        "console_type": "vnc"
     },
-    "product_name": "Firefox",
-    "vendor_url": "http://www.mozilla.org",
-    "description": "A light Linux based on TinyCore Linux with Firefox preinstalled",
     "images": [
         {
             "filename": "linux-tinycore-linux-6.4-firefox-33.1.1.img",
