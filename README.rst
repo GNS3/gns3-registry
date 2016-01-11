@@ -53,3 +53,12 @@ Create a new appliance
 
     python3 new_appliance.py
 
+
+Prettify appliances JSON
+-------------------------
+
+This will indent the JSON of all appliance and sort the key in same order as
+the JSON schema.
+
+.. code:: bash
+    python3 prettify_appliances.py

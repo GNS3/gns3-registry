@@ -13,32 +13,28 @@
     "usage": "The default username/password is admin/admin. A default configuration is present.",
     "first_port_name": "mgmt0",
     "port_name_format": "Ethernet2/{0}",
-
     "qemu": {
         "adapter_type": "e1000",
-        "console_type": "telnet",
+        "adapters": 16,
         "ram": 3072,
         "arch": "x86_64",
-        "adapters": 16
+        "console_type": "telnet"
     },
-
     "images": [
         {
-            "filesize": 361103360,
-            "md5sum": "0ee38c7d717840cb4ca822f4870671d0",
+            "filename": "NXOSv-7.2.0.121.qcow2",
             "version": "7.2.0.121",
-            "download_url": "http://virl.cisco.com/",
-            "filename": "NXOSv-7.2.0.121.qcow2"
+            "md5sum": "0ee38c7d717840cb4ca822f4870671d0",
+            "filesize": 361103360,
+            "download_url": "http://virl.cisco.com/"
         }
     ],
-
     "versions": [
         {
             "name": "7.2.0.121",
             "images": {
                 "hda_disk_image": "NXOSv-7.2.0.121.qcow2"
             }
-
         }
     ]
 }
