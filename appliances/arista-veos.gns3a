@@ -17,7 +17,8 @@
         "adapters": 8,
         "ram": 1024,
         "arch": "x86_64",
-        "console_type": "telnet"
+        "console_type": "telnet",
+        "kvm": "require"
     },
     "images": [
         {

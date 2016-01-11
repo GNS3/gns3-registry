@@ -15,6 +15,7 @@
         "ram": 512,
         "arch": "i386",
         "console_type": "vnc",
+        "kvm": "require",
         "options": "-vga std -soundhw es1370 -usbdevice tablet"
     },
     "images": [

@@ -16,7 +16,8 @@
         "adapters": 8,
         "ram": 1024,
         "arch": "x86_64",
-        "console_type": "vnc"
+        "console_type": "vnc",
+        "kvm": "require"
     },
     "images": [
         {
