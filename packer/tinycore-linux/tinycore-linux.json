@@ -25,7 +25,7 @@
             "http_directory": "http",
             "boot_wait": "5s",
             "boot_command": [
-                "mc user=gns3<enter><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
+                "mc user=gns3 http={{ .HTTPIP }}:{{ .HTTPPort }}<enter><wait10><wait10><wait10><wait10><wait10><wait10><wait10>",
                 "sudo udhcpc<enter>",
                 "sudo passwd gns3<enter>gns3<enter>gns3<enter>",
                 "tce-load -wi openssh<enter><wait10>",
