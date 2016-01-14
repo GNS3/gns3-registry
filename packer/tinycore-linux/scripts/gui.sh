@@ -161,8 +161,59 @@ EOF
 sudo mv _setup_keyboard.desktop /tmp/xorg-setup-tools/usr/local/share/applications/
 
 http=http://`getbootparam http`
-wget $http/gnome-accessories-character-map.png
+wget $http/gui/gnome-accessories-character-map.png
 sudo mv gnome-accessories-character-map.png /tmp/xorg-setup-tools/usr/local/share/pixmaps/
+
+cat > setup_resolution <<'EOF'
+#!/bin/sh
+# setup_resolution changes the screen resolution
+
+# available resolutions
+resolutions='
+1024x768 ""
+800x600 ""
+640x480 ""
+'
+
+# get resolution
+eval 'Xdialog --menu "Select resolution:" 10 40 0' $resolutions 2> /tmp/setup_resolution_result
+status=$?
+
+# set new layout
+if [ $status -eq 0 ]; then
+	res=`cat /tmp/setup_resolution_result`
+	rm -f /tmp/setup_resolution_result
+
+	sudo sed -i 's/Modes.*/Modes "'"$res"'"/' /usr/local/share/X11/xorg.conf.d/99-resolution.conf
+	filetool.sh -b
+
+	Xdialog --yesno "Restart GUI to activate?" 0 0
+	if [ $? -eq 0 ]; then
+		sh -c 'killall Xorg; sleep 2; startx </dev/tty1 >/dev/tty1 2>&1' &
+	fi
+else
+	cat /tmp/setup_resolution_result >&2
+	rm -f /tmp/setup_resolution_result
+fi
+
+exit $status
+EOF
+chmod +x setup_resolution
+sudo mv setup_resolution /tmp/xorg-setup-tools/usr/local/bin/
+
+cat > _setup_resolution.desktop <<'EOF'
+[Desktop Entry]
+Name=ScreenResolution
+Exec=setup_resolution
+Type=Application
+X-FullPathIcon=/usr/local/share/pixmaps/gnome-preferences-desktop-display.png
+Icon=gnome-preferences-desktop-display.png
+Categories=System;
+EOF
+sudo mv _setup_resolution.desktop /tmp/xorg-setup-tools/usr/local/share/applications/
+
+wget $http/gui/gnome-preferences-desktop-display.png
+sudo mv gnome-preferences-desktop-display.png /tmp/xorg-setup-tools/usr/local/share/pixmaps/
 
 cat > xorg-setup-tools <<'END_TCE'
 mkdir -p /usr/local/share/X11/xorg.conf.d
@@ -177,7 +228,6 @@ EOF
 cat > /usr/local/share/X11/xorg.conf.d/99-resolution.conf <<'EOF'
 Section "Screen"
     Identifier "Screen0"
-    DefaultDepth 24
     SubSection "Display"
         Modes "800x600"
     EndSubSection
@@ -187,7 +237,7 @@ END_TCE
 sudo mv xorg-setup-tools /tmp/xorg-setup-tools/usr/local/tce.installed/
 
 sudo chown -R root:root /tmp/xorg-setup-tools
-sudo chmod +x /tmp/xorg-setup-tools/usr/local/tce.installed/xorg-setup-tools
+sudo chmod +x /tmp/xorg-setup-tools/usr/local/tce.installed/*
 sudo chgrp -R staff /tmp/xorg-setup-tools/usr/local/tce.installed
 sudo chmod 775 /tmp/xorg-setup-tools/usr/local/tce.installed
 
