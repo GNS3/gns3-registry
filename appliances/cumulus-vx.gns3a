@@ -2,12 +2,12 @@
     "name": "Cumulus VX",
     "category": "multilayer_switch",
     "description": "Cumulus VX is a community-supported virtual appliance that enables cloud admins and network engineers to preview and test Cumulus Networks technology at zero cost. You can build sandbox environments to learn Open Networking concepts, prototype network operations and script & develop applications risk-free. With Cumulus VX, you can get started with Open Networking at your pace, on your time, and in your environment!",
-    "vendor_name": "Cumulus Network", 
-    "vendor_url": "https://www.cumulusnetworks.com", 
-    "documentation_url": "http://docs.cumulusnetworks.com/", 
+    "vendor_name": "Cumulus Network",
+    "vendor_url": "https://www.cumulusnetworks.com",
+    "documentation_url": "http://docs.cumulusnetworks.com/",
     "product_name": "Cumulus VX",
     "product_url": "https://cumulusnetworks.com/cumulus-vx/",
-    "registry_version": 1, 
+    "registry_version": 1,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
@@ -29,11 +29,24 @@
             "version": "2.5.3",
             "filesize": 1040973824,
             "md5sum": "5128aec2568991ea0586293cb85f7a97",
-            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/thanks/kvm/"
+            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/"
+        },
+        {
+            "filename": "CumulusVX-2.5.5-cc665123486ac43d.qcow2",
+            "version": "2.5.5",
+            "filesize": 1092550656,
+            "md5sum": "e0cad2491d47f859828703a0b50cf633",
+            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/"
         }
     ],
 
     "versions": [
+        {
+            "name": "2.5.5",
+            "images": {
+                "hda_disk_image": "CumulusVX-2.5.5-cc665123486ac43d.qcow2"
+            }
+        },
         {
             "name": "2.5.3",
             "images": {
