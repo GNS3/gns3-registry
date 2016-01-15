@@ -65,4 +65,5 @@ for appliance in glob.glob('appliances/*.gns3a'):
     # Save
     with open(appliance, 'w') as f:
         json.dump(config, f,indent=4)
+        f.write("\n")
 
