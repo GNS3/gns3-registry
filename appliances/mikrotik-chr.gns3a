@@ -15,7 +15,7 @@
     "symbol": ":/symbols/router_firewall.svg",
     "port_name_format": "ether{port1}",
     "qemu": {
-        "adapter_type": "vmxnet3",
+        "adapter_type": "virtio-net-pci",
         "adapters": 2,
         "ram": 64,
         "hda_disk_interface": "virtio",
