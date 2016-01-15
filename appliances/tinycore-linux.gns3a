@@ -18,7 +18,8 @@
         "adapters": 1,
         "ram": 96,
         "arch": "i386",
-        "console_type": "vnc"
+        "console_type": "vnc",
+        "kvm": "allow"
     },
     "images": [
         {
