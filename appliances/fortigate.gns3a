@@ -12,7 +12,7 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is admin, no password is set.",
-    "port_name_format": "port{0}",
+    "port_name_format": "Port{port1}",
     "linked_base": false,
 
     "qemu": {
