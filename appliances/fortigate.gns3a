@@ -49,7 +49,7 @@
         {
             "name": "5.2.5",
             "images": {
-                "hda_disk_image": "fortios.qcow2",
+                "hda_disk_image": "FGT_VM64_KVM-v5-build0701-FORTINET.out.kvm.qcow2",
                 "hdb_disk_image": "empty30G.qcow2"
             }
         }
