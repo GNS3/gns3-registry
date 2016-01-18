@@ -16,8 +16,8 @@ Add a new appliance
 ###################
 
 Two way to create a new appliance:
-* Copy paste a JSON from the appliances directory
-* Use the new_appliance.py
+- Copy paste a JSON from the appliances directory
+- Use the new_appliance.py
 
 After that you can send us a pull request on Github.
 
