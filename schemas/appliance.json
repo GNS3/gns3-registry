@@ -238,7 +238,7 @@
           "title": "Type of console connection for the administration of the appliance"
         },
         "boot_priority": {
-            "type": "string",
+            "enum": ["d", "c", "dc", "cd", "n", "nc", "nd", "cn", "dn"],
             "title": "Optional define the disk boot priory. Refer to -boot option in qemu manual for more details."
         },
         "kernel_command_line": {
