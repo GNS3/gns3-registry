@@ -51,6 +51,6 @@
                 "hda_disk_image": "fortios.qcow2",
                 "hdb_disk_image": "empty30G.qcow2"
             }
-        },
+        }
     ]
 }
