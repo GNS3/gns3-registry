@@ -1,40 +1,40 @@
 {
     "name": "pfSense",
-    "product_name": "pfSense",
-    "status": "stable",
-    "vendor_name": "Electric Sheep Fencing LLC",
-    "documentation_url": "https://doc.pfsense.org/index.php/Main_Page",
-    "vendor_url": "https://www.pfsense.org",
-    "maintainer": "GNS3 Team",
     "category": "firewall",
-    "registry_version": 1,
     "description": "The pfSense project is a free network firewall distribution, based on the FreeBSD operating system with a custom kernel and including third party free software packages for additional functionality. pfSense software, with the help of the package system, is able to provide the same functionality or more of common commercial firewalls, without any of the artificial limitations. It has successfully replaced every big name commercial firewall you can imagine in numerous installations around the world, including Check Point, Cisco PIX, Cisco ASA, Juniper, Sonicwall, Netgear, Watchguard, Astaro, and more.",
+    "vendor_name": "Electric Sheep Fencing LLC",
+    "vendor_url": "https://www.pfsense.org",
+    "documentation_url": "https://doc.pfsense.org/index.php/Main_Page",
+    "product_name": "pfSense",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "port_name_format": "em{0}",
     "qemu": {
-        "boot_priority": "dc",
-        "process_priority": "normal",
+        "adapter_type": "e1000",
+        "adapters": 6,
+        "ram": 2048,
         "arch": "x86_64",
         "console_type": "telnet",
-        "ram": 2048,
-        "adapter_type": "e1000",
-        "adapters": 6
+        "boot_priority": "dc",
+        "process_priority": "normal"
     },
-    "versions": [
-        {
-            "images": {
-                "hda_disk_image": "pfSense-2.2.6-RELEASE-1g-amd64-nanobsd.img"
-            },
-            "name": "2.2.6"
-        }
-    ],
     "images": [
         {
-            "filesize": 997097472,
             "filename": "pfSense-2.2.6-RELEASE-1g-amd64-nanobsd.img",
-            "md5sum": "7bbe39c4ec698685c9f9b615926820a9",
             "version": "2.2.6",
+            "md5sum": "7bbe39c4ec698685c9f9b615926820a9",
+            "filesize": 997097472,
             "download_url": "https://www.pfsense.org/download/mirror.php?section=downloads"
+        }
+    ],
+    "versions": [
+        {
+            "name": "2.2.6",
+            "images": {
+                "hda_disk_image": "pfSense-2.2.6-RELEASE-1g-amd64-nanobsd.img"
+            }
         }
     ]
 }
