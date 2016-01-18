@@ -23,7 +23,8 @@
         "console_type": "telnet",
         "ram": 1024,
         "arch": "x86_64",
-        "boot_priority": "hdd"
+        "boot_priority": "hdd",
+	"kvm": "allow"
     },
 
     "images": [
