@@ -17,12 +17,21 @@
         "adapters": 1,
         "ram": 256,
         "arch": "i386",
-        "console_type": "vnc"
+        "console_type": "vnc",
+        "options": "-vga std -usbdevice tablet"
     },
     "images": [
         {
+            "filename": "linux-tinycore-linux-6.4-firefox-33.1.1-2.img",
+            "version": "31.1.1~2",
+            "md5sum": "8db0d8dc890797cc335ceb8aaf2255f0",
+            "filesize": 93257728,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-tinycore-linux-6.4-firefox-33.1.1-2.img"
+        },
+        {
             "filename": "linux-tinycore-linux-6.4-firefox-33.1.1.img",
-            "version": "31.1.1",
+            "version": "31.1.1~1",
             "md5sum": "9e51ad24dc25c4a26f7a8fb99bc77830",
             "filesize": 82313216,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
@@ -31,7 +40,13 @@
     ],
     "versions": [
         {
-            "name": "31.1.1",
+            "name": "31.1.1~2",
+            "images": {
+                "hda_disk_image": "linux-tinycore-linux-6.4-firefox-33.1.1-2.img"
+            }
+        },
+        {
+            "name": "31.1.1~1",
             "images": {
                 "hda_disk_image": "linux-tinycore-linux-6.4-firefox-33.1.1.img"
             }

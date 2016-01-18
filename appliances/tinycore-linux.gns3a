@@ -18,9 +18,18 @@
         "adapters": 1,
         "ram": 96,
         "arch": "i386",
-        "console_type": "vnc"
+        "console_type": "vnc",
+        "options": "-vga std -usbdevice tablet"
     },
     "images": [
+        {
+            "filename": "linux-tinycore-6.4-2.img",
+            "version": "6.4",
+            "md5sum": "dcbb5318c3e18ab085088d4474d8de85",
+            "filesize": 36503552,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-tinycore-linux-6.4-2.img"
+        },
         {
             "filename": "linux-tinycore-6.4.img",
             "version": "6.4",
@@ -32,7 +41,13 @@
     ],
     "versions": [
         {
-            "name": "6.4",
+            "name": "6.4~2",
+            "images": {
+                "hda_disk_image": "linux-tinycore-6.4-2.img"
+            }
+        },
+        {
+            "name": "6.4~1",
             "images": {
                 "hda_disk_image": "linux-tinycore-6.4.img"
             }
