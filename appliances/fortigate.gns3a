@@ -28,12 +28,11 @@
 
     "images": [
         {
-            "filename": "fortios.qcow2",
+            "filename": "FGT_VM64_KVM-v5-build0701-FORTINET.out.kvm.qcow2",
             "version": "5.2.5",
             "md5sum": "c4d2cbe51669796e48623e006782f7dc",
             "filesize": 33902592,
             "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx",
-            "direct_download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
         },
 	{
             "filename": "empty30G.qcow2",
@@ -41,7 +40,6 @@
             "md5sum": "3411a599e822f2ac6be560a26405821a",
             "filesize": 197120,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
-            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Empty Qemu disk/empty30G.qcow2"
         }
 
     ],
@@ -50,7 +48,7 @@
         {
             "name": "5.2.5",
             "images": {
-                "hda_disk_image": "fortios.qcow2"
+                "hda_disk_image": "fortios.qcow2",
                 "hdb_disk_image": "empty30G.qcow2"
             }
         },
