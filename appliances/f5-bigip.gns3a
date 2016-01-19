@@ -34,6 +34,7 @@
             "md5sum": "87723dc8c9713a36bde9a650b94205e3",
             "filesize": 2851733504,
             "download_url": "https://downloads.f5.com/"
+            "direct_download_url": "https://downloads.f5.com/esd/serveDownload.jsp?path=/big-ip/big-ip_v11.x/11.6.0/english/virtual-edition/&sw=BIG-IP&pro=big-ip_v11.x&ver=11.6.0&container=Virtual-Edition&file=BIGIP-11.6.0.0.0.401.ALL.qcow2.zip"
         },
         {
             "filename": "empty100G.qcow2",
