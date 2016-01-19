@@ -1,0 +1,58 @@
+{
+    "name": "F5 BIG-IP LTM VE",
+    "category": "guest",
+    "description": "BIG-IP Virtual Edition (VE) is a version of the BIG-IP system that runs as a virtual machine in specifically-supported hypervisors. BIG-IP VE emulates a hardware-based BIG-IP system running a VE-compatible version of BIG-IP software.",
+    "vendor_name": "F5",
+    "vendor_url": "http://www.f5.com/",
+    "documentation_url": "https://support.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ve-kvm-setup-11-3-0.html",
+    "product_name": "F5 BIG-IP LTM Virtual Edition",
+    "product_url": "https://f5.com/products/modules/local-traffic-manager",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "Credentials: root/default. The boot process might take a few minutes without providing any output to the console. Please be patient.",
+    "port_name_format": "1.{port1}",
+    "linked_base": false,
+
+    "qemu": {
+        "adapter_type": "virtio-net-pci",
+        "hda_disk_interface": "virtio",
+        "hdb_disk_interface": "virtio",
+        "adapters": 8,
+        "console_type": "telnet",
+        "ram": 4096,
+        "arch": "x86_64",
+        "boot_priority": "c",
+        "kvm": "allow"
+    },
+
+    "images": [
+        {
+            "filename": "BIGIP-11.6.0.0.0.401.qcow2",
+            "version": "11.6.0",
+            "md5sum": "87723dc8c9713a36bde9a650b94205e3",
+            "filesize": 2851733504,
+            "download_url": "https://downloads.f5.com/"
+        },
+        {
+            "filename": "empty100G.qcow2",
+            "version": "1.0",
+            "md5sum": "3411a599e822f2ac6be560a26405821a",
+            "filesize": 197120,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "http://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty100G.qcow2/download"
+        }
+
+    ],
+
+    "versions": [
+        {
+            "name": "11.6.0",
+            "images": {
+                "hda_disk_image": "BIGIP-11.6.0.0.0.401.qcow2",
+                "hdb_disk_image": "empty100G.qcow2"
+            }
+        }
+    ]
+}
