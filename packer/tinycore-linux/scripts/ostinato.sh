@@ -4,28 +4,6 @@ set -x
 # setup environment
 . /etc/profile
 
-# Install the GUI
-tce-load -wi fltk-1.3
-tce-load -wi flwm
-tce-load -wi Xorg-7.7
-tce-load -wi wbar
-tce-load -wi Xprogs
-tce-load -wi Xlibs
-tce-load -wi aterm
-
-# set X resolution to 800x600
-cat > 99-resolution.conf <<'EOF'
-Section "Screen"
-    Identifier "Screen0"
-    DefaultDepth 24
-    SubSection "Display"
-        Modes "800x600"
-    EndSubSection
-EndSection
-EOF
-sudo mv 99-resolution.conf /usr/local/share/X11/xorg.conf.d/
-echo usr/local/share/X11/xorg.conf.d >> /opt/.filetool.lst
-
 # load the dependencies for ostinato
 tce-load -wi qt-4.x-base
 tce-load -wi qt-4.x-script
@@ -88,10 +66,14 @@ cat > ostinato.desktop <<'EOF'
 Name=Ostinato
 Exec=ostinato
 Type=Application
-OnlyShowIn=Old;
+X-FullPathIcon=/usr/local/share/pixmaps/ostinato_logo.png
+Icon=ostinato_logo.png
 Categories=System;
 EOF
 sudo mv ostinato.desktop /tmp/ostinato/usr/local/share/applications/
+sudo mkdir -p /tmp/ostinato/usr/local/share/pixmaps
+sudo cp -p client/icons/logo.png /tmp/ostinato/usr/local/share/pixmaps/ostinato_logo.png
+chmod 644 /tmp/ostinato/usr/local/share/pixmaps/ostinato_logo.png
 sudo chown -R root:root /tmp/ostinato
 sudo chmod +s /tmp/ostinato/usr/local/bin/drone
 cd ..
@@ -143,6 +125,7 @@ if grep -q -w nodhcp /proc/cmdline; then
 fi
 
 # start ostinato drone
+sleep 2
 HOME=/home/gns3 drone < /dev/null > /var/log/ostinato-drone.log 2>&1 &
 EOF
 
