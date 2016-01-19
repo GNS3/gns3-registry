@@ -38,22 +38,6 @@ A build of Core with Openvswitch preinstalled.
     packer build -var-file=openvswitch.json core64-linux.json
 
 
-Ostinato
-'''''''''
-
-A build of Core with Ostinato drone preinstalled.
-
-.. code:: bash
-
-    packer build -var-file=ostinato.json core-linux.json
-
-A drone-only VM can be build with:
-
-.. code:: bash
-
-    packer build -var-file=ostinato-drone.json core-linux.json
-
-
 Internet
 ''''''''
 An appliance for simulating a domestic modem. eth0 as a dhcp and eth1 should be a nat interface.
@@ -82,3 +66,18 @@ A build of Tiny Core with Firefox preinstalled.
 
     packer build -var-file=tinycore-linux-firefox.json tinycore-linux.json
 
+
+Ostinato
+'''''''''
+
+A build of Tiny Core with Ostinato GUI + drone preinstalled.
+
+.. code:: bash
+
+    packer build -var-file=ostinato.json tinycore-linux.json
+
+A drone-only VM without GUI can be build with:
+
+.. code:: bash
+
+    packer build -var-file=ostinato-drone.json core-linux.json

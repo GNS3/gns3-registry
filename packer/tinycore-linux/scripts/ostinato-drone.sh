@@ -125,6 +125,7 @@ if grep -q -w nodhcp /proc/cmdline; then
 fi
 
 # start ostinato drone
+sleep 2
 HOME=/home/gns3 drone < /dev/null > /var/log/ostinato-drone.log 2>&1 &
 EOF
 
