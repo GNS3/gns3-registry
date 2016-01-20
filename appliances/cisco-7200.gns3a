@@ -15,7 +15,9 @@
         "ram": 512,
         "nvram": 512,
         "startup_config": "ios_base_startup-config.txt",
-        "slot0": "C7200-IO-FE"
+        "slot0": "C7200-IO-FE",
+        "midplane": "vxr",
+        "npe": "npe-400"
     },
     "images": [
         {
