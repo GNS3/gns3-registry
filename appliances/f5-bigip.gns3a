@@ -1,7 +1,7 @@
 {
     "name": "F5 BIG-IP LTM VE",
-    "category": "guest",
-    "description": "BIG-IP Virtual Edition (VE) is a version of the BIG-IP system that runs as a virtual machine in specifically-supported hypervisors. BIG-IP VE emulates a hardware-based BIG-IP system running a VE-compatible version of BIG-IP software.",
+    "category": "router",
+    "description": "BIG-IP Virtual Edition (VE) is a version of the BIG-IP system that runs as a virtual machine in specifically-supported hypervisors. BIG-IP VE emulates a hardware-based BIG-IP system running a VE-compatible version of BIG-IP software. File to be downloaded from F5: BIGIP-11.6.0.0.0.401.ALL.qcow2.zip or BIGIP-12.0.0.0.0.606.ALL.qcow2.zip",
     "vendor_name": "F5",
     "vendor_url": "http://www.f5.com/",
     "documentation_url": "https://support.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ve-kvm-setup-11-3-0.html",
@@ -11,9 +11,8 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "Credentials: root/default. The boot process might take a few minutes without providing any output to the console. Please be patient.",
+    "usage": "Credentials: root/default. The boot process might take a few minutes without providing any output to the console. Please be patient. ",
     "port_name_format": "1.{port1}",
-    "linked_base": false,
 
     "qemu": {
         "adapter_type": "virtio-net-pci",
@@ -28,6 +27,14 @@
     },
 
     "images": [
+        {
+            "filename": "BIGIP-12.0.0.0.0.606.qcow2",
+            "version": "12.0.0",
+            "md5sum": "8f578d697554841f003afd1e2965df7e",
+            "filesize": 3152609280,
+            "download_url": "https://downloads.f5.com/",
+            "direct_download_url": "https://downloads.f5.com/esd/serveDownload.jsp?path=/big-ip/big-ip_v12.x/12.0.0/english/virtual-edition/&sw=BIG-IP&pro=big-ip_v12.x&ver=12.0.0&container=Virtual-Edition&file=BIGIP-12.0.0.0.0.606.ALL.qcow2.zip"
+        },
         {
             "filename": "BIGIP-11.6.0.0.0.401.qcow2",
             "version": "11.6.0",
@@ -48,6 +55,13 @@
     ],
 
     "versions": [
+        {
+            "name": "12.0.0",
+            "images": {
+                "hda_disk_image": "BIGIP-12.0.0.0.0.606.qcow2",
+                "hdb_disk_image": "empty100G.qcow2"
+            }
+        },
         {
             "name": "11.6.0",
             "images": {

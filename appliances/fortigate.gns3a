@@ -13,7 +13,6 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is admin, no password is set.",
     "port_name_format": "Port{port1}",
-    "linked_base": false,
 
     "qemu": {
         "adapter_type": "virtio-net-pci",
