@@ -22,7 +22,8 @@
         "ram": 4096,
         "arch": "x86_64",
         "console_type": "telnet",
-        "boot_priority": "cd"
+        "boot_priority": "cd",
+        "kvm": "allow"
     },
 
     "images": [
