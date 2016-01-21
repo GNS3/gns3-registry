@@ -1,10 +1,6 @@
 set -e
 set -x
 
-# get TinyCore mirror
-. /etc/init.d/tc-functions
-getMirror
-
 # TCE directory back to ramdisk
 mv /etc/sysconfig/tcedir /etc/sysconfig/tcedir.hd
 ln -s /tmp/tce /etc/sysconfig/tcedir
@@ -66,21 +62,14 @@ echo "net-bridging-$KERNEL.tcz" >> /etc/sysconfig/tcedir/onboot.lst
 tce-load -w net-sched-$KERNEL
 echo "net-sched-$KERNEL.tcz" >> /etc/sysconfig/tcedir/onboot.lst
 
-# iproute2 without db library
-# Bug in TinyCore 6.x, which makes arpd non-working:
-# There is a mismatch of the library version between arpd and the db library.
-# Therefore loading the db library has no advantage, it uses only disk space.
-wget $MIRROR/iproute2.tcz
-wget $MIRROR/iproute2.tcz.md5.txt
-cp -p iproute2.tcz* /etc/sysconfig/tcedir/optional/
-echo 'iproute2.tcz' >> /etc/sysconfig/tcedir/onboot.lst
-
 # clean up build environment
 cd ..
 rm -r build
 
 # NETem menu system
-mv /tmp/netem-conf.py .
+. /etc/init.d/tc-functions
+http=http://`getbootparam http`
+wget $http/NETem/netem-conf.py
 chmod +x netem-conf.py
 
 # autologin on serial console
@@ -103,10 +92,41 @@ EOF
 sudo sed -i -e '/label microcore/,/append / s/\(append .*\)/\1 nodhcp/' /mnt/sda1/boot/extlinux/extlinux.conf
 
 # set locale and configure network at startup
+sed -i -e '3,$ d' /opt/bootlocal.sh
 sed -n -e '1,/^\/opt\/bootlocal/ p' /opt/bootsync.sh | head -n -1 > /tmp/bootsync.head
 sed -n -e '/^\/opt\/bootlocal/,$ p' /opt/bootsync.sh > /tmp/bootsync.tail
 cat /tmp/bootsync.head > /opt/bootsync.sh
-cat /tmp/boot_script >> /opt/bootsync.sh; echo >> /opt/bootsync.sh
+cat >> /opt/bootsync.sh <<'EOF'
+. /etc/init.d/tc-functions
+
+# default LANG=C.UTF-8
+[ ! -f /etc/sysconfig/language ] || [ "`cat /etc/sysconfig/language`" = "LANG=C" ] && \
+	echo "LANG=C.UTF-8" > /etc/sysconfig/language
+
+# Configure network interfaces only when boot parameter "nodhcp" is used
+if grep -q -w nodhcp /proc/cmdline; then
+	echo -en "${BLUE}Configuring network interfaces... ${NORMAL}"
+
+	# This waits until all devices have registered
+	/sbin/udevadm settle --timeout=10
+
+	ip link add name br0 type bridge
+	sysctl -q -w net.ipv6.conf.br0.disable_ipv6=1
+	sysctl -q -w net.ipv6.conf.eth0.disable_ipv6=1
+	ip link set dev eth0 promisc on
+	ip link set dev eth0 mtu 2000
+	ip link set dev eth0 up
+	ip link set dev eth0 master br0
+	sysctl -q -w net.ipv6.conf.eth1.disable_ipv6=1
+	ip link set dev eth1 promisc on
+	ip link set dev eth1 mtu 2000
+	ip link set dev eth1 up
+	ip link set dev eth1 master br0
+	ip link set dev br0 up
+
+	echo -e "${GREEN}Done.${NORMAL}"
+fi
+EOF
 cat /tmp/bootsync.tail >> /opt/bootsync.sh
 
 # Done
