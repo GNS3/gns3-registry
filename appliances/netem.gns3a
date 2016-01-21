@@ -23,19 +23,19 @@
     },
     "images": [
         {
-            "filename": "NETem-v3.qcow2",
-            "version": "0.3",
-            "md5sum": "88297839b5f014ac15a434053f51690f",
-            "filesize": 23461888,
-            "download_url": "http://bernhard-ehlers.de/projects/netem/NETem-v3.qcow2",
-            "direct_download_url": "http://bernhard-ehlers.de/projects/netem/NETem-v3.qcow2"
+            "filename": "NETem-v4.qcow2",
+            "version": "0.4",
+            "md5sum": "e678698c97804901c7a53f6b68c8b861",
+            "filesize": 26476544,
+            "download_url": "http://bernhard-ehlers.de/projects/netem/index.html",
+            "direct_download_url": "http://bernhard-ehlers.de/projects/netem/NETem-v4.qcow2"
         }
     ],
     "versions": [
         {
-            "name": "0.3",
+            "name": "0.4",
             "images": {
-                "hda_disk_image": "NETem-v3.qcow2"
+                "hda_disk_image": "NETem-v4.qcow2"
             }
         }
     ]

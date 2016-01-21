@@ -47,6 +47,16 @@ An appliance for simulating a domestic modem. eth0 as a dhcp and eth1 should be 
     packer build -var-file=core-linux-internet.json core-linux.json
 
 
+NETem
+''''''
+
+A build of Core with the NETem (Network link emulator) preinstalled.
+
+.. code:: bash
+
+    packer build -var-file=NETem.json core-linux.json
+
+
 
 Tiny Core Linux installation
 ****************************

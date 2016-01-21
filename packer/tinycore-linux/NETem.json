@@ -1,0 +1,5 @@
+{
+    "vm_name": "NETem.qcow2",
+    "setup_script": "NETem.sh",
+    "disk_size": "32"
+}
