@@ -11,6 +11,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
+    "symbol": "loadbalancer.svg",
     "usage": "First boot might take a long time. Credentials for installation (1st boot): install/password. Credentials for installed appliance: admin/a10. Default management IP: 172.31.31.31/24",
     "first_port_name": "mgmt",
     "port_name_format": "ethernet {port1}",

@@ -11,6 +11,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
+    "symbol": "loadbalancer.svg",
     "usage": "Credentials: root/default. The boot process might take a few minutes without providing any output to the console. Please be patient. ",
     "port_name_format": "1.{port1}",
 
