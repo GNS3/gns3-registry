@@ -13,19 +13,17 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is admin, no password is set.",
     "port_name_format": "Port{port1}",
-
     "qemu": {
         "adapter_type": "virtio-net-pci",
+        "adapters": 10,
+        "ram": 1024,
         "hda_disk_interface": "virtio",
         "hdb_disk_interface": "virtio",
-        "adapters": 10,
-        "console_type": "telnet",
-        "ram": 1024,
         "arch": "x86_64",
+        "console_type": "telnet",
         "boot_priority": "c",
         "kvm": "allow"
     },
-
     "images": [
         {
             "filename": "FGT_VM64_KVM-v5-build0701-FORTINET.out.kvm.qcow2",
@@ -42,9 +40,7 @@
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
             "direct_download_url": "http://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty30G.qcow2/download"
         }
-
     ],
-
     "versions": [
         {
             "name": "5.2.5",

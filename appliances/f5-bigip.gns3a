@@ -11,22 +11,20 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "symbol": "loadbalancer.svg",
     "usage": "Credentials: root/default. The boot process might take a few minutes without providing any output to the console. Please be patient. ",
+    "symbol": "loadbalancer.svg",
     "port_name_format": "1.{port1}",
-
     "qemu": {
         "adapter_type": "virtio-net-pci",
+        "adapters": 8,
+        "ram": 4096,
         "hda_disk_interface": "virtio",
         "hdb_disk_interface": "virtio",
-        "adapters": 8,
-        "console_type": "telnet",
-        "ram": 4096,
         "arch": "x86_64",
+        "console_type": "telnet",
         "boot_priority": "c",
         "kvm": "allow"
     },
-
     "images": [
         {
             "filename": "BIGIP-12.0.0.0.0.606.qcow2",
@@ -52,9 +50,7 @@
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
             "direct_download_url": "http://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty100G.qcow2/download"
         }
-
     ],
-
     "versions": [
         {
             "name": "12.0.0",
