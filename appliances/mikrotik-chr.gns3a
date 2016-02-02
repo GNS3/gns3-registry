@@ -17,7 +17,7 @@
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 2,
-        "ram": 64,
+        "ram": 128,
         "hda_disk_interface": "virtio",
         "arch": "x86_64",
         "console_type": "telnet",
@@ -27,11 +27,48 @@
     },
     "images": [
         {
+            "filename": "chr-6.34.vmdk",
+            "version": "6.34 (.vmdk)",
+            "md5sum": "c5e6d192ae19d263a9a313d4b4bee7e4",
+            "filesize": 30277632,
+            "download_url": "http://download2.mikrotik.com/routeros/6.34/chr-6.34.vmdk"
+        },
+        {
+            "filename": "chr-6.34.vdi",
+            "version": "6.34 (.vdi)",
+            "md5sum": "34b161f83a792c744c76a529afc094a8",
+            "filesize": 30409728,
+            "download_url": "http://download2.mikrotik.com/routeros/6.34/chr-6.34.vdi"
+        },
+        {
+            "filename": "chr-6.34.img",
+            "version": "6.34 (.img)",
+            "md5sum": "32ffde7fb934c7bfee555c899ccd77b6",
+            "filesize": 134217728,
+            "download_url": "http://download2.mikrotik.com/routeros/6.34/chr-6.34.img.zip",
+            "compression": "zip"
+        },
+        {
             "filename": "chr-6.33.5.vmdk",
-            "version": "6.33.3 (.vmdk)",
+            "version": "6.33.5 (.vmdk)",
             "md5sum": "cd284e28aa02ae59f55ed8f43ff27fbf",
             "filesize": 23920640,
             "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.vmdk"
+        },
+        {
+            "filename": "chr-6.33.5.vdi",
+            "version": "6.33.5 (.vdi)",
+            "md5sum": "fa84e63a558e7c61d7d338386cfd08c9",
+            "filesize": 24118272,
+            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.vdi"
+        },
+        {
+            "filename": "chr-6.33.5.img",
+            "version": "6.33.5 (.img)",
+            "md5sum": "210cc8ad06f25c9f27b6b99f6e00bd91",
+            "filesize": 67108864,
+            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.img.zip",
+            "compression": "zip"
         },
         {
             "filename": "chr-6.33.3.vmdk",
@@ -39,21 +76,6 @@
             "md5sum": "08532a5af1a830182d65c416eab2b089",
             "filesize": 23920640,
             "download_url": "http://download2.mikrotik.com/routeros/6.33.3/chr-6.33.3.vmdk"
-        },
-        {
-            "filename": "chr-6.33.5.vdi",
-            "version": "6.33.3 (.vdi)",
-            "md5sum": "fa84e63a558e7c61d7d338386cfd08c9",
-            "filesize": 24118272,
-            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.vdi"
-        },
-        {
-            "filename": "chr-6.33.5.img",
-            "version": "6.33.3 (.img)",
-            "md5sum": "210cc8ad06f25c9f27b6b99f6e00bd91",
-            "filesize": 67108864,
-            "download_url": "http://download2.mikrotik.com/routeros/6.33.5/chr-6.33.5.img.zip",
-            "compression": "zip"
         },
         {
             "filename": "chr-6.33.2.vmdk",
@@ -71,6 +93,24 @@
         }
     ],
     "versions": [
+        {
+            "name": "6.34 (.vmdk)",
+            "images": {
+                "hda_disk_image": "chr-6.34.vmdk"
+            }
+        },
+        {
+            "name": "6.34 (.vdi)",
+            "images": {
+                "hda_disk_image": "chr-6.34.vdi"
+            }
+        },
+        {
+            "name": "6.34 (.img)",
+            "images": {
+                "hda_disk_image": "chr-6.34.img"
+            }
+        },
         {
             "name": "6.33.5 (.vmdk)",
             "images": {
