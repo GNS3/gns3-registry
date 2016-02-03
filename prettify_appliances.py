@@ -22,7 +22,18 @@ Prettify all appliances JSON
 import glob
 import json
 import jsonschema
+import urllib
 from collections import OrderedDict
+
+def clean_urls(obj):
+    """
+    All url key are properly escaped
+    """
+    for key in obj.keys():
+        if key.endswith("_url"):
+            if not "%" in obj[key]:
+                obj[key] = obj[key].replace(' ', '%20')
+
 
 def sort_key_using_schema(schema, key):
     """
@@ -41,12 +52,15 @@ for appliance in glob.glob('appliances/*.gns3a'):
         config = json.load(f)
 
     config = OrderedDict(sorted(config.items(), key=lambda t: sort_key_using_schema(schema, t[0])))
+    clean_urls(config)
+
     for key,val in config.items():
         if isinstance(val, dict):
             config[key] = OrderedDict(sorted(val.items(), key=lambda t: sort_key_using_schema(schema['properties'][key], t[0])))
 
     images = []
     for image in config['images']:
+        clean_urls(image)
         images.append(OrderedDict(sorted(image.items(), key=lambda t: sort_key_using_schema(schema['properties']['images']['items'], t[0]))))
     images = sorted(images, key=lambda t: t['version'], reverse=True)
     config['images'] = images
