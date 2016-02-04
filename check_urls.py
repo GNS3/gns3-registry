@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright (C) 2015 GNS3 Technologies Inc.
 #
@@ -18,94 +18,81 @@
 import os
 import json
 import sys
-import socket
-import time
-import urllib.request
-import http.client
-from multiprocessing import Pool
+import pycurl
 
-class CheckError(Exception):
-    def __init__(self, m):
-        self.message = m
+err_list = []
 
-    def __str__(self):
-        return self.message
+def check_url(url, appliance):
+    print("   " + url)
 
-
-class MyHTTPRedirectHandler(urllib.request.HTTPRedirectHandler):
-    def redirect_request(self, req, fp, code, msg, hdrs, newurl):
-        return None
-
-
-urllib.request.install_opener(urllib.request.build_opener(MyHTTPRedirectHandler))
-
-
-def check_url(args):
-    url, appliance = args
-    print("Check " + url)
-
-    remaining_failure = 5
     error = None
-    while remaining_failure != 0:
-        try:
-            req = urllib.request.Request(url, method='HEAD')
-            req.add_header
-            urllib.request.urlopen(req, timeout=45) #Yeah a big big timeout for broken websites...
-        except urllib.error.HTTPError as err:
-            if err.getcode() >= 400:
-                error = CheckError('Error with url {} ({})'.format(url, str(err)))
-            else:
-                # We allow error code like 302
-                return
-        except http.client.BadStatusLine as err:
-            error = CheckError('Bad status line {} ({})'.format(url, str(err)))
-        except urllib.error.URLError as err:
-            error = CheckError('Invalid URL {} ({})'.format(url, str(err)))
-        except socket.timeout as err:
-            error = CheckError('Timeout URL {} ({})'.format(url, str(err)))
-        else:
-            return
-        remaining_failure -= 1
-        time.sleep(5)
-    raise error
+    try:
+        c = pycurl.Curl()
+        c.setopt(c.URL, url)
+        c.setopt(c.USERAGENT, 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)')
+        c.setopt(c.NOBODY, True)
+        c.setopt(c.FOLLOWLOCATION, True)
+        c.perform()
+        http_status = c.getinfo(c.RESPONSE_CODE)
+        if http_status >= 400:
+            error = 'HTTP status {}'.format(http_status)
+        c.close()
+    except pycurl.error:
+        error = c.errstr()
+
+    if error:
+        print("     " + error)
+        err_list.append("{}: {} - {}".format(appliance, url, error))
 
 
-def check_urls(pool, appliance):
-    with open(os.path.join('appliances', appliance)) as f:
-        appliance_json = json.load(f)
+def check_urls(appliance):
+    try:
+        with open(os.path.join('appliances', appliance)) as f:
+            appliance_json = json.load(f)
+    except Exception as err:
+        print("   " + str(err))
+        err_list.append("{}: {}".format(appliance, err))
+        return []
 
-    calls = []
+    urls = set()
 
     for image in appliance_json['images']:
         if 'direct_download_url' in image:
-            calls.append((image['direct_download_url'], appliance))
+            urls.add(image['direct_download_url'])
         if 'download_url' in image:
-            calls.append((image['download_url'], appliance))
+            urls.add(image['download_url'])
 
     if 'vendor_url' in appliance_json:
-        calls.append((appliance_json['vendor_url'], appliance))
+        urls.add(appliance_json['vendor_url'])
     if 'documentation_url' in appliance_json:
-        calls.append((appliance_json['documentation_url'], appliance))
+        urls.add(appliance_json['documentation_url'])
     if 'product_url' in appliance_json:
-        calls.append((appliance_json['product_url'], appliance))
-    return calls
+        urls.add(appliance_json['product_url'])
+    return list(urls)
 
 
 def main():
-    pool = Pool(processes=8)
-
-    calls_check_url = []
-    for appliance in os.listdir('appliances'):
-        calls_check_url += check_urls(pool, appliance)
     print("=> Check URL in appliances")
-    try:
-        pool.map_async(check_url, calls_check_url).get()
-    except CheckError as e:
-        print(e)
-        sys.exit(1)
-    pool.close()
-    pool.join()
-    print("Everything is ok!")
+    if len(sys.argv) >= 2:
+        appliance_list = sys.argv[1:]
+    else:
+        appliance_list = os.listdir('appliances')
+        appliance_list.sort()
+
+    for appliance in appliance_list:
+        if not appliance.endswith('.gns3a'):
+            appliance += '.gns3a'
+        print("-> {}".format(appliance))
+        for url in check_urls(appliance):
+            check_url(url, appliance)
+        print()
+
+    if len(err_list) == 0:
+         print("Everything is ok!")
+    else:
+        print("{} error(s):".format(len(err_list)))
+        for error in err_list:
+            print(error)
 
 if __name__ == '__main__':
     main()
