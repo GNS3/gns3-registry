@@ -3,7 +3,7 @@
     "category": "guest",
     "description": "Microsoft Windows (or simply Windows) is a graphical operating system developed, marketed, and sold by Microsoft.\n\nMicrosoft releases time limited VMs for testing Internet Explorer.\n\nOn the download site select the VM, as platform select VirtualBox, then download the zip file, afterwards unzip it.",
     "vendor_name": "Microsoft",
-    "vendor_url": "https://dev.microsoft.com/",
+    "vendor_url": "http://www.microsoft.com",
     "product_name": "Windows",
     "registry_version": 1,
     "status": "experimental",
