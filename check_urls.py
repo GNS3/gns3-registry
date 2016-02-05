@@ -22,27 +22,38 @@ import pycurl
 
 err_list = []
 
+
+def data_abort(data):
+    return -1
+
+
 def check_url(url, appliance):
     print("   " + url)
 
     error = None
+    c = pycurl.Curl()
     try:
-        c = pycurl.Curl()
         c.setopt(c.URL, url)
         c.setopt(c.USERAGENT, 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)')
-        c.setopt(c.NOBODY, True)
+        c.setopt(c.HTTPHEADER, ['Accept-Language: en-us'])
         c.setopt(c.FOLLOWLOCATION, True)
+        c.setopt(c.WRITEFUNCTION, data_abort)
         c.perform()
+    except pycurl.error as err:
+        errno, errstr = err.args
+        if errno != pycurl.E_WRITE_ERROR:
+            error = errstr
+
+    if not error:
         http_status = c.getinfo(c.RESPONSE_CODE)
         if http_status >= 400:
             error = 'HTTP status {}'.format(http_status)
-        c.close()
-    except pycurl.error:
-        error = c.errstr()
 
     if error:
         print("     " + error)
         err_list.append("{}: {} - {}".format(appliance, url, error))
+
+    c.close()
 
 
 def check_urls(appliance):
