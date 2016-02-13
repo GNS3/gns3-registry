@@ -1,7 +1,7 @@
 {
     "name": "Cisco IOS XRv",
     "category": "router",
-    "description": "",
+    "description": "IOS XRv supports the control plane features introduced in Cisco IOS XR.",
     "vendor_name": "Cisco",
     "vendor_url": "http://www.cisco.com/",
     "documentation_url": "http://www.cisco.com/c/en/us/td/docs/ios_xr_sw/ios_xrv/release/notes/xrv-rn.html",
@@ -24,18 +24,18 @@
     },
     "images": [
         {
-            "filename": "iosxrv-k9-demo-5.3.2.qcow2",
-            "version": "5.3.2",
-            "md5sum": "b14f3b554586c28984f1235ad5963419",
-            "filesize": 687669248,
-            "download_url": "http://virl.cisco.com/"
+            "filename": "iosxrv-k9-demo-6.0.0.qcow2",
+            "version": "6.0.0",
+            "md5sum": "f0dccd86d64e370e22f144e681d202b6",
+            "filesize": 860815360,
+            "download_url": "https://virl.mediuscorp.com/my-account/"
         }
     ],
     "versions": [
         {
-            "name": "5.3.2",
+            "name": "6.0.0",
             "images": {
-                "hda_disk_image": "iosxrv-k9-demo-5.3.2.qcow2"
+                "hda_disk_image": "iosxrv-k9-demo-6.0.0.qcow2"
             }
         }
     ]
