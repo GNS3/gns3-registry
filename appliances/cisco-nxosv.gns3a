@@ -1,7 +1,7 @@
 {
     "name": "Cisco NX-OSv",
     "category": "multilayer_switch",
-    "description": "NX-OSv is a reference platform for an implementation of the Cisco Nexus operating system, based on the Nexus 7000-series platforms, running as a full virtual machine on a hypervisor.",
+    "description": "NXOSv is a reference platform for an implementation of the Cisco Nexus operating system, based on the Nexus 7000-series platforms, running as a full virtual machine on a hypervisor. This includes NXAPI and MPLS LDP support.",
     "vendor_name": "Cisco",
     "vendor_url": "http://www.cisco.com/",
     "product_name": "NX-OSv",
@@ -23,18 +23,18 @@
     },
     "images": [
         {
-            "filename": "NXOSv-7.2.0.121.qcow2",
-            "version": "7.2.0.121",
+            "filename": "titanium-d1.7.2.0.D1.1.vmdk",
+            "version": "7.2.0.D1.1",
             "md5sum": "0ee38c7d717840cb4ca822f4870671d0",
             "filesize": 361103360,
-            "download_url": "http://virl.cisco.com/"
+            "download_url": "https://virl.mediuscorp.com/my-account/"
         }
     ],
     "versions": [
         {
-            "name": "7.2.0.121",
+            "name": "7.2.0.D1.1",
             "images": {
-                "hda_disk_image": "NXOSv-7.2.0.121.qcow2"
+                "hda_disk_image": "titanium-d1.7.2.0.D1.1.vmdk"
             }
         }
     ]
