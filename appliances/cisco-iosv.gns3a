@@ -22,18 +22,18 @@
     },
     "images": [
         {
-            "filename": "IOSv-15.5.3M.qcow2",
-            "version": "15.5.3M",
-            "md5sum": "b3b6d7ac3bde84e51388afe17040b457",
-            "filesize": 127926272,
-            "download_url": "http://virl.cisco.com/"
+            "filename": "vios-adventerprisek9-m.vmdk.SPA.156-1.T",
+            "version": "15.6(1)T",
+            "md5sum": "e7cb1bbd0c59280dd946feefa68fa270",
+            "filesize": 128122880,
+            "download_url": "https://virl.mediuscorp.com/my-account/"
         }
     ],
     "versions": [
         {
-            "name": "15.5.3M",
+            "name": "15.6(1)T",
             "images": {
-                "hda_disk_image": "IOSv-15.5.3M.qcow2"
+                "hda_disk_image": "vios-adventerprisek9-m.vmdk.SPA.156-1.T"
             }
         }
     ]
