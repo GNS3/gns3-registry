@@ -1,7 +1,7 @@
 {
     "name": "Cisco IOSvL2",
     "category": "multilayer_switch",
-    "description": "Cisco Virtual IOS allows user to run IOS on a standard computer.",
+    "description": "Cisco Virtual IOS L2 allows user to run a IOS switching image on a standard computer.",
     "vendor_name": "Cisco",
     "vendor_url": "http://www.cisco.com/",
     "product_name": "IOSvL2",
@@ -23,9 +23,9 @@
     },
     "images": [
         {
-            "filename": "IOSvL2-15.2.4055.qcow2",
+            "filename": "vios_l2-adventerprisek9-m.vmdk.SSA.152-4.0.55.E",
             "version": "15.2.4055",
-            "md5sum": "0fb3c7e158e14e3ffbfa36bee6d592da",
+            "md5sum": "1a3a21f5697cae64bb930895b986d71e",
             "filesize": 96862208,
             "download_url": "http://virl.cisco.com/"
         }
@@ -34,7 +34,7 @@
         {
             "name": "15.2.4055",
             "images": {
-                "hda_disk_image": "IOSvL2-15.2.4055.qcow2"
+                "hda_disk_image": "vios_l2-adventerprisek9-m.vmdk.SSA.152-4.0.55.E"
             }
         }
     ]
