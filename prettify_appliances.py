@@ -58,20 +58,22 @@ for appliance in glob.glob('appliances/*.gns3a'):
         if isinstance(val, dict):
             config[key] = OrderedDict(sorted(val.items(), key=lambda t: sort_key_using_schema(schema['properties'][key], t[0])))
 
-    images = []
-    for image in config['images']:
-        clean_urls(image)
-        images.append(OrderedDict(sorted(image.items(), key=lambda t: sort_key_using_schema(schema['properties']['images']['items'], t[0]))))
-    images = sorted(images, key=lambda t: t['version'], reverse=True)
-    config['images'] = images
+    if 'images' in config:
+        images = []
+        for image in config['images']:
+            clean_urls(image)
+            images.append(OrderedDict(sorted(image.items(), key=lambda t: sort_key_using_schema(schema['properties']['images']['items'], t[0]))))
+        images = sorted(images, key=lambda t: t['version'], reverse=True)
+        config['images'] = images
 
-    versions = []
-    for version in config['versions']:
-        version = OrderedDict(sorted(version.items(), key=lambda t: sort_key_using_schema(schema['properties']['versions']['items'], t[0])))
-        version['images'] = OrderedDict(sorted(version['images'].items(), key=lambda t: sort_key_using_schema(schema['properties']['versions']['items']['properties']['images'], t[0])))
-        versions.append(version)
-    versions = sorted(versions, key=lambda t: t['name'], reverse=True)
-    config['versions'] = versions
+    if 'versions' in config:
+        versions = []
+        for version in config['versions']:
+            version = OrderedDict(sorted(version.items(), key=lambda t: sort_key_using_schema(schema['properties']['versions']['items'], t[0])))
+            version['images'] = OrderedDict(sorted(version['images'].items(), key=lambda t: sort_key_using_schema(schema['properties']['versions']['items']['properties']['images'], t[0])))
+            versions.append(version)
+        versions = sorted(versions, key=lambda t: t['name'], reverse=True)
+        config['versions'] = versions
 
     # Validate our changes
     jsonschema.validate(config, schema)

@@ -3,37 +3,16 @@
     "category": "multilayer_switch",
     "description": "Open vSwitch is a production quality, multilayer virtual switch licensed under the open source Apache 2.0 license.  It is designed to enable massive network automation through programmatic extension, while still supporting standard management interfaces and protocols (e.g. NetFlow, sFlow, IPFIX, RSPAN, CLI, LACP, 802.1ag).  In addition, it is designed to support distribution across multiple physical servers similar to VMware's vNetwork distributed vswitch or Cisco's Nexus 1000V.",
     "vendor_name": "Open vSwitch",
-    "vendor_url": "http://openvswitch.net/",
-    "documentation_url": "http://openvswitch.net/support",
+    "vendor_url": "http://openvswitch.org/",
+    "documentation_url": "http://openvswitch.org/support/",
     "product_name": "Open vSwitch",
-    "registry_version": 1,
+    "registry_version": 3,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "qemu": {
-        "adapter_type": "e1000",
-        "adapters": 24,
-        "ram": 128,
-        "arch": "x86_64",
-        "console_type": "telnet",
-        "kvm": "allow"
-    },
-    "images": [
-        {
-            "filename": "openvswitch-3.16.6-tinycore64.img",
-            "version": "3.16.6",
-            "md5sum": "88b777ef930c1a3849b6a40c0d3fd102",
-            "filesize": 70254592,
-            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/openvswitch-3.16.6-tinycore64.img"
-        }
-    ],
-    "versions": [
-        {
-            "name": "3.16.6",
-            "images": {
-                "hda_disk_image": "openvswitch-3.16.6-tinycore64.img"
-            }
-        }
-    ]
+    "usage": "By default all interfaces are connected to the br0",
+    "docker": {
+        "adapters": 16,
+        "image": "gns3/openvswitch"
+    }
 }

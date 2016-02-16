@@ -35,26 +35,27 @@ def check_appliance(appliance):
         appliance_json = json.load(f)
         jsonschema.validate(appliance_json, schema)
 
-    for image in appliance_json['images']:
-        if image['filename'] in images:
-            print('Duplicate image filename ' + image['filename'])
-            sys.exit(1)
-        if image['md5sum'] in md5sums:
-            print('Duplicate image md5sum ' + image['md5sum'])
-            sys.exit(1)
-        images.add(image['filename'])
-        md5sums.add(image['md5sum'])
-
-    for version in appliance_json['versions']:
-        for image in version['images'].values():
-            found = False
-            for i in appliance_json['images']:
-                if i['filename'] in image:
-                    found = True
-
-            if not found:
-                print('Missing relation ' + i['filename'] + ' ' + ' in ' + appliance)
+    if 'images' in appliance_json:
+        for image in appliance_json['images']:
+            if image['filename'] in images:
+                print('Duplicate image filename ' + image['filename'])
                 sys.exit(1)
+            if image['md5sum'] in md5sums:
+                print('Duplicate image md5sum ' + image['md5sum'])
+                sys.exit(1)
+            images.add(image['filename'])
+            md5sums.add(image['md5sum'])
+
+        for version in appliance_json['versions']:
+            for image in version['images'].values():
+                found = False
+                for i in appliance_json['images']:
+                    if i['filename'] in image:
+                        found = True
+
+                if not found:
+                    print('Missing relation ' + i['filename'] + ' ' + ' in ' + appliance)
+                    sys.exit(1)
 
 
 def check_packer(packer):
