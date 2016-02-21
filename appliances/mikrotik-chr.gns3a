@@ -27,6 +27,28 @@
     },
     "images": [
         {
+            "filename": "chr-6.34.2.vmdk",
+            "version": "6.34.2 (.vmdk)",
+            "md5sum": "0360f121b76a8b491a05dc37640ca319",
+            "filesize": 30277632,
+            "download_url": "http://download2.mikrotik.com/routeros/6.34.2/chr-6.34.2.vmdk"
+        },
+        {
+            "filename": "chr-6.34.2.vdi",
+            "version": "6.34.2 (.vdi)",
+            "md5sum": "e7e4021aeeee2eaabd024d48702bb2e1",
+            "filesize": 30409728,
+            "download_url": "http://download2.mikrotik.com/routeros/6.34.2/chr-6.34.2.vdi"
+        },
+        {
+            "filename": "chr-6.34.2.img",
+            "version": "6.34.2 (.img)",
+            "md5sum": "984d4d11c2ff209fcdc21ac42895edbe",
+            "filesize": 134217728,
+            "download_url": "http://download2.mikrotik.com/routeros/6.34.2/chr-6.34.2.img.zip",
+            "compression": "zip"
+        },
+        {
             "filename": "chr-6.34.vmdk",
             "version": "6.34 (.vmdk)",
             "md5sum": "c5e6d192ae19d263a9a313d4b4bee7e4",
@@ -93,6 +115,24 @@
         }
     ],
     "versions": [
+        {
+            "name": "6.34.2 (.vmdk)",
+            "images": {
+                "hda_disk_image": "chr-6.34.2.vmdk"
+            }
+        },
+        {
+            "name": "6.34.2 (.vdi)",
+            "images": {
+                "hda_disk_image": "chr-6.34.2.vdi"
+            }
+        },
+        {
+            "name": "6.34.2 (.img)",
+            "images": {
+                "hda_disk_image": "chr-6.34.2.img"
+            }
+        },
         {
             "name": "6.34 (.vmdk)",
             "images": {
