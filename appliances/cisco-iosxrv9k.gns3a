@@ -18,10 +18,10 @@
         "adapter_type": "e1000",
         "adapters": 4,
         "ram": 16384,
-        "cpus": 4,
         "arch": "i386",
         "console_type": "telnet",
-        "kvm": "require"
+        "kvm": "require",
+        "options": "-smp 4"
     },
     "images": [
         {
