@@ -19,6 +19,15 @@
     },
     "images": [
         {
+            "filename": "vRIN-0.8.qcow2",
+            "version": "0.8",
+            "md5sum": "38eb48d098d3e465422347f7983b9d86",
+            "filesize": 625999872,
+            "download_url": "https://sourceforge.net/projects/vrin/files",
+            "direct_download_url": "http://sourceforge.net/projects/vrin/files/vRIN-0.8.qcow2.bz2/download",
+            "compression": "bzip2"
+        },
+        {
             "filename": "vRIN-0.7.qcow2",
             "version": "0.7",
             "md5sum": "2e9802c403e34a91871922b9a26592ad",
@@ -38,6 +47,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "0.8",
+            "images": {
+                "hda_disk_image": "vRIN-0.8.qcow2"
+            }
+        },
         {
             "name": "0.7",
             "images": {
