@@ -20,7 +20,7 @@
         "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "require",
-        "options": "-smp 2"
+        "options": "-smp 2 -machine type=pc-1.0"
     },
     "images": [
         {
