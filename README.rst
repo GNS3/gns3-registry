@@ -25,6 +25,11 @@ After that you can send us a pull request on Github.
 In schemas/appliance.json you have a JSON with a schema for controlling the file
 and can be use as documentation for each fields.
 
+Docker container
+################
+
+This repository contain also the source of Docker container publish by the GNS3
+team and that can be used as appliance in GNS3.
 
 Tools
 #######
