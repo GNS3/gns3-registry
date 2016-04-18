@@ -1,0 +1,57 @@
+{
+    "name": "FortiMail",
+    "category": "guest",
+    "description": "FortiMail is a complete Secure Email Gateway offering suitable for any size organization. It provides a single solution to protect against inbound attacks - including advanced malware -, as well as outbound threats and data loss with a wide range of top-rated security capabilities.",
+    "vendor_name": "Fortinet",
+    "vendor_url": "http://www.fortinet.com/",
+    "documentation_url": "http://docs.fortinet.com/fortimail/admin-guides",
+    "product_name": "FortiMail",
+    "product_url": "http://www.fortinet.com/products/fortimail/index.html",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "First boot takes a few minutes. Admin URL is https://x.x.x.x/admin, default username is admin, no password is set.",
+    "port_name_format": "Port{port1}",
+
+    "qemu": {
+        "adapter_type": "virtio-net-pci",
+        "hda_disk_interface": "virtio",
+        "hdb_disk_interface": "virtio",
+        "adapters": 4,
+        "console_type": "telnet",
+        "ram": 1024,
+        "arch": "x86_64",
+        "boot_priority": "c",
+        "kvm": "allow"
+    },
+
+    "images": [
+        {
+            "filename": "FML_VMKV-64-v53-build0593-FORTINET.out.kvm.qcow2",
+            "version": "5.3.2",
+            "md5sum": "0447819ed4aa382ea6871c0cb913b592",
+            "filesize": 84541440,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
+            "filename": "empty30G.qcow2",
+            "version": "1.0",
+            "md5sum": "3411a599e822f2ac6be560a26405821a",
+            "filesize": 197120,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "http://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty30G.qcow2/download"
+        }
+
+    ],
+
+    "versions": [
+        {
+            "name": "5.3.2",
+            "images": {
+                "hda_disk_image": "FML_VMKV-64-v53-build0593-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        }
+    ]
+}
