@@ -10,5 +10,8 @@ RUN apk add nano
 RUN apk add curl
 RUN apk add links
 RUN apk add iputils
+RUN apk add bind-tools
 RUN apk add rsync
 RUN apk add bash
+VOLUME /root/.ssh /etc/ssh /data
+ADD start-ssh.sh start-ssh.sh
