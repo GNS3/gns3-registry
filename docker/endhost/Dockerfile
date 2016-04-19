@@ -14,4 +14,4 @@ RUN apk add bind-tools
 RUN apk add rsync
 RUN apk add bash
 VOLUME /root/.ssh /etc/ssh /data
-ADD start-ssh.sh start-ssh.sh
+ADD start-ssh.sh /bin/start-ssh.sh
