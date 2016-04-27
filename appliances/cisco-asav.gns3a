@@ -25,14 +25,26 @@
     },
     "images": [
         {
+            "filename": "asav952-204.qcow2",
+            "version": "9.5.2-204",
+            "md5sum": "73a1126283de6b70c4cc12edfc46d547",
+            "filesize": 169345024,
+            "download_url": "https://virl.mediuscorp.com/my-account/"
+        },
+        {
             "filename": "asav951-201.qcow2",
             "version": "9.5.1-200",
             "md5sum": "ca071370278ecbd5dfdb1c5a4161571a",
             "filesize": 160038912,
             "download_url": "https://virl.mediuscorp.com/my-account/"
-        }
-    ],
+        }    ],
     "versions": [
+        {
+            "name": "9.5.2-204",
+            "images": {
+                "hda_disk_image": "asav952-204.qcow2"
+            }
+        },
         {
             "name": "9.5.1-201",
             "images": {
