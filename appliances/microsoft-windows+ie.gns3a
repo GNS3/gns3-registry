@@ -25,6 +25,13 @@
             "md5sum": "88c74f288bc81a7aad3d610a351680ce",
             "filesize": 1241329152,
             "download_url": "http://dev.windows.com/en-us/microsoft-edge/tools/vms/windows/"
+        },
+        {
+            "filename": "IE8 - Win7.ova",
+            "version": "7+IE8",
+            "md5sum": "8ab751b15fc2a569f5ca4d99dd107a36",
+            "filesize": 4051398144,
+            "download_url": "http://dev.windows.com/en-us/microsoft-edge/tools/vms/windows/"
         }
     ],
     "versions": [
@@ -32,6 +39,12 @@
             "name": "XP+IE8",
             "images": {
                 "hda_disk_image": "IE8 - WinXP.ova/IE8 - WinXP-disk1.vmdk"
+            }
+        },
+        {
+            "name": "7+IE8",
+            "images": {
+                "hda_disk_image": "IE8 - Win7.ova/IE8 - Win7-disk1.vmdk"
             }
         }
     ]
