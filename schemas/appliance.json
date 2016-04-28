@@ -115,6 +115,10 @@
             "environment": {
                 "type": "string",
                 "title": "One KEY=VAR environment by line"
+            },
+            "console_type": {
+              "enum": ["telnet", "vnc"],
+              "title": "Type of console connection for the administration of the appliance"
             }
         },
         "additionalProperties": false,
