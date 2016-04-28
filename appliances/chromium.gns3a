@@ -9,9 +9,9 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "console_type": "vnc",
     "docker": {
         "adapters": 1,
-        "image": "jess/chromium"
+        "console_type": "vnc",
+        "image": "gns3/chromium"
     }
 }
