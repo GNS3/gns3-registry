@@ -1,0 +1,57 @@
+{
+    "name": "FortiADC",
+    "category": "router",
+    "description": "Fortinet ADC appliances optimize the availability, user experience, and scalability of enterprise application delivery. They deliver fast, secure, and intelligent acceleration and distribution of even the most demanding enterprise applications.",
+    "vendor_name": "Fortinet",
+    "vendor_url": "http://www.fortinet.com/",
+    "documentation_url": "http://docs.fortinet.com/fortiadc-d-series/admin-guides",
+    "product_name": "FortiADC",
+    "product_url": "https://www.fortinet.com/products-services/products/application-delivery-controllers/fortiadc.html",
+    "registry_version": 1,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "symbol": "loadbalancer.svg",
+    "usage": "Default username is admin, no password is set. Silent boot, it might take a while.",
+    "port_name_format": "Port{port1}",
+
+    "qemu": {
+        "adapter_type": "virtio-net-pci",
+        "hda_disk_interface": "virtio",
+        "hdb_disk_interface": "virtio",
+        "adapters": 10,
+        "console_type": "telnet",
+        "ram": 2048,
+        "arch": "x86_64",
+        "boot_priority": "c",
+        "kvm": "allow"
+    },
+
+    "images": [
+        {
+            "filename": "FAD_KVM-v400-build0560-FORTINET.out.kvm-boot.qcow2",
+            "version": "4.5.0",
+            "md5sum": "7a71f52bde93c0000b047626731b7aef",
+            "filesize": 68026368,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
+            "filename": "FAD_KVM-v400-build0560-FORTINET.out.kvm-data.qcow2",
+            "version": "4.5.0",
+            "md5sum": "b7500835594e62d8acb1c6ec43d597c1",
+            "filesize": 30998528,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        }
+
+    ],
+
+    "versions": [
+        {
+            "name": "4.5.0",
+            "images": {
+                "hda_disk_image": "FAD_KVM-v400-build0560-FORTINET.out.kvm-boot.qcow2",
+                "hdb_disk_image": "FAD_KVM-v400-build0560-FORTINET.out.kvm-data.qcow2"
+            }
+        }
+    ]
+}
