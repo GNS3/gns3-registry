@@ -11,6 +11,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
+    "symbol": "loadbalancer.svg",
     "usage": "Default username is admin, no password is set. Silent boot, it might take a while.",
     "port_name_format": "Port{port1}",
 
