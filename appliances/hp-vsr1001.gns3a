@@ -12,6 +12,7 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "At first boot the router will be installed from the cdrom.",
+    "port_name_format": "GE{port1}/0",
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 16,
@@ -21,6 +22,13 @@
         "boot_priority": "dc"
     },
     "images": [
+        {
+            "filename": "VSR1000_HPE-CMW710-E0321P01-X64.iso",
+            "version": "7.10.E0321P01",
+            "md5sum": "1675fed446449e782819c383293a35f6",
+            "filesize": 286515200,
+            "download_url": "https://h10145.www1.hp.com/Downloads/DownloadSoftware.aspx?SoftwareReleaseUId=16838&ProductNumber=JG811AAE&lang=en&cc=us&prodSeriesId=5443163&OrderNumber=&PurchaseDate="
+        },
         {
             "filename": "VSR1000_HP-CMW710-R0204P01-X64.iso",
             "version": "7.10.R0204P01",
@@ -38,6 +46,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "7.10.E0321P01",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "VSR1000_HPE-CMW710-E0321P01-X64.iso"
+            }
+        },
         {
             "name": "7.10.R0204P01",
             "images": {
