@@ -117,8 +117,16 @@
                 "title": "One KEY=VAR environment by line"
             },
             "console_type": {
-              "enum": ["telnet", "vnc"],
+              "enum": ["telnet", "vnc", "http", "https"],
               "title": "Type of console connection for the administration of the appliance"
+            },
+            "console_http_port": {
+                "description": "Internal port in the container of the HTTP server",
+                "type": "integer"
+            },
+            "console_http_path": {
+                "description": "Path of the web interface",
+                "type": "string"
             }
         },
         "additionalProperties": false,
