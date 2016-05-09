@@ -23,8 +23,15 @@
     },
     "images": [
         {
+            "filename": "titanium-final.7.3.0.D1.1.qcow2",
+            "version": "7.3.0",
+            "md5sum": "b4cd6edf15ab4c6bce53c3f6c1e3a742",
+            "filesize": 214368256,
+            "download_url": "https://virl.mediuscorp.com/my-account/"
+        },
+        {
             "filename": "titanium-d1.7.2.0.D1.1.vmdk",
-            "version": "7.2.0.D1.1",
+            "version": "7.2.0",
             "md5sum": "0ee38c7d717840cb4ca822f4870671d0",
             "filesize": 361103360,
             "download_url": "https://virl.mediuscorp.com/my-account/"
@@ -32,7 +39,13 @@
     ],
     "versions": [
         {
-            "name": "7.2.0.D1.1",
+            "name": "7.3.0",
+            "images": {
+                "hda_disk_image": "titanium-final.7.3.0.D1.1.qcow2"
+            }
+        },
+        {
+            "name": "7.2.0",
             "images": {
                 "hda_disk_image": "titanium-d1.7.2.0.D1.1.vmdk"
             }
