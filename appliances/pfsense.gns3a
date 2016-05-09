@@ -18,9 +18,17 @@
         "arch": "x86_64",
         "console_type": "telnet",
         "boot_priority": "dc",
+        "kvm": "allow",
         "process_priority": "normal"
     },
     "images": [
+        {
+            "filename": "pfSense-CE-2.3-RELEASE-2g-amd64-nanobsd.img",
+            "version": "2.3",
+            "md5sum": "8ab5047bd4c5bbabf71055fb75177d85",
+            "filesize": 1989969408,
+            "download_url": "https://www.pfsense.org/download/mirror.php?section=downloads"
+        },
         {
             "filename": "pfSense-2.2.6-RELEASE-1g-amd64-nanobsd.img",
             "version": "2.2.6",
@@ -30,6 +38,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "2.3",
+            "images": {
+                "hda_disk_image": "pfSense-CE-2.3-RELEASE-2g-amd64-nanobsd.img"
+            }
+        },
         {
             "name": "2.2.6",
             "images": {
