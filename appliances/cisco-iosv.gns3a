@@ -44,7 +44,7 @@
         }
     ],
     "versions": [
-         {
+        {
             "name": "15.6(2)T",
             "images": {
                 "hda_disk_image": "vios-adventerprisek9-m.vmdk.SPA.156-2.T"

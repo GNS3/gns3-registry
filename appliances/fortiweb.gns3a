@@ -13,19 +13,17 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is admin, no password is set. Console keeps sending 'access uuid file failed, error number 2' messages; ignore it.",
     "port_name_format": "Port{port1}",
-
     "qemu": {
         "adapter_type": "virtio-net-pci",
+        "adapters": 4,
+        "ram": 2048,
         "hda_disk_interface": "virtio",
         "hdb_disk_interface": "virtio",
-        "adapters": 4,
-        "console_type": "vnc",
-        "ram": 2048,
         "arch": "x86_64",
+        "console_type": "vnc",
         "boot_priority": "c",
         "kvm": "allow"
     },
-
     "images": [
         {
             "filename": "FWB_KVM-v500-build0723-FORTINET.out.kvm-boot.qcow2",
@@ -41,9 +39,7 @@
             "filesize": 7602176,
             "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
         }
-
     ],
-
     "versions": [
         {
             "name": "5.5.2",
