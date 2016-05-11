@@ -6,26 +6,24 @@
     "vendor_url": "http://www.fortinet.com/",
     "documentation_url": "http://docs.fortinet.com/fortianalyzer/",
     "product_name": "FortiAnalyzer",
-    "product_url": "http://www.fortinet.com/products/fortianalyzer/",
+    "product_url": "https://www.fortinet.com/products-services/products/management-reporting/fortianalyzer.html",
     "registry_version": 1,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is admin, no password is set.",
     "port_name_format": "Port{port1}",
-
     "qemu": {
         "adapter_type": "virtio-net-pci",
+        "adapters": 4,
+        "ram": 1024,
         "hda_disk_interface": "virtio",
         "hdb_disk_interface": "virtio",
-        "adapters": 4,
-        "console_type": "telnet",
-        "ram": 1024,
         "arch": "x86_64",
+        "console_type": "telnet",
         "boot_priority": "c",
         "kvm": "allow"
     },
-
     "images": [
         {
             "filename": "FAZ_VM64_KVM-v5-build1019-FORTINET.out.kvm.qcow2",
@@ -49,9 +47,7 @@
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
             "direct_download_url": "http://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty30G.qcow2/download"
         }
-
     ],
-
     "versions": [
         {
             "name": "5.4.0",

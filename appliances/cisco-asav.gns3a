@@ -37,7 +37,8 @@
             "md5sum": "ca071370278ecbd5dfdb1c5a4161571a",
             "filesize": 160038912,
             "download_url": "https://virl.mediuscorp.com/my-account/"
-        }    ],
+        }
+    ],
     "versions": [
         {
             "name": "9.5.2-204",
