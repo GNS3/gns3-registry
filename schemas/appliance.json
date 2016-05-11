@@ -55,7 +55,7 @@
       "title": "An optional product url on vendor website"
     },
     "registry_version": {
-      "enum": [1, 2],
+      "enum": [1, 2, 3],
       "title": "Version of the registry compatible with this appliance"
     },
     "status": {
@@ -94,6 +94,46 @@
     "linked_base": {
         "type": "boolean",
         "title": "False if you don't want to use a single image for all nodes"
+    },
+
+    "docker": {
+        "type": "object",
+        "title": "Docker specific options",
+        "properties": {
+            "adapters": {
+                "type": "integer",
+                "title": "Number of ethernet adapters"
+            },
+            "image": {
+                "type": "string",
+                "title": "Docker image in the Docker Hub"
+            },
+            "start_command": {
+                "type": "string",
+                "title": "Command executed when the container start. Empty will use the default"
+            },
+            "environment": {
+                "type": "string",
+                "title": "One KEY=VAR environment by line"
+            },
+            "console_type": {
+              "enum": ["telnet", "vnc", "http", "https"],
+              "title": "Type of console connection for the administration of the appliance"
+            },
+            "console_http_port": {
+                "description": "Internal port in the container of the HTTP server",
+                "type": "integer"
+            },
+            "console_http_path": {
+                "description": "Path of the web interface",
+                "type": "string"
+            }
+        },
+        "additionalProperties": false,
+        "required": [
+            "adapters",
+            "image"
+        ]
     },
 
     "iou": {
@@ -400,8 +440,6 @@
     "registry_version",
     "status",
     "maintainer",
-    "maintainer_email",
-    "images",
-    "versions"
+    "maintainer_email"
   ]
 }
