@@ -17,10 +17,17 @@
 
 import os
 import json
+import signal
 import sys
 import pycurl
 
 err_list = []
+
+
+def handle_ctrl_c(signal, frame):
+    print("Got Ctrl-C, terminating!")
+    sys.exit(1)
+signal.signal(signal.SIGINT, handle_ctrl_c)
 
 
 def data_abort(data):
@@ -67,11 +74,12 @@ def check_urls(appliance):
 
     urls = set()
 
-    for image in appliance_json['images']:
-        if 'direct_download_url' in image:
-            urls.add(image['direct_download_url'])
-        if 'download_url' in image:
-            urls.add(image['download_url'])
+    if 'images' in appliance_json:
+        for image in appliance_json['images']:
+            if 'direct_download_url' in image:
+                urls.add(image['direct_download_url'])
+            if 'download_url' in image:
+                urls.add(image['download_url'])
 
     if 'vendor_url' in appliance_json:
         urls.add(appliance_json['vendor_url'])
@@ -99,7 +107,7 @@ def main():
         print()
 
     if len(err_list) == 0:
-         print("Everything is ok!")
+        print("Everything is ok!")
     else:
         print("{} error(s):".format(len(err_list)))
         for error in err_list:
