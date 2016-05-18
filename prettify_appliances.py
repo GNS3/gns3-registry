@@ -75,7 +75,7 @@ for appliance in glob.glob('appliances/*.gns3a'):
         versions = sorted(versions, key=lambda t: t['name'], reverse=True)
         config['versions'] = versions
 
-    # Validate our changes
+    # Validate our changes
     jsonschema.validate(config, schema)
 
     # Save

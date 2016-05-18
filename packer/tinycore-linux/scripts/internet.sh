@@ -8,7 +8,7 @@ echo "iptables -A FORWARD -i eth0 -o eth1 -j ACCEPT" >> /opt/bootlocal.sh
 
 tce-load -wi dnsmasq
 
-# Setup DHCP
+# Setup DHCP
 # A random IP range is choose at startup allowing user to put multiple access links
 cat > setup_dhcp_and_ip.sh << 'EOF2'
 #!/bin/sh

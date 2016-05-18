@@ -10,5 +10,5 @@ python3 /netmap.py
 /bin/iouyap 513 &
 
 
-/images/iou.bin 1 || /bin/bash -i  
+/images/iou.bin 1 || /bin/bash -i  
 
