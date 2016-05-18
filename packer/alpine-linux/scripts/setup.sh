@@ -32,7 +32,7 @@ export SSHDOPTS="-c openssh"
 export NTPOPTS="-c none"
 export SWAP_SIZE=0
 
-# Answer to password question twice and yes to format drive
+# Answer to password question twice and yes to format drive
 setup-alpine <<EOF
 gns3
 gns3

@@ -74,7 +74,7 @@ for appliance in glob.glob('appliances/*.gns3a'):
         continue
     config['qemu']['kvm'] = ask_multiple('KVM support for {}'.format(appliance), ['require', 'allow', 'disable'])
 
-    # Validate our changes
+    # Validate our changes
     jsonschema.validate(config, schema)
 
     # Save
