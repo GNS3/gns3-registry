@@ -22,20 +22,20 @@
     },
     "images": [
         {
-            "filename": "openwrt-15.05-x86-kvm_guest-combined-ext4.img",
-            "version": "15.05",
-            "md5sum": "c8f2635f1cc637b20bbf2fccefb77a1a",
+            "filename": "openwrt-15.05.1-x86-kvm_guest-combined-ext4.img",
+            "version": "15.05.1",
+            "md5sum": "d02f5224b7fbe929efa4d3f10f4dc996",
             "filesize": 55050240,
-            "download_url": "http://downloads.openwrt.org/chaos_calmer/15.05/x86/kvm_guest/",
-            "direct_download_url": "http://downloads.openwrt.org/chaos_calmer/15.05/x86/kvm_guest/openwrt-15.05-x86-kvm_guest-combined-ext4.img.gz",
+            "download_url": "http://downloads.openwrt.org/chaos_calmer/15.05.1/x86/kvm_guest/",
+            "direct_download_url": "https://downloads.openwrt.org/chaos_calmer/15.05.1/x86/kvm_guest/openwrt-15.05.1-x86-kvm_guest-combined-ext4.img.gz",
             "compression": "gzip"
         }
     ],
     "versions": [
         {
-            "name": "Chaos Calmer 15.05",
+            "name": "Chaos Calmer 15.05.1",
             "images": {
-                "hda_disk_image": "openwrt-15.05-x86-kvm_guest-combined-ext4.img"
+                "hda_disk_image": "openwrt-15.05.1-x86-kvm_guest-combined-ext4.img"
             }
         }
     ]
