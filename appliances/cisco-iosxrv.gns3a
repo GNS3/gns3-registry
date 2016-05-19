@@ -24,6 +24,13 @@
     },
     "images": [
         {
+            "filename": "iosxrv-k9-demo-6.0.1.qcow2",
+            "version": "6.0.1",
+            "md5sum": "0831ecf43628eccb752ebb275de9a62a",
+            "filesize": 908132352,
+            "download_url": "https://virl.mediuscorp.com/my-account/"
+        },
+        {
             "filename": "iosxrv-k9-demo-6.0.0.qcow2",
             "version": "6.0.0",
             "md5sum": "f0dccd86d64e370e22f144e681d202b6",
@@ -32,6 +39,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "6.0.1",
+            "images": {
+                "hda_disk_image": "iosxrv-k9-demo-6.0.1.qcow2"
+            }
+        },
         {
             "name": "6.0.0",
             "images": {
