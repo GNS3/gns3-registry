@@ -40,7 +40,7 @@
         {
             "name": "3.17.1S",
             "images": {
-                "hda_disk_image": "csr1000v-universalk9.03.16.00.S.155-3.S-ext.qcow2"
+                "hda_disk_image": "csr1000v-universalk9.03.17.01.S.156-1.S1-std.qcow2"
             }
         },
         {
