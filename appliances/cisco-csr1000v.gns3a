@@ -22,8 +22,15 @@
     },
     "images": [
         {
+            "filename": "csr1000v-universalk9.03.17.01.S.156-1.S1-std.qcow2",
+            "version": "3.17.1S",
+            "md5sum": "42b767ff9ac1a91831b1f5acb422a830",
+            "filesize": 1834287104,
+            "download_url": "https://software.cisco.com/download/release.html?mdfid=284364978&softwareid=282046477&release=3.17.1S"
+        },
+        {
             "filename": "csr1000v-universalk9.03.16.00.S.155-3.S-ext.qcow2",
-            "version": "3.16",
+            "version": "3.16.0S",
             "md5sum": "dfc2e11f880d9e2dfa13e841552cc3ed",
             "filesize": 1390936064,
             "download_url": "https://software.cisco.com/download/release.html?mdfid=284364978&softwareid=282046477&release=3.16.0S"
@@ -31,7 +38,13 @@
     ],
     "versions": [
         {
-            "name": "3.16",
+            "name": "3.17.1S",
+            "images": {
+                "hda_disk_image": "csr1000v-universalk9.03.16.00.S.155-3.S-ext.qcow2"
+            }
+        },
+        {
+            "name": "3.16.0S",
             "images": {
                 "hda_disk_image": "csr1000v-universalk9.03.16.00.S.155-3.S-ext.qcow2"
             }
