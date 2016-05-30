@@ -12,7 +12,7 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "You can change the console to telnet after install. Default user: admin (no password set)",
-    "first_port_name": "Management"
+    "first_port_name": "Management",
     "port_name_format": "{port1}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
