@@ -16,13 +16,20 @@
     "port_name_format": "swp{0}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
-        "adapters": 4,
+        "adapters": 7,
         "ram": 256,
         "arch": "x86_64",
         "console_type": "vnc",
         "kvm": "require"
     },
     "images": [
+        {
+            "filename": "cumulus-linux-3.0.0-vx-amd64-1464279382.a8e7985zf0f5ad5.qcow2",
+            "version": "3.0.0",
+            "md5sum": "ef23948870b77bb1373b9f06de4e7742",
+            "filesize": 1237581824,
+            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/"
+        },
         {
             "filename": "CumulusVX-2.5.5-cc665123486ac43d.qcow2",
             "version": "2.5.5",
@@ -39,6 +46,12 @@
         }
     ],
     "versions": [
+        {
+          "name": "3.0.0",
+          "images": {
+            "hda_disk_image": "cumulus-linux-3.0.0-vx-amd64-1464279382.a8e7985zf0f5ad5.qcow2"
+            }
+        },
         {
             "name": "2.5.5",
             "images": {
