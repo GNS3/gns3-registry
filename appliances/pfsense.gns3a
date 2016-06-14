@@ -23,6 +23,13 @@
     },
     "images": [
         {
+            "filename": "pfSense-CE-2.3.1-RELEASE-2g-amd64-nanobsd.img",
+            "version": "2.3.1",
+            "md5sum": "719149eed51e03872a8cfd235d958d2e",
+            "filesize": 1989969408,
+            "download_url": "https://www.pfsense.org/download/mirror.php?section=downloads"
+        },
+        {
             "filename": "pfSense-CE-2.3-RELEASE-2g-amd64-nanobsd.img",
             "version": "2.3",
             "md5sum": "8ab5047bd4c5bbabf71055fb75177d85",
