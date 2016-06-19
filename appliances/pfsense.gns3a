@@ -46,6 +46,12 @@
     ],
     "versions": [
         {
+            "name": "2.3.1",
+            "images": {
+                "hda_disk_image": "pfSense-CE-2.3.1-RELEASE-2g-amd64-nanobsd.img"
+            }
+        },
+        {
             "name": "2.3",
             "images": {
                 "hda_disk_image": "pfSense-CE-2.3-RELEASE-2g-amd64-nanobsd.img"
