@@ -12,9 +12,11 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Login is admin and password is admin",
+    "first_port_name": "A/1",
+    "port_name_format": "1/1/{port1}",
     "qemu": {
         "adapter_type": "e1000",
-        "adapters": 8,
+        "adapters": 5,
         "ram": 2048,
         "arch": "x86_64",
         "console_type": "telnet",
@@ -29,6 +31,14 @@
             "filesize": 221511680,
             "download_url": "https://www.alcatel-lucent.com/support",
             "compression": "zip"
+        },
+        {
+            "filename": "TiMOS-SR-12.0.R18.qcow2",
+            "version": "12.0.R18",
+            "md5sum": "d0bba5feaaf09fd02185f25898a6afc7",
+            "filesize": 223870976,
+            "download_url": "https://www.alcatel-lucent.com/support",
+            "compression": "zip"
         }
     ],
     "versions": [
@@ -36,6 +46,12 @@
             "name": "12.0.R6",
             "images": {
                 "hda_disk_image": "TiMOS-SR-12.0.R6-vm.qcow2"
+            }
+        },
+        {
+            "name": "12.0.R18",
+            "images": {
+                "hda_disk_image": "TiMOS-SR-12.0.R18.qcow2"
             }
         }
     ]
