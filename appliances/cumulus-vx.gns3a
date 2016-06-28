@@ -47,9 +47,9 @@
     ],
     "versions": [
         {
-          "name": "3.0.0",
-          "images": {
-            "hda_disk_image": "cumulus-linux-3.0.0-vx-amd64-1464279382.a8e7985zf0f5ad5.qcow2"
+            "name": "3.0.0",
+            "images": {
+                "hda_disk_image": "cumulus-linux-3.0.0-vx-amd64-1464279382.a8e7985zf0f5ad5.qcow2"
             }
         },
         {
