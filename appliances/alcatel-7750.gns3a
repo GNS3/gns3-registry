@@ -16,7 +16,7 @@
     "port_name_format": "1/1/{port1}",
     "qemu": {
         "adapter_type": "e1000",
-        "adapters": 5,
+        "adapters": 6,
         "ram": 2048,
         "arch": "x86_64",
         "console_type": "telnet",
