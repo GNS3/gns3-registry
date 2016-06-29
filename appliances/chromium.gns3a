@@ -3,7 +3,7 @@
     "category": "guest",
     "description": "The chromium browser",
     "vendor_name": "Chromium",
-    "vendor_url": "http://openvswitch.org/",
+    "vendor_url": "https://www.chromium.org/",
     "product_name": "Chromium",
     "registry_version": 3,
     "status": "stable",
