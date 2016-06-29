@@ -9,6 +9,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
+    "usage": "In the web interface login as admin/admin",
     "docker": {
         "adapters": 1,
         "image": "lucaderi/ntopng-docker:latest",
