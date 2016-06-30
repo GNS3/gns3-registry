@@ -52,28 +52,9 @@ ver=`curl -sI https://bintray.com/pstavirs/ostinato/ostinato-src/_latestVersion 
 curl -k -L -O https://bintray.com/artifact/download/pstavirs/ostinato/ostinato-src-$ver.tar.gz
 tar xfz ostinato-src-$ver.tar.gz
 cd ostinato-$ver
-# patch only useful for ostinato <= 0.7.1
-patch -p0 <<'EOF'
---- server/pcapport.cpp.orig	2015-02-24 08:38:33.000000000 +0000
-+++ server/pcapport.cpp	2015-02-25 09:58:38.943383048 +0000
-@@ -696,7 +696,8 @@
- 
-     while (curTicks.QuadPart < tgtTicks.QuadPart)
-         QueryPerformanceCounter(&curTicks);
--#elif defined(Q_OS_LINUX)
-+// #elif defined(Q_OS_LINUX)
-+#elif 0
-     struct timeval delay, target, now;
- 
-     //qDebug("usec delay = %ld", usec);
-EOF
 qmake -config release "QMAKE_CXXFLAGS+=$CXXFLAGS"
-# ostinato >= 0.8 supports building of a component
-# make server
-# sudo INSTALL_ROOT=/tmp/ostinato make server-install_subtargets
-make
-sudo INSTALL_ROOT=/tmp/ostinato make install
-sudo rm /tmp/ostinato/usr/local/bin/ostinato
+make server
+sudo INSTALL_ROOT=/tmp/ostinato make server-install_subtargets
 sudo chown -R root:root /tmp/ostinato
 sudo chmod +s /tmp/ostinato/usr/local/bin/drone
 cd ..
@@ -120,6 +101,7 @@ if grep -q -w nodhcp /proc/cmdline; then
 	# activate other eth devices
 	NETDEVICES="$(awk -F: '/eth[1-9][0-9]*:/{print $1}' /proc/net/dev 2>/dev/null)"
 	for DEVICE in $NETDEVICES; do
+		sysctl -q -w net.ipv6.conf.$DEVICE.disable_ipv6=1
 		ifconfig $DEVICE mtu 9000 up
 	done
 fi
