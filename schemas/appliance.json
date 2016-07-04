@@ -106,7 +106,8 @@
             },
             "image": {
                 "type": "string",
-                "title": "Docker image in the Docker Hub"
+                "title": "Docker image in the Docker Hub",
+                "pattern": ".+:.+"
             },
             "start_command": {
                 "type": "string",

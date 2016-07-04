@@ -13,7 +13,7 @@
     "usage": "The eth0 is the management interface. By default all other interfaces are connected to the br0",
     "docker": {
         "adapters": 16,
-        "image": "gns3/openvswitch",
+        "image": "gns3/openvswitch:latest",
         "environment": "MANAGEMENT_INTERFACE=1"
     }
 }

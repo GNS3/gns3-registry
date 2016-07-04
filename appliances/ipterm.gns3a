@@ -13,6 +13,6 @@
     "symbol": "linux_guest.svg",
     "docker": {
         "adapters": 1,
-        "image": "gns3/ipterm"
+        "image": "gns3/ipterm:latest"
     }
 }

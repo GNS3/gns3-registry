@@ -11,7 +11,7 @@
     "maintainer_email": "developers@gns3.net",
     "docker": {
         "adapters": 1,
-        "image": "gns3/chromium",
+        "image": "gns3/chromium:latest",
         "console_type": "vnc"
     }
 }

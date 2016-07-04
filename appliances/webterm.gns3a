@@ -13,7 +13,7 @@
     "symbol": "firefox.svg",
     "docker": {
         "adapters": 1,
-        "image": "gns3/webterm",
+        "image": "gns3/webterm:latest",
         "console_type": "vnc"
     }
 }
