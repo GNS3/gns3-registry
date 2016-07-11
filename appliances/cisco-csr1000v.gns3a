@@ -28,6 +28,13 @@
             "md5sum": "06cbfcd11f3557391db64fe2a6015a6e",
             "filesize": 1346305024,
             "download_url": "https://virl.mediuscorp.com/my-account/"
+        },
+        {
+            "filename": "csr1000v-universalk9.16.2.2-ext.qcow2",
+            "version": "16.2.2",
+            "md5sum": "6c7e61b2f091ce1e9562dc3f2da43ebe",
+            "filesize": 1586637824,
+            "download_url": "https://virl.mediuscorp.com/my-account/"
         }
     ],
     "versions": [
@@ -35,6 +42,12 @@
             "name": "3.17",
             "images": {
                 "hda_disk_image": "csr1000v-universalk9.03.17.00.S.156-1.S-ext.qcow2"
+            }
+        },
+        {
+            "name": "16.2.2",
+            "images": {
+                "hda_disk_image": "csr1000v-universalk9.16.2.2-ext.qcow2"
             }
         }
     ]
