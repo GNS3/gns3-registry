@@ -1,7 +1,7 @@
 {
     "name": "ipterm",
     "category": "guest",
-    "description": "ipterm is a debian based networking toolbox.\nIt contains the following utilities: net-tools, iproute2, ping, traceroute, iperf3, ssh client, tcpdump and the multicast testing tools msend/mreceive.",
+    "description": "ipterm is a debian based networking toolbox.\nIt contains the following utilities: net-tools, iproute2, ping, traceroute, curl, host, iperf3, mtr, socat, ssh client, tcpdump and the multicast testing tools msend/mreceive.",
     "vendor_name": "ipterm",
     "vendor_url": "https://www.debian.org",
     "product_name": "ipterm",
