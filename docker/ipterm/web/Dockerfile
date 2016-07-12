@@ -3,7 +3,7 @@
 FROM gns3/ipterm-base
 
 # minimal init, see https://github.com/Yelp/dumb-init
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.1.0/dumb-init_1.1.0_amd64 /usr/local/sbin/dumb-init
+ADD https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 /usr/local/sbin/dumb-init
 
 RUN set -ex \
     && chmod 755 /usr/local/sbin/dumb-init \
@@ -12,7 +12,7 @@ RUN set -ex \
 # install web tools
 #
     && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-        firefox-esr lxterminal jwm menu \
+        firefox-esr lxterminal jwm menu leafpad \
     && rm -rf /var/lib/apt/lists/* \
     && /bin/echo -e '\
 \x23!/bin/sh\n\
@@ -27,9 +27,9 @@ status=$?\n\
 \n\
 \x23 workaround: restart firefox, if it crashes during initialization\n\
 if [ $status -eq 139 -a $(($(date +%s)-start)) -le 10 ]; then\n\
-        firefox $start_url\n\
+	firefox $start_url\n\
 fi' \
-        > /usr/local/bin/start-firefox; chmod +x /usr/local/bin/start-firefox \
+        > /usr/local/bin/start-firefox && chmod +x /usr/local/bin/start-firefox \
     && /bin/echo -e '\
 ?package(firefox-esr):\\\n\
  needs="x11"\\\n\
@@ -48,12 +48,13 @@ fgcolor=#ffffff' \
         > /root/.config/lxterminal/lxterminal.conf \
     && /bin/echo -e '\
 \x23!/bin/sh\n\
+[ $$ -eq 1 ] && exec dumb-init "$0" "$@"\n\
 \n\
 cd\n\
 export SHELL=/bin/bash\n\
 start-firefox &\n\
 jwm' \
-        > /start_browser.sh; chmod +x /start_browser.sh
+        > /etc/init.sh && chmod +x /etc/init.sh
 
 VOLUME [ "/root" ]
-CMD [ "dumb-init", "/start_browser.sh" ]
+CMD [ "/etc/init.sh" ]
