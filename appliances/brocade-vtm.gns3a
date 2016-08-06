@@ -45,7 +45,7 @@
             "images": {
                 "hda_disk_image": "VirtualTrafficManager-110.img"
             }
-        }m
+        },
         {
             "name": "10.4",
             "images": {
