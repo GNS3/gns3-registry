@@ -25,12 +25,32 @@
     },
     "images": [
         {
+            "filename": "asg-9.405-5.1.iso",
+            "version": "9.405-5.1",
+            "md5sum": "cc1687ea73dd7363212c0db5ad784bc6",
+            "filesize": 864020480,
+            "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
+        },
+        {
             "filename": "asg-9.403-4.1.iso",
             "version": "9.403-4.1",
             "md5sum": "631f2a017deb284705d653905de51604",
             "filesize": 850329600,
-            "download_url": "http://www.smoothwall.org/download/",
-            "direct_download_url": "http://sourceforge.net/projects/smoothwall/files/SmoothWall/3.1/Express-3.1-x86_64.iso/download"
+            "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
+        },
+        {
+            "filename": "asg-9.356-3.1.iso",
+            "version": "9.356-3.1",
+            "md5sum": "bd155ed98a477d1182367b302bb480f3",
+            "filesize": 820531200,
+            "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
+        },
+        {
+            "filename": "asg-9.217-3.1.iso",
+            "version": "9.217-3.1",
+            "md5sum": "77bae7dcad422dac428984417573acad",
+            "filesize": 747606016,
+            "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
         },
         {
             "filename": "empty30G.qcow2",
@@ -43,10 +63,31 @@
     ],
     "versions": [
         {
+            "name": "9.405-5.1",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "asg-9.405-5.1.iso"
+            }
+        },
+        {
             "name": "9.403-4.1",
             "images": {
                 "hda_disk_image": "empty30G.qcow2",
                 "cdrom_image": "asg-9.403-4.1.iso"
+            }
+        },
+        {
+            "name": "9.356-3.1",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "asg-9.356-3.1.iso"
+            }
+        },
+        {
+            "name": "9.217-3.1",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "asg-9.217-3.1.iso"
             }
         }
     ]

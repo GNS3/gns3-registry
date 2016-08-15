@@ -26,10 +26,24 @@
     },
     "images": [
         {
+            "filename": "FWB_KVM-v500-build0739-FORTINET.out.kvm-log.qcow2",
+            "version": "5.5.4",
+            "md5sum": "d42225723d2e2ee0160f101c5b9663d5",
+            "filesize": 7602176,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
             "filename": "FWB_KVM-v500-FORTINET.out.kvm-log.qcow2",
-            "version": "5.5.x",
+            "version": "5.5.2 - 5.5.3",
             "md5sum": "b90cd0a382cb09db31cef1d0cdf7d6e9",
             "filesize": 7602176,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
+            "filename": "FWB_KVM-v500-build0739-FORTINET.out.kvm-boot.qcow2",
+            "version": "5.5.4",
+            "md5sum": "a11b91efacce70212b6b9e1f9916cc3e",
+            "filesize": 87228416,
             "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
         },
         {
@@ -48,6 +62,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "5.5.4",
+            "images": {
+                "hda_disk_image": "FWB_KVM-v500-build0739-FORTINET.out.kvm-boot.qcow2",
+                "hdb_disk_image": "FWB_KVM-v500-build0739-FORTINET.out.kvm-log.qcow2"
+            }
+        },
         {
             "name": "5.5.3",
             "images": {
