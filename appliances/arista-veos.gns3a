@@ -13,7 +13,7 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "The login is admin, with no password by default",
     "symbol": ":/symbols/multilayer_switch.svg",
-    "first_port_name": "Management0",
+    "first_port_name": "Management1",
     "port_name_format": "Ethernet{port1}",
     "qemu": {
         "adapter_type": "e1000",
@@ -32,6 +32,27 @@
             "download_url": "https://www.arista.com/en/support/software-download"
         },
         {
+            "filename": "vEOS-lab-4.15.5M.vmdk",
+            "version": "4.15.5M",
+            "md5sum": "cd74bb69c7ee905ac3d33c4d109f3ab7",
+            "filesize": 516030464,
+            "download_url": "https://www.arista.com/en/support/software-download"
+        },
+        {
+            "filename": "vEOS-lab-4.14.14M.vmdk",
+            "version": "4.14.14M",
+            "md5sum": "d81ba0522f4d7838d96f7985e41cdc47",
+            "filesize": 422641664,
+            "download_url": "https://www.arista.com/en/support/software-download"
+        },
+        {
+            "filename": "vEOS-lab-4.13.16M.vmdk",
+            "version": "4.13.16M",
+            "md5sum": "5763b2c043830c341c8b1009f4ea9a49",
+            "filesize": 404684800,
+            "download_url": "https://www.arista.com/en/support/software-download"
+        },
+        {
             "filename": "vEOS-lab-4.13.8M.vmdk",
             "version": "4.13.8M",
             "md5sum": "a47145b9e6e7a24171c0850f8755535e",
@@ -39,10 +60,10 @@
             "download_url": "https://www.arista.com/en/support/software-download"
         },
         {
-            "filename": "Aboot-veos-serial-2.0.8.iso",
-            "version": "2.0.8",
-            "md5sum": "8ebbde97f3648802001b4137bd776d76",
-            "filesize": 4194304,
+            "filename": "Aboot-veos-serial-8.0.0.iso",
+            "version": "8.0.0",
+            "md5sum": "488ad1c435d18c69bb8d69c7806457c9",
+            "filesize": 5242880,
             "download_url": "https://www.arista.com/en/support/software-download"
         }
     ],
@@ -50,14 +71,35 @@
         {
             "name": "4.16.6M",
             "images": {
-                "hda_disk_image": "Aboot-veos-serial-2.0.8.iso",
+                "hda_disk_image": "Aboot-veos-serial-8.0.0.iso",
                 "hdb_disk_image": "vEOS-lab-4.16.6M.vmdk"
+            }
+        },
+        {
+            "name": "4.15.5M",
+            "images": {
+                "hda_disk_image": "Aboot-veos-serial-8.0.0.iso",
+                "hdb_disk_image": "vEOS-lab-4.15.5M.vmdk"
+            }
+        },
+        {
+            "name": "4.14.14M",
+            "images": {
+                "hda_disk_image": "Aboot-veos-serial-8.0.0.iso",
+                "hdb_disk_image": "vEOS-lab-4.14.14M.vmdk"
+            }
+        },
+        {
+            "name": "4.13.16M",
+            "images": {
+                "hda_disk_image": "Aboot-veos-serial-8.0.0.iso",
+                "hdb_disk_image": "vEOS-lab-4.13.16M.vmdk"
             }
         },
         {
             "name": "4.13.8M",
             "images": {
-                "hda_disk_image": "Aboot-veos-serial-2.0.8.iso",
+                "hda_disk_image": "Aboot-veos-serial-8.0.0.iso",
                 "hdb_disk_image": "vEOS-lab-4.13.8M.vmdk"
             }
         }
