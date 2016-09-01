@@ -13,7 +13,7 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "The login is admin, with no password by default",
     "symbol": ":/symbols/multilayer_switch.svg",
-    "first_port_name": "Management0",
+    "first_port_name": "Management1",
     "port_name_format": "Ethernet{port1}",
     "qemu": {
         "adapter_type": "e1000",
