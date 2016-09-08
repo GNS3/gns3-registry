@@ -27,12 +27,28 @@
     },
     "images": [
         {
+            "filename": "exosvm-21.1.2.14.iso",
+            "version": "21.1.2.14",
+            "md5sum": "de0752d56e41d92027ce1fccd604b14b",
+            "filesize": 41101312,
+            "download_url": "https://github.com/extremenetworks/Virtual_EXOS",
+            "direct_download_url": "https://github.com/extremenetworks/Virtual_EXOS/blob/master/vm-21.1.2.14.iso?raw=true"
+        },
+        {
             "filename": "exosvm-21.1.1.4.iso",
             "version": "21.1.1.4",
             "md5sum": "4d5db0e01a39b08775ed6a3e2c8bf663",
             "filesize": 41046016,
             "download_url": "https://github.com/extremenetworks/Virtual_EXOS",
             "direct_download_url": "https://github.com/extremenetworks/Virtual_EXOS/blob/master/vm-21.1.1.4.iso?raw=true"
+        },
+        {
+            "filename": "exospc-16.2.1.6.iso",
+            "version": "16.2.1.6",
+            "md5sum": "b4be339afb02c03dcb4349630c1adb4f",
+            "filesize": 36306944,
+            "download_url": "https://github.com/extremenetworks/Virtual_EXOS",
+            "direct_download_url": "https://github.com/extremenetworks/Virtual_EXOS/blob/master/exospc-16.2.1.6.iso?raw=true"
         },
         {
             "filename": "exospc-16.1.3.6.iso",
@@ -61,10 +77,24 @@
     ],
     "versions": [
         {
+            "name": "21.1.2.14",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "exosvm-21.1.2.14.iso"
+            }
+        },
+        {
             "name": "21.1.1.4",
             "images": {
                 "hda_disk_image": "empty8G.qcow2",
                 "cdrom_image": "exosvm-21.1.1.4.iso"
+            }
+        },
+        {
+            "name": "16.2.1.6",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "exospc-16.2.1.6.iso"
             }
         },
         {
