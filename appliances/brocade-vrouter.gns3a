@@ -26,6 +26,13 @@
     },
     "images": [
         {
+            "filename": "livecd-VR5600_5.0R2_B_amd64.iso",
+            "version": "5.0R2",
+            "md5sum": "ce47dba6f89ef1175ef8850110521104",
+            "filesize": 340787200,
+            "download_url": "http://www1.brocade.com/forms/jsp/vrouter/index.jsp?src=WS&lsd=BRCD&lst=English&cn=PA-GDG-16Q1-EVAL-Vrouter&intcmp=lp_en_softevaluations_vrouter_bn_00001"
+        },
+        {
             "filename": "livecd-VR5600_4.2R1_B_amd64.iso",
             "version": "4.2R1",
             "md5sum": "5e3023c64dc409ae01d5bcb1b6732593",
@@ -49,6 +56,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "5.0R2",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "livecd-VR5600_5.0R2_B_amd64.iso"
+            }
+        },
         {
             "name": "4.2R1",
             "images": {
