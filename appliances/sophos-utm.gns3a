@@ -25,6 +25,13 @@
     },
     "images": [
         {
+            "filename": "asg-9.406-3.1.iso",
+            "version": "9.406-3.1",
+            "md5sum": "b79fb0fd04654068897961ab0594297c",
+            "filesize": 873408512,
+            "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
+        },
+        {
             "filename": "asg-9.405-5.1.iso",
             "version": "9.405-5.1",
             "md5sum": "cc1687ea73dd7363212c0db5ad784bc6",
@@ -36,6 +43,13 @@
             "version": "9.403-4.1",
             "md5sum": "631f2a017deb284705d653905de51604",
             "filesize": 850329600,
+            "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
+        },
+        {
+            "filename": "asg-9.357-1.1.iso",
+            "version": "9.357-1.1",
+            "md5sum": "c34061e770f26a994b725b4b92fe56dc",
+            "filesize": 848300032,
             "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
         },
         {
@@ -63,6 +77,13 @@
     ],
     "versions": [
         {
+            "name": "9.406-3.1",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "asg-9.406-3.1.iso"
+            }
+        },
+        {
             "name": "9.405-5.1",
             "images": {
                 "hda_disk_image": "empty30G.qcow2",
@@ -74,6 +95,13 @@
             "images": {
                 "hda_disk_image": "empty30G.qcow2",
                 "cdrom_image": "asg-9.403-4.1.iso"
+            }
+        },
+        {
+            "name": "9.357-1.1",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "asg-9.357-1.1.iso"
             }
         },
         {
