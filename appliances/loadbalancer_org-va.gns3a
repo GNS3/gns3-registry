@@ -11,7 +11,8 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "Default credentials: Network config CLI: setup / setup; CLI: root / loadbalancer; WebUI: loadbalancer / loadbalancer",
+    "usage": "Default credentials:\n Network config CLI: setup / setup\n CLI: root / loadbalancer\n WebUI: loadbalancer / loadbalancer",
+    "symbol": "loadbalancer.svg",
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 2,
