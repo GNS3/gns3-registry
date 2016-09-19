@@ -25,27 +25,6 @@
     },
     "images": [
         {
-            "filename": "coeus-10-0-0-233-S000V.zip",
-            "version": "10.0.0",
-            "md5sum": "dba739adbd77e804980b10635e5f3136",
-            "filesize": 1974066712,
-            "download_url": "https://software.cisco.com/download/release.html?mdfid=284806698&flowid=41610&softwareid=282975114&release=10.0.0&relind=AVAILABLE&rellifecycle=LD&reltype=latest"
-        },
-        {
-            "filename": "coeus-9-2-0-083-S000V.zip",
-            "version": "9.2.0",
-            "md5sum": "32430061193c38c098b577b756558fff",
-            "filesize": 1961348969,
-            "download_url": "https://software.cisco.com/download/release.html?mdfid=284806698&flowid=41610&softwareid=282975114&release=9.2.0&relind=AVAILABLE&rellifecycle=LD&reltype=latest"
-        },
-        {
-            "filename": "coeus-9-1-1-074-S000V.zip",
-            "version": "9.1.1",
-            "md5sum": "50d03416b0dd9653c0145d3937d8dc33",
-            "filesize": 1968977374,
-            "download_url": "https://software.cisco.com/download/release.html?mdfid=284806698&flowid=41610&softwareid=282975114&release=9.1.1&relind=AVAILABLE&rellifecycle=LD&reltype=latest"
-        },
-        {
             "filename": "coeus-9-0-1-162-S000V.qcow2",
             "version": "9.0.1",
             "md5sum": "3561a6dd9e1b0481e6e68f7e0235fa9b",
@@ -54,24 +33,6 @@
         }
     ],
     "versions": [
-        {
-            "name": "10.0.0",
-            "images": {
-                "hda_disk_image": "coeus-10-0-0-233-S000V.zip"
-            }
-        },
-        {
-            "name": "9.2.0",
-            "images": {
-                "hda_disk_image": "coeus-9-2-0-083-S000V.zip"
-            }
-        },
-        {
-            "name": "9.1.1",
-            "images": {
-                "hda_disk_image": "coeus-9-1-1-074-S000V.zip"
-            }
-        },
         {
             "name": "9.0.1",
             "images": {

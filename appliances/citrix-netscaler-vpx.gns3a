@@ -12,7 +12,6 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "The image file is large (21.5 GB), make sure you have enough space. Default credentials: nsroot / nsroot",
-    "symbol": "loadbalancer.svg",
     "port_name_format": "1/{0}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
