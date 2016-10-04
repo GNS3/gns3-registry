@@ -26,6 +26,13 @@
     },
     "images": [
         {
+            "filename": "FML_VMKV-64-v53-build0618-FORTINET.out.kvm.qcow2",
+            "version": "5.3.5",
+            "md5sum": "5f4159956b87538c008654c030e00e37",
+            "filesize": 86376448,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
             "filename": "FML_VMKV-64-v53-build0608-FORTINET.out.kvm.qcow2",
             "version": "5.3.4",
             "md5sum": "b78f647148923e1bddfa2dcfbcc0c85c",
@@ -56,6 +63,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "5.3.5",
+            "images": {
+                "hda_disk_image": "FML_VMKV-64-v53-build0618-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
         {
             "name": "5.3.4",
             "images": {
