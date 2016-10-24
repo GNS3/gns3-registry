@@ -24,6 +24,20 @@
     },
     "images": [
         {
+            "filename": "VI-SFOS_16.01.1.KVM-202-PRIMARY.qcow2",
+            "version": "16.01.1",
+            "md5sum": "818d9f973b7a32c50d9b84814c6f1ee3",
+            "filesize": 277479424,
+            "download_url": "https://secure2.sophos.com/en-us/products/next-gen-firewall/free-trial.aspx"
+        },
+        {
+            "filename": "VI-SFOS_16.01.1.KVM-202-AUXILARY.qcow2",
+            "version": "16.01.1",
+            "md5sum": "1f6fc0b751aaec9bfd4401b0e0cbc6dc",
+            "filesize": 59441152,
+            "download_url": "https://secure2.sophos.com/en-us/products/next-gen-firewall/free-trial.aspx"
+        },
+        {
             "filename": "VI-SFMOS_15.01.0.KVM-301-PRIMARY.qcow2",
             "version": "15.01",
             "md5sum": "a2cb14ed93de1550afef49984b11b56f",
@@ -39,6 +53,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "16.01.1",
+            "images": {
+                "hda_disk_image": "VI-SFOS_16.01.1.KVM-202-PRIMARY.qcow2",
+                "hdb_disk_image": "VI-SFOS_16.01.1.KVM-202-AUXILARY.qcow2"
+            }
+        },
         {
             "name": "15.01",
             "images": {
