@@ -24,6 +24,14 @@
     },
     "images": [
         {
+            "filename": "vyos-1.2.0-beta1-amd64.iso",
+            "version": "1.2.0-beta1",
+            "md5sum": "c2906532d4c7a0d29b61e8eab326d6c7",
+            "filesize": 243269632,
+            "download_url": "http://mirror.vyos.net/iso/release/1.1.7/",
+            "direct_download_url": "http://mirror.vyos.net/iso/release/1.1.7/vyos-1.1.7-amd64.iso"
+        },
+        {
             "filename": "vyos-1.1.7-amd64.iso",
             "version": "1.1.7",
             "md5sum": "9a7f745a0b0db0d4f1d9eee2a437fb54",
@@ -57,6 +65,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "1.2.0-beta1",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "vyos-1.2.0-beta1-amd64.iso"
+            }
+        },
         {
             "name": "1.1.7",
             "images": {
