@@ -28,8 +28,8 @@
             "version": "1.2.0-beta1",
             "md5sum": "c2906532d4c7a0d29b61e8eab326d6c7",
             "filesize": 243269632,
-            "download_url": "http://mirror.vyos.net/iso/release/1.1.7/",
-            "direct_download_url": "http://mirror.vyos.net/iso/release/1.1.7/vyos-1.1.7-amd64.iso"
+            "download_url": "http://dev.packages.vyos.net/iso/preview/1.2.0-beta1/",
+            "direct_download_url": "http://dev.packages.vyos.net/iso/preview/1.2.0-beta1/vyos-1.2.0-beta1-amd64.iso"
         },
         {
             "filename": "vyos-1.1.7-amd64.iso",
