@@ -9,6 +9,7 @@
     "product_url": "http://freeloadbalancer.com/#about",
     "registry_version": 1,
     "status": "stable",
+    "availability": "with-registration",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Credentials: bal / 1fourall",

@@ -9,6 +9,7 @@
     "product_url": "http://www.smoothwall.org/about/",
     "registry_version": 1,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "WebUI can be accessed at https://GREEN_IP:441/ after installation. GREEN interface is used for the LAN, RED for the WAN connections. ORANGE and PURPLE can be used for DMZ.",

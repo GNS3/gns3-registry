@@ -8,6 +8,7 @@
     "product_name": "Open vSwitch",
     "registry_version": 3,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "The eth0 is the management interface. By default all other interfaces are connected to the br0",
