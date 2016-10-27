@@ -9,7 +9,6 @@
     "product_url": "https://f5.com/products/modules/local-traffic-manager",
     "registry_version": 1,
     "status": "stable",
-    "availability": "free-to-try",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Console credentials: root/default. WebUI credentials: admin/admin. The boot process might take a few minutes without providing any output to the console. Please be patient (or set console to vnc to see tty outputs).",

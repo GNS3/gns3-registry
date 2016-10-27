@@ -9,7 +9,6 @@
     "product_url": "http://openwrt.org",
     "registry_version": 1,
     "status": "stable",
-    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "qemu": {

@@ -9,7 +9,6 @@
     "product_url": "https://eos.arista.com/",
     "registry_version": 1,
     "status": "experimental",
-    "availability": "with-registration",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "The login is admin, with no password by default",

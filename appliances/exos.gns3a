@@ -9,7 +9,6 @@
     "product_url": "http://www.extremenetworks.com/product/extremexos-network-operating-system",
     "registry_version": 1,
     "status": "stable",
-    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "You can change the console to telnet after install. Default user: admin (no password set)",

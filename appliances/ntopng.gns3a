@@ -7,7 +7,6 @@
     "product_name": "ntopng",
     "registry_version": 3,
     "status": "stable",
-    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "In the web interface login as admin/admin",

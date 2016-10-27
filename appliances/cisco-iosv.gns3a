@@ -8,7 +8,6 @@
     "product_url": "http://virl.cisco.com/",
     "registry_version": 1,
     "status": "stable",
-    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "There is no default password and enable password. There is no default configuration present.",

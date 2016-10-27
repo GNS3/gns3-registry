@@ -8,7 +8,6 @@
     "product_name": "Alpine Linux",
     "registry_version": 1,
     "status": "experimental",
-    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "User is root. Password is gns3",

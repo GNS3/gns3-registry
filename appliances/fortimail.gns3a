@@ -9,7 +9,6 @@
     "product_url": "http://www.fortinet.com/products/fortimail/index.html",
     "registry_version": 1,
     "status": "stable",
-    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "First boot takes a few minutes. Admin URL is https://x.x.x.x/admin, default username is admin, no password is set.",

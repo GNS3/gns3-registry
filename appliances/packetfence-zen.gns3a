@@ -9,7 +9,6 @@
     "product_url": "https://packetfence.org/about.html",
     "registry_version": 1,
     "status": "stable",
-    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Boot the live CD",

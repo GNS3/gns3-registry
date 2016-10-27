@@ -9,7 +9,6 @@
     "product_url": "https://www.sophos.com/en-us/products/free-tools/sophos-utm-home-edition.aspx",
     "registry_version": 1,
     "status": "stable",
-    "availability": "with-registration",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Connect to VNC console for installation, everything else can be set on the WebUI.",

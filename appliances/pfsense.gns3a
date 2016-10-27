@@ -8,7 +8,6 @@
     "product_name": "pfSense",
     "registry_version": 1,
     "status": "stable",
-    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "port_name_format": "em{0}",

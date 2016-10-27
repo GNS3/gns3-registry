@@ -9,7 +9,6 @@
     "product_url": "http://www.fortinet.com/products/fortigate/virtual-appliances.html",
     "registry_version": 1,
     "status": "stable",
-    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is admin, no password is set.",
