@@ -8,6 +8,7 @@
     "product_name": "Kali Linux",
     "registry_version": 1,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default password is toor",

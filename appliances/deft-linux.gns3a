@@ -8,6 +8,7 @@
     "product_name": "DEFT Linux",
     "registry_version": 1,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "You can run the LiveCD or install to the local disk. Default root password: deft",
