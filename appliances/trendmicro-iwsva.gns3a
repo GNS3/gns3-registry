@@ -9,6 +9,7 @@
     "product_url": "http://www.trendmicro.com/enterprise/network-security/interscan-web-security/virtual-appliance/index.html",
     "registry_version": 1,
     "status": "stable",
+    "availability": "free-to-try",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "port_name_format": "eth{0}",

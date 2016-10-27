@@ -62,6 +62,10 @@
       "enum": ["stable", "experimental", "broken"],
       "title": "Document if the appliance is working or not"
     },
+    "availability": {
+      "enum": ["free", "with-registration", "free-to-try", "service-contract"],
+      "title": "About image availability: can be downloaded directly; download requires a free registration; paid but a trial version (time or feature limited) is available; not available publicly"
+    },
     "maintainer": {
       "type": "string",
       "title": "Maintainer name"
