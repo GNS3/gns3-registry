@@ -7,7 +7,7 @@
     "documentation_url": "https://wiki.zentyal.org/wiki/Zentyal_Wiki",
     "product_name": "Zentyal Server",
     "product_url": "http://www.zentyal.com/zentyal-server/",
-    "registry_version": 1,
+    "registry_version": 4,
     "status": "stable",
     "availability": "free",
     "maintainer": "GNS3 Team",

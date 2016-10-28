@@ -7,7 +7,7 @@
     "documentation_url": "http://www.brocade.com/en/products-services/software-networking/application-delivery-controllers/virtual-traffic-manager.html",
     "product_name": "vTM DE",
     "product_url": "http://www.brocade.com/en/products-services/software-networking/application-delivery-controllers/virtual-traffic-manager.html",
-    "registry_version": 1,
+    "registry_version": 4,
     "status": "stable",
     "availability": "free-to-try",
     "maintainer": "GNS3 Team",
