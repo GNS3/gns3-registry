@@ -7,8 +7,9 @@
     "documentation_url": "http://www.brocade.com/en/products-services/software-networking/application-delivery-controllers/virtual-traffic-manager.html",
     "product_name": "vTM DE",
     "product_url": "http://www.brocade.com/en/products-services/software-networking/application-delivery-controllers/virtual-traffic-manager.html",
-    "registry_version": 1,
+    "registry_version": 4,
     "status": "stable",
+    "availability": "free-to-try",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Credentials: admin / admin. The device gets its initial IP address using DHCP. After getting an IP address, you can access the initial configuration using the WebUI at https://IP_ADDRESS:9090",
@@ -26,6 +27,13 @@
     },
     "images": [
         {
+            "filename": "VirtualTrafficManager-111.qcow2",
+            "version": "11.1",
+            "md5sum": "3c9c63e2071d79c64cb4b17b355d2582",
+            "filesize": 12189564928,
+            "download_url": "http://www1.brocade.com/forms/jsp/steelapp-traffic-manager-developer/index.jsp?src=WS&lsd=BRCD&lst=English&cn=PA-GDG-16Q1-EVAL-TrafficManagerDeveloper&intcmp=lp_en_vTMdeveloper_eval_bn_00001"
+        },
+        {
             "filename": "VirtualTrafficManager-110.img",
             "version": "11.0",
             "md5sum": "7fb0bab8e1cf09076e87270b1418ec81",
@@ -41,6 +49,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "11.1",
+            "images": {
+                "hda_disk_image": "VirtualTrafficManager-111.qcow2"
+            }
+        },
         {
             "name": "11.0",
             "images": {

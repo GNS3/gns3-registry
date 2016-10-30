@@ -6,8 +6,9 @@
     "vendor_url": "https://coreos.com/",
     "documentation_url": "https://coreos.com/docs/",
     "product_name": "CoreOS",
-    "registry_version": 2,
+    "registry_version": 4,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "qemu": {

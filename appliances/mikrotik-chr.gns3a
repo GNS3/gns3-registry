@@ -7,8 +7,9 @@
     "documentation_url": "http://wiki.mikrotik.com/wiki/Manual:CHR",
     "product_name": "MikroTik Cloud Hosted Router",
     "product_url": "http://www.mikrotik.com/download",
-    "registry_version": 1,
+    "registry_version": 4,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "If you'd like a different sized main disk, resize the image before booting the VM for the first time.\n\nOn first boot, RouterOS is actually being installed, formatting the whole main virtual disk, before finally rebooting. That whole process may take a minute or so.\n\nThe console will become available after the installation is complete. Most Telnet/SSH clients (certainly SuperPutty) will keep retrying to connect, thus letting you know when installation is done.\n\nFrom that point on, everything about RouterOS is also true about Cloud Hosted Router, including the default credentials: Username \"admin\" and an empty password.\n\nThe primary differences between RouterOS and CHR are in support for virtual devices (this appliance comes with them being selected), and in the different license model, for which you can read more about at http://wiki.mikrotik.com/wiki/Manual:CHR.",
@@ -26,6 +27,22 @@
         "options": "-nographic"
     },
     "images": [
+        {
+            "filename": "chr-6.37.1.img",
+            "version": "6.34.2",
+            "md5sum": "713b14a5aba9f967f7bdd9029c8d85b6",
+            "filesize": 134217728,
+            "download_url": "http://www.mikrotik.com/download",
+            "direct_download_url": "http://download2.mikrotik.com/routeros/6.37.1/chr-6.37.1.img.zip"
+        },
+        {
+            "filename": "chr-6.36.4.img",
+            "version": "6.36.4",
+            "md5sum": "09527bde50697711926c08d545940c1e",
+            "filesize": 134217728,
+            "download_url": "http://www.mikrotik.com/download",
+            "direct_download_url": "http://download2.mikrotik.com/routeros/6.36.4/chr-6.36.4.img.zip"
+        },
         {
             "filename": "chr-6.34.2.vmdk",
             "version": "6.34.2 (.vmdk)",
@@ -115,6 +132,18 @@
         }
     ],
     "versions": [
+        {
+            "name": "6.37.1",
+            "images": {
+                "hda_disk_image": "chr-6.37.1.img"
+            }
+        },
+        {
+            "name": "6.36.4",
+            "images": {
+                "hda_disk_image": "chr-6.36.4.img"
+            }
+        },
         {
             "name": "6.34.2 (.vmdk)",
             "images": {

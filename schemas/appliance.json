@@ -55,12 +55,16 @@
       "title": "An optional product url on vendor website"
     },
     "registry_version": {
-      "enum": [1, 2, 3],
+      "enum": [1, 2, 3, 4],
       "title": "Version of the registry compatible with this appliance"
     },
     "status": {
       "enum": ["stable", "experimental", "broken"],
       "title": "Document if the appliance is working or not"
+    },
+    "availability": {
+      "enum": ["free", "with-registration", "free-to-try", "service-contract"],
+      "title": "About image availability: can be downloaded directly; download requires a free registration; paid but a trial version (time or feature limited) is available; not available publicly"
     },
     "maintainer": {
       "type": "string",
@@ -130,7 +134,6 @@
                 "type": "string"
             }
         },
-        "additionalProperties": false,
         "required": [
             "adapters",
             "image"
@@ -162,7 +165,6 @@
                 "title": "Config loaded at startup"
             }
         },
-        "additionalProperties": false,
         "required": [
             "ethernet_adapters",
             "serial_adapters",
@@ -211,7 +213,6 @@
             "midplane": { "enum": ["std", "vxr"] },
             "npe": { "enum": ["npe-100", "npe-150", "npe-175", "npe-200", "npe-225", "npe-300", "npe-400", "npe-g2"] }
         },
-        "additionalProperties": false,
         "required": [
             "platform",
             "ram",
@@ -313,7 +314,6 @@
                      "null"]
         }
       },
-      "additionalProperties": false,
       "required": [
           "adapter_type",
           "adapters",
@@ -363,7 +363,6 @@
             "title": "Optional, compression type of direct download url image."
           }
         },
-        "additionalProperties": false,
         "required": [
             "filename",
             "version",
@@ -420,18 +419,15 @@
                 "type": "string",
                 "title": "cdrom image"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "required": [
             "name"
-        ],
-        "additionalProperties": false
+        ]
       }
     }
   },
-  "additionalProperties": false,
   "required": [
     "name",
     "category",
@@ -441,6 +437,7 @@
     "product_name",
     "registry_version",
     "status",
+    "availability",
     "maintainer",
     "maintainer_email"
   ]
