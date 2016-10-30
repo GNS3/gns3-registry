@@ -22,6 +22,14 @@
     },
     "images": [
         {
+            "filename": "openwrt-15.05-realview-vmlinux-initramfs.elf",
+            "version": "15.05",
+            "md5sum": "e642debbfe35f3dfc383c8b12f149c55",
+            "filesize": 2148784,
+            "download_url": "http://downloads.openwrt.org/chaos_calmer/15.05/realview/generic/",
+            "direct_download_url": "http://downloads.openwrt.org/chaos_calmer/15.05/realview/generic/openwrt-15.05-realview-vmlinux-initramfs.elf"
+        },
+        {
             "filename": "openwrt-realview-vmlinux-initramfs-14.07.elf",
             "version": "14.07",
             "md5sum": "2411307d0794baa618537c5dfcb19575",
@@ -31,6 +39,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "Chaos Calmer 15.05",
+            "images": {
+                "kernel_image": "openwrt-15.05-realview-vmlinux-initramfs.elf"
+            }
+        },
         {
             "name": "Barrier Breaker 14.07",
             "images": {
