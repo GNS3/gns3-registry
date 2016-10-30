@@ -23,12 +23,12 @@
     },
     "images": [
         {
-            "filename": "openwrt-15.05-realview-vmlinux-initramfs.elf",
-            "version": "15.05",
-            "md5sum": "e642debbfe35f3dfc383c8b12f149c55",
-            "filesize": 2148784,
-            "download_url": "http://downloads.openwrt.org/chaos_calmer/15.05/realview/generic/",
-            "direct_download_url": "http://downloads.openwrt.org/chaos_calmer/15.05/realview/generic/openwrt-15.05-realview-vmlinux-initramfs.elf"
+            "filename": "openwrt-15.05.1-realview-vmlinux-initramfs.elf",
+            "version": "15.05.1",
+            "md5sum": "3660b9de654cf03f2a50997ae89c2daf",
+            "filesize": 2278696,
+            "download_url": "http://downloads.openwrt.org/chaos_calmer/15.05.1/realview/generic/",
+            "direct_download_url": "http://downloads.openwrt.org/chaos_calmer/15.05.1/realview/generic/openwrt-15.05.1-realview-vmlinux-initramfs.elf"
         },
         {
             "filename": "openwrt-realview-vmlinux-initramfs-14.07.elf",
@@ -41,9 +41,9 @@
     ],
     "versions": [
         {
-            "name": "Chaos Calmer 15.05",
+            "name": "Chaos Calmer 15.05.1",
             "images": {
-                "kernel_image": "openwrt-15.05-realview-vmlinux-initramfs.elf"
+                "kernel_image": "openwrt-15.05.1-realview-vmlinux-initramfs.elf"
             }
         },
         {
