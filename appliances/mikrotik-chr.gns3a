@@ -156,6 +156,12 @@
             }
         },
         {
+            "name": "6.34.2 (.vmdk)",
+            "images": {
+                "hda_disk_image": "chr-6.34.2.vmdk"
+            }
+        },
+        {
             "name": "6.34.2 (.vdi)",
             "images": {
                 "hda_disk_image": "chr-6.34.2.vdi"
