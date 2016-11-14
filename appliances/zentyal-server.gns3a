@@ -30,7 +30,7 @@
             "md5sum": "22b165a49adbc4eff033ced01e71fe3a",
             "filesize": 629284864,
             "download_url": "http://download.zentyal.com/",
-            "direct_download_url": "http://download.zentyal.com/zentyal-4.0-amd64.iso"
+            "direct_download_url": "http://download.zentyal.com/zentyal-4.2-development-amd64.iso"
         },
         {
             "filename": "zentyal-4.1-development-amd64.iso",
@@ -46,7 +46,7 @@
             "md5sum": "d63b15f1edcd2c3c03ab3a36e833e211",
             "filesize": 666370048,
             "download_url": "http://download.zentyal.com/",
-            "direct_download_url": "http://download.zentyal.com/zentyal-4.2-development-amd64.iso"
+            "direct_download_url": "http://download.zentyal.com/zentyal-4.0-amd64.iso"
         },
         {
             "filename": "empty100G.qcow2",

@@ -21,11 +21,19 @@
     },
     "images": [
         {
+            "filename": "kali-linux-2016.2-amd64.iso",
+            "version": "2016.2",
+            "md5sum": "3d163746bc5148e61ad689d94bc263f9",
+            "filesize": 3076767744,
+            "download_url": "http://cdimage.kali.org/kali-2016.2/",
+            "direct_download_url": "http://cdimage.kali.org/kali-2016.2/kali-linux-2016.2-amd64.iso"
+        },
+        {
             "filename": "kali-linux-2016.1-amd64.iso",
             "version": "2016.1",
             "md5sum": "2e1230dc14036935b3279dfe3e49ad39",
             "filesize": 2945482752,
-            "download_url": "https://www.offensive-security.com/kali-linux-vmware-arm-image-download/",
+            "download_url": "http://cdimage.kali.org/kali-2016.1/",
             "direct_download_url": "http://cdimage.kali.org/kali-2016.1/kali-linux-2016.1-amd64.iso"
         },
         {
@@ -38,6 +46,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "2016.2",
+            "images": {
+                "cdrom_image": "kali-linux-2016.2-amd64.iso"
+            }
+        },
         {
             "name": "2016.1",
             "images": {

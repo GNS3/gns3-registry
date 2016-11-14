@@ -25,6 +25,13 @@
     },
     "images": [
         {
+            "filename": "asg-9.408-4.1.iso",
+            "version": "9.408-4.1",
+            "md5sum": "b10aab2d3dd4d7f6424b9c64a075e550",
+            "filesize": 892516352,
+            "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
+        },
+        {
             "filename": "asg-9.407-3.1.iso",
             "version": "9.407-3.1",
             "md5sum": "19f736d0766a960a1d37edf98daaf01d",
@@ -83,6 +90,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "9.408-4.1",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "asg-9.408-4.1.iso"
+            }
+        },
         {
             "name": "9.407-3.1",
             "images": {
