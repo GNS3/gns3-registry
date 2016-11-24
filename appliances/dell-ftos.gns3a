@@ -4,7 +4,6 @@
     "description": "Dell Networking OS10 combines the best of Linux, open computing and networking to advance open networking disaggregation. Dell Networking OS10 is a transformational software platform that provides networking hardware abstraction through a common set of APIs. Enable consistency across compute and network resources for your system operators (SysOps) groups that require server-like manageability. Easily leverage your existing network configuration. Dell Networking OS10 incorporates traditional networking integration. Enhance the integration and control you allow your development and operations (DevOps) teams, down to identifying an object as an individual, manageable entity within the platform.",
     "vendor_name": "Dell Inc.",
     "vendor_url": "http://www.dell.com/",
-    "documentation_url": "https://cld.pt/dl/download/bbf7beb2-5177-488f-8e61-aca160ef66da/OS_Emulator_UG_9.8.0.0_052015.pdf",
     "product_name": "Dell FTOS",
     "product_url": "http://www.dell.com/us/business/p/open-platform-software/pd",
     "registry_version": 3,
