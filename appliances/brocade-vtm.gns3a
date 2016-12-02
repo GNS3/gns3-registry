@@ -40,11 +40,18 @@
             "download_url": "http://www1.brocade.com/forms/jsp/steelapp-traffic-manager-developer/index.jsp?src=WS&lsd=BRCD&lst=English&cn=PA-GDG-16Q1-EVAL-TrafficManagerDeveloper&intcmp=lp_en_vTMdeveloper_eval_bn_00001"
         },
         {
+            "filename": "VirtualTrafficManager-104R1.img",
+            "version": "10.4R1",
+            "md5sum": "395542073d6afb9e62e7d5a7b339c3b3",
+            "filesize": 12193562624,
+            "download_url": "http://my.brocade.com/"
+        },
+        {
             "filename": "VirtualTrafficManager-104.img",
             "version": "10.4",
             "md5sum": "88e31b072e17de12e241ef442bb5faae",
             "filesize": 12190220288,
-            "download_url": "http://my.brocade.com/wps/myportal/!ut/p/b0/tVRRb5swEP4reUmeViBpl25GeaBAOlaSMCDtwgtysNNadWxkTNL0188EQpqo1TRtQwj5zp-_Ox_fnZ7oP_WEwQ15hJJwBmllJ8P07vsg8p3BZf92HDmGZ1_ff_5xY_eNu4G-UIDrDwG2ocd6oie54MjmCFdwPUE5lE_Nkm8Z5RA5PIt3ebNf8FJkOICPjY1LCi1KYFGbezIoj3z4JedC2etcgVjWeCVcEnQaxWMrri84XnsIgL6xf4Zfh6byVGwA3IQz23Jcs8D01JFV5FiqpOQTAAe-omvcEyFLSDuxgKsVyToTyFTeomv0De2qa0R8JbdQ4A5kqGPlTYLqnLpUEU_SvnGVNhQX7fbFy5dhOrxKnzdr7ZXk5vn9VO5mWxMA7r0wnlt-ajl2Gs2DwHcn7jS2fBNhSjZY7KZYbrl4BsD3Jq7v3X6LzbrEADizh6k_s5zIPBYdgFx9tS1eVmEh1drrHkDKrYqhcPVC2-YayZGGC6RR-LrT1JqgU_AUrhWxGzmpbyWLNHDSYBbGvhvvSwvZ7uyXILyKMA0a3QBg-X4ahDNnbseRWSmgzOQ7OwJTDAs85RKryjQsNmcSMxlAhqsoUey6vhUEaRxa47Fnp5PpbWiSwj2UeZ4jKLFCXppL6K4hoQCUTHERhpFZFlhUWlX0AhdSkGyPNcwzLatAs3H8YIXuPl-bwqI4z5baJ7rqHSiq8yNWUtp7K7zR73X36e8paun-M6IPe-D_R_ijLuudd9mo32ubbPRRj_WOEhgZvbOGG7X9Vg0hNWTqadQKvhlOp4dq55G2sVkDlu2UfFurk7lZN5xy5c9w-YrffRe_AFJ0tA4!/"
+            "download_url": "http://my.brocade.com/"
         }
     ],
     "versions": [
@@ -58,6 +65,12 @@
             "name": "11.0",
             "images": {
                 "hda_disk_image": "VirtualTrafficManager-110.img"
+            }
+        },
+        {
+            "name": "10.4R1",
+            "images": {
+                "hda_disk_image": "VirtualTrafficManager-104R1.img"
             }
         },
         {

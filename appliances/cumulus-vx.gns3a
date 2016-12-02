@@ -24,6 +24,13 @@
     },
     "images": [
         {
+            "filename": "cumulus-linux-3.1.2-vx-amd64-1478059878.e1f18b3zacdc5c1.qcow2",
+            "version": "3.1.2",
+            "md5sum": "e25d4dde0d2d5378a469380bd1d8d082",
+            "filesize": 1291911168,
+            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/"
+        },
+        {
             "filename": "cumulus-linux-3.1.1-vx-amd64-1474681409.bd4e10cz3c4e23f.qcow2",
             "version": "3.1.1",
             "md5sum": "ad7688721417f167ea3537e60feac3da",
@@ -67,6 +74,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "3.1.2",
+            "images": {
+                "hda_disk_image": "cumulus-linux-3.1.2-vx-amd64-1478059878.e1f18b3zacdc5c1.qcow2"
+            }
+        },
         {
             "name": "3.1.1",
             "images": {
