@@ -12,7 +12,7 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "There is no default password and enable password. A default configuration is present.",
-    "port_name_format": "Gi{0}",
+    "port_name_format": "GigabitEthernet{port1}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 4,
