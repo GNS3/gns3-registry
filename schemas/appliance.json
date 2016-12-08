@@ -400,6 +400,10 @@
                 "type": "string",
                 "title": "OS image"
               },
+              "bios_image": {
+                "type": "string",
+                "title": "Bios image"
+              },
               "hda_disk_image": {
                 "type": "string",
                 "title": "Hda disk image"
