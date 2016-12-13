@@ -60,6 +60,13 @@
             "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
         },
         {
+            "filename": "asg-9.358-3.1.iso",
+            "version": "9.358-3.1",
+            "md5sum": "883176415be49e12ab63b46ca749c7b2",
+            "filesize": 868235264,
+            "download_url": "https://www.sophos.com/en-us/support/utm-downloads.aspx"
+        },
+        {
             "filename": "asg-9.357-1.1.iso",
             "version": "9.357-1.1",
             "md5sum": "c34061e770f26a994b725b4b92fe56dc",
@@ -123,6 +130,13 @@
             "images": {
                 "hda_disk_image": "empty30G.qcow2",
                 "cdrom_image": "asg-9.403-4.1.iso"
+            }
+        },
+        {
+            "name": "9.358-3.1",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "asg-9.358-3.1.iso"
             }
         },
         {
