@@ -25,6 +25,13 @@
     },
     "images": [
         {
+            "filename": "untangle_1220_x64.iso",
+            "version": "12.2.0",
+            "md5sum": "a09287f027c4120841a4c8f3c2cd6251",
+            "filesize": 585105408,
+            "download_url": "https://www.untangle.com/get-untangle/"
+        },
+        {
             "filename": "untangle_1212_x64.iso",
             "version": "12.1.2",
             "md5sum": "2f48873316725b1f709015dfeb73d666",
@@ -62,6 +69,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "12.2.0",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "untangle_1220_x64.iso"
+            }
+        },
         {
             "name": "12.1.2",
             "images": {
