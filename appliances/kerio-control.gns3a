@@ -29,7 +29,8 @@
             "md5sum": "5ea5a7f103b1f008d4c24444400333ec",
             "filesize": 483459072,
             "download_url": "http://www.kerio.com/support/kerio-control",
-            "direct_download_url": "http://download.kerio.com/dwn/kerio-control-appliance-vmware.zip"
+            "direct_download_url": "http://download.kerio.com/dwn/kerio-control-appliance-vmware.zip",
+            "compression": "zip"
         }
     ],
     "versions": [

@@ -30,7 +30,8 @@
             "md5sum": "d148288ecc0806e08f8347ef0ad755e8",
             "filesize": 10737418240,
             "download_url": "https://cloudrouter.atlassian.net/wiki/display/CPD/CloudRouter+Downloads",
-            "direct_download_url": "https://repo.cloudrouter.org/4/centos/7/images/cloudrouter-centos-cloud-full.raw.xz"
+            "direct_download_url": "https://repo.cloudrouter.org/4/centos/7/images/cloudrouter-centos-cloud-full.raw.xz",
+            "compression": "xz"
         },
         {
             "filename": "cloudrouter-centos-cloud-minimal.raw",
@@ -38,7 +39,8 @@
             "md5sum": "8d982a37a49bc446a0edc59cefcadcdb",
             "filesize": 10737418240,
             "download_url": "https://cloudrouter.atlassian.net/wiki/display/CPD/CloudRouter+Downloads",
-            "direct_download_url": "https://repo.cloudrouter.org/4/centos/7/images/cloudrouter-centos-cloud-minimal.raw.xz"
+            "direct_download_url": "https://repo.cloudrouter.org/4/centos/7/images/cloudrouter-centos-cloud-minimal.raw.xz",
+            "compression": "xz"
         },
         {
             "filename": "cloudrouter-init-gns3.iso",
