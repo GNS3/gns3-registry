@@ -30,7 +30,8 @@
             "md5sum": "f1d60094c237f55e6737b0da9b5912ce",
             "filesize": 1851523072,
             "download_url": "http://www.kerio.com/support/kerio-connect",
-            "direct_download_url": "http://download.kerio.com/dwn/kerio-connect-appliance-vmware-amd64.zip"
+            "direct_download_url": "http://download.kerio.com/dwn/kerio-connect-appliance-vmware-amd64.zip",
+            "compression": "zip"
         }
     ],
     "versions": [

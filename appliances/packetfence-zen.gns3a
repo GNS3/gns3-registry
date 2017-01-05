@@ -28,7 +28,8 @@
             "md5sum": "7f2bea58421d094152ea71f49cc3084a",
             "filesize": 3221225472,
             "download_url": "https://packetfence.org/download.html#/zen",
-            "direct_download_url": "https://sourceforge.net/projects/packetfence/files/PacketFence%20ZEN/6.4.0/PacketFenceZEN_USB-6.4.0.tar.bz2/download"
+            "direct_download_url": "https://sourceforge.net/projects/packetfence/files/PacketFence%20ZEN/6.4.0/PacketFenceZEN_USB-6.4.0.tar.bz2/download",
+            "compression": "bzip2"
         },
         {
             "filename": "PacketFenceZEN_USB-6.3.0.img",
@@ -36,7 +37,8 @@
             "md5sum": "94e19349faedf292743fdc0ab48f8466",
             "filesize": 3221225472,
             "download_url": "https://packetfence.org/download.html#/zen",
-            "direct_download_url": "https://sourceforge.net/projects/packetfence/files/PacketFence%20ZEN/6.3.0/PacketFenceZEN_USB-6.3.0.tar.bz2/download"
+            "direct_download_url": "https://sourceforge.net/projects/packetfence/files/PacketFence%20ZEN/6.3.0/PacketFenceZEN_USB-6.3.0.tar.bz2/download",
+            "compression": "bzip2"
         },
         {
             "filename": "PacketFenceZEN_USB-6.2.1.img",
@@ -44,7 +46,8 @@
             "md5sum": "f212be7c8621b90d973f500f00ef1277",
             "filesize": 3221225472,
             "download_url": "https://packetfence.org/download.html#/zen",
-            "direct_download_url": "http://sourceforge.net/projects/packetfence/files/PacketFence%20ZEN/6.2.1/PacketFenceZEN_USB-6.2.1.tar.bz2/download"
+            "direct_download_url": "http://sourceforge.net/projects/packetfence/files/PacketFence%20ZEN/6.2.1/PacketFenceZEN_USB-6.2.1.tar.bz2/download",
+            "compression": "bzip2"
         }
     ],
     "versions": [

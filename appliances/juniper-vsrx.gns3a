@@ -24,6 +24,13 @@
     },
     "images": [
         {
+            "filename": "media-vsrx-vmdisk-15.1X49-D70.3.qcow2",
+            "version": "15.1X49-D70",
+            "md5sum": "7b11babaef0b775f36281ec1d16f1708",
+            "filesize": 3115450368,
+            "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/"
+        },
+        {
             "filename": "junos-vsrx-vmdisk-15.1X49-D60.qcow2",
             "version": "15.1X49-D60",
             "md5sum": "d2ec79880f67e141c4dd662c656da278",
@@ -67,6 +74,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "15.1X49-D70",
+            "images": {
+                "hda_disk_image": "media-vsrx-vmdisk-15.1X49-D70.3.qcow2"
+            }
+        },
         {
             "name": "15.1X49-D60",
             "images": {

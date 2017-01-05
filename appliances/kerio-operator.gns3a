@@ -30,7 +30,8 @@
             "md5sum": "0279baebe587b17f32bfc3302df9352c",
             "filesize": 561512448,
             "download_url": "http://www.kerio.com/support/kerio-operator",
-            "direct_download_url": "http://download.kerio.com/dwn/kerio-operator-appliance-vmware.zip"
+            "direct_download_url": "http://download.kerio.com/dwn/kerio-operator-appliance-vmware.zip",
+            "compression": "zip"
         }
     ],
     "versions": [
