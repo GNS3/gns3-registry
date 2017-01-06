@@ -12,6 +12,7 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default CLI password: admin\nDefault WebUI address: http://172.16.16.18\nDefault WebUI credentials: admin / admin",
+    "symbol": "mgmt_station.svg",
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 4,
