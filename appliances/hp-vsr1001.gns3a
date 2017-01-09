@@ -24,11 +24,11 @@
     },
     "images": [
         {
-            "filename": "VSR1000_HP-CMW710-R0204P01-X64.iso",
+            "filename": "VSR1000_HPE-CMW710-E0324-X64.iso",
             "version": "7.10.R0204P01",
-            "md5sum": "d0b539f3ba9723ad8c3ed46f6d772627",
-            "filesize": 236687360,
-            "download_url": "https://h10145.www1.hp.com/Downloads/DownloadSoftware.aspx?SoftwareReleaseUId=11832&ProductNumber=JG811AAE&lang=en&cc=us&prodSeriesId=5443163&OrderNumber=&PurchaseDate="
+            "md5sum": "e826cfea44a9629587220476e049bbc8",
+            "filesize": 253442048,
+            "download_url": "https://h10145.www1.hp.com/Downloads/DownloadSoftware.aspx?SoftwareReleaseUId=18977&ProductNumber=JG811AAE&lang=en&cc=us&prodSeriesId=5443163&SaidNumber="
         },
         {
             "filename": "VSR1000_HPE-CMW710-E0321P01-X64.iso",
@@ -36,6 +36,13 @@
             "md5sum": "1675fed446449e782819c383293a35f6",
             "filesize": 286515200,
             "download_url": "https://h10145.www1.hp.com/Downloads/DownloadSoftware.aspx?SoftwareReleaseUId=16838&ProductNumber=JG811AAE&lang=en&cc=us&prodSeriesId=5443163&OrderNumber=&PurchaseDate="
+        },
+        {
+            "filename": "VSR1000_HP-CMW710-R0204P01-X64.iso",
+            "version": "7.10.R0204P01",
+            "md5sum": "d0b539f3ba9723ad8c3ed46f6d772627",
+            "filesize": 236687360,
+            "download_url": "https://h10145.www1.hp.com/Downloads/DownloadSoftware.aspx?SoftwareReleaseUId=11832&ProductNumber=JG811AAE&lang=en&cc=us&prodSeriesId=5443163&OrderNumber=&PurchaseDate="
         },
         {
             "filename": "empty8G.qcow2",
@@ -48,10 +55,10 @@
     ],
     "versions": [
         {
-            "name": "7.10.R0204P01",
+            "name": "7.10.E0324",
             "images": {
                 "hda_disk_image": "empty8G.qcow2",
-                "cdrom_image": "VSR1000_HP-CMW710-R0204P01-X64.iso"
+                "cdrom_image": "VSR1000_HPE-CMW710-E0324-X64.iso"
             }
         },
         {
@@ -59,6 +66,13 @@
             "images": {
                 "hda_disk_image": "empty8G.qcow2",
                 "cdrom_image": "VSR1000_HPE-CMW710-E0321P01-X64.iso"
+            }
+        },
+        {
+            "name": "7.10.R0204P01",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "VSR1000_HP-CMW710-R0204P01-X64.iso"
             }
         }
     ]
