@@ -5,7 +5,7 @@
     "vendor_name": "Juniper",
     "vendor_url": "https://www.juniper.net/us/en/",
     "documentation_url": "http://www.juniper.net/techpubs/",
-    "product_name": "vSRX",
+    "product_name": "Juniper vSRX",
     "product_url": "https://www.juniper.net/us/en/products-services/security/srx-series/vsrx/",
     "registry_version": 1,
     "status": "experimental",
