@@ -59,26 +59,12 @@
             "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/"
         },
         {
-            "filename": "junos-vsrx-12.1X47-D20.7-domestic.ova",
-            "version": "12.1X47-D20",
-            "md5sum": "5a992d618b8b40fa4a3cffd234636643",
-            "filesize": 235960320,
+            "filename": "junos-vsrx-12.1X47-D20.7-domestic-disk1.vmdk",
+            "version": "12.1X47-D20.7",
+            "md5sum": "d22ed7a7eb131984e892a4430c5f4730",
+            "filesize": 235894272,
             "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/"
-        },
-        {
-            "filename": "junos-vsrx-12.1X47-D10.4-domestic.ova",
-            "version": "12.1X47-D10",
-            "md5sum": "008b50d56c3a56445fd5d89616881de5",
-            "filesize": 238397440,
-            "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/"
-        },
-        { 
-            "filename": "junos-vsrx-12.1X47-D20.7-domestic-disk1.vmdk", 
-            "version": "12.1X47-D20.7", 
-            "md5sum": "d22ed7a7eb131984e892a4430c5f4730", 
-            "filesize": 235894272, 
-            "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/" 
-        } 
+        }
     ],
     "versions": [
         {
@@ -114,19 +100,7 @@
         {
             "name": "12.1X47-D20",
             "images": {
-                "hda_disk_image": "junos-vsrx-12.1X47-D20.7-domestic.ova/junos-vsrx-12.1X47-D20.7-domestic-disk1.vmdk"
-            }
-        },
-        {
-            "name": "12.1X47-D20-VMDK",
-            "images": {
                 "hda_disk_image": "junos-vsrx-12.1X47-D20.7-domestic-disk1.vmdk"
-            }
-        },
-        {
-            "name": "12.1X47-D10",
-            "images": {
-                "hda_disk_image": "junos-vsrx-12.1X47-D10.4-domestic.ova/junos-vsrx-12.1X47-D10.4-domestic-disk1.vmdk"
             }
         }
     ]
