@@ -9,6 +9,7 @@
     "product_url": "http://virl.cisco.com/",
     "registry_version": 1,
     "status": "stable",
+    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "You can set admin username and password on first boot. Don't forget about the two-staged configuration, you have to commit your changes.",

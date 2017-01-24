@@ -9,6 +9,7 @@
     "product_url": "https://www.mozilla.org/firefox",
     "registry_version": 1,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 team",
     "maintainer_email": "developers@gns3.net",
     "symbol": "firefox.svg",

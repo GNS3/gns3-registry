@@ -9,6 +9,7 @@
     "product_url": "https://cloudrouter.org/about/",
     "registry_version": 3,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default credentials: cloudrouter / gns3",

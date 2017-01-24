@@ -8,6 +8,7 @@
     "product_name": "Internet",
     "registry_version": 1,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Just connect stuff to the appliance. Everything is automated.",

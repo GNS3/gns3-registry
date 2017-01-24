@@ -9,12 +9,14 @@
     "product_url": "https://f5.com/products/modules/local-traffic-manager",
     "registry_version": 3,
     "status": "stable",
+    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Console credentials: root/default. WebUI credentials: admin/admin. The boot process might take a few minutes without providing any output to the console. Please be patient (or set console to vnc to see tty outputs).\n\nIn case the 'localhost emerg logger: Re-starting chmand' log appears on the console, you can find the solution here: https://devcentral.f5.com/questions/big-ip-ltm-ve-on-kvm",
     "symbol": "loadbalancer.svg",
     "port_name_format": "1.{port1}",
     "qemu": {
+        "vcpus": 2,
         "adapter_type": "virtio-net-pci",
         "adapters": 8,
         "ram": 4096,
@@ -24,7 +26,7 @@
         "console_type": "telnet",
         "boot_priority": "c",
         "kvm": "require",
-        "options": "-smp 2 -cpu host"
+        "options": "-cpu host"
     },
     "images": [
         {

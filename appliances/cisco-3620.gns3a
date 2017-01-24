@@ -8,6 +8,7 @@
     "product_name": "3620",
     "registry_version": 2,
     "status": "experimental",
+    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "dynamips": {

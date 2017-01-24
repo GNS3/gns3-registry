@@ -9,19 +9,20 @@
     "product_url": "http://virl.cisco.com/",
     "registry_version": 1,
     "status": "experimental",
+    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username/password: admin/admin, cisco/cisco and lab/lab. There is no default configuration present.",
     "first_port_name": "MgmtEth0/0/CPU0/0",
     "port_name_format": "GigabitEthernet0/0/0/{0}",
     "qemu": {
+        "vcpus": 4,
         "adapter_type": "e1000",
         "adapters": 4,
         "ram": 16384,
         "arch": "i386",
         "console_type": "telnet",
-        "kvm": "require",
-        "options": "-smp 4"
+        "kvm": "require"
     },
     "images": [
         {

@@ -9,6 +9,7 @@
     "product_url": "https://www.fortinet.com/products-services/products/wan-appliances/forticache.html",
     "registry_version": 3,
     "status": "stable",
+    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is admin, no password is set.",

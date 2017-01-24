@@ -9,6 +9,7 @@
     "product_url": "https://www.sophos.com/en-us/products/next-gen-firewall.aspx",
     "registry_version": 3,
     "status": "experimental",
+    "availability": "with-registration",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default CLI password: admin\nDefault WebUI address: http://172.16.16.18\nDefault WebUI credentials: admin / admin",

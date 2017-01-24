@@ -9,6 +9,7 @@
     "product_name": "Open vSwitch",
     "registry_version": 3,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "By default all interfaces are connected to the br0",
