@@ -7,7 +7,7 @@
     "documentation_url": "https://www.arista.com/assets/data/docs/Manuals/EOS-4.17.2F-Manual.pdf",
     "product_name": "vEOS",
     "product_url": "https://eos.arista.com/",
-    "registry_version": 1,
+    "registry_version": 4,
     "status": "experimental",
     "availability": "with-registration",
     "maintainer": "GNS3 Team",
