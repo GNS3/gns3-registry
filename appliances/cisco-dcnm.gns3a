@@ -9,20 +9,21 @@
     "product_url": "http://www.cisco.com/c/en/us/products/cloud-systems-management/prime-data-center-network-manager/index.html",
     "registry_version": 3,
     "status": "stable",
+    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default credentials: root / cisco123",
     "port_name_format": "eth{0}",
     "symbol": "mgmt_station.svg",
     "qemu": {
+        "vcpus": 2,
         "adapter_type": "e1000",
         "adapters": 2,
         "ram": 8192,
         "hda_disk_interface": "ide",
         "arch": "x86_64",
         "console_type": "vnc",
-        "kvm": "require",
-        "options": "-smp 2"
+        "kvm": "require"
     },
     "images": [
         {

@@ -9,6 +9,7 @@
     "product_url": "http://www8.hp.com/us/en/products/networking-routers/product-detail.html?oid=5443878",
     "registry_version": 1,
     "status": "stable",
+    "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "At first boot the router will be installed from the cdrom.",

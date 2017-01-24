@@ -9,6 +9,7 @@
     "product_url": "https://f5.com/products/big-iq-centralized-management",
     "registry_version": 3,
     "status": "stable",
+    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Console credentials: root/default\nWebUI credentials: admin/admin\nThe boot process might take a few minutes without providing any output to the console. Please be patient (or set console to vnc to see tty outputs).",
@@ -16,6 +17,7 @@
     "port_name_format": "1.{port1}",
     "symbol": "mgmt_station.svg",
     "qemu": {
+        "vcpus": 2,
         "adapter_type": "virtio-net-pci",
         "adapters": 2,
         "ram": 4096,
@@ -26,7 +28,7 @@
         "console_type": "telnet",
         "boot_priority": "c",
         "kvm": "require",
-        "options": "-smp 2 -cpu host"
+        "options": "-cpu host"
     },
     "images": [
         {

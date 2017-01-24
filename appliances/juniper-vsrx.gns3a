@@ -9,18 +9,19 @@
     "product_url": "https://www.juniper.net/us/en/products-services/security/srx-series/vsrx/",
     "registry_version": 1,
     "status": "experimental",
+    "availability": "free-to-try",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Initial username is root, no password.",
     "port_name_format": "ge-0/0/{0}",
     "qemu": {
+        "vcpus": 2,
         "adapter_type": "e1000",
         "adapters": 6,
         "ram": 4096,
         "arch": "x86_64",
         "console_type": "telnet",
-        "kvm": "require",
-        "options": "-smp 2"
+        "kvm": "require"
     },
     "images": [
         {

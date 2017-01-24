@@ -9,6 +9,7 @@
     "product_url": "https://www.clearos.com/clearfoundation/software/clearos-7-community",
     "registry_version": 1,
     "status": "stable",
+    "availability": "service-contract",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Follow the installer.",

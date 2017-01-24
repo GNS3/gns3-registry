@@ -9,12 +9,14 @@
     "product_url": "http://freeloadbalancer.com/#about",
     "registry_version": 1,
     "status": "stable",
+    "availability": "with-registration",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Credentials: bal / 1fourall",
     "symbol": "loadbalancer.svg",
     "port_name_format": "eth{0}",
     "qemu": {
+        "vcpus": 2,
         "adapter_type": "virtio-net-pci",
         "adapters": 2,
         "ram": 2048,
@@ -22,8 +24,7 @@
         "arch": "x86_64",
         "console_type": "vnc",
         "boot_priority": "c",
-        "kvm": "allow",
-        "options": "-smp 2"
+        "kvm": "allow"
     },
     "images": [
         {
