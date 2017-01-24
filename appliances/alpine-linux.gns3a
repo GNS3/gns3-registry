@@ -6,7 +6,7 @@
     "vendor_url": "http://alpinelinux.org",
     "documentation_url": "http://wiki.alpinelinux.org",
     "product_name": "Alpine Linux",
-    "registry_version": 1,
+    "registry_version": 4,
     "status": "experimental",
     "availability": "free",
     "maintainer": "GNS3 Team",

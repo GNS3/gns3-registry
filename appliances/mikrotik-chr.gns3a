@@ -7,7 +7,7 @@
     "documentation_url": "http://wiki.mikrotik.com/wiki/Manual:CHR",
     "product_name": "MikroTik Cloud Hosted Router",
     "product_url": "http://www.mikrotik.com/download",
-    "registry_version": 1,
+    "registry_version": 4,
     "status": "stable",
     "availability": "free",
     "maintainer": "GNS3 Team",
