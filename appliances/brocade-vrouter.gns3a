@@ -15,7 +15,7 @@
     "usage": "60 days evaluation. The Brocade vRouter must be on-line and have public connectivity in order to communicate with the Brocade licensing server for automated license key generation. Please note that the evaluation software will only run for 24 hours after installation without the activation code being entered into the system. You must enter your activation code in order to retrieve your licensing key after you install the Brocade vRouter software. Default credentials: vyatta / vyatta",
     "port_name_format": "eth{0}",
     "qemu": {
-        "vcpus": 4,
+        "cpus": 4,
         "adapter_type": "virtio-net-pci",
         "adapters": 8,
         "ram": 4096,

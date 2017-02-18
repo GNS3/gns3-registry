@@ -15,7 +15,7 @@
     "usage": "Initial username is root, no password.",
     "port_name_format": "ge-0/0/{0}",
     "qemu": {
-        "vcpus": 2,
+        "cpus": 2,
         "adapter_type": "e1000",
         "adapters": 6,
         "ram": 4096,

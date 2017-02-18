@@ -16,7 +16,7 @@
     "first_port_name": "MgmtEth0/0/CPU0/0",
     "port_name_format": "GigabitEthernet0/0/0/{0}",
     "qemu": {
-        "vcpus": 4,
+        "cpus": 4,
         "adapter_type": "e1000",
         "adapters": 4,
         "ram": 16384,

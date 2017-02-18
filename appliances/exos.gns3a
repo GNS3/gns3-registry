@@ -16,7 +16,7 @@
     "first_port_name": "Management",
     "port_name_format": "Port{port1}",
     "qemu": {
-        "vcpus": 2,
+        "cpus": 2,
         "adapter_type": "e1000",
         "adapters": 13,
         "ram": 256,

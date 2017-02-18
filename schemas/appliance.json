@@ -253,13 +253,13 @@
           "type": "integer",
           "title": "Number of adapters"
         },
-        "vcpus": {
-          "type": "integer",
-          "title": "Number of vCPUs"
-        },
         "ram": {
           "type": "integer",
           "title": "Ram allocated to the appliance (MB)"
+        },
+        "cpus": {
+          "type": "integer",
+          "title": "Number of Virtual CPU"
         },
         "hda_disk_interface": {
             "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio"],
@@ -404,6 +404,10 @@
               "image": {
                 "type": "string",
                 "title": "OS image"
+              },
+              "bios_image": {
+                "type": "string",
+                "title": "Bios image"
               },
               "hda_disk_image": {
                 "type": "string",

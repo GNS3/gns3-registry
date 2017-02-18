@@ -16,7 +16,7 @@
     "port_name_format": "eth{0}",
     "symbol": "mgmt_station.svg",
     "qemu": {
-        "vcpus": 2,
+        "cpus": 2,
         "adapter_type": "e1000",
         "adapters": 2,
         "ram": 8192,

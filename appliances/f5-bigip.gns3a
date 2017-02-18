@@ -16,7 +16,7 @@
     "symbol": "loadbalancer.svg",
     "port_name_format": "1.{port1}",
     "qemu": {
-        "vcpus": 2,
+        "cpus": 2,
         "adapter_type": "virtio-net-pci",
         "adapters": 8,
         "ram": 4096,
