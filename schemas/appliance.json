@@ -55,7 +55,7 @@
       "title": "An optional product url on vendor website"
     },
     "registry_version": {
-      "enum": [1, 2, 3],
+      "enum": [1, 2, 3, 4],
       "title": "Version of the registry compatible with this appliance"
     },
     "status": {
@@ -139,7 +139,6 @@
             "image"
         ]
     },
-
     "iou": {
         "type": "object",
         "title": "IOU specific options",
@@ -173,7 +172,6 @@
             "startup_config"
         ]
     },
-
     "dynamips": {
         "type": "object",
         "title": "Dynamips specific options",
