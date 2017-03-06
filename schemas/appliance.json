@@ -441,7 +441,6 @@
     "product_name",
     "registry_version",
     "status",
-    "availability",
     "maintainer",
     "maintainer_email"
   ]
