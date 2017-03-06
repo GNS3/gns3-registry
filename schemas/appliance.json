@@ -139,7 +139,6 @@
             "image"
         ]
     },
-
     "iou": {
         "type": "object",
         "title": "IOU specific options",
@@ -173,7 +172,6 @@
             "startup_config"
         ]
     },
-
     "dynamips": {
         "type": "object",
         "title": "Dynamips specific options",
