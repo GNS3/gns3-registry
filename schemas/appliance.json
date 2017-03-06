@@ -325,6 +325,7 @@
           "kvm"
       ]
     },
+
     "images": {
       "type": "array",
       "title": "Images for this appliance",
@@ -373,6 +374,7 @@
         ]
       }
     },
+
     "versions": {
       "type": "array",
       "title": "Versions of the appliance",
@@ -443,6 +445,7 @@
     "product_name",
     "registry_version",
     "status",
+    "availability",
     "maintainer",
     "maintainer_email"
   ]
