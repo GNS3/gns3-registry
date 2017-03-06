@@ -7,7 +7,8 @@
     "documentation_url": "http://www.cisco.com/c/en/us/products/wireless/wireless-lan-controller/index.html",
     "product_name": "Virtual Wireless LAN Controller",
     "product_url": "http://www.cisco.com/c/en/us/support/wireless/virtual-wireless-controller/tsd-products-support-series-home.html",
-    "registry_version": 3,
+    "registry_version": 4,
+    "availability": "service-contract",
     "status": "experimental",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
@@ -26,7 +27,7 @@
         "kvm": "require",
         "options": ""
     },
-    "images": [    
+    "images": [
         {
             "filename": "Cisco-vWLC-AIR-CTVM-7-3-101-0-file1.iso",
             "version": "7.3.101.0",
@@ -93,6 +94,6 @@
                 "hda_disk_image": "empty8G.qcow2",
                 "cdrom_image": "MFG_CTVM_8_3_102_0.iso"
             }
-        }     
+        }
     ]
 }
