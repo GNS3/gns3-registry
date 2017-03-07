@@ -1,0 +1,58 @@
+{
+    "name": "Juniper vMX vFP",
+    "category": "router",
+    "description": "The vMX is a full-featured, carrier-grade virtual MX Series 3D Universal Edge Router that extends 15+ years of Juniper Networks edge routing expertise to the virtual realm. This appliance is for the Virtual Forwarding Plane (vFP) VM and is meant to be paired with the Virtual Control Plane (vCP) VM.",
+    "vendor_name": "Juniper",
+    "vendor_url": "https://www.juniper.net/us/en/",
+    "documentation_url": "http://www.juniper.net/techpubs/",
+    "product_name": "Juniper vMX vFP",
+    "product_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/",
+    "registry_version": 3,
+    "status": "experimental",
+    "maintainer": "none",
+    "maintainer_email": "developers@gns3.net",
+    "symbol": "juniper-vmx.svg",
+    "usage": "Initial username is root, password is root.\n\nPOST INSTALL INSTRUCTIONS\n\nYou must reconfigure the appliance template for the following:\n 1. Legacy Networking Support must be turned on\n 2. The network type must be set to Legacy paravirtualized Network I/O (virtio)\n\nUSAGE INSTRUCTIONS\n\nConnect the first interface (eth0) to your admin VLAN. Connect the second interface (eth1) directly to the second interface (em1) of the vCP",
+    "first_port_name": "Eth0",
+    "port_name_format": "Eth{port1}",
+    "qemu": {
+        "adapter_type": "virtio",
+        "adapters": 8,
+        "ram": 4096,
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "kvm": "require",
+        "options": "-nographic -smp cpus=3"
+    },
+    "images": [
+        {
+            "filename": "vFPC-20151203.img",
+            "version": "15.1F4.15",
+            "md5sum": "b3faa91b4d20836a9a6dd6bad2629dd1",
+            "filesize": 2313158656,
+            "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
+        },
+        {
+            "filename": "vfpc_16.1R2.11.ova",
+            "version": "16.1R2.11",
+            "md5sum": "f2a5e266db707051d083dabb4429c0ba",
+            "filesize": 102440960,
+            "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
+        } 
+    ],
+    "versions": [
+        {
+            "name": "15.1F4.15",
+            "images": {
+                "hda_disk_image": "vFPC-20151203.img"
+            }
+        },
+        {
+            "name": "16.1R2.11",
+            "images": {
+                "hda_disk_image": "vfpc_16.1R2.11.ova/vfpc_16.1R2.11-disk1.vmdk"
+            }
+        }
+       
+    ]
+}
