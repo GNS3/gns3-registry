@@ -17,7 +17,7 @@
         "adapter_type": "e1000",
         "adapters": 16,
         "ram": 768,
-        "arch": "i386",
+        "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "require"
     },
