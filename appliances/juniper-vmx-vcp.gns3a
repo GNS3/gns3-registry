@@ -1,0 +1,94 @@
+{
+    "name": "Juniper vMX vCP",
+    "category": "router",
+    "description": "The vMX is a full-featured, carrier-grade virtual MX Series 3D Universal Edge Router that extends 15+ years of Juniper Networks edge routing expertise to the virtual realm. This appliance is for the Virtual Control Plane (vCP) VM and is meant to be paired with the Virtual Forwarding Plane (vFP) VM.",
+    "vendor_name": "Juniper",
+    "vendor_url": "https://www.juniper.net/us/en/",
+    "documentation_url": "http://www.juniper.net/techpubs/",
+    "product_name": "Juniper vMX vCP",
+    "product_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/",
+    "registry_version": 3,
+    "status": "experimental",
+    "maintainer": "none",
+    "maintainer_email": "developers@gns3.net",
+    "symbol": "juniper-vmx.svg",
+    "usage": "Initial username is root, no password.\n\nUSAGE INSTRUCTIONS\n\nConnect the first interface (fxp0) to your admin VLAN. Connect the second interface (em1) directly to the second interface (eth1) of the vFP.",
+    "first_port_name": "fxp0",
+    "port_name_format": "em{port1}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 2,
+        "ram": 2048,
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "kvm": "require",
+        "options": "-nographic -enable-kvm"
+    },
+    "images": [
+        {
+            "filename": "jinstall64-vmx-15.1F4.15-domestic.img",
+            "version": "15.1F4.15",
+            "md5sum": "e6b2e1ad9cba5220aa764ae4dd008952",
+            "filesize": 1003945984,
+            "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
+        },
+        {
+            "filename": "vmxhdd.img",
+            "version": "15.1F4.15",
+            "md5sum": "c3c7090ed3b1799e3de7579ac887e39d",
+            "filesize": 108986368,
+            "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
+        },
+        {
+            "filename": "metadata_usb.img",
+            "version": "15.1F4.15",
+            "md5sum": "af48f7e03f94ffcfeecd15a59a4f1567",
+            "filesize": 16777216,
+            "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
+        },
+        {
+            "filename": "vcp_16.1R2.11.ova",
+            "version": "16.1R2.11",
+            "md5sum": "5fb3e565810faf61381b5145adaf5a86",
+            "filesize": 976755712
+        },
+        {
+            "filename": "vcp_16.1R2.11-disk1.vmdk",
+            "version": "16.1R2.11",
+            "md5sum": "20945c0114fa4f88cdbedd0551f62d8f",
+            "filesize": 970741248
+        },
+        {
+            "filename": "vcp_16.1R2.11-disk2.vmdk",
+            "version": "16.1R2.11",
+            "md5sum": "904acd14a9eef0bdb60f18db63b8a653",
+            "filesize": 5930496
+        },
+        {
+            "filename": "vcp_16.1R2.11-disk3.vmdk",
+            "version": "16.1R2.11",
+            "md5sum": "f6f6c24c0f991faf93c45f1fbc2ed0ae",
+            "filesize": 71680
+        }
+        
+    ],
+    "versions": [
+        {
+            "name": "15.1F4.15",
+            "images": {
+                "hda_disk_image": "jinstall64-vmx-15.1F4.15-domestic.img",
+                "hdb_disk_image": "vmxhdd.img",
+                "hdc_disk_image": "metadata_usb.img"
+            }
+        },
+        {
+            "name": "16.1R2.11",
+            "images": {
+                "hda_disk_image": "vcp_16.1R2.11-disk1.vmdk",
+                "hdb_disk_image": "vcp_16.1R2.11-disk2.vmdk",
+                "hdc_disk_image": "vcp_16.1R2.11-disk3.vmdk"
+            }      
+        }
+       
+    ]
+}
