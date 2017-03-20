@@ -19,7 +19,8 @@
         "ram": 768,
         "arch": "x86_64",
         "console_type": "telnet",
-        "kvm": "require"
+        "kvm": "require",
+        "hda_disk_image": "virtio"
     },
     "images": [
         {
