@@ -17,10 +17,10 @@
         "adapter_type": "e1000",
         "adapters": 16,
         "ram": 768,
+        "hda_disk_interface": "virtio",
         "arch": "x86_64",
         "console_type": "telnet",
-        "kvm": "require",
-        "hda_disk_image": "virtio"
+        "kvm": "require"
     },
     "images": [
         {
