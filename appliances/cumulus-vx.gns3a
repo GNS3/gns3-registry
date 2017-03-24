@@ -19,7 +19,7 @@
         "adapters": 7,
         "ram": 256,
         "arch": "x86_64",
-        "console_type": "vnc",
+        "console_type": "telnet",
         "kvm": "require"
     },
     "images": [
