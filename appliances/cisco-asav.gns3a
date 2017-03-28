@@ -21,6 +21,7 @@
         "ram": 2048,
         "arch": "x86_64",
         "console_type": "vnc",
+        "hda_disk_interface": "virtio",
         "kvm": "require"
     },
     "images": [
