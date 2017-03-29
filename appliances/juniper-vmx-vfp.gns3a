@@ -26,6 +26,13 @@
     },
     "images": [
         {
+            "filename": "vFPC-20170216.img",
+            "version": "17.1R1.8",
+            "md5sum": "e838b8dd116a8b388d8dfd99575e7e98",
+            "filesize": 2313158656,
+            "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
+        },
+        {
             "filename": "vFPC-20151203.img",
             "version": "15.1F4.15",
             "md5sum": "b3faa91b4d20836a9a6dd6bad2629dd1",
@@ -49,6 +56,12 @@
     ],
 
     "versions": [
+        {
+            "name": "17.1R1.8",
+            "images": {
+                "hda_disk_image": "vFPC-20170216.img"
+            }
+        },
         {
             "name": "15.1F4.15",
             "images": {
