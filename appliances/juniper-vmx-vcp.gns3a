@@ -26,6 +26,42 @@
     },
     "images": [
         {
+            "filename": "vcp_17.1R1.8-disk1.vmdk",
+            "version": "17.1R1.8",
+            "md5sum": "2dba6dff363c0619903f85c3dedce8d8",
+            "filesize": 1065513984
+        },
+        {
+            "filename": "vcp_17.1R1.8-disk2.vmdk",
+            "version": "17.1R1.8",
+            "md5sum": "df7016f8b0fd456044425fa92566c129",
+            "filesize": 5928448
+        },
+        {
+            "filename": "vcp_17.1R1.8-disk3.vmdk",
+            "version": "17.1R1.8",
+            "md5sum": "e9460158e6e27f7885981ab562e60944",
+            "filesize": 71680
+        },
+        {
+            "filename": "vcp_16.1R2.11-disk1.vmdk",
+            "version": "16.1R2.11",
+            "md5sum": "20945c0114fa4f88cdbedd0551f62d8f",
+            "filesize": 970741248
+        },
+        {
+            "filename": "vcp_16.1R2.11-disk2.vmdk",
+            "version": "16.1R2.11",
+            "md5sum": "904acd14a9eef0bdb60f18db63b8a653",
+            "filesize": 5930496
+        },
+        {
+            "filename": "vcp_16.1R2.11-disk3.vmdk",
+            "version": "16.1R2.11",
+            "md5sum": "f6f6c24c0f991faf93c45f1fbc2ed0ae",
+            "filesize": 71680
+        },
+        {
             "filename": "jinstall64-vmx-15.1F4.15-domestic.img",
             "version": "15.1F4.15",
             "md5sum": "e6b2e1ad9cba5220aa764ae4dd008952",
@@ -45,30 +81,6 @@
             "md5sum": "af48f7e03f94ffcfeecd15a59a4f1567",
             "filesize": 16777216,
             "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
-        },
-        {
-            "filename": "vcp_16.1R2.11.ova",
-            "version": "16.1R2.11",
-            "md5sum": "5fb3e565810faf61381b5145adaf5a86",
-            "filesize": 976755712
-        },
-        {
-            "filename": "vcp_16.1R2.11-disk1.vmdk",
-            "version": "16.1R2.11",
-            "md5sum": "20945c0114fa4f88cdbedd0551f62d8f",
-            "filesize": 970741248
-        },
-        {
-            "filename": "vcp_16.1R2.11-disk2.vmdk",
-            "version": "16.1R2.11",
-            "md5sum": "904acd14a9eef0bdb60f18db63b8a653",
-            "filesize": 5930496
-        },
-        {
-            "filename": "vcp_16.1R2.11-disk3.vmdk",
-            "version": "16.1R2.11",
-            "md5sum": "f6f6c24c0f991faf93c45f1fbc2ed0ae",
-            "filesize": 71680
         },
         {
             "filename": "vcp_17.1R1.8-disk1.vmdk",
@@ -91,12 +103,12 @@
     ],
     "versions": [
         {
-            "name": "15.1F4.15",
+            "name": "17.1R1.8",
             "images": {
-                "hda_disk_image": "jinstall64-vmx-15.1F4.15-domestic.img",
-                "hdb_disk_image": "vmxhdd.img",
-                "hdc_disk_image": "metadata_usb.img"
-            }
+                "hda_disk_image": "vcp_17.1R1.8-disk1.vmdk",
+                "hdb_disk_image": "vcp_17.1R1.8-disk2.vmdk",
+                "hdc_disk_image": "vcp_17.1R1.8-disk3.vmdk"
+            }      
         },
         {
             "name": "16.1R2.11",
@@ -107,6 +119,14 @@
             }      
         },
         {
+            "name": "15.1F4.15",
+            "images": {
+                "hda_disk_image": "jinstall64-vmx-15.1F4.15-domestic.img",
+                "hdb_disk_image": "vmxhdd.img",
+                "hdc_disk_image": "metadata_usb.img"
+            }
+         },
+         {
             "name": "17.1R1.8",
             "images": {
                 "hda_disk_image": "vcp_17.1R1.8-disk1.vmdk",
