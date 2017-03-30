@@ -81,7 +81,25 @@
             "md5sum": "af48f7e03f94ffcfeecd15a59a4f1567",
             "filesize": 16777216,
             "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
-        }
+        },
+        {
+            "filename": "vcp_17.1R1.8-disk1.vmdk",
+            "version": "17.1R1.8",
+            "md5sum": "2dba6dff363c0619903f85c3dedce8d8",
+            "filesize": 1065513984
+        },
+        {
+            "filename": "vcp_17.1R1.8-disk2.vmdk",
+            "version": "17.1R1.8",
+            "md5sum": "df7016f8b0fd456044425fa92566c129",
+            "filesize": 5928448
+        },
+        {
+            "filename": "vcp_17.1R1.8-disk3.vmdk",
+            "version": "17.1R1.8",
+            "md5sum": "e9460158e6e27f7885981ab562e60944",
+            "filesize": 71680
+        }         
     ],
     "versions": [
         {
@@ -107,6 +125,14 @@
                 "hdb_disk_image": "vmxhdd.img",
                 "hdc_disk_image": "metadata_usb.img"
             }
+         },
+         {
+            "name": "17.1R1.8",
+            "images": {
+                "hda_disk_image": "vcp_17.1R1.8-disk1.vmdk",
+                "hdb_disk_image": "vcp_17.1R1.8-disk2.vmdk",
+                "hdc_disk_image": "vcp_17.1R1.8-disk3.vmdk"
+            }      
         }
        
     ]
