@@ -45,6 +45,13 @@
             "md5sum": "1a90e5dc0c02c8336b9084cbdf17f635",
             "filesize": 102431232,
             "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
+        }, 
+        {
+            "filename": "vfpc_17.1R1.8-disk1.vmdk",
+            "version": "17.1R1.8",
+            "md5sum": "169dd487b8547d58b12b2918a5667360",
+            "filesize": 102820352,
+            "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
         } 
     ],
 
@@ -59,6 +66,12 @@
             "name": "16.1R2.11",
             "images": {
                 "hda_disk_image": "vfpc_16.1R2.11-disk1.vmdk"
+            }
+        },
+        {
+            "name": "17.1R1.8",
+            "images": {
+                "hda_disk_image": "vfpc_17.1R1.8-disk1.vmdk"
             }
         }
        
