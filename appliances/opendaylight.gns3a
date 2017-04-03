@@ -1,0 +1,20 @@
+{
+    "name": "OpenDaylight",
+    "category": "guest",
+    "description": "Software-Defined Networking (SDN) is an industry movement for building programmable networks that are flexible and responsive to organizations' and users' needs. OpenDaylight, the largest open source SDN controller, is helping lead this transition. By uniting the industry around a common SDN platform, the OpenDaylight community -- solution providers, individual developers, and users working together -- is delivering interoperable, programmable networks to service providers, enterprises, universities and a variety of organizations around the globe.",
+    "vendor_name": "Linux Foundation",
+    "vendor_url": "http://www.opendaylight.org",
+    "product_name": "OpenDaylight",
+    "registry_version": 3,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "Login admin / password admin",
+    "docker": {
+        "adapters": 1,
+        "image": "gns3/opendaylight",
+        "console_type": "http",
+        "console_http_port": 8181,
+        "console_http_path": "/"
+    }
+}
