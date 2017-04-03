@@ -3,13 +3,25 @@
 A kali linux console version for GNS3
 
 The image include:
-* nmap
-* metasploit
-* sqlmap
-* hydra
-* telnet client
-* dnsutils (dig)
-
+metasploit-framework
+ * nmap
+ * hydra
+ * sqlmap
+ * telnet
+ * openssh-client
+ * dnsutils
+ * yersinia
+ * ettercap-text-only
+ * cisco-global-exploiter
+ * cisco-auditing-tool
+ * snmp
+ * dsniff
+ * dnschef
+ * fping
+ * hping3
+ * tshark
+ * python-scapy
+ * yersinia
 
 ## Build and publish the Images
 
