@@ -14,7 +14,7 @@
     "first_port_name": "mgmt0",
     "port_name_format": "Ethernet1/{port1}",
     "qemu": {
-        "vcpus": 2,
+        "cpus": 2,
         "adapter_type": "e1000",
         "adapters": 10,
         "ram": 8096,
