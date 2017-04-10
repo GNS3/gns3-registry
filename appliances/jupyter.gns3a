@@ -11,7 +11,7 @@
     "maintainer_email": "developers@gns3.net",
     "docker": {
         "adapters": 1,
-        "image": "gns3/jupyter",
+        "image": "gns3/jupyter:v2",
         "console_type": "http",
         "console_http_port": 8888,
         "console_http_path": "/"
