@@ -10,4 +10,4 @@ EXPOSE 8888
 
 VOLUME /opt/notebooks
 
-CMD jupyter notebook --no-browser /opt/notebooks
+CMD jupyter notebook --allow-root --no-browser /opt/notebooks
