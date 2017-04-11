@@ -54,7 +54,7 @@ tce-load -wi libpcap-dev
 tce-load -wi git
 git clone https://github.com/pstavirs/ostinato.git
 cd ostinato
-[ -n "$git-commit" ] && git checkout "$git_commit"
+[ -n "$git_commit" ] && git checkout "$git_commit"
 qmake -config release "QMAKE_CXXFLAGS+=$CXXFLAGS"
 make server
 sudo INSTALL_ROOT=/tmp/ostinato make server-install_subtargets
