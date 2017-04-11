@@ -1,6 +1,9 @@
 set -e
 set -x
 
+# git branch, commit or tag
+git_commit=97c7d79
+
 # setup environment
 . /etc/profile
 . /etc/init.d/tc-functions
@@ -48,10 +51,10 @@ rm -rf protobuf*
 # compile ostinato
 tce-load -wi qt-4.x-dev
 tce-load -wi libpcap-dev
-ver=`curl -sI https://bintray.com/pstavirs/ostinato/ostinato-src/_latestVersion | sed -n '/Location:/ {s%.*/ostinato-src/%%;s%/view.*%%;p;}'`
-curl -k -L -O https://bintray.com/artifact/download/pstavirs/ostinato/ostinato-src-$ver.tar.gz
-tar xfz ostinato-src-$ver.tar.gz
-cd ostinato-$ver
+tce-load -wi git
+git clone https://github.com/pstavirs/ostinato.git
+cd ostinato
+[ -n "$git-commit" ] && git checkout "$git_commit"
 qmake -config release "QMAKE_CXXFLAGS+=$CXXFLAGS"
 make server
 sudo INSTALL_ROOT=/tmp/ostinato make server-install_subtargets
@@ -97,6 +100,7 @@ if grep -q -w nodhcp /proc/cmdline; then
 	# alternatively configure static interface address and route
 	#ifconfig eth0 x.x.x.x netmask 255.255.255.0 up
 	#route add default gw y.y.y.y
+	#echo 'nameserver z.z.z.z' > /etc/resolv.conf
 
 	# activate other eth devices
 	NETDEVICES="$(awk -F: '/eth[1-9][0-9]*:/{print $1}' /proc/net/dev 2>/dev/null)"

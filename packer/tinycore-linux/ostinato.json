@@ -1,4 +1,6 @@
 {
+    "tc_iso_url": "http://distro.ibiblio.org/tinycorelinux/7.x/x86/archive/7.2/Core-7.2.iso",
+    "tc_iso_checksum": "77bf8cceacd2110120451f3f22f85156",
     "vm_name": "ostinato.qcow2",
     "setup_script": "ostinato.sh",
     "disk_size": "200"
