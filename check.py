@@ -54,7 +54,7 @@ def check_appliance(appliance):
                         found = True
 
                 if not found:
-                    print('Missing relation ' + i['filename'] + ' ' + ' in ' + appliance)
+                    print('Missing relation ' + image + ' in ' + appliance + ' for version ' + version['name'])
                     sys.exit(1)
 
 

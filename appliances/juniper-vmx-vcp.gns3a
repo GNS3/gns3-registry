@@ -50,13 +50,13 @@
             "filesize": 1192296448
         },
         {
-            "filename": "vmxhdd.img",
+            "filename": "vmxhdd-17.1R1.img",
             "version": "17.1R1.8-KVM",
             "md5sum": "3634fa16219852d0dba46b2fb77d5969",
             "filesize": 108986368
         },
         {
-            "filename": "metadata-usb-re.img",
+            "filename": "metadata-usb-re-17.1R1.img",
             "version": "17.1R1.8-KVM",
             "md5sum": "e911911dc77e7fef1375e66ae98e41b8",
             "filesize": 16777216
@@ -86,13 +86,13 @@
             "filesize": 1217462272
         },
         {
-            "filename": "vmxhdd.img",
+            "filename": "vmxhdd-16.2R1.img",
             "version": "16.2R1.6-KVM",
             "md5sum": "ce75a16cf130d8744652c8f23d1d13ef",
             "filesize": 108986368
         },
         {
-            "filename": "metadata-usb-re.img",
+            "filename": "metadata-usb-re-16.2R1.img",
             "version": "16.2R1.6-KVM",
             "md5sum": "dded4a98c18ecc79daaa1d11dd0cfb2f",
             "filesize": 16777216
@@ -122,13 +122,13 @@
             "filesize": 1115815936
         },
         {
-            "filename": "vmxhdd.img",
+            "filename": "vmxhdd-16.1R4.img",
             "version": "16.1R4.7-KVM",
             "md5sum": "97b86d9d69f9615fb97d50a8d4aecd97",
             "filesize": 108986368
         },
         {
-            "filename": "metadata-usb-re.img",
+            "filename": "metadata-usb-re-16.1R4.img",
             "version": "16.1R4.7-KVM",
             "md5sum": "fb200eec654e14201bfa0720b39a64f0",
             "filesize": 16777216
@@ -158,13 +158,13 @@
             "filesize": 1105526784
         },
         {
-            "filename": "vmxhdd.img",
+            "filename": "vmxhdd-16.1R3.img",
             "version": "16.1R3.10-KVM",
             "md5sum": "28626ce47bea74b7d92bb4e28fa85c93",
             "filesize": 108986368
         },
         {
-            "filename": "metadata-usb-re.img",
+            "filename": "metadata-usb-re-16.1R3.img",
             "version": "16.1R3.10-KVM",
             "md5sum": "b187253fa654a30a7dd0b331e2c6e6a4",
             "filesize": 16777216
@@ -194,13 +194,13 @@
             "filesize": 1194065920
         },
         {
-            "filename": "vmxhdd.img",
+            "filename": "vmxhdd-16.1R2.img",
             "version": "16.1R2.11-KVM",
             "md5sum": "962c04d00d2b3272f40f3571d1305d6d",
             "filesize": 108986368
         },
         {
-            "filename": "metadata-usb-re.img",
+            "filename": "metadata-usb-re-16.1R2.img",
             "version": "16.1R2.11-KVM",
             "md5sum": "10f219a0b5d23553dbbf3a7ec1358a68",
             "filesize": 16777216
@@ -230,13 +230,13 @@
             "filesize": 1194065920
         },
         {
-            "filename": "vmxhdd.img",
+            "filename": "vmxhdd-16.1R1.img",
             "version": "16.1R1.7-KVM",
             "md5sum": "c239c4de2a4cf902747c8fc300f08493",
             "filesize": 108986368
         },
         {
-            "filename": "metadata_usb-re.img",
+            "filename": "metadata-usb-re-16.1R1.img",
             "version": "16.1R1.7-KVM",
             "md5sum": "47e578bd41890272dcd5aa1e436068d4",
             "filesize": 16777216
@@ -249,19 +249,18 @@
             "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
         },
         {
-            "filename": "vmxhdd.img",
+            "filename": "vmxhdd-15.1.img",
             "version": "15.1F4.15",
             "md5sum": "c3c7090ed3b1799e3de7579ac887e39d",
             "filesize": 108986368,
             "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
         },
         {
-            "filename": "metadata_usb.img",
+            "filename": "metadata-usb-15.1.img",
             "version": "15.1F4.15",
             "md5sum": "af48f7e03f94ffcfeecd15a59a4f1567",
             "filesize": 16777216,
             "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
-
         }
     ],
     "versions": [
@@ -277,8 +276,8 @@
             "name": "17.1R1.8-KVM",
             "images": {
                 "hda_disk_image": "junos-vmx-x86-64-17.1R1.8.qcow2",
-                "hdb_disk_image": "vmxhdd.img",
-                "hdc_disk_image": "metadata-usb-re.img"
+                "hdb_disk_image": "vmxhdd-17.1R1.img",
+                "hdc_disk_image": "metadata-usb-re-17.1R1.img"
             }
         },
         {
@@ -293,8 +292,8 @@
             "name": "16.2R1.6-KVM",
             "images": {
                 "hda_disk_image": "junos-vmx-x86-64-16.2R1.6.qcow2",
-                "hdb_disk_image": "vmxhdd.img",
-                "hdc_disk_image": "metadata-usb-re.img"
+                "hdb_disk_image": "vmxhdd-16.2R1.img",
+                "hdc_disk_image": "metadata-usb-re-16.2R1.img"
             }
         },
         {
@@ -309,8 +308,8 @@
             "name": "16.1R4.7-KVM",
             "images": {
                 "hda_disk_image": "junos-vmx-x86-64-16.1R4.7.qcow2",
-                "hdb_disk_image": "vmxhdd.img",
-                "hdc_disk_image": "metadata-usb-re.img"
+                "hdb_disk_image": "vmxhdd-16.1R4.img",
+                "hdc_disk_image": "metadata-usb-re-16.1R4.img"
             }
         },
         {
@@ -325,8 +324,8 @@
             "name": "16.1R3.10-KVM",
             "images": {
                 "hda_disk_image": "junos-vmx-x86-64-16.1R3.10.qcow2",
-                "hdb_disk_image": "vmxhdd.img",
-                "hdc_disk_image": "metadata-usb-re.img"
+                "hdb_disk_image": "vmxhdd-16.1R3.img",
+                "hdc_disk_image": "metadata-usb-re-16.1R3.img"
             }
         },
         {
@@ -341,8 +340,8 @@
             "name": "16.1R2.11-KVM",
             "images": {
                 "hda_disk_image": "junos-vmx-x86-64-16.1R2.11.qcow2",
-                "hdb_disk_image": "vmxhdd.img",
-                "hdc_disk_image": "metadata-usb-re.img"
+                "hdb_disk_image": "vmxhdd-16.1R2.img",
+                "hdc_disk_image": "metadata-usb-re-16.1R2.img"
             }
         },
         {
@@ -357,16 +356,16 @@
             "name": "16.1R1.7-KVM",
             "images": {
                 "hda_disk_image": "junos-vmx-x86-64-16.1R1.7.qcow2",
-                "hdb_disk_image": "vmxhdd.img",
-                "hdc_disk_image": "metadata-usb-re.img"
+                "hdb_disk_image": "vmxhdd-16.1R1.img",
+                "hdc_disk_image": "metadata-usb-re-16.1R1.img"
             }
         },
         {
             "name": "15.1F4.15",
             "images": {
                 "hda_disk_image": "jinstall64-vmx-15.1F4.15-domestic.img",
-                "hdb_disk_image": "vmxhdd.img",
-                "hdc_disk_image": "metadata_usb.img"
+                "hdb_disk_image": "vmxhdd-15.1.img",
+                "hdc_disk_image": "metadata-usb-15.1.img"
             }
          }
     ]
