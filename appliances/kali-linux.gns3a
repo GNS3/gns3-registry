@@ -21,6 +21,14 @@
     },
     "images": [
         {
+            "filename": "kali-linux-2017.1-amd64.iso",
+            "version": "2017.1",
+            "md5sum": "c8e742283929d7a12dbe7c58e398ff08",
+            "filesize": 2794307584,
+            "download_url": "http://cdimage.kali.org/kali-2017.1/",
+            "direct_download_url": "http://cdimage.kali.org/kali-2017.1/kali-linux-2017.1-amd64.iso"
+        },
+        {
             "filename": "kali-linux-2016.2-amd64.iso",
             "version": "2016.2",
             "md5sum": "3d163746bc5148e61ad689d94bc263f9",
@@ -46,6 +54,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "2017.1",
+            "images": {
+                "cdrom_image": "kali-linux-2017.1-amd64.iso"
+            }
+        },
         {
             "name": "2016.2",
             "images": {
