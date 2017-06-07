@@ -10,7 +10,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-rec
     golang-github-go-ldap-ldap-dev golang-github-kolo-xmlrpc-dev \
     python python3 python-pymysql python3-pymysql python-pygresql python3-postgresql \
     python-pysnmp4 python3-pysnmp4 python-ldap3 python3-ldap3 python-paramiko python3-paramiko \
-    python-mailer python-sqlite2 python3-aioxmlrpc \
+    python-mailer python3-aioxmlrpc \
     perl perl-modules-5.22 libdbd-mysql-perl libdbd-sqlite3-perl libsnmp-session-perl \
     libdbd-ldap-perl libnet-ssh2-perl\ 
     && rm -rf /var/lib/apt/lists/*
