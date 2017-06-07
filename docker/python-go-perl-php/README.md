@@ -19,6 +19,6 @@ The /root folder is mounted by default
 First the base image has to be created:
 
 ```
-docker build -t gns3/python-go-perl-php:xenial .
-docker push gns3/python-go-perl-php:xenial    (optional)
+docker build -t gns3/python-go-perl-php:latest .
+docker push gns3/python-go-perl-php:latest    (optional)
 ```
