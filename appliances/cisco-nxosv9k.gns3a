@@ -12,6 +12,7 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "first_port_name": "mgmt0",
+    "usage": "The old (I5) versions might require 8192 MB of RAM; adjust it if necessary.",
     "port_name_format": "Ethernet1/{port1}",
     "qemu": {
         "cpus": 2,
