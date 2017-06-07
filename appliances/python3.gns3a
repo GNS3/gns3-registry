@@ -1,0 +1,17 @@
+{
+    "name": "Python3",
+    "category": "guest",
+    "description": "Python is an interpreted, interactive, object-oriented, open-source programming language that lets you work quickly and integrate systems more effectively.",
+    "vendor_name": "Python Software Foundation",
+    "vendor_url": "https://www.python.org",
+    "documentation_url": "https://docs.python.org/3/",
+    "product_name": "Python 3.x",
+    "registry_version": 3,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "docker": {
+        "adapters": 1,
+        "image": "python:3"
+    }
+}
