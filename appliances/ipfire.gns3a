@@ -30,7 +30,8 @@
             "md5sum": "d91bdabee5db83d0f93573f88ea542b1",
             "filesize": 958398464,
             "download_url": "http://www.ipfire.org/download",
-            "direct_download_url": "http://downloads.ipfire.org/releases/ipfire-2.x/2.19-core110/ipfire-2.19.1gb-ext4-scon.x86_64-full-core110.img.gz"
+            "direct_download_url": "http://downloads.ipfire.org/releases/ipfire-2.x/2.19-core110/ipfire-2.19.1gb-ext4-scon.x86_64-full-core110.img.gz",
+            "compression": "gzip"
         }
     ],
     "versions": [
