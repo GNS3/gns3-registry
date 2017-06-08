@@ -27,6 +27,13 @@
     },
     "images": [
         {
+            "filename": "LoadMaster-VLM-7.2.38.0.14750.RELEASE-Linux-KVM-XEN.disk",
+            "version": "7.2.38.0",
+            "md5sum": "f51f17640793b31a7eab70b53f6ae3ae",
+            "filesize": 17179869185,
+            "download_url": "http://freeloadbalancer.com/download/"
+        },
+        {
             "filename": "LoadMaster-VLM-7.2.36.2.14271.RELEASE-Linux-KVM-XEN-FREE.disk",
             "version": "7.1.36.2",
             "md5sum": "eebfc96bd6c1c50827d00647206b59dd",
@@ -49,6 +56,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "7.2.38.0",
+            "images": {
+                "hda_disk_image": "LoadMaster-VLM-7.2.38.0.14750.RELEASE-Linux-KVM-XEN.disk"
+            }
+        },
         {
             "name": "7.2.36.2",
             "images": {
