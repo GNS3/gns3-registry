@@ -1,0 +1,58 @@
+{
+    "name": "Cisco NX-OSv 9000v",
+    "category": "multilayer_switch",
+    "description": "The Nexus 9000v is a reference platform for an implementation of the Cisco Nexus operating system, based on the Nexus 9000-series platforms, running as a full virtual machine on a hypervisor. This includes vPC support.",
+    "vendor_name": "Cisco",
+    "vendor_url": "http://www.cisco.com/",
+    "product_name": "Nexus 9000v",
+    "product_url": "https://software.cisco.com/download/release.html?mdfid=286312239&flowid=&softwareid=282088129&release=7.0(3)I5(1)&relind=AVAILABLE&rellifecycle=&reltype=latest",
+    "registry_version": 1,
+    "status": "experimental",
+    "maintainer": "none",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "There is no default username/password.\nA setup wizard will run on first boot\n\nRequires ovmf be installed on host.On Ubuntu,this can be done with:\n      sudo apt-get install ovmf\n\n",
+    "first_port_name": "mgmt0",
+    "port_name_format": "Ethernet1/{port1}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 10,
+        "ram": 8192,
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "kvm": "require",
+        "options": "-nographic -enable-kvm -machine q35 -smp cpus=4 -bios /usr/share/ovmf/OVMF.fd",
+        "hda_disk_interface": "ide"
+    },
+    "images": [
+        {
+            "filename": "nxosv-final.7.0.3.I5.1.qcow2",
+            "version": "7.0(3)I5(1)",
+            "md5sum": "201ea658fa4c57452ee4b2aa4f5262a7",
+            "filesize": 784990208,
+            "download_url": "https://software.cisco.com/download/release.html?mdfid=286312239&flowid=&softwareid=282088129&release=7.0(3)I5(1)&relind=AVAILABLE&rellifecycle=&reltype=latest"
+        }, 
+        {
+            "filename": "nxosv-final.7.0.3.I5.1.ova.vmdk",
+            "version": "7.0(3)I5(1)vmdk",
+            "md5sum": "06819b82aee062aeb443487a970cb6fa",
+            "filesize": 764642304,
+            "download_url": "https://software.cisco.com/download/release.html?mdfid=286312239&flowid=&softwareid=282088129&release=7.0(3)I5(1)&relind=AVAILABLE&rellifecycle=&reltype=latest"
+        }
+
+    ],
+    "versions": [
+        {
+            "name": "7.0(3)I5(1)",
+            "images": {
+                "hda_disk_image": "nxosv-final.7.0.3.I5.1.qcow2"
+            }
+        },
+        {
+            "name": "7.0(3)I5(1)vmdk",
+            "images": {
+                "hda_disk_image": "nxosv-final.7.0.3.I5.1.ova.vmdk"
+            }
+
+        }    
+    ]
+}
