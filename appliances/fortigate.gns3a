@@ -33,6 +33,13 @@
             "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
         },
         {
+            "filename": "FGT_VM64_KVM-v5-build1138-FORTINET.out.kvm.qcow2",
+            "version": "5.4.5",
+            "md5sum": "66c6f6a4b12f0223dd2997b199067e67",
+            "filesize": 38096896,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
             "filename": "FGT_VM64_KVM-v5-build7605-FORTINET.out.kvm.qcow2",
             "version": "5.4.4",
             "md5sum": "2602fd0c79dd1a69c14b0b46121c875e",
@@ -65,6 +72,13 @@
             "version": "5.4.0",
             "md5sum": "22fc2bdca456dfe3027ad48dff370352",
             "filesize": 35373056,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
+            "filename": "FGT_VM64_KVM-v5-build0754-FORTINET.out.kvm.qcow2",
+            "version": "5.2.11",
+            "md5sum": "b6cdab6a8240e89f50c0448cf0b711ea",
+            "filesize": 35069952,
             "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
         },
         {
@@ -120,6 +134,13 @@
             }
         },
         {
+            "name": "5.4.5",
+            "images": {
+                "hda_disk_image": "FGT_VM64_KVM-v5-build1138-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
+        {
             "name": "5.4.4",
             "images": {
                 "hda_disk_image": "FGT_VM64_KVM-v5-build7605-FORTINET.out.kvm.qcow2",
@@ -151,6 +172,13 @@
             "name": "5.4.0",
             "images": {
                 "hda_disk_image": "FGT_VM64_KVM-v5-build1011-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
+        {
+            "name": "5.2.11",
+            "images": {
+                "hda_disk_image": "FGT_VM64_KVM-v5-build0754-FORTINET.out.kvm.qcow2",
                 "hdb_disk_image": "empty30G.qcow2"
             }
         },
