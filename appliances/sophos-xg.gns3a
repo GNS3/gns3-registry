@@ -7,7 +7,7 @@
     "documentation_url": "https://www.sophos.com/en-us/support/documentation/sophos-xg-firewall.aspx",
     "product_name": "Sophos XG Firewall",
     "product_url": "https://www.sophos.com/en-us/products/next-gen-firewall.aspx",
-    "registry_version": 2,
+    "registry_version": 3,
     "status": "experimental",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",

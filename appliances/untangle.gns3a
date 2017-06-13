@@ -7,7 +7,7 @@
     "documentation_url": "http://wiki.untangle.com/index.php/Main_Page",
     "product_name": "Untangle NG",
     "product_url": "https://www.untangle.com/untangle-ng-firewall/",
-    "registry_version": 1,
+    "registry_version": 3,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
