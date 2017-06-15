@@ -6,7 +6,7 @@
     "vendor_url": "http://www.cisco.com/",
     "documentation_url": "http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/7-x/nx-osv/configuration/guide/b_NX-OSv_9000/b_NX-OSv_chapter_01.html",
     "product_name": "NX-OSv 9000",
-    "registry_version": 3,
+    "registry_version": 4,
     "status": "stable",
     "availability": "service-contract",
     "maintainer": "GNS3 Team",
