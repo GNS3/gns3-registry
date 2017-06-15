@@ -28,12 +28,30 @@ def check_appliance(appliance):
     global md5sums
     md5sums = set()
 
-    with open('schemas/appliance.json') as f:
-        schema = json.load(f)
+    with open('schemas/appliance_v4.json') as f:
+        schema_v4 = json.load(f)
+    with open('schemas/appliance_v3.json') as f:
+        schema_v3 = json.load(f)
 
     with open(os.path.join('appliances', appliance)) as f:
         appliance_json = json.load(f)
-        jsonschema.validate(appliance_json, schema)
+        if appliance_json['registry_version'] == 3:
+            jsonschema.validate(appliance_json, schema_v3)
+        elif appliance_json['registry_version'] == 4:
+            jsonschema.validate(appliance_json, schema_v4)
+            try:
+                appliance_json_v3 = appliance_json.copy()
+                appliance_json_v3['registry_version'] = 3
+                jsonschema.validate(appliance_json_v3, schema_v3)
+                print('Appliance ' + appliance + ' can be downgraded to registry version 3')
+                sys.exit(1)
+            except jsonschema.exceptions.ValidationError:
+                # The appliance require the schema V4
+                pass
+        else:
+            return
+            print('Schema version {} is not supported'.format(appliance_json['registry_version']))
+            sys.exit(1)
 
     if 'images' in appliance_json:
         for image in appliance_json['images']:
