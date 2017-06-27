@@ -6,6 +6,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-rec
     telnet curl openssh-client nano vim-tiny iputils-ping python build-essential libssl-dev libffi-dev \
     python-pip ansible \
     && rm -rf /var/lib/apt/lists/* \
+    && pip install --upgrade pip \
     && pip install cryptography netmiko napalm pyntc
 
 VOLUME [ "/root" ]
