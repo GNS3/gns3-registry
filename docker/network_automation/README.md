@@ -14,6 +14,6 @@ The /root folder is mount by default
 First the base image has to be created:
 
 ```
-docker build -t gns3/network_autmation:latest .
-docker push gns3/network_autmation:latest    (optional)
+docker build -t gns3/network_automation:latest .
+docker push gns3/network_automation:latest    (optional)
 ```
