@@ -7,7 +7,7 @@
     "documentation_url": "https://www.paloaltonetworks.com/documentation/80/virtualization/virtualization",
     "product_name": "PAN VM-Series Firewall",
     "product_url": "https://www.paloaltonetworks.com/products/secure-the-network/virtualized-next-generation-firewall/vm-series",
-    "registry_version": 1,
+    "registry_version": 3,
     "status": "experimental",
     "maintainer": "Community",
     "maintainer_email": "",
@@ -16,14 +16,14 @@
     "first_port_name": "management",
     "port_name_format": "ethernet1/{port1}",
     "qemu": {
-        "cpus": 2,
         "adapter_type": "virtio-net-pci",
         "adapters": 25,
         "ram": 4096,
         "arch": "x86_64",
         "console_type": "telnet",
         "hda_disk_interface": "virtio",
-        "kvm": "require"
+        "kvm": "require",
+        "options": "-smp 2"
     },
     "images": [
        {

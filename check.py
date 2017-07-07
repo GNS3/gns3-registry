@@ -49,7 +49,6 @@ def check_appliance(appliance):
                 # The appliance require the schema V4
                 pass
         else:
-            return
             print('Schema version {} is not supported'.format(appliance_json['registry_version']))
             sys.exit(1)
 
