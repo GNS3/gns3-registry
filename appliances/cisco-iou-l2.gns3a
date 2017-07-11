@@ -50,10 +50,10 @@
             }
         },
         {
-            "filename": "i86bi-linux-l2-adventerprisek9-15.2d.bin",
-            "version": "15.2d",
-            "md5sum": "f16db44433beb3e8c828db5ddad1de8a",
-            "filesize": 105036380
+            "name": "15.2d",
+            "images": {
+                "image": "i86bi-linux-l2-adventerprisek9-15.2d.bin"
+            }
         }
     ]
 }
