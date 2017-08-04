@@ -7,7 +7,7 @@
     "documentation_url": "http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/kvm/ftdv-kvm-qsg.html",
     "product_name": "Cisco FTDv",
     "product_url": "http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/kvm/ftdv-kvm-qsg.html",
-    "registry_version": 3,
+    "registry_version": 4,
     "status": "experimental",
     "maintainer": "Community",
     "maintainer_email": "",
@@ -61,7 +61,7 @@
             "filesize": 714577408,
             "download_url": "https://software.cisco.com/download/release.html?mdfid=286306503&catid=268438162&softwareid=286306337&release=6.0.1&relind=AVAILABLE&rellifecycle=&reltype=latest"
        }
-      
+
     ],
     "versions": [
          {

@@ -7,7 +7,7 @@
     "documentation_url": "http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/kvm/fmcv-kvm-qsg.html",
     "product_name": "Cisco Firepower Management Center Virtual",
     "product_url": "http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/kvm/fmcv-kvm-qsg.html",
-    "registry_version": 3,
+    "registry_version": 4,
     "status": "experimental",
     "maintainer": "Community",
     "maintainer_email":"",
@@ -96,7 +96,7 @@
             "images": {
                 "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual_VMware-6.1.0-330-disk1.vmdk"
             }
-         }, 
+         },
          {
             "name": "6.2.0 (362)",
             "images": {
