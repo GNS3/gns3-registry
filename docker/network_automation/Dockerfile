@@ -10,7 +10,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-rec
     && apt-get update && apt-get -y --no-install-recommends install ansible \
     && rm -rf /var/lib/apt/lists/* \
     && pip install --upgrade pip \
-    && pip install cryptography netmiko napalm pyntc
+    && pip install cryptography netmiko napalm pyntc \
+    && pip install --upgrade paramiko
 
 VOLUME [ "/root" ]
 CMD [ "sh", "-c", "cd; exec bash -i" ]
