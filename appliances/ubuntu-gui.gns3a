@@ -21,7 +21,8 @@
         "arch": "x86_64",
         "console_type": "vnc",
         "boot_priority": "c",
-        "kvm": "require"
+        "kvm": "require",
+        "options": "-vga virtio"
     },
     "images": [
         {
