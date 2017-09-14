@@ -13,6 +13,7 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "First boot takes a few minutes. Admin URL is https://x.x.x.x/admin, default username is admin, no password is set.",
     "port_name_format": "Port{port1}",
+    "symbol": "fortinet.svg",
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 4,
