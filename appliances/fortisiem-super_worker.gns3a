@@ -13,6 +13,7 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "This is the Super/Worker component. Default credentials:\n- admin / admin*1\n - root / ProspectHills\n\nIf you get a 503 error on the WebUI, run /opt/phoenix/deployment/jumpbox/phinitsuper as root.",
     "port_name_format": "Port{port1}",
+    "symbol": "fortinet.svg",
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 2,
