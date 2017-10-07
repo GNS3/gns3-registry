@@ -13,7 +13,7 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is cumulus and password is CumulusLinux!",
     "first_port_name": "eth0",
-    "port_name_format": "swp{0}",
+    "port_name_format": "swp{port1}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 7,
