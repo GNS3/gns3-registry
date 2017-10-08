@@ -13,7 +13,7 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is cumulus and password is CumulusLinux!",
     "first_port_name": "eth0",
-    "port_name_format": "swp{0}",
+    "port_name_format": "swp{port1}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 7,
@@ -23,6 +23,13 @@
         "kvm": "require"
     },
     "images": [
+        {
+            "filename": "cumulus-linux-3.4.2-vx-amd64.qcow2",
+            "version": "3.4.2",
+            "md5sum": "ca844684784ceeee893d0cd76dc44e3b",
+            "filesize": 1060700160,
+            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/"
+        },
         {
             "filename": "cumulus-linux-3.4.1-vx-amd64.qcow2",
             "version": "3.4.1",
@@ -109,6 +116,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "3.4.2",
+            "images": {
+                "hda_disk_image": "cumulus-linux-3.4.2-vx-amd64.qcow2"
+            }
+        },
         {
             "name": "3.4.1",
             "images": {
