@@ -22,35 +22,46 @@ import sys
 import subprocess
 
 
+SCHEMA_VERSIONS = [3, 4, 5]
+
+def validate_schema(appliance_json, name, schemas):
+
+    version = appliance_json['registry_version']
+    if version not in SCHEMA_VERSIONS:
+        print('Schema version {} is not supported'.format(version))
+        sys.exit(1)
+
+    jsonschema.validate(appliance_json, schemas[version])
+
+    if version != SCHEMA_VERSIONS[0]:
+        try:
+            version -= 1
+            appliance_json = appliance_json.copy()
+            appliance_json['registry_version'] = version
+            jsonschema.validate(appliance_json, schemas[version])
+            print('Appliance {name} can be downgraded to registry version {version}'.format(name=name,
+                                                                                            version=version))
+            sys.exit(1)
+        except jsonschema.exceptions.ValidationError:
+            pass
+
+
+
 def check_appliance(appliance):
     global images
     images = set()
     global md5sums
     md5sums = set()
 
-    with open('schemas/appliance_v4.json') as f:
-        schema_v4 = json.load(f)
-    with open('schemas/appliance_v3.json') as f:
-        schema_v3 = json.load(f)
+    schemas = {}
+    for version in SCHEMA_VERSIONS:
+        schema_filename = "schemas/appliance_v{}.json".format(version)
+        with open(schema_filename) as f:
+            schemas[version] = json.load(f)
 
     with open(os.path.join('appliances', appliance)) as f:
         appliance_json = json.load(f)
-        if appliance_json['registry_version'] == 3:
-            jsonschema.validate(appliance_json, schema_v3)
-        elif appliance_json['registry_version'] == 4:
-            jsonschema.validate(appliance_json, schema_v4)
-            try:
-                appliance_json_v3 = appliance_json.copy()
-                appliance_json_v3['registry_version'] = 3
-                jsonschema.validate(appliance_json_v3, schema_v3)
-                print('Appliance ' + appliance + ' can be downgraded to registry version 3')
-                sys.exit(1)
-            except jsonschema.exceptions.ValidationError:
-                # The appliance require the schema V4
-                pass
-        else:
-            print('Schema version {} is not supported'.format(appliance_json['registry_version']))
-            sys.exit(1)
+    validate_schema(appliance_json, appliance, schemas)
 
     if 'images' in appliance_json:
         for image in appliance_json['images']:
