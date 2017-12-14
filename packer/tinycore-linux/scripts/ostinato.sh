@@ -2,7 +2,7 @@ set -e
 set -x
 
 # git branch, commit or tag
-git_commit=97c7d79
+git_commit=v0.9
 
 # setup environment
 . /etc/profile
@@ -18,6 +18,7 @@ tce-load -wi iperf3
 # change tcedir to ram disk
 mv /etc/sysconfig/tcedir /etc/sysconfig/tcedir.hd
 ln -s /tmp/tce /etc/sysconfig/tcedir
+sudo cp -a /usr/local/tce.installed /usr/local/tce.installed.hd
 
 # setup compile environment
 tce-load -wi compiletc
@@ -52,7 +53,7 @@ sudo mkdir -p /tmp/ostinato/usr/local/share/applications
 cat > ostinato.desktop <<'EOF'
 [Desktop Entry]
 Name=Ostinato
-Exec=ostinato
+Exec=ostinato > /var/log/ostinato.log 2>&1
 Type=Application
 X-FullPathIcon=/usr/local/share/pixmaps/ostinato_logo.png
 Icon=ostinato_logo.png
@@ -94,9 +95,17 @@ EOF
 # change tcedir back to hard disk
 rm -f /etc/sysconfig/tcedir
 mv /etc/sysconfig/tcedir.hd /etc/sysconfig/tcedir
+sudo rm -rf /usr/local/tce.installed
+sudo mv /usr/local/tce.installed.hd /usr/local/tce.installed
 
 # install wireshark
 tce-load -wi wireshark adwaita-icon-theme
+
+# install dillo (tiny web browser) for reading documentation
+tce-load -wi dillo ca-certificates
+echo -e '\nexport BROWSER=dillo' >> .ashrc
+sudo ln -s /usr/local/etc/ssl /etc/ssl
+echo 'etc/ssl' >> /opt/.filetool.lst
 
 # disable automatic interface configuration with dhcp
 sudo sed -i -e '/label .*core/,/append / s/\(append .*\)/\1 nodhcp/' /mnt/sda1/boot/extlinux/extlinux.conf
@@ -125,9 +134,12 @@ if grep -q -w nodhcp /proc/cmdline; then
 	done
 fi
 
+# disable ostinato update, makes no sense in this environment
+echo -e '# disable ostinato update\n127.0.0.127 update.ostinato.org' >> /etc/hosts
+
 # start ostinato drone
-sleep 2
-HOME=/home/gns3 drone < /dev/null > /var/log/ostinato-drone.log 2>&1 &
+#sleep 2
+#su -c 'drone < /dev/null > /var/log/ostinato-drone.log 2>&1 &' gns3
 EOF
 
 exit 0
