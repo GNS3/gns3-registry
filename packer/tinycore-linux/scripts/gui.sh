@@ -1,6 +1,8 @@
 set -e
 set -x
 
+. /etc/init.d/tc-functions
+
 # Install the GUI
 tce-load -wi fltk-1.3
 tce-load -wi flwm
@@ -12,10 +14,15 @@ tce-load -wi Xorg-7.7
 # Create xorg-setup-tools
 tce-load -wi Xdialog
 
-. /etc/init.d/tc-functions
-getMirror
-wget -P /tmp $MIRROR/squashfs-tools.tcz
-tce-load -i /tmp/squashfs-tools.tcz
+# install squashfs-tools only in RAM
+mv /etc/sysconfig/tcedir /etc/sysconfig/tcedir.hd
+ln -s /tmp/tce /etc/sysconfig/tcedir
+sudo cp -a /usr/local/tce.installed /usr/local/tce.installed.hd
+tce-load -wi squashfs-tools.tcz
+rm -f /etc/sysconfig/tcedir
+mv /etc/sysconfig/tcedir.hd /etc/sysconfig/tcedir
+sudo rm -rf /usr/local/tce.installed
+sudo mv /usr/local/tce.installed.hd /usr/local/tce.installed
 
 sudo mkdir /tmp/xorg-setup-tools
 sudo mkdir -p /tmp/xorg-setup-tools/usr/local/bin
@@ -170,9 +177,10 @@ cat > setup_resolution <<'EOF'
 
 # available resolutions
 resolutions='
-1024x768 ""
-800x600 ""
 640x480 ""
+800x600 ""
+1024x768 ""
+1280x720 ""
 '
 
 # get resolution
@@ -229,7 +237,7 @@ cat > /usr/local/share/X11/xorg.conf.d/99-resolution.conf <<'EOF'
 Section "Screen"
     Identifier "Screen0"
     SubSection "Display"
-        Modes "800x600"
+        Modes "1024x768"
     EndSubSection
 EndSection
 EOF
