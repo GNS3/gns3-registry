@@ -10,6 +10,7 @@ When creating a **new** appliance:
 - It's tested locally, i.e.
   - [ ] You dragged an instance into a project on your box, got it installed (if necessary), and did some basic network checks (ping, UI reachable, etc.).
   - [ ] GNS3 VM can run it without any tweaks.
+  - [ ] The device is in the right category: router, switch, guest (hosts), firewall
   - [ ] You filled in as much info as possible (checks the schemas and other appliance files for some guidance).
 - [ ] When adding a container: it builds on Docker Hub and can be pulled.
 - [ ] The filenames in the "images" section are unique (to avoid appliances and/or versions overwriting each other).
