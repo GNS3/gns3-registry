@@ -24,13 +24,6 @@
     },
     "images": [
         {
-            "filename": "vios_l2-adventerprisek9-m.03.2017.vmdk",
-            "version": "15.2(20170321:233949)",
-            "md5sum": "3610c56ee8012d148c4b99225dc2d004",
-            "filesize": 97124352,
-            "download_url": "https://virl.mediuscorp.com/my-account/"
-        },
-        {
             "filename": "vios_l2-adventerprisek9-m.03.2017.qcow2",
             "version": "15.2(20170321:233949)",
             "md5sum": "8f14b50083a14688dec2fc791706bb3e",
@@ -46,12 +39,6 @@
         }
     ],
     "versions": [
-        {
-            "name": "15.2(20170321:233949)",
-            "images": {
-                "hda_disk_image": "vios_l2-adventerprisek9-m.03.2017.vmdk"
-            }
-        },
         {
             "name": "15.2(20170321:233949)",
             "images": {
