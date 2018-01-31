@@ -11,8 +11,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-rec
     && rm -rf /var/lib/apt/lists/* \
     && pip install --upgrade pip \
     && pip install cryptography netmiko napalm pyntc \
-    && pip install --upgrade paramiko
+    && pip install --upgrade paramiko && mkdir /scripts
 
-VOLUME [ "/root" ]
+VOLUME [ "/root","/usr", "/scripts" ]
 CMD [ "sh", "-c", "cd; exec bash -i" ]
 
