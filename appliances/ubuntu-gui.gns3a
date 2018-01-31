@@ -45,13 +45,6 @@
             "md5sum": "45bccf63f2777e492f022dbf025f67d0",
             "filesize": 4302110720,
             "download_url": "http://www.osboxes.org/ubuntu/"
-        },
-        {
-            "filename": "ubuntu-16.04-server-cloudimg-amd64-disk1.img",
-            "version": "16.04.03",
-            "md5sum": "7e24f437418013d6600ac9f998a0e617",
-            "filesize": 290717696,
-            "download_url": "https://cloud-images.ubuntu.com/"
         }
     ],
     "versions": [
@@ -71,12 +64,6 @@
             "name": "16.04",
             "images": {
                 "hda_disk_image": "Ubuntu_16.04.3-VM-64bit.vmdk"
-            }
-        },
-        {
-            "name": "16.04.03",
-            "images": {
-                "hda_disk_image": "ubuntu-16.04-server-cloudimg-amd64-disk1.img"
             }
         }
     ]
