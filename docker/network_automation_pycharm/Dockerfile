@@ -53,4 +53,4 @@ ADD pycharm-run /etc/sv/pycharm/run
 RUN chmod a+x /etc/sv/pycharm/run
 RUN ln -s /etc/sv/pycharm /etc/service
 
-VOLUME /root /scripts
+VOLUME ["/root", "/usr/", "/scripts"]
