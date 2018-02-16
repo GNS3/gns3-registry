@@ -8,6 +8,7 @@
     "product_name": "Windows",
     "product_url": "https://www.microsoft.com/en-us/windows",
     "registry_version": 4,
+    "availability": "free-to-try",
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
@@ -119,4 +120,4 @@
             }
         }
     ]
-} 
+}
