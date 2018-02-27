@@ -85,7 +85,11 @@ def ask_from_schema(schema):
     return data
 
 
-with open(os.path.join('schemas', 'appliance.json')) as f:
+current_dir = os.path.dirname(os.path.realpath(__file__))
+files = os.listdir('schemas')
+schema_name = ask_multiple('Schema filename', files)
+
+with open(os.path.join('schemas', schema_name)) as f:
     schema = json.load(f)
 
 
