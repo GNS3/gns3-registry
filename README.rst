@@ -46,7 +46,7 @@ Check appliance files
 
 .. code:: bash
 
-    python3 check.py
+    python check.py
     python3 check_urls.py
 
 You need to install `imagemagick` before running check.py.

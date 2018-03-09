@@ -85,7 +85,7 @@ def ask_from_schema(schema):
     return data
 
 
-with open(os.path.join('schemas', 'appliance.json')) as f:
+with open(os.path.join('schemas', 'appliance_v5.json')) as f:
     schema = json.load(f)
 
 
