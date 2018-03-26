@@ -1,0 +1,40 @@
+{
+    "name": "Juniper JunOS Olive",
+    "category": "router",
+    "description": "Olive refers to a regular PC that's running Juniper Networks' JUNOS software. Juniper developed Olive early on so they could perform testing of JUNOS, but it was never built to be a fully working system (vMX is, but it requires many more resources).",
+    "vendor_name": "Juniper",
+    "vendor_url": "http://www.juniper.net/",
+    "product_name": "JunOS Olive",
+    "registry_version": 3,
+    "status": "stable",
+    "maintainer": "Andrea Barontini",
+    "maintainer_email": "baro77@gmail.com",
+    "usage": "Login as root with no password, but first commit of configuration needs password set (with 'set system root-authentication') to succeed.",
+    "symbol": "junos_olive_bybaro.svg",
+    "port_name_format": "em{0}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 8,
+        "ram": 512,
+        "hda_disk_interface": "ide",
+        "arch": "i386",
+        "console_type": "telnet",
+        "kvm": "require"
+    },
+    "images": [
+        {
+            "filename": "JunOSolive-disk1.vmdk",
+            "version": "12.1R1.9",
+            "md5sum": "3debd5c6c67e2e40c7fb1646c764205e",
+            "filesize": 285468672
+        }
+    ],
+    "versions": [
+        {
+            "images": {
+                "hda_disk_image": "JunOSolive-disk1.vmdk"
+            },
+            "name": "12.1R1.9"
+        }
+    ]
+}
