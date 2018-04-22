@@ -35,7 +35,7 @@
             "filename": "OPNsense-17.7.5-OpenSSL-nano-amd64.img",
             "version": "17.7.5",
             "md5sum": "6ec5b7f99cc727f904bbf2aaadcab0b8",
-            ."filesize": 237038601,
+            "filesize": 237038601,
             "download_url": "https://opnsense.c0urier.net/releases/17.7/"
         }
     ],
