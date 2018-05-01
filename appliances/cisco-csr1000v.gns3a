@@ -23,6 +23,13 @@
     },
     "images": [
         {
+            "filename": "csr1000v-universalk9.16.08.01a-serial.qcow2",
+            "version": "16.8.1a",
+            "md5sum": "91e2572f20c77606d710223511cd279a",
+            "filesize": 890044416,
+            "download_url": "https://software.cisco.com/download/home/284364978/type/282046477"
+        },
+        {
             "filename": "csr1000v-universalk9.16.07.01-serial.qcow2",
             "version": "16.7.1",
             "md5sum": "bad9000d4ae8317bbc99a34a8cdd2eb4",
@@ -94,6 +101,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "16.8.1a",
+            "images": {
+                "hda_disk_image": "csr1000v-universalk9.16.08.01a-serial.qcow2"
+            }
+        },
         {
             "name": "16.7.1",
             "images": {
