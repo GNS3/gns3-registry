@@ -14,7 +14,7 @@
     "usage": "There is no default password and enable password. A default configuration is present.",
     "port_name_format": "Gi{port1}",
     "qemu": {
-        "adapter_type": "virtio-net-pci",
+        "adapter_type": "vmxnet3",
         "adapters": 4,
         "ram": 3072,
         "arch": "x86_64",
