@@ -15,15 +15,21 @@
     "first_port_name": "MgmtEth0/0/CPU0/0",
     "port_name_format": "GigabitEthernet0/0/0/{0}",
     "qemu": {
-        "adapter_type": "e1000",
-        "adapters": 4,
+        "adapter_type": "virtio-net-pci",
+        "adapters": 7,
         "ram": 16384,
         "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "require",
-        "options": "-smp 4"
+        "options": "-smp 4 -cpu host"
     },
     "images": [
+        {   "filename": "xrv9k-fullk9-x-6.4.1.qcow2",
+            "version": "6.4.1",
+            "md5sum": "9c56b684e307706005a503e289cb9317",
+            "filesize": 1304887296,
+            "download_url": "https://software.cisco.com/download/home/286288939/type/280805694/release/6.4.1"
+        },
         {
             "filename": "xrv9k-fullk9-x-6.2.25.qcow2",
             "version": "6.2.25",
@@ -47,6 +53,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "6.4.1",
+            "images": {
+                "hda_disk_image": "xrv9k-fullk9-x-6.4.1.qcow2"
+            }
+        },
         {
             "name": "6.2.25",
             "images": {
