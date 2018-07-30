@@ -11,7 +11,7 @@
     "status": "experimental",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "Default username/password: admin/admin, cisco/cisco and lab/lab. There is no default configuration present.",
+    "usage": "Default username/password: admin/admin, cisco/cisco and lab/lab. There is no default configuration present. Interfaces may take several minutes to be usable after appliance boot.",
     "first_port_name": "MgmtEth0/0/CPU0/0",
     "port_name_format": "GigabitEthernet0/0/0/{0}",
     "qemu": {
