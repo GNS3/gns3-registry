@@ -24,6 +24,13 @@
         "options": "-smp 4 -cpu host"
     },
     "images": [
+        {
+            "filename": "xrv9k-fullk9-x-6.4.2.qcow2",
+            "version": "6.4.2",
+            "md5sum": "6958763192c7bb59a1b8049d377de1b4",
+            "filesize": 1311703040,
+            "download_url": "https://software.cisco.com/download/home/286288939/type/280805694/release/6.4.2"
+        },
         {   "filename": "xrv9k-fullk9-x-6.4.1.qcow2",
             "version": "6.4.1",
             "md5sum": "9c56b684e307706005a503e289cb9317",
@@ -53,6 +60,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "6.4.2",
+            "images": {
+                "hda_disk_image": "xrv9k-fullk9-x-6.4.2.qcow2"
+            }
+        },
         {
             "name": "6.4.1",
             "images": {
