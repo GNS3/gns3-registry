@@ -6,7 +6,7 @@
     "vendor_url": "http://www.extremenetworks.com",
     "documentation_url": "http://www.extremenetworks.com/support/documentation",
     "product_name": "VOSS_VM",
-    "registry_version": 1,
+    "registry_version": 3,
     "status": "experimental",
     "maintainer": "Extreme Networks",
     "maintainer_email": "voss@extremenetworks.com",
