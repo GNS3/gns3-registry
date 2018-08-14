@@ -22,7 +22,6 @@
         "hda_disk_interface": "ide",
         "arch": "i386",
         "console_type": "telnet",
-        "boot_priority": "dc",
         "kvm": "allow",
         "options": "-nographic"
     },
