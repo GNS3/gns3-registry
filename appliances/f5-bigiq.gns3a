@@ -89,6 +89,13 @@
     ],
     "versions": [
         {
+            "name": "5.4.0.2",
+            "images": {
+                "hda_disk_image": "BIG-IQ-5.4.0.2.24.7467.qcow2",
+                "hdb_disk_image": "empty100G.qcow2"
+            }
+        },
+        {
             "name": "5.4.0",
             "images": {
                 "hda_disk_image": "BIG-IQ-5.4.0.0.0.7437.qcow2",
