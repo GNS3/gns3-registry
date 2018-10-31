@@ -52,5 +52,5 @@
     "maintainer": "Gary Ossewaarde",
     "description": "Aruba Virtual Mobility Controller",
     "first_port_name": "mgmt",
-    "registry_version": 1
+    "registry_version": 3
 }
