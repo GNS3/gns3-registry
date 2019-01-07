@@ -28,6 +28,13 @@
     },
     "images": [
        {
+            "filename": "Cisco_Firepower_Threat_Defense_Virtual-6.3.0-83.qcow2",
+            "version": "6.3.0 (83)",
+            "md5sum": "c0e05af5ed64f848eaaabca7944c175c",
+            "filesize": 1175347200,
+            "download_url": "https://software.cisco.com/download/home/286306503/type/286306337/release/6.3.0"
+       },
+       {
             "filename": "Cisco_Firepower_Threat_Defense_Virtual-6.2.0-363.qcow2",
             "version": "6.2.0 (363)",
             "md5sum": "fafdae94ead07b23d6c8dc5f7a731e74",
@@ -65,6 +72,12 @@
 
     ],
     "versions": [
+         {
+            "name": "6.3.0 (83)",
+            "images": {
+                "hda_disk_image": "Cisco_Firepower_Threat_Defense_Virtual-6.3.0-83.qcow2"
+            }
+         },
          {
             "name": "6.2.0 (363)",
             "images": {

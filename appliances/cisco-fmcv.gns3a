@@ -28,11 +28,39 @@
         "options": ""
     },
     "images": [
+      {
+            "filename": "Cisco_Firepower_Mgmt_Center_Virtual_KVM-6.3.0-83.qcow2",
+            "version": "6.3.0 (83)",
+            "md5sum": "e9127c5fea6c85a9ced6237afb909799",
+            "filesize": 2025193472,
+            "download_url": "https://software.cisco.com/download/home/286259687/type/286271056/release/6.3.0"
+       },
+      {
+            "filename": "Cisco_Firepower_Management_Center_Virtual-6.2.1-342.qcow2",
+            "version": "6.2.1 (342)",
+            "md5sum": "29ebbbe71a6b766f6dea81e5ca32c275",
+            "filesize": 2113732608,
+            "download_url": "https://software.cisco.com/download/"
+       },
+      {
+            "filename": "Cisco_Firepower_Management_Center_Virtual_VMware-6.2.1-342-disk1.vmdk",
+            "version": "6.2.1 (342) vmdk",
+            "md5sum": "4cf5b7fd68075b6f7ee0dd41a4029ca0",
+            "filesize": 2150017536,
+            "download_url": "https://software.cisco.com/download/"
+       },
        {
-            "filename": "Cisco_Firepower_Management_Center_Virtual-6.0.0-1005-disk1.vmdk",
-            "version": "6.0.0 (1005) vmdk",
-            "md5sum": "3fed60f1e7d6910c22d13e966acebd7f",
-            "filesize": 1681540608,
+            "filename": "Cisco_Firepower_Management_Center_Virtual-6.2.0-362.qcow2",
+            "version": "6.2.0 (362)",
+            "md5sum": "26e66882bf5f68adc0eca2f6bef7b613",
+            "filesize": 1949302784,
+            "download_url": "https://software.cisco.com/download/"
+       },
+       {
+            "filename": "Cisco_Firepower_Management_Center_Virtual_VMware-6.2.0-362-disk1.vmdk",
+            "version": "6.2.0 (362) vmdk",
+            "md5sum": "772165cbda3c183bb0e77a1923dd4d09",
+            "filesize": 1983376384,
             "download_url": "https://software.cisco.com/download/"
        },
        {
@@ -50,52 +78,30 @@
             "download_url": "https://software.cisco.com/download/"
        },
        {
-            "filename": "Cisco_Firepower_Management_Center_Virtual-6.2.0-362.qcow2",
-            "version": "6.2.0 (362)",
-            "md5sum": "26e66882bf5f68adc0eca2f6bef7b613",
-            "filesize": 1949302784,
-            "download_url": "https://software.cisco.com/download/"
-       },
-       {
-            "filename": "Cisco_Firepower_Management_Center_Virtual_VMware-6.2.0-362-disk1.vmdk",
-            "version": "6.2.0 (362) vmdk",
-            "md5sum": "772165cbda3c183bb0e77a1923dd4d09",
-            "filesize": 1983376384,
-            "download_url": "https://software.cisco.com/download/"
-       },
-      {
-            "filename": "Cisco_Firepower_Management_Center_Virtual-6.2.1-342.qcow2",
-            "version": "6.2.1 (342)",
-            "md5sum": "29ebbbe71a6b766f6dea81e5ca32c275",
-            "filesize": 2113732608,
-            "download_url": "https://software.cisco.com/download/"
-       },
-      {
-            "filename": "Cisco_Firepower_Management_Center_Virtual_VMware-6.2.1-342-disk1.vmdk",
-            "version": "6.2.1 (342) vmdk",
-            "md5sum": "4cf5b7fd68075b6f7ee0dd41a4029ca0",
-            "filesize": 2150017536,
+            "filename": "Cisco_Firepower_Management_Center_Virtual-6.0.0-1005-disk1.vmdk",
+            "version": "6.0.0 (1005) vmdk",
+            "md5sum": "3fed60f1e7d6910c22d13e966acebd7f",
+            "filesize": 1681540608,
             "download_url": "https://software.cisco.com/download/"
        }
-
     ],
     "versions": [
          {
-            "name": "6.0.0 (1005) vmdk",
+            "name": "6.3.0 (83)",
             "images": {
-                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual-6.0.0-1005-disk1.vmdk"
+                "hda_disk_image": "Cisco_Firepower_Mgmt_Center_Virtual_KVM-6.3.0-83.qcow2"
             }
          },
          {
-            "name": "6.1.0 (330)",
+            "name": "6.2.1 (342)",
             "images": {
-                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual-6.1.0-330.qcow2"
+                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual-6.2.1-342.qcow2"
             }
          },
          {
-            "name": "6.1.0 (330) vmdk",
+            "name": "6.2.1 (342) vmdk",
             "images": {
-                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual_VMware-6.1.0-330-disk1.vmdk"
+                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual_VMware-6.2.1-342-disk1.vmdk"
             }
          },
          {
@@ -111,15 +117,21 @@
             }
          },
          {
-            "name": "6.2.1 (342)",
+            "name": "6.1.0 (330)",
             "images": {
-                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual-6.2.1-342.qcow2"
+                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual-6.1.0-330.qcow2"
             }
          },
-        {
-            "name": "6.2.1 (342) vmdk",
+         {
+            "name": "6.1.0 (330) vmdk",
             "images": {
-                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual_VMware-6.2.1-342-disk1.vmdk"
+                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual_VMware-6.1.0-330-disk1.vmdk"
+            }
+         },
+         {
+            "name": "6.0.0 (1005) vmdk",
+            "images": {
+                "hda_disk_image": "Cisco_Firepower_Management_Center_Virtual-6.0.0-1005-disk1.vmdk"
             }
          }
     ]
