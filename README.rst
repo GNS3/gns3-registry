@@ -49,7 +49,7 @@ Check appliance files
     python check.py
     python3 check_urls.py
 
-if `imagemagick` is installed, it will be used to check the symbol properties.
+If `imagemagick` is installed, it will be used to check the symbol properties.
 Otherwise an (experimental) internal function will do that.
 
 Create a new appliance

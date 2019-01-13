@@ -105,7 +105,7 @@ unit2px = {'cm': 35.43307, 'mm': 3.543307, 'in': 90.0,
 def svg_get_height(filename):
     with open(filename, 'r') as image_file:
         image_data = image_file.read()
-    match = re.search('<svg[^>]* height="([^"]+)"', image_data)
+    match = re.search('<svg[^>]*\sheight="([^"]+)"', image_data)
     if not match:
         print("{}: can't determine the image height".format(filename))
         sys.exit(1)
