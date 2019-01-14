@@ -19,6 +19,8 @@ import os
 import jsonschema
 import json
 import sys
+import re
+import shutil
 import subprocess
 
 
@@ -97,12 +99,45 @@ def check_packer(packer):
                 json.load(f)
 
 
+unit2px = {'cm': 35.43307, 'mm': 3.543307, 'in': 90.0,
+           'pc': 15.0, 'pt': 1.25, 'px': 1.0}
+
+def svg_get_height(filename):
+    with open(filename, 'r') as image_file:
+        image_data = image_file.read()
+    match = re.search('<svg[^>]*\sheight="([^"]+)"', image_data)
+    if not match:
+        print("{}: can't determine the image height".format(filename))
+        sys.exit(1)
+    height = match.group(1)
+
+    unit = height[-2:]
+    if unit in unit2px:
+        factor = unit2px[unit]
+        height = height[:-2]
+    else:
+        factor = 1.0
+
+    try:
+        height = round(float(height) * factor)
+    except ValueError:
+        print("{}: can't determine the image height".format(filename))
+        sys.exit(1)
+
+    return height
+
+
+use_imagemagick = shutil.which("identify")
+
 def check_symbol(symbol):
     licence_file = os.path.join('symbols', symbol.replace('.svg', '.txt'))
     if not os.path.exists(licence_file):
         print("Missing licence {} for {}".format(licence_file, symbol))
         sys.exit(1)
-    height = int(subprocess.check_output(['identify', '-format', '%h', os.path.join('symbols', symbol)], shell=False))
+    if use_imagemagick:
+        height = int(subprocess.check_output(['identify', '-format', '%h', os.path.join('symbols', symbol)], shell=False))
+    else:
+        height = svg_get_height(os.path.join('symbols', symbol))
     if height > 70:
         print("Symbol height of {} is too big {} > 70".format(symbol, height))
         sys.exit(1)
