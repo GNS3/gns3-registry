@@ -16,12 +16,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-import jsonschema
 import json
 import sys
-import re
 import shutil
 import subprocess
+import jsonschema
+from picture import get_size
 
 
 SCHEMA_VERSIONS = [3, 4, 5]
@@ -99,31 +99,10 @@ def check_packer(packer):
                 json.load(f)
 
 
-unit2px = {'cm': 35.43307, 'mm': 3.543307, 'in': 90.0,
-           'pc': 15.0, 'pt': 1.25, 'px': 1.0}
-
-def svg_get_height(filename):
-    with open(filename, 'r') as image_file:
+def image_get_height(filename):
+    with open(filename, 'rb') as image_file:
         image_data = image_file.read()
-    match = re.search('<svg[^>]*\sheight="([^"]+)"', image_data)
-    if not match:
-        print("{}: can't determine the image height".format(filename))
-        sys.exit(1)
-    height = match.group(1)
-
-    unit = height[-2:]
-    if unit in unit2px:
-        factor = unit2px[unit]
-        height = height[:-2]
-    else:
-        factor = 1.0
-
-    try:
-        height = round(float(height) * factor)
-    except ValueError:
-        print("{}: can't determine the image height".format(filename))
-        sys.exit(1)
-
+        width, height, filetype = get_size(image_data)
     return height
 
 
@@ -137,7 +116,7 @@ def check_symbol(symbol):
     if use_imagemagick:
         height = int(subprocess.check_output(['identify', '-format', '%h', os.path.join('symbols', symbol)], shell=False))
     else:
-        height = svg_get_height(os.path.join('symbols', symbol))
+        height = image_get_height(os.path.join('symbols', symbol))
     if height > 70:
         print("Symbol height of {} is too big {} > 70".format(symbol, height))
         sys.exit(1)
