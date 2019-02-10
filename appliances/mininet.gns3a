@@ -5,7 +5,7 @@
     "maintainer_email": "developers@gns3.net",
     "description": "Mininet creates a realistic virtual network, running real kernel, switch and application code, on a single machine (VM, cloud or native), in seconds, with a single command.",
     "product_name": "Mininet",
-    "registry_version": 5,
+    "registry_version": 4,
     "product_url": "http://mininet.org/",
     "documentation_url": "http://mininet.org/walkthrough/",
     "first_port_name": "eth0",
