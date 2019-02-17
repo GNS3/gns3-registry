@@ -2,7 +2,7 @@
     "name": "pfSense",
     "category": "firewall",
     "description": "The pfSense project is a free network firewall distribution, based on the FreeBSD operating system with a custom kernel and including third party free software packages for additional functionality. pfSense software, with the help of the package system, is able to provide the same functionality or more of common commercial firewalls, without any of the artificial limitations. It has successfully replaced every big name commercial firewall you can imagine in numerous installations around the world, including Check Point, Cisco PIX, Cisco ASA, Juniper, Sonicwall, Netgear, Watchguard, Astaro, and more.",
-    "vendor_name": "Electric Sheep Fencing LLC",
+    "vendor_name": "Rubicon Communications, LLC (Netgate)",
     "vendor_url": "https://www.pfsense.org",
     "documentation_url": "https://doc.pfsense.org/index.php/Main_Page",
     "product_name": "pfSense",
@@ -10,6 +10,7 @@
     "status": "stable",
     "maintainer": "Jose Phillips",
     "maintainer_email": "jose@latinol.com",
+    "usage": "Credentials: admin / pfsense\nTo install pfSense use all the defaults settings.\n\nNote:The default LAN port is em1.",
     "port_name_format": "em{0}",
     "qemu": {
         "adapter_type": "e1000",
@@ -17,6 +18,7 @@
         "ram": 2048,
         "arch": "x86_64",
         "console_type": "vnc",
+        "hda_disk_interface": "virtio",
         "kvm": "allow",
         "process_priority": "normal"
     },
