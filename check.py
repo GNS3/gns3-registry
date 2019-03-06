@@ -16,10 +16,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-import jsonschema
 import json
 import sys
+import shutil
 import subprocess
+import jsonschema
+from picture import get_size
 
 
 SCHEMA_VERSIONS = [3, 4, 5]
@@ -97,12 +99,24 @@ def check_packer(packer):
                 json.load(f)
 
 
+def image_get_height(filename):
+    with open(filename, 'rb') as image_file:
+        image_data = image_file.read()
+        width, height, filetype = get_size(image_data)
+    return height
+
+
+use_imagemagick = shutil.which("identify")
+
 def check_symbol(symbol):
     licence_file = os.path.join('symbols', symbol.replace('.svg', '.txt'))
     if not os.path.exists(licence_file):
         print("Missing licence {} for {}".format(licence_file, symbol))
         sys.exit(1)
-    height = int(subprocess.check_output(['identify', '-format', '%h', os.path.join('symbols', symbol)], shell=False))
+    if use_imagemagick:
+        height = int(subprocess.check_output(['identify', '-format', '%h', os.path.join('symbols', symbol)], shell=False))
+    else:
+        height = image_get_height(os.path.join('symbols', symbol))
     if height > 70:
         print("Symbol height of {} is too big {} > 70".format(symbol, height))
         sys.exit(1)
