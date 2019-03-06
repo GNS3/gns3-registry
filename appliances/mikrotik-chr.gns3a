@@ -26,6 +26,24 @@
         "options": "-nographic"
     },
     "images": [
+          {
+            "filename": "chr-6.42.12.img",
+            "version": "6.42",
+            "md5sum": "8485c606eb38e629fb1f5356d31bbc86",
+            "filesize": 45537201,
+            "download_url": "http://www.mikrotik.com/download",
+            "direct_download_url": "https://download2.mikrotik.com/routeros/6.42.12/chr-6.42.12.img.zip",
+            "compression": "zip"
+         },
+         {
+            "filename": "chr-6.44.img",
+            "version": "6.44",
+            "md5sum": "86fdf9f0093b4e8f9e7b1c8019fb37b5",
+            "filesize": 33621035,
+            "download_url": "http://www.mikrotik.com/download",
+            "direct_download_url": "https://download2.mikrotik.com/routeros/6.44/chr-6.44.img.zip",
+            "compression": "zip"
+         },
         {
            "filename": "chr-6.43.8.img",
            "version": "6.43.8",
