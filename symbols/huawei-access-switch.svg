@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Создано Microsoft Visio, экспорт SVG Huawei Security Router&#38;Carrier Ethernet - Blue.svg Страница-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="0.66774in" height="0.689017in"
+		viewBox="0 0 48.0772 49.6092" xml:space="preserve" color-interpolation-filters="sRGB" class="st7">
+	<title>Huawei Security Router&#38;Carrier Ethernet - Blue</title>
+	<v:documentProperties v:langID="1033" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvConvertTheme"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#0b3c68;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st2 {fill:#456488;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st3 {fill:#5d7695;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st4 {fill:#8ba6bd;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st5 {fill:#2b4f7c;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st6 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st7 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>Страница-1</title>
+		<v:pageProperties v:drawingScale="1" v:pageScale="1" v:drawingUnits="19" v:shadowOffsetX="9" v:shadowOffsetY="-9"/>
+		<g id="group5-1" transform="translate(0.60075,-0.187044)" v:mID="5" v:groupContext="group">
+			<title>Лист.5</title>
+			<g id="group6-2" v:mID="6" v:groupContext="group">
+				<title>Лист.6</title>
+				<g id="shape7-3" v:mID="7" v:groupContext="shape" transform="translate(38.6317,2.27374E-13)">
+					<title>Лист.7</title>
+					<path d="M7.89 8.36 C7.16 7.26 1.1 11.44 1.1 11.44 L0 48.78 C0 48.78 0.15 49.61 1.98 47.98 C3.53 46.6 6.55 43.76
+								 7.29 42.93 C7.98 42.15 8.09 42.27 8.09 40.56 L8.09 10.46 C8.09 8.56 7.97 8.47 7.89 8.36 Z"
+							class="st1"/>
+				</g>
+				<g id="shape8-5" v:mID="8" v:groupContext="shape" transform="translate(0,-37.5825)">
+					<title>Лист.8</title>
+					<path d="M46.04 45.34 L39.87 49.61 C17.31 45.65 3.39 42.99 1.52 42.63 C0.48 42.43 0.2 43.54 0.2 43.54 C0.2 43.54
+								 -0 42.48 0.8 41.91 C1.45 41.45 4.36 39.67 5.77 38.77 C6.23 38.48 6.63 38.52 6.63 38.52 C6.63 38.52
+								 43.99 44.82 44.5 44.91 C45.88 45.17 46.04 45.34 46.04 45.34 Z" class="st2"/>
+				</g>
+				<g id="shape9-7" v:mID="9" v:groupContext="shape" transform="translate(38.0137,-36.0008)">
+					<title>Лист.9</title>
+					<path d="M0 47.83 C0 47.83 6.94 43.84 7.7 43.6 C8.42 43.83 8.62 44.27 8.66 44.9 L1.45 49.61 L0 47.83 Z"
+							class="st3"/>
+				</g>
+				<g id="shape10-9" v:mID="10" v:groupContext="shape" transform="translate(0.14925,-0.081)">
+					<title>Лист.10</title>
+					<path d="M38.71 11.74 C17.2 7.94 3.19 5.35 1.35 5 C0.03 4.75 0 5.83 0 5.83 C0 5.83 0 36.19 0 38.45 C0 40.71 0.31
+								 40.8 1.33 41.13 C1.91 41.32 30.79 47.44 37.41 48.96 C39.87 49.61 39.66 48.2 39.66 47.44 C39.66 47.44
+								 39.65 14.82 39.65 13.53 C39.65 12.58 39.02 11.84 38.71 11.74 Z" class="st4"/>
+				</g>
+				<g id="shape11-11" v:mID="11" v:groupContext="shape" transform="translate(1.329,-2.00625)">
+					<title>Лист.11</title>
+					<path d="M36.05 14.5 C16.02 10.93 2.97 8.5 1.26 8.17 C0.03 7.93 0 8.95 0 8.95 C-0 8.95 0 37.11 0 39.24 C0 41.36
+								 0.29 41.45 1.24 41.76 C1.78 41.94 28.94 47.76 35.1 49.2 C37.01 49.61 36.89 48.24 37.02 47.68 C37.02
+								 47.68 36.93 17.39 36.93 16.18 C36.93 15.29 36.83 14.62 36.05 14.5 Z" class="st3"/>
+				</g>
+				<g id="shape12-13" v:mID="12" v:groupContext="shape" transform="translate(1.179,-2.16975)">
+					<title>Лист.12</title>
+					<path d="M0.37 8.37 C0.02 8.65 0 9.09 0 9.11 C0 9.11 0 39.4 0 39.4 C0 41.53 0.3 41.72 1.33 42.06 C1.58 42.14
+								 6.2 43.15 13.73 44.78 L35.22 49.5 C35.63 49.61 36.32 49.56 36.65 49.36 C37.37 48.93 37.22 47.92
+								 37.23 47.88 C37.23 47.85 37.23 16.34 37.23 16.34 C37.23 15.5 37.15 14.66 36.23 14.52 L36.23 14.52
+								 L1.43 8.19 C0.98 8.1 0.63 8.16 0.37 8.37 ZM35.29 49.22 C35.29 49.22 13.79 44.5 13.79 44.5 C7.29
+								 43.08 1.67 41.86 1.44 41.79 C0.51 41.48 0.29 41.41 0.3 39.4 L0.3 9.11 C0.3 9.11 0.31 8.79 0.55 8.6
+								 C0.74 8.45 1.02 8.41 1.38 8.48 L36.18 14.81 C36.82 14.91 36.94 15.42 36.94 16.34 L36.94 47.85 C36.94
+								 47.84 37.02 48.78 36.53 49.13 C36.29 49.31 35.62 49.3 35.29 49.22 Z" class="st5"/>
+				</g>
+			</g>
+			<g id="shape13-15" v:mID="13" v:groupContext="shape" transform="translate(5.09175,-4.95075)">
+				<title>Лист.13</title>
+				<path d="M22.89 37.41 C23.13 37.69 26.82 41.97 26.82 41.97 C26.82 41.97 0.44 36.61 0 36.52 C0 36.89 0 39.06 0 39.31
+							 C0.3 39.37 26.51 44.7 26.51 44.7 C26.51 44.7 23.18 47.21 22.89 47.43 C23.1 47.68 24.57 49.39 24.76 49.61
+							 C25.03 49.41 31.54 44.5 31.82 44.29 C31.57 44 24.92 36.29 24.71 36.03 C24.48 36.2 23.14 37.21 22.89
+							 37.41 ZM22.89 29.54 C23.1 29.79 24.57 31.49 24.76 31.72 C25.03 31.52 31.54 26.61 31.82 26.4 C31.58 26.11
+							 24.92 18.39 24.71 18.14 C24.48 18.31 23.14 19.32 22.89 19.51 C23.13 19.79 26.82 24.08 26.82 24.08 C26.82
+							 24.08 0.44 18.71 0 18.62 L0 21.42 C0.3 21.48 26.51 26.81 26.51 26.81 C26.51 26.81 23.18 29.32 22.89
+							 29.54 ZM5.4 28.42 C5.4 28.42 8.73 25.91 9.02 25.69 C8.81 25.44 7.34 23.74 7.15 23.52 C6.88 23.71 2.91
+							 26.71 2.91 26.71 C2.91 26.71 0.37 28.62 0.09 28.84 C0.33 29.12 6.99 36.84 7.2 37.09 C7.43 36.92 8.77
+							 35.91 9.02 35.72 C8.78 35.44 5.09 31.15 5.09 31.15 C5.09 31.15 31.47 36.52 31.91 36.61 L31.91 33.81
+							 C31.61 33.75 5.4 28.42 5.4 28.42 Z" class="st1"/>
+			</g>
+			<g id="shape14-17" v:mID="14" v:groupContext="shape" transform="translate(4.242,-5.80125)">
+				<title>Лист.14</title>
+				<path d="M22.89 37.41 C23.13 37.69 26.82 41.97 26.82 41.97 C26.82 41.97 0.44 36.61 0 36.52 C0 36.89 0 39.06 0 39.31
+							 C0.3 39.37 26.51 44.7 26.51 44.7 C26.51 44.7 23.18 47.21 22.89 47.43 C23.1 47.68 24.57 49.39 24.76 49.61
+							 C25.03 49.41 31.54 44.5 31.82 44.29 C31.57 44 24.92 36.29 24.71 36.03 C24.48 36.2 23.14 37.21 22.89
+							 37.41 ZM22.89 29.54 C23.1 29.79 24.57 31.49 24.76 31.72 C25.03 31.52 31.54 26.61 31.82 26.4 C31.58 26.11
+							 24.92 18.39 24.71 18.14 C24.48 18.31 23.14 19.32 22.89 19.51 C23.13 19.79 26.82 24.08 26.82 24.08 C26.82
+							 24.08 0.44 18.71 0 18.62 L0 21.42 C0.3 21.48 26.51 26.81 26.51 26.81 C26.51 26.81 23.18 29.32 22.89
+							 29.54 ZM5.4 28.42 C5.4 28.42 8.73 25.91 9.02 25.69 C8.81 25.44 7.34 23.74 7.15 23.52 C6.88 23.71 2.9
+							 26.71 2.9 26.71 C2.9 26.71 0.37 28.62 0.08 28.84 C0.33 29.12 6.99 36.84 7.2 37.09 C7.43 36.92 8.77 35.91
+							 9.02 35.72 C8.78 35.44 5.09 31.15 5.09 31.15 C5.09 31.15 31.46 36.52 31.91 36.61 L31.91 33.81 C31.61
+							 33.75 5.4 28.42 5.4 28.42 Z" class="st6"/>
+			</g>
+		</g>
+	</g>
+</svg>

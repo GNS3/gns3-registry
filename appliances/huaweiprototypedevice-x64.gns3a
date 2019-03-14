@@ -1,0 +1,73 @@
+{
+    "name": "Huawei Prototype Device x64",
+    "category": "guest",
+    "description": "Huawei eNSP + magic",
+    "vendor_name": "Huawei",
+    "vendor_url": "https://huawei.com",
+    "documentation_url": "https://support.huawei.com/enterprise/ru/network-management/ensp-pid-9017384/software",
+    "product_name": "Prototype Device x64",
+    "product_url": "https://support.huawei.com/enterprise/ru/network-management/ensp-pid-9017384/software",
+    "registry_version": 4,
+    "status": "stable",
+    "availability": "free-to-try",
+    "maintainer": "mininetworks",
+    "maintainer_email": "mininetworks@mail.ru",
+    "usage": "\nYou may use this image to create any other devices from eNSP\n\nIt may take about 2-5 minutes to load. You might need to boot twice.\n\nTo explore or change the internals, you may select vnc console type.\nThe password is ensphost.\n\nPlease don't change the number of adapters. Otherwise, additional steps are required.\n\nThis appliance is based on Windows 7 Professional MSDN installation.\nYou need the license, otherwise the usage is not legal.\n\nPlease read full readme on https://cloud.mail.ru/public/NY6Q/ky5GJAuhR\n\nFor support and bugs please write on mininetworks@mail.ru",
+    "symbol": "huawei-icon.svg",
+    "port_name_format": "Ethernet{port1}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 24,
+	"cpus": 2,
+        "ram": 4096,
+        "hda_disk_interface": "sata",
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "boot_priority": "c",
+        "kvm": "require",
+	"options": "-usbdevice tablet"
+    },
+    "images": [
+        {
+            "filename": "HuaweiPrototypeDevice-x64-V100R003C00-v1.0.qcow2",
+            "version": "V100R003C00 1.0",
+            "md5sum": "7cafd5c35f12df469e1d1d025648f976",
+            "filesize": 9198698496,
+            "download_url": "https://cloud.mail.ru/public/NY6Q/ky5GJAuhR"
+        },
+        {
+            "filename": "HuaweiPrototypeDevice-x64-V100R003C00SPC100-v1.1.qcow2",
+            "version": "V100R003C00SPC100 1.1",
+            "md5sum": "d99602482788bb2a56dc2edf2386dcc4",
+            "filesize": 9119596544,
+            "download_url": "https://cloud.mail.ru/public/NY6Q/ky5GJAuhR"
+        },
+        {
+            "filename": "HuaweiPrototypeDevice-x64-V100R003C00SPC100-v2.0.qcow2",
+            "version": "V100R003C00SPC100 2.0",
+            "md5sum": "77582f78b2d1b99680a8224e1cf30424",
+            "filesize": 9120190464,
+            "download_url": "https://cloud.mail.ru/public/NY6Q/ky5GJAuhR"
+        }
+    ],
+    "versions": [
+        {
+            "name": "V100R003C00 1.0",
+            "images": {
+                "hda_disk_image": "HuaweiPrototypeDevice-x64-V100R003C00-v1.0.qcow2"
+            }
+        },
+	{
+	    "name": "V100R003C00SPC100 1.1",
+	    "images": {
+		"hda_disk_image": "HuaweiPrototypeDevice-x64-V100R003C00SPC100-v1.1.qcow2"
+	    }
+	},
+	{
+	    "name": "V100R003C00SPC100 2.0",
+	    "images": {
+		"hda_disk_image": "HuaweiPrototypeDevice-x64-V100R003C00SPC100-v2.0.qcow2"
+	    }
+	}
+    ]
+}

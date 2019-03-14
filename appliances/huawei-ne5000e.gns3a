@@ -1,0 +1,60 @@
+{
+    "name": "Huawei NE5000E",
+    "category": "router",
+    "description": "Huawei eNSP + magic",
+    "vendor_name": "Huawei",
+    "vendor_url": "https://huawei.com",
+    "documentation_url": "https://support.huawei.com/enterprise/ru/network-management/ensp-pid-9017384/software",
+    "product_name": "NE5000E",
+    "product_url": "https://support.huawei.com/enterprise/ru/network-management/ensp-pid-9017384/software",
+    "registry_version": 4,
+    "status": "stable",
+    "availability": "free-to-try",
+    "maintainer": "mininetworks",
+    "maintainer_email": "mininetworks@mail.ru",
+    "usage": "\nIt may take about 2-5 minutes to load. You might need to boot twice.\n\nTo explore or change the internals, you may select vnc console type.\nThe password is ensphost.\n\nPlease don't change the number of adapters. Otherwise, additional steps are required.\n\nThis appliance is based on Windows 7 Professional MSDN installation.\nYou need the license, otherwise the usage is not legal.\n\nPlease read full readme on https://cloud.mail.ru/public/NY6Q/ky5GJAuhR\n\nFor support and bugs please write on mininetworks@mail.ru",
+    "symbol": "huawei-core-router.svg",
+    "port_name_format": "Ethernet{port1}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 10,
+	"cpus": 2,
+        "ram": 4096,
+        "hda_disk_interface": "sata",
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "boot_priority": "c",
+        "kvm": "require",
+	"options": "-cpu host -usbdevice tablet"
+    },
+    "images": [
+        {
+            "filename": "Huawei-NE5000E-V800R011C00SPC607B607-v1.1.qcow2",
+            "version": "V800R011C00SPC607B607 v1.1",
+            "md5sum": "9a0e9b21c87bb87b40e7524ddbf273bf",
+            "filesize": 5143396352,
+            "download_url": "https://cloud.mail.ru/public/NY6Q/ky5GJAuhR"
+        },
+        {
+            "filename": "Huawei-NE5000E-V800R011C00SPC607B607-v2.0.qcow2",
+            "version": "V800R011C00SPC607B607 v2.0",
+            "md5sum": "93bd25b12df36fd66c480f35ef405eb7",
+            "filesize": 5186457600,
+            "download_url": "https://cloud.mail.ru/public/NY6Q/ky5GJAuhR"
+        }
+    ],
+    "versions": [
+        {
+            "name": "V800R011C00SPC607B607 v1.1",
+            "images": {
+                "hda_disk_image": "Huawei-NE5000E-V800R011C00SPC607B607-v1.1.qcow2"
+            }
+        },
+        {
+            "name": "V800R011C00SPC607B607 v2.0",
+            "images": {
+                "hda_disk_image": "Huawei-NE5000E-V800R011C00SPC607B607-v2.0.qcow2"
+            }
+        }
+    ]
+}

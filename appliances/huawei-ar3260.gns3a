@@ -1,0 +1,60 @@
+{
+    "name": "Huawei AR3260",
+    "category": "router",
+    "description": "Huawei eNSP + magic",
+    "vendor_name": "Huawei",
+    "vendor_url": "https://huawei.com",
+    "documentation_url": "https://support.huawei.com/enterprise/ru/network-management/ensp-pid-9017384/software",
+    "product_name": "AR3260",
+    "product_url": "https://support.huawei.com/enterprise/ru/network-management/ensp-pid-9017384/software",
+    "registry_version": 4,
+    "status": "stable",
+    "availability": "free-to-try",
+    "maintainer": "mininetworks",
+    "maintainer_email": "mininetworks@mail.ru",
+    "usage": "\nIt may take about 2-5 minutes to load. You might need to boot twice.\n\nTo explore or change the internals, you may select vnc console type.\nThe password is ensphost.\n\nPlease don't change the number of adapters. Otherwise, additional steps are required.\n\nThis appliance is based on Windows 7 Professional MSDN installation.\nYou need the license, otherwise the usage is not legal.\n\nPlease read full readme on https://cloud.mail.ru/public/NY6Q/ky5GJAuhR\n\nFor support and bugs please write on mininetworks@mail.ru",
+    "symbol": "huawei-router.svg",
+    "port_name_format": "Ethernet{port1}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 19,
+	"cpus": 2,
+        "ram": 2048,
+        "hda_disk_interface": "sata",
+        "arch": "i386",
+        "console_type": "telnet",
+        "boot_priority": "c",
+        "kvm": "require",
+	"options": "-cpu host -usbdevice tablet"
+    },
+    "images": [
+        {
+            "filename": "Huawei-AR3260-V200R003C00-v1.0.qcow2",
+            "version": "V200R003C00 v1.0",
+            "md5sum": "a2a673233e43070e5bc943f94162a12c",
+            "filesize": 3684106240,
+            "download_url": "https://cloud.mail.ru/public/NY6Q/ky5GJAuhR"
+        },
+        {
+            "filename": "Huawei-AR3260-V200R003C00-v2.0.qcow2",
+            "version": "V200R003C00 v2.0",
+            "md5sum": "c66e6c180b8cb09b1c5c82b0c3942d3c",
+            "filesize": 3775270912,
+            "download_url": "https://cloud.mail.ru/public/NY6Q/ky5GJAuhR"
+        }	
+    ],
+    "versions": [
+        {
+            "name": "V200R003C00 v1.0",
+            "images": {
+                "hda_disk_image": "Huawei-AR3260-V200R003C00-v1.0.qcow2"
+            }
+        },
+        {
+            "name": "V200R003C00 v2.0",
+            "images": {
+                "hda_disk_image": "Huawei-AR3260-V200R003C00-v2.0.qcow2"
+            }
+        }
+    ]
+}

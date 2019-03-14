@@ -1,0 +1,60 @@
+{
+    "name": "Huawei Prototype Device",
+    "category": "guest",
+    "description": "Huawei eNSP + magic",
+    "vendor_name": "Huawei",
+    "vendor_url": "https://huawei.com",
+    "documentation_url": "https://support.huawei.com/enterprise/ru/network-management/ensp-pid-9017384/software",
+    "product_name": "Prototype Device",
+    "product_url": "https://support.huawei.com/enterprise/ru/network-management/ensp-pid-9017384/software",
+    "registry_version": 4,
+    "status": "stable",
+    "availability": "free-to-try",
+    "maintainer": "mininetworks",
+    "maintainer_email": "mininetworks@mail.ru",
+    "usage": "\nYou may use this image to create any other devices from eNSP\n\nIt may take about 2-5 minutes to load. You might need to boot twice.\n\nTo explore or change the internals, you may select vnc console type.\nThe password is ensphost.\n\nPlease don't change the number of adapters. Otherwise, additional steps are required.\n\nThis appliance is based on Windows 7 Professional MSDN installation.\nYou need the license, otherwise the usage is not legal.\n\nPlease read full readme on https://cloud.mail.ru/public/NY6Q/ky5GJAuhR\n\nFor support and bugs please write on mininetworks@mail.ru",
+    "symbol": "huawei-icon.svg",
+    "port_name_format": "Ethernet{port1}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 24,
+	"cpus": 2,
+        "ram": 2048,
+        "hda_disk_interface": "sata",
+        "arch": "i386",
+        "console_type": "telnet",
+        "boot_priority": "c",
+        "kvm": "require",
+	"options": "-usbdevice tablet"
+    },
+    "images": [
+        {
+            "filename": "HuaweiPrototypeDevice-V100R003C00-v1.0.qcow2",
+            "version": "V100R003C00 1.0",
+            "md5sum": "391c33d1e2abffc631c25136899f7e26",
+            "filesize": 8270774272,
+            "download_url": "https://cloud.mail.ru/public/NY6Q/ky5GJAuhR"
+        },
+        {
+            "filename": "HuaweiPrototypeDevice-V100R003C00-v2.0.qcow2",
+            "version": "V100R003C00 2.0",
+            "md5sum": "d639bdfff2602e9e4c245848f2b02153",
+            "filesize": 8360693760,
+            "download_url": "https://cloud.mail.ru/public/NY6Q/ky5GJAuhR"
+        }
+    ],
+    "versions": [
+        {
+            "name": "V100R003C00 1.0",
+            "images": {
+                "hda_disk_image": "HuaweiPrototypeDevice-V100R003C00-v1.0.qcow2"
+            }
+        },
+        {
+            "name": "V100R003C00 2.0",
+            "images": {
+                "hda_disk_image": "HuaweiPrototypeDevice-V100R003C00-v2.0.qcow2"
+            }
+        }
+    ]
+}
