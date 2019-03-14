@@ -1,6 +1,6 @@
 {
     "name": "Huawei S3700",
-    "category": "switch",
+    "category": "multilayer_switch",
     "description": "Huawei eNSP + magic",
     "vendor_name": "Huawei",
     "vendor_url": "https://huawei.com",
