@@ -80,7 +80,7 @@
         {
             "name": "10 w/ Edge",
             "images": {
-                "hda_disk_image": "MSEdge-Win10-VMWare-disk1.vmdk"
+                "hda_disk_image": "MSEdge-Win10-VMware-disk1.vmdk"
             }
         },
         {
