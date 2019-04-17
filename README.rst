@@ -46,7 +46,7 @@ Check appliance files
 
 .. code:: bash
 
-    python check.py
+    python3 check.py
     python3 check_urls.py
 
 If `imagemagick` is installed, it will be used to check the symbol properties.
