@@ -1,7 +1,7 @@
 Docker for GNS3
 ===============
 
-Container maintain by the GNS3 team.
+Container maintained by the GNS3 team.
 
-You can found the images on:
+You can find the images on:
 https://hub.docker.com/

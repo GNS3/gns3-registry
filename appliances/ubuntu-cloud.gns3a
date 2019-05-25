@@ -1,0 +1,94 @@
+{
+    "name": "Ubuntu Cloud Guest",
+    "category": "guest",
+    "description": "The term 'Ubuntu Cloud Guest' refers to the Official Ubuntu images that are available at http://cloud-images.ubuntu.com . These images are built by Canonical. They are then registered on EC2, and compressed tarfiles are made also available for download. For using those images on a public cloud such as Amazon EC2, you simply choose an image and launch it. To use those images on a private cloud, or to run the image on a local hypervisor (such as KVM) you would need to download those images and either publish them to your private cloud, or launch them directly on a hypervisor. The following sections explain in more details how to perform each of those actions",
+    "vendor_name": "Canonical Inc.",
+    "vendor_url": "https://www.ubuntu.com",
+    "documentation_url": "https://help.ubuntu.com/community/UEC/Images",
+    "product_name": "Ubuntu Cloud Guest",
+    "product_url": "https://www.ubuntu.com/cloud",
+    "registry_version": 3,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "Username: ubuntu\nPassword: ubuntu",
+    "port_name_format": "Ethernet{0}",
+    "qemu": {
+        "adapter_type": "virtio-net-pci",
+        "adapters": 1,
+        "ram": 1024,
+        "hda_disk_interface": "virtio",
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "boot_priority": "c",
+        "kvm": "require",
+        "options": "-nographic"
+    },
+    "images": [
+        {
+            "filename": "ubuntu-18.04-server-cloudimg-amd64.img",
+            "version": "18.04",
+            "md5sum": "f4134e7fa16d7fa766c7467cbe25c949",
+            "filesize": 336134144,
+            "download_url": "https://cloud-images.ubuntu.com/releases/18.04/release-20180426.2/ubuntu-18.04-server-cloudimg-amd64.img"
+        },
+        {
+            "filename": "ubuntu-17.10-server-cloudimg-amd64.img",
+            "version": "17.10",
+            "md5sum": "331b44f2b05858c251b3ea92c8b65152",
+            "filesize": 320405504,
+            "download_url": "https://cloud-images.ubuntu.com/releases/17.10/release-20180404/ubuntu-17.10-server-cloudimg-amd64.img"
+        },
+        {
+            "filename": "ubuntu-16.04-server-cloudimg-amd64-disk1.img",
+            "version": "16.04",
+            "md5sum": "22c124ba65ea096cdef8b0a197dd613a",
+            "filesize": 290193408,
+            "download_url": "https://cloud-images.ubuntu.com/releases/16.04/release-20180405/ubuntu-16.04-server-cloudimg-amd64-disk1.img"
+        },
+        {
+            "filename": "ubuntu-14.04-server-cloudimg-amd64-disk1.img",
+            "version": "14.04",
+            "md5sum": "d11b89321d41d0eeddcacf73bf0d2262",
+            "filesize": 262668800,
+            "download_url": "https://cloud-images.ubuntu.com/releases/14.04/release-20180404/ubuntu-14.04-server-cloudimg-amd64-disk1.img"
+        },
+        {
+            "filename": "ubuntu-cloud-init-data.iso",
+            "version": "1.0",
+            "md5sum": "328469100156ae8dbf262daa319c27ff",
+            "filesize": 131072,
+            "download_url": "https://github.com/asenci/gns3-ubuntu-cloud-init-data/raw/master/ubuntu-cloud-init-data.iso"
+        }
+    ],
+    "versions": [
+        {
+            "name": "18.04 (LTS)",
+            "images": {
+                "hda_disk_image": "ubuntu-18.04-server-cloudimg-amd64.img",
+                "cdrom_image": "ubuntu-cloud-init-data.iso"
+            }
+        },
+        {
+            "name": "17.10",
+            "images": {
+                "hda_disk_image": "ubuntu-17.10-server-cloudimg-amd64.img",
+                "cdrom_image": "ubuntu-cloud-init-data.iso"
+            }
+        },
+        {
+            "name": "16.04 (LTS)",
+            "images": {
+                "hda_disk_image": "ubuntu-16.04-server-cloudimg-amd64-disk1.img",
+                "cdrom_image": "ubuntu-cloud-init-data.iso"
+            }
+        },
+        {
+            "name": "14.04 (LTS)",
+            "images": {
+                "hda_disk_image": "ubuntu-14.04-server-cloudimg-amd64-disk1.img",
+                "cdrom_image": "ubuntu-cloud-init-data.iso"
+            }
+        }
+    ]
+}
