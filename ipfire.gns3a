@@ -1,0 +1,165 @@
+{
+    "name": "IPFire",
+    "category": "firewall",
+    "description": "IPFire was designed with both modularity and a high-level of flexibility in mind. You can easily deploy many variations of it, such as a firewall, a proxy server or a VPN gateway. The modular design ensures that it runs exactly what you've configured it for and nothing more. Everything is simple to manage and update through the package manager, making maintenance a breeze.",
+    "vendor_name": "IPFire Project",
+    "vendor_url": "http://www.ipfire.org/",
+    "documentation_url": "http://wiki.ipfire.org/en/start",
+    "product_name": "IPFire",
+    "product_url": "http://www.ipfire.org/features",
+    "registry_version": 3,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "A config wizard will be started at first boot.",
+    "port_name_format": "eth{0}",
+    "qemu": {
+        "adapter_type": "virtio-net-pci",
+        "adapters": 4,
+        "ram": 1024,
+        "hda_disk_interface": "virtio",
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "boot_priority": "c",
+        "kvm": "allow"
+    },
+    "images": [
+        {
+            "filename": "ipfire-2.23.2gb-ext4.x86_64-full-core131.img",
+            "version": "2.23",
+            "md5sum": "604c06e20c36985ff00802da4509340c",
+            "filesize": 1541160960,
+            "download_url": "http://www.ipfire.org/download",
+            "direct_download_url": "https://muug.ca/mirror/ipfire/releases/ipfire-2.x/2.23-core131/ipfire-2.23.2gb-ext4.x86_64-full-core131.img.xz",
+            "compression": "xz"
+        },
+        {
+            "filename": "ipfire-2.21.2gb-ext4.x86_64-full-core129.img",
+            "version": "2.21.129",
+            "md5sum": "84801c588174763c585967a2851a7769",
+            "filesize": 1541160960,
+            "download_url": "http://www.ipfire.org/download",
+            "direct_download_url": "https://downloads.ipfire.org/releases/ipfire-2.x/2.21-core129/ipfire-2.21.2gb-ext4.x86_64-full-core129.img.xz",
+            "compression": "xz"
+        },
+        {
+            "filename": "ipfire-2.21.2gb-ext4.x86_64-full-core124.img",
+            "version": "2.21.124",
+            "md5sum": "970a5cafaa0cb4cfbf42772f41d24932",
+            "filesize": 1541160960,
+            "download_url": "http://www.ipfire.org/download",
+            "direct_download_url": "https://downloads.ipfire.org/releases/ipfire-2.x/2.21-core124/ipfire-2.21.2gb-ext4.x86_64-full-core124.img.xz",
+            "compression": "xz"
+        },
+        {
+            "filename": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core119.img",
+            "version": "2.19.119",
+            "md5sum": "b57be976ff54569b71eae4ee66634b0d",
+            "filesize": 1063256064,
+            "download_url": "http://www.ipfire.org/download",
+            "direct_download_url": "https://downloads.ipfire.org/releases/ipfire-2.x/2.19-core119/ipfire-2.19.1gb-ext4-scon.x86_64-full-core119.img.gz",
+            "compression": "gzip"
+        },
+        {
+            "filename": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core118.img",
+            "version": "2.19.118",
+            "md5sum": "4dbeb474848d87c16c20ff4e31feb204",
+            "filesize": 1063256064,
+            "download_url": "http://www.ipfire.org/download",
+            "direct_download_url": "https://downloads.ipfire.org/releases/ipfire-2.x/2.19-core118/ipfire-2.19.1gb-ext4-scon.x86_64-full-core118.img.gz",
+            "compression": "gzip"
+        },
+        {
+            "filename": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core117.img",
+            "version": "2.19.117",
+            "md5sum": "657673d88b94ed7d22332aebe817bc86",
+            "filesize": 1063256064,
+            "download_url": "http://www.ipfire.org/download",
+            "direct_download_url": "https://downloads.ipfire.org/releases/ipfire-2.x/2.19-core117/ipfire-2.19.1gb-ext4-scon.x86_64-full-core117.img.gz",
+            "compression": "gzip"
+        },
+        {
+            "filename": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core116.img",
+            "version": "2.19.116",
+            "md5sum": "2a8df99d117a0dbfb67870494c0c67cd",
+            "filesize": 1063256064,
+            "download_url": "http://www.ipfire.org/download",
+            "direct_download_url": "https://downloads.ipfire.org/releases/ipfire-2.x/2.19-core116/ipfire-2.19.1gb-ext4-scon.x86_64-full-core116.img.gz",
+            "compression": "gzip"
+        },
+        {
+            "filename": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core111.img",
+            "version": "2.19.111",
+            "md5sum": "741ab771cadd2f6a1fc4a85b3478ae5f",
+            "filesize": 1063256064,
+            "download_url": "http://www.ipfire.org/download",
+            "direct_download_url": "http://downloads.ipfire.org/releases/ipfire-2.x/2.19-core110/ipfire-2.19.1gb-ext4-scon.x86_64-full-core110.img.gz",
+            "compression": "gzip"
+        },
+        {
+            "filename": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core110.img",
+            "version": "2.19.110",
+            "md5sum": "d91bdabee5db83d0f93573f88ea542b1",
+            "filesize": 958398464,
+            "download_url": "http://www.ipfire.org/download",
+            "direct_download_url": "http://downloads.ipfire.org/releases/ipfire-2.x/2.19-core110/ipfire-2.19.1gb-ext4-scon.x86_64-full-core110.img.gz",
+            "compression": "gzip"
+        }
+    ],
+    "versions": [
+        {
+            "name": "2.23",
+            "images": {
+                "hda_disk_image": "ipfire-2.23.2gb-ext4.x86_64-full-core131.img"
+            }
+        },
+        {
+            "name": "2.21.129",
+            "images": {
+                "hda_disk_image": "ipfire-2.21.2gb-ext4.x86_64-full-core129.img"
+            }
+        },
+        {
+            "name": "2.21.124",
+            "images": {
+                "hda_disk_image": "ipfire-2.21.2gb-ext4.x86_64-full-core124.img"
+            }
+        },
+        {
+            "name": "2.19.119",
+            "images": {
+                "hda_disk_image": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core119.img"
+            }
+        },
+        {
+            "name": "2.19.118",
+            "images": {
+                "hda_disk_image": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core118.img"
+            }
+        },
+        {
+            "name": "2.19.117",
+            "images": {
+                "hda_disk_image": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core117.img"
+            }
+        },
+        {
+            "name": "2.19.116",
+            "images": {
+                "hda_disk_image": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core116.img"
+            }
+        },
+        {
+            "name": "2.19.111",
+            "images": {
+                "hda_disk_image": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core111.img"
+            }
+        },
+        {
+            "name": "2.19.110",
+            "images": {
+                "hda_disk_image": "ipfire-2.19.1gb-ext4-scon.x86_64-full-core110.img"
+            }
+        }
+    ]
+}
