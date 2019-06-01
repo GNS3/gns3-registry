@@ -31,10 +31,10 @@
             "download_url": "https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk104859"
         },
         {
-            "filename": "Check_Point_R77.30_T204_Install_and_Upgrade.Gaia.iso",
+            "filename": "Check_Point_R77.30_Install_and_Upgrade_T5.Gaia.iso",
             "version": "77.30",
-            "md5sum": "6fa7586bbb6832fa965d3173276c5b87",
-            "filesize": 2799271936,
+            "md5sum": "3f6f459df3fb3beaf7b2457f08982425",
+            "filesize": 289692076,
             "download_url": "https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk104859"
         },
         {
@@ -65,7 +65,7 @@
             "name": "77.30",
             "images": {
                 "hda_disk_image": "empty100G.qcow2",
-                "cdrom_image": "Check_Point_R77.30_T204_Install_and_Upgrade.Gaia.iso"
+                "cdrom_image": "Check_Point_R77.30_Install_and_Upgrade_T5.Gaia.iso"
             }
         },
         {
