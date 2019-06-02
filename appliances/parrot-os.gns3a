@@ -23,6 +23,14 @@
     },
     "images": [
         {
+            "filename": "Parrot-security-4.6_amd64.iso",
+            "version": "Security Build 4.6",
+            "md5sum": "ead812edc83119e8bcb4ee9daabdc105",
+            "filesize": 3788668928,
+            "download_url": "https://www.parrotsec.org/download-security.php",
+            "direct_download_url": "https://download.parrotsec.org/parrot/iso/4.6/Parrot-security-4.6_amd64.iso"
+        },
+        {
             "filename": "Parrot-security-3.11_amd64.iso",
             "version": "Security Build 3.11",
             "md5sum": "71c94474fb474f682da0844d95f0040b",
@@ -41,6 +49,13 @@
     
     ],
     "versions": [
+        {
+            "name": "Security Build 4.6",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "Parrot-security-4.6_amd64.iso"
+            }
+        },
         {
             "name": "Security Build 3.11",
             "images": {
