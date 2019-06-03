@@ -1,0 +1,28 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Unknown </title></head><body>
+<h1 id="kali-linux">Kali Linux</h1>
+<p>A kali linux console version for GNS3</p>
+<p>The image include:
+metasploit-framework
+ * nmap
+ * hydra
+ * sqlmap
+ * telnet
+ * openssh-client
+ * dnsutils
+ * yersinia
+ * ettercap-text-only
+ * cisco-global-exploiter
+ * cisco-auditing-tool
+ * snmp
+ * dsniff
+ * dnschef
+ * fping
+ * hping3
+ * tshark
+ * python-scapy
+ * yersinia</p>
+<h2 id="build-and-publish-the-images">Build and publish the Images</h2>
+<p>First the base image has to be created:</p>
+<p><code>docker build -t gns3/kalilinux .
+docker push gns3/kalilinux    (optional)</code></p>
+</body></html>
