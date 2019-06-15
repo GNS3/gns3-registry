@@ -1,3 +1,6 @@
+https://design.firefox.com/photon/visuals/product-identity-assets.html
+https://design.firefox.com/product-identity/firefox/firefox/firefox-logo.svg
+
 This file is licensed under the Creative Commons Attribution 3.0 Unported license.	
 Attribution: Mozilla
 You are free:
