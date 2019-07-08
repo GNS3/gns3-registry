@@ -121,7 +121,7 @@
         {
             "filename": "kali-linux-persistence-1gb.qcow2",
             "version": "1.0",
-            "md5sum": "3c67948673377740c0b4bbdc2920da52",
+            "md5sum": "14e9c92f3ba5a0bd1128c1ea26a129ea",
             "filesize": 34734080,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
             "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/kali-linux-persistence-1gb.qcow2/download"
