@@ -25,6 +25,34 @@
     },
     "images": [
         {
+            "filename": "xrv9k-fullk9-x-7.0.1.qcow2",
+            "version": "7.0.1",
+            "md5sum": "ca2817767fa546e303c3c536e211d33e",
+            "filesize": 1446445056,
+            "download_url": "https://software.cisco.com/download/home/286288939/type/280805694/release/7.0.1"
+        },
+        {
+            "filename": "xrv9k-fullk9-x-6.6.2.qcow2",
+            "version": "6.6.2",
+            "md5sum": "fd630be3c449e625073286a3a66021ae",
+            "filesize": 1452998656,
+            "download_url": "https://software.cisco.com/download/home/286288939/type/280805694/release/6.6.2"
+        },
+        {
+            "filename": "xrv9k-fullk9-x-6.5.3.qcow2",
+            "version": "6.5.3",
+            "md5sum": "71f018e3ea895b663129090fb4f0ff40",
+            "filesize": 1205075968,
+            "download_url": "https://software.cisco.com/download/home/286288939/type/280805694/release/6.5.3"
+        },
+        {
+            "filename": "xrv9k-fullk9-x-6.5.2.qcow2",
+            "version": "6.5.2",
+            "md5sum": "506d9e23dda7365c99dd82b613859697",
+            "filesize": 1205010432,
+            "download_url": "https://software.cisco.com/download/home/286288939/type/280805694/release/6.5.1"
+        },
+        {
             "filename": "xrv9k-fullk9-x-6.5.1.qcow2",
             "version": "6.5.1",
             "md5sum": "730868e7cd46de9aa2e950899c7f9498",
@@ -67,6 +95,30 @@
         }
     ],
     "versions": [
+        {
+            "name": "7.0.1",
+            "images": {
+                "hda_disk_image": "xrv9k-fullk9-x-7.0.1.qcow2"
+            }
+        },
+        {
+            "name": "6.6.2",
+            "images": {
+                "hda_disk_image": "xrv9k-fullk9-x-6.6.2.qcow2"
+            }
+        },
+        {
+            "name": "6.5.3",
+            "images": {
+                "hda_disk_image": "xrv9k-fullk9-x-6.5.3.qcow2"
+            }
+        },
+        {
+            "name": "6.5.2",
+            "images": {
+                "hda_disk_image": "xrv9k-fullk9-x-6.5.2.qcow2"
+            }
+        },
         {
             "name": "6.5.1",
             "images": {

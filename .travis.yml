@@ -6,6 +6,7 @@ install:
 addons:
   apt:
     packages:
+    - libgnutls28-dev
     - imagemagick
 script:
 - python check.py
