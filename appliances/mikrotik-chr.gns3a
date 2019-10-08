@@ -28,7 +28,7 @@
     "images": [
             {
               "filename": "chr-6.45.6.img",
-              "version": "6.45",
+              "version": "6.45.6",
               "md5sum": "e68db699ba23ac7e4fba95b3075c1c6b",
               "filesize": 67108864,
               "download_url": "http://www.mikrotik.com/download",
@@ -37,7 +37,7 @@
            },
            {
              "filename": "chr-6.44.5.img",
-             "version": "6.44",
+             "version": "6.44.5",
              "md5sum": "19aa21073c8ea4540daacde69bacda24",
              "filesize": 67108864,
              "download_url": "http://www.mikrotik.com/download",
@@ -46,7 +46,7 @@
           },
           {
             "filename": "chr-6.42.12.img",
-            "version": "6.42",
+            "version": "6.42.12",
             "md5sum": "8485c606eb38e629fb1f5356d31bbc86",
             "filesize": 45537201,
             "download_url": "http://www.mikrotik.com/download",
