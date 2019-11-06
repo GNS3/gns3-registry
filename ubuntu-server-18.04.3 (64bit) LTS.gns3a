@@ -11,7 +11,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "Username: gns3\nPassword: gns3 | MD5: ca131c8da907e6e60f4be92c3aecac29",
+    "usage": "Username: gns3\nPassword: gns3 | MD5: 435f15a54f7f673e302ad26f05226e0e",
     "port_name_format": "ens{0}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
