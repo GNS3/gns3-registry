@@ -17,6 +17,7 @@
 
 import os
 import json
+import signal
 import sys
 import shutil
 import subprocess
@@ -46,6 +47,12 @@ def validate_schema(appliance_json, name, schemas):
             sys.exit(1)
         except jsonschema.exceptions.ValidationError:
             pass
+
+
+
+def signal_abort(sig, frame):
+    print('\n\n=> Check aborted\n')
+    sys.exit(0)
 
 
 
@@ -123,6 +130,7 @@ def check_symbol(symbol):
 
 
 def main():
+    signal.signal(signal.SIGINT, signal_abort)
     print("=> Check appliances")
     for appliance in os.listdir('appliances'):
         print('Check {}'.format(appliance))
