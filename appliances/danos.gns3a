@@ -7,7 +7,7 @@
     "documentation_url": "https://danosproject.atlassian.net/wiki/spaces/DAN/pages/753667/DANOS+1908",
     "product_name": "DANOS",
     "product_url": "https://www.danosproject.org/",
-    "registry_version": 3,
+    "registry_version": 4,
     "status": "stable",
     "symbol": ":/symbols/affinity/circle/gray/router_cloud.svg",
     "maintainer": "GNS3 Team",
