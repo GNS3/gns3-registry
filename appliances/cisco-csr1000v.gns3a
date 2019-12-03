@@ -23,6 +23,34 @@
     },
     "images": [
         {
+            "filename": "csr1000v-ucmk9.16.12.01e-vga.iso",
+            "version": "16.12.1e (install)",
+            "md5sum": "16023e28053f7072a87cdce2b922d818",
+            "filesize": 422942720,
+            "download_url": "https://software.cisco.com/download/home/284364978/type/282046477/release/Gibraltar-16.12.1e"
+        },
+        {
+            "filename": "csr1000v-universalk9.16.12.01e-serial.qcow2",
+            "version": "16.12.1e",
+            "md5sum": "40789cad5bf86ccd44eea5f3d7cfde21",
+            "filesize": 833880064,
+            "download_url": "https://software.cisco.com/download/home/284364978/type/282046477/release/Gibraltar-16.12.1e"
+        },
+        {
+            "filename": "csr1000v-universalk9.16.12.01d-serial.qcow2",
+            "version": "16.12.1d",
+            "md5sum": "fe5416a89d151b44456d846ec9d22dd7",
+            "filesize": 833421312,
+            "download_url": "https://software.cisco.com/download/home/284364978/type/282046477/release/Gibraltar-16.12.1d"
+        },
+        {
+            "filename": "csr1000v-universalk9.16.12.01b-serial.qcow2",
+            "version": "16.12.1b",
+            "md5sum": "82d6d4a93a482df58e5e69b2d62237c0",
+            "filesize": 833880064,
+            "download_url": "https://software.cisco.com/download/home/284364978/type/282046477/release/Gibraltar-16.12.1b"
+        },
+        {
             "filename": "csr1000v-universalk9.16.12.01a-serial.qcow2",
             "version": "16.12.1a",
             "md5sum": "015777ce5279263314b15e01af59877e",
@@ -126,9 +154,42 @@
             "md5sum": "3428e0dcf5132a1b11ab7696d8c61b2e",
             "filesize": 1261961216,
             "download_url": "https://virl.mediuscorp.com/my-account/"
+        },
+        {
+            "filename": "empty8G.qcow2",
+            "version": "1.0",
+            "md5sum": "f1d2c25b6990f99bd05b433ab603bdb4",
+            "filesize": 197120,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "http://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty8G.qcow2/download"
         }
     ],
     "versions": [
+        {
+            "name": "16.12.1e (install)",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "csr1000v-ucmk9.16.12.01e-vga.iso"
+            }
+        },
+        {
+            "name": "16.12.1e",
+            "images": {
+                "hda_disk_image": "csr1000v-universalk9.16.12.01e-serial.qcow2"
+            }
+        },
+        {
+            "name": "16.12.1d",
+            "images": {
+                "hda_disk_image": "csr1000v-universalk9.16.12.01d-serial.qcow2"
+            }
+        },
+        {
+            "name": "16.12.1b",
+            "images": {
+                "hda_disk_image": "csr1000v-universalk9.16.12.01b-serial.qcow2"
+            }
+        },
         {
             "name": "16.12.1a",
             "images": {
