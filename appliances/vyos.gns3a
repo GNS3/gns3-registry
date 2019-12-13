@@ -13,7 +13,6 @@
     "maintainer": "Sentrium S.L.",
     "maintainer_email": "support@vyos.io",
     "symbol": "vyos_icon_gns3.svg",
-    "first_port_name": "eth0",
     "port_name_format": "eth{0}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
