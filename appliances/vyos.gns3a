@@ -25,6 +25,14 @@
     },
     "images": [
         {
+            "filename": "vyos-1.3-rolling-202001160217-amd64.iso",
+            "version": "1.3-2020-01-16",
+            "md5sum": "71446483569adbdb8c567930afca4159",
+            "filesize": 564133888,
+            "download_url": "https://downloads.vyos.io/?dir=rolling/current/amd64",
+            "direct_download_url": "https://downloads.vyos.io/rolling/current/amd64/vyos-1.3-rolling-202001010217-amd64.iso"
+        },
+        {
             "filename": "vyos-1.2.0-rolling+201906040337-amd64.iso",
             "version": "1.2.0-2019-06-04",
             "md5sum": "2a1342985b2a9edfef9f66310ce11a92",
