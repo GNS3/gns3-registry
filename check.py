@@ -25,7 +25,7 @@ import jsonschema
 from picture import get_size
 
 
-SCHEMA_VERSIONS = [3, 4, 5]
+SCHEMA_VERSIONS = [3, 4, 5, 6]
 
 def validate_schema(appliance_json, name, schemas):
 
