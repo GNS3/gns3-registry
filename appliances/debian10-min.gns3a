@@ -7,7 +7,7 @@
     "documentation_url": "https://wiki.debian.org",
     "product_name": "Debian",
     "product_url": "https://debian.org",
-    "registry_version": 1,
+    "registry_version": 3,
     "status": "stable",
     "maintainer": "Ramiro Magallanes",
     "maintainer_email": "ramiro@gnubit.com",
