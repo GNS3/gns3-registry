@@ -15,9 +15,10 @@
     "symbol": "cisco-ise.svg",
     "port_name_format": "GigabitEthernet{0}",
     "qemu": {
+        "cpus": 2,
         "adapter_type": "e1000",
-        "adapters": 2,
-        "ram": 4096,
+        "adapters": 6,
+        "ram": 8192,
         "hda_disk_interface": "ide",
         "arch": "x86_64",
         "console_type": "vnc",
