@@ -3,7 +3,7 @@
     "category": "multilayer_switch",
     "status": "stable",
     "product_name": "ArubaOS-CX Simulation Software",
-    "description": "The ArubaOS-CX Simulation Software OVA is a virtual platform to enable simulation of the ArubaOS-CX Network Operating System. Simulated networks can be created using many of the protocols in the ArubaOS-CX Operating system like OSPF and BGP. Key features like the Aruba Network Analytics Engine and the REST API can be simulated, providing a lightweight development platform to building the modern network. This software can be easily implemented in the GNS3 simulation software to enable drag and drop network design for building complex simulated topologies.",
+    "description": "The ArubaOS-CX OVA is a virtual platform to enable simulation of the ArubaOS-CX Network Operating System. Simulated networks can be created using many of the protocols in the ArubaOS-CX Operating system like OSPF, BGP (inc. EVPN). Key features like the Aruba Network Analytics Engine and the REST API can be simulated, providing a lightweight development platform to building the modern network.",
     "maintainer_email": "alloytm@gmail.com",
     "vendor_url": "arubanetworks.com",
     "vendor_name": "HPE Aruba",
