@@ -27,21 +27,21 @@
     },
     "images": [
             {
-              "filename": "chr-7.0beta5.img",
-              "version": "7.0beta5",
-              "md5sum": "baa6123568a5743cbe7971c33f420868",
-              "filesize": 67108864,
+              "filename": "chr-7.0beta8.img",
+              "version": "7.0beta8",
+              "md5sum": "6ca9f2a984c226a1ab3ff93136c268e8",
+              "filesize": 26422519,
               "download_url": "http://www.mikrotik.com/download",
-              "direct_download_url": "https://download2.mikrotik.com/routeros/7.0beta5/chr-7.0beta5.img.zip",
+              "direct_download_url": "https://download2.mikrotik.com/routeros/7.0beta8/chr-7.0beta8.img.zip",
               "compression": "zip"
            },
-            {
-              "filename": "chr-7.0beta3.img",
-              "version": "7.0beta3",
-              "md5sum": "938c59989df039cb9f33e0da96c22174",
-              "filesize": 67108864,
+           {
+              "filename": "chr-6.47.img",
+              "version": "6.47",
+              "md5sum": "e200d68ba31dc31f90fafb37caa88ecb",
+              "filesize": 34053344,
               "download_url": "http://www.mikrotik.com/download",
-              "direct_download_url": "https://download.mikrotik.com/routeros/7.0beta3/chr-7.0beta3.img.zip",
+              "direct_download_url": "https://download.mikrotik.com/routeros/6.47/chr-6.47.img.zip",
               "compression": "zip"
            },
            {
@@ -51,6 +51,15 @@
               "filesize": 67108864,
               "download_url": "http://www.mikrotik.com/download",
               "direct_download_url": "https://download.mikrotik.com/routeros/6.46.5/chr-6.46.5.img.zip",
+              "compression": "zip"
+           },
+           {
+              "filename": "chr-6.45.9.img",
+              "version": "6.45.9",
+              "md5sum": "48f2e02c9df08475ef869cfa2b60bec1",
+              "filesize": 33919204,
+              "download_url": "http://www.mikrotik.com/download",
+              "direct_download_url": "https://download2.mikrotik.com/routeros/6.45.9/chr-6.45.9.img.zip",
               "compression": "zip"
            },
            {
@@ -80,24 +89,7 @@
              "direct_download_url": "https://download2.mikrotik.com/routeros/6.44.5/chr-6.44.5.img.zip",
              "compression": "zip"
           },
-          {
-            "filename": "chr-6.42.12.img",
-            "version": "6.42.12",
-            "md5sum": "8485c606eb38e629fb1f5356d31bbc86",
-            "filesize": 45537201,
-            "download_url": "http://www.mikrotik.com/download",
-            "direct_download_url": "https://download2.mikrotik.com/routeros/6.42.12/chr-6.42.12.img.zip",
-            "compression": "zip"
-         },
-         {
-            "filename": "chr-6.44.img",
-            "version": "6.44",
-            "md5sum": "86fdf9f0093b4e8f9e7b1c8019fb37b5",
-            "filesize": 33621035,
-            "download_url": "http://www.mikrotik.com/download",
-            "direct_download_url": "https://download2.mikrotik.com/routeros/6.44/chr-6.44.img.zip",
-            "compression": "zip"
-         },
+          
         {
            "filename": "chr-6.44.3.img",
            "version": "6.44.3",
@@ -117,6 +109,15 @@
            "compression": "zip"
         },
         {
+            "filename": "chr-6.44.img",
+            "version": "6.44",
+            "md5sum": "86fdf9f0093b4e8f9e7b1c8019fb37b5",
+            "filesize": 33621035,
+            "download_url": "http://www.mikrotik.com/download",
+            "direct_download_url": "https://download2.mikrotik.com/routeros/6.44/chr-6.44.img.zip",
+            "compression": "zip"
+        },
+        {
            "filename": "chr-6.43.8.img",
            "version": "6.43.8",
            "md5sum": "9437133fc7e77779dc3ff62b98f30dc2",
@@ -124,6 +125,15 @@
            "download_url": "http://www.mikrotik.com/download",
            "direct_download_url": "https://download2.mikrotik.com/routeros/6.43.8/chr-6.43.8.img.zip",
            "compression": "zip"
+        },
+        {
+            "filename": "chr-6.42.12.img",
+            "version": "6.42.12",
+            "md5sum": "8485c606eb38e629fb1f5356d31bbc86",
+            "filesize": 45537201,
+            "download_url": "http://www.mikrotik.com/download",
+            "direct_download_url": "https://download2.mikrotik.com/routeros/6.42.12/chr-6.42.12.img.zip",
+            "compression": "zip"
         },
         {
            "filename": "chr-6.42.9.img",
@@ -182,21 +192,27 @@
     ],
     "versions": [
         {
-            "name": "7.0beta5",
+            "name": "7.0beta8",
             "images": {
-                "hda_disk_image": "chr-7.0beta5.img"
+                "hda_disk_image": "chr-7.0beta8.img"
             }
         },
         {
-            "name": "7.0beta3",
+            "name": "6.47",
             "images": {
-                "hda_disk_image": "chr-7.0beta3.img"
+                "hda_disk_image": "chr-6.47.img"
             }
         },
         {
             "name": "6.46.5",
             "images": {
                 "hda_disk_image": "chr-6.46.5.img"
+            }
+        },
+        {
+            "name": "6.45.9",
+            "images": {
+                "hda_disk_image": "chr-6.45.9.img"
             }
         },
         {
@@ -230,15 +246,33 @@
             }
         },
         {
+            "name": "6.44",
+            "images": {
+                "hda_disk_image": "chr-6.44.img"
+            }
+        },
+        {
             "name": "6.43.8",
             "images": {
                 "hda_disk_image": "chr-6.43.8.img"
             }
         },
         {
+            "name": "6.42.12",
+            "images": {
+                "hda_disk_image": "chr-6.42.12.img"
+            }
+        },
+        {
             "name": "6.42.9",
             "images": {
                 "hda_disk_image": "chr-6.42.9.img"
+            }
+        },
+        {
+            "name": "6.42",
+            "images": {
+                "hda_disk_image": "chr-6.42.img"
             }
         },
         {
