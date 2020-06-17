@@ -1,4 +1,4 @@
-FROM python:3.6.1
+FROM python:3.7.7
 
 RUN pip3 install jupyter
 

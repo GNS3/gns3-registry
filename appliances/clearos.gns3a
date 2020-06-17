@@ -23,6 +23,13 @@
     },
     "images": [
         {
+            "filename": "ClearOS-7.6-DVD-x86_64.iso",
+            "version": "7.6",
+            "md5sum": "aca5827a37c18549aee2f5bbfbe49922",
+            "filesize": 1141899264,
+            "download_url": "https://www.clearos.com/clearfoundation/software/clearos-downloads"
+        },
+        {
             "filename": "ClearOS-7.5-DVD-x86_64.iso",
             "version": "7.5",
             "md5sum": "1e23c5f73a6c996420d8e0e70b000bf9",
@@ -56,10 +63,17 @@
             "md5sum": "3411a599e822f2ac6be560a26405821a",
             "filesize": 197120,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
-            "direct_download_url": "http://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty30G.qcow2/download"
+            "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty30G.qcow2/download"
         }
     ],
     "versions": [
+        {
+            "name": "7.6",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "ClearOS-7.6-DVD-x86_64.iso"
+            }
+        },
         {
             "name": "7.5",
             "images": {
