@@ -251,34 +251,55 @@
           "title": "Number of adapters"
         },
         "custom_adapters": {
-          "type": "array",
-          "title": "Customer drivers for each adapter",
-          "items": {
-            "type": "string",
-            "enum": [
-                "e1000",
-                "i82550",
-                "i82551",
-                "i82557a",
-                "i82557b",
-                "i82557c",
-                "i82558a",
-                "i82558b",
-                "i82559a",
-                "i82559b",
-                "i82559c",
-                "i82559er",
-                "i82562",
-                "i82801",
-                "ne2k_pci",
-                "pcnet",
-                "rtl8139",
-                "virtio",
-                "virtio-net-pci",
-                "vmxnet3"
-            ],
-            "title": "Type of the custom network adapter"
-          }
+            "type": "array",
+            "title": "Custom adapters",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "adapter_number": {
+                        "title": "Adapter number",
+                        "type": "integer"
+                    },
+                    "port_name": {
+                        "title": "Custom port name",
+                        "type": "string",
+                        "minimum": 1
+                    },
+                    "adapter_type": {
+                        "title": "Custom adapter type",
+                        "type": "string",
+                        "enum": [
+                            "e1000",
+                            "i82550",
+                            "i82551",
+                            "i82557a",
+                            "i82557b",
+                            "i82557c",
+                            "i82558a",
+                            "i82558b",
+                            "i82559a",
+                            "i82559b",
+                            "i82559c",
+                            "i82559er",
+                            "i82562",
+                            "i82801",
+                            "ne2k_pci",
+                            "pcnet",
+                            "rtl8139",
+                            "virtio",
+                            "virtio-net-pci",
+                            "vmxnet3"
+                        ]
+                    },
+                    "mac_address": {
+                        "title": "Custom MAC address",
+                        "type": "string",
+                        "minimum": 1,
+                        "pattern": "^([0-9a-fA-F]{2}[:]){5}([0-9a-fA-F]{2})$"
+                    }
+                },
+                "required": ["adapter_number"]
+            }
         },
         "ram": {
           "type": "integer",
