@@ -7,7 +7,7 @@
     "documentation_url": "http://www.juniper.net/techpubs/",
     "product_name": "Juniper vMX",
     "product_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/",
-    "registry_version": 6,
+    "registry_version": 5,
     "status": "experimental",
     "maintainer": "none",
     "maintainer_email": "developers@gns3.net",
@@ -18,7 +18,7 @@
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 12,
-        "ram": 512,
+        "ram": 1024,
         "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "require",
