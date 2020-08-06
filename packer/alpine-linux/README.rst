@@ -5,10 +5,11 @@ For building an Alpine appliance.
 
 https://alpinelinux.org/
 
-CLI Linux installation
-**********************
+Alpine CLI installation
+***********************
 
 The only added packages are:
+
 * busybox-extras
 * nano
 
@@ -17,8 +18,18 @@ The only added packages are:
     packer build alpine_cli.json
 
 
-GUI Linux installation
-**********************
+FRR
+''''
+
+A build of Alpine with FRRouting preinstalled.
+
+.. code:: bash
+
+    packer build -var-file=frr.json alpine_cli.json
+
+
+Alpine GUI installation
+***********************
 
 The GUI version has XFCE4 installed.
 

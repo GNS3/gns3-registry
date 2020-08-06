@@ -20,8 +20,8 @@ iface lo inet loopback
 #	up echo nameserver 192.168.0.1 > /etc/resolv.conf
 
 # DHCP config for eth0
-# auto eth0
-# iface eth0 inet dhcp
+#auto eth0
+#iface eth0 inet dhcp
 #	hostname $(hostname)
 EOF
 
