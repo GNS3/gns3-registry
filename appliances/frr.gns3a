@@ -23,8 +23,8 @@
         {
             "filename": "frr-7.3.1.qcow2",
             "version": "7.3.1",
-            "md5sum": "5ed9434e6b87df86704145d77fb7d687",
-            "filesize": 47535104,
+            "md5sum": "e6bd9591a5c630bfe2c8688dc043b20b",
+            "filesize": 47348224,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/frr-7.3.1.qcow2"
         }

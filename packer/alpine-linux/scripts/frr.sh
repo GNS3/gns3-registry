@@ -18,12 +18,18 @@ cat > /root/set_hostname << 'EOF'
 #!/bin/sh
 
 if [ $# -ne 1 ]; then
-	echo "usage: set_hostname hostname" >&2
+	echo "usage: set_hostname host" >&2
 	exit 1
 fi
 
-hostname=$1
-domain=$(hostname -d)
+host=$1
+hostname=${host%%.*}
+if [ "$host" = "$hostname" ]; then
+	domain=$(hostname -d)
+else
+	domain=${host#*.}
+fi
+
 hostname "$hostname"
 echo "$hostname" > /etc/hostname
 sed -i -e "s/^127\.0\.0\.1.*/127.0.0.1\t${hostname}.${domain} ${hostname} localhost.localdomain localhost/" /etc/hosts
@@ -37,8 +43,11 @@ echo "service integrated-vtysh-config" > /etc/frr/vtysh.conf
 chown frr:frr /etc/frr/vtysh.conf
 
 # run vtysh in .profile
-cat > /root/.profile << EOF
+cat > /root/.profile << 'EOF'
 # ~/.profile: executed by Bourne-compatible login shells.
+
+# reset terminal modes
+[ -t 1 ] && printf '\e[?5l\e[?7h\e[?8h'
 
 if [ "$BASH" ]; then
   if [ -f ~/.bashrc ]; then

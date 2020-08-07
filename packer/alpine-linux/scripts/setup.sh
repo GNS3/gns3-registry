@@ -1,6 +1,27 @@
 # install additional packages
 apk add nano busybox-extras
 
+# create .profile
+cat > /root/.profile << 'EOF'
+# ~/.profile: executed by Bourne-compatible login shells.
+
+# reset terminal modes
+[ -t 1 ] && printf '\e[?5l\e[?7h\e[?8h'
+
+if [ "$BASH" ]; then
+  if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+  fi
+fi
+
+mesg n || true
+EOF
+
+find /home -type d -mindepth 1 -maxdepth 1 | while read -r home; do
+	cp -p /root/.profile "$home/"
+	chown $(stat -c '%u:%g' "$home") "$home/.profile"
+done
+
 # network configuration
 cat > /etc/network/interfaces << EOF
 #
