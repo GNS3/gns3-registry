@@ -37,3 +37,13 @@ The GUI version has XFCE4 installed.
 
     packer build -var-file=gui.json alpine.json
 
+
+Ostinato
+'''''''''
+
+A build of Alpine with Ostinato GUI and drone preinstalled.
+
+.. code:: bash
+
+    packer build -var-file=ostinato.json alpine.json
+
