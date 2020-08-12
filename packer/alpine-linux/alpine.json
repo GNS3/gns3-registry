@@ -2,7 +2,9 @@
     "variables": {
         "iso_url": "http://dl-cdn.alpinelinux.org/alpine/v3.12/releases/x86_64/alpine-virt-3.12.0-x86_64.iso",
         "iso_checksum": "fe694a34c0e2d30b9e5dea7e2c1a3892c1f14cb474b69cc5c557a52970071da5",
+        "ui_mode": "cli",
         "vm_name": "alpine_cli.qcow2",
+        "file_source": "README.rst",
         "setup_script": "setup.sh",
         "disk_size": "500"
     },
@@ -49,12 +51,18 @@
             "type": "shell",
             "pause_before": "20s",
             "inline": [
-                "apk upgrade --update-cache"
+                "apk upgrade --update-cache",
+                "mkdir -p /tmp/uploads"
             ]
         },
         {
             "type": "shell",
-            "script": "scripts/serial.sh"
+            "script": "scripts/{{user `ui_mode`}}.sh"
+        },
+        {
+            "type": "file",
+            "source": "files/{{user `file_source`}}",
+            "destination": "/tmp/uploads/"
         },
         {
             "type": "shell",

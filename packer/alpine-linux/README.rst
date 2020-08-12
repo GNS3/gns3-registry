@@ -15,7 +15,7 @@ The only added packages are:
 
 .. code:: bash
 
-    packer build alpine_cli.json
+    packer build alpine.json
 
 
 FRR
@@ -25,7 +25,7 @@ A build of Alpine with FRRouting preinstalled.
 
 .. code:: bash
 
-    packer build -var-file=frr.json alpine_cli.json
+    packer build -var-file=frr.json alpine.json
 
 
 Alpine GUI installation
@@ -35,5 +35,5 @@ The GUI version has XFCE4 installed.
 
 .. code:: bash
 
-    packer build alpine_gui.json
+    packer build -var-file=gui.json alpine.json
 
