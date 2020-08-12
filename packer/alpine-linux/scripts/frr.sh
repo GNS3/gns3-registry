@@ -69,6 +69,7 @@ cat > /etc/network/interfaces << EOF
 # Loopback interface
 auto lo
 iface lo inet loopback
+
 # Static config for eth0
 #auto eth0
 #iface eth0 inet static
