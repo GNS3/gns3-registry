@@ -15,6 +15,6 @@ cd aports/*/ostinato
 abuild -F -r
 cd
 
-find packages -name "*.apk" -type f -exec cp -p {} /package \;
+cp -p packages/*/*/*.apk /package
 chown $(stat -c '%u:%g' /package) /package/*
 EOF
