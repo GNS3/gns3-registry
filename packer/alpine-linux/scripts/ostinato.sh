@@ -10,10 +10,12 @@ apk add tshark wireshark
 # desktop integration
 cat > /usr/share/applications/ostinato.desktop << 'EOF'
 [Desktop Entry]
-Type=Application
 Name=Ostinato
+GenericName=Packet Traffic Generator
+Exec=ostinato
 Icon=ostinato
-Exec=sh -c 'ostinato > /tmp/ostinato.log 2>&1'
+Terminal=false
+Type=Application
 Categories=Network;Monitor;Qt;
 EOF
 cp -p /tmp/uploads/ostinato/logo_256x256.png /usr/share/icons/hicolor/256x256/apps/ostinato.png
