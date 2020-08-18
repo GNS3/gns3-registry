@@ -16,6 +16,7 @@
         "adapter_type": "virtio-net-pci",
         "adapters": 4,
         "ram": 128,
+        "hda_disk_interface": "ide",
         "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "allow"
