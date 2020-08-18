@@ -16,6 +16,8 @@
         "adapter_type": "vmxnet3",
         "adapters": 6,
         "ram": 32768,
+        "hda_disk_interface": "ide",
+        "hdb_disk_interface": "ide",
         "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "require",
