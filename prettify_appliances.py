@@ -42,7 +42,7 @@ def sort_key_using_schema(schema, key):
 
     return list(schema['properties'].keys()).index(key)
 
-with open('schemas/appliance.json') as f:
+with open('schemas/appliance_v6.json') as f:
     schema = json.load(f, object_pairs_hook=OrderedDict)
 
 for appliance in glob.glob('appliances/*.gns3a'):
@@ -63,7 +63,8 @@ for appliance in glob.glob('appliances/*.gns3a'):
         for image in config['images']:
             clean_urls(image)
             images.append(OrderedDict(sorted(image.items(), key=lambda t: sort_key_using_schema(schema['properties']['images']['items'], t[0]))))
-        images = sorted(images, key=lambda t: t['version'], reverse=True)
+        # sorting versions creates more issues than it solves
+        # images = sorted(images, key=lambda t: t['version'], reverse=True)
         config['images'] = images
 
     if 'versions' in config:
@@ -72,7 +73,8 @@ for appliance in glob.glob('appliances/*.gns3a'):
             version = OrderedDict(sorted(version.items(), key=lambda t: sort_key_using_schema(schema['properties']['versions']['items'], t[0])))
             version['images'] = OrderedDict(sorted(version['images'].items(), key=lambda t: sort_key_using_schema(schema['properties']['versions']['items']['properties']['images'], t[0])))
             versions.append(version)
-        versions = sorted(versions, key=lambda t: t['name'], reverse=True)
+        # sorting versions creates more issues than it solves
+        # versions = sorted(versions, key=lambda t: t['name'], reverse=True)
         config['versions'] = versions
 
     # Validate our changes

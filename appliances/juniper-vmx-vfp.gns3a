@@ -11,8 +11,8 @@
     "status": "experimental",
     "maintainer": "none",
     "maintainer_email": "developers@gns3.net",
-    "symbol": "juniper-vmx.svg",
     "usage": "Initial username is root, password is root.\n",
+    "symbol": "juniper-vmx.svg",
     "first_port_name": "Eth0",
     "port_name_format": "Eth{port1}",
     "qemu": {
@@ -146,7 +146,6 @@
             "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
         }
     ],
-
     "versions": [
         {
             "name": "19.3R1.8-KVM",
@@ -250,6 +249,5 @@
                 "hda_disk_image": "vFPC-20151203.img"
             }
         }
-
     ]
 }

@@ -102,7 +102,7 @@
             "download_url": "https://downloads.openwrt.org/releases/18.06.2/targets/x86/64/",
             "direct_download_url": "https://downloads.openwrt.org/releases/18.06.2/targets/x86/64/openwrt-18.06.2-x86-64-combined-ext4.img.gz",
             "compression": "gzip"
-        }, 
+        },
         {
             "filename": "openwrt-18.06.1-x86-64-combined-ext4.img",
             "version": "18.06.1",
@@ -186,7 +186,7 @@
                 "hda_disk_image": "openwrt-18.06.2-x86-64-combined-ext4.img"
             }
         },
-        { 
+        {
             "name": "openwrt 18.06.1",
             "images": {
                 "hda_disk_image": "openwrt-18.06.1-x86-64-combined-ext4.img"

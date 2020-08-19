@@ -12,9 +12,9 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Starting vWLC will start an installation of vWLC onto a blank 8GB Drive.",
+    "symbol": ":/symbols/wlan_controller.svg",
     "first_port_name": "ServicePort",
     "port_name_format": "Management{port1}",
-    "symbol": ":/symbols/wlan_controller.svg",
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 2,
@@ -26,7 +26,7 @@
         "kvm": "require",
         "options": ""
     },
-    "images": [    
+    "images": [
         {
             "filename": "Cisco-vWLC-AIR-CTVM-7-3-101-0-file1.iso",
             "version": "7.3.101.0",
@@ -72,7 +72,6 @@
         }
     ],
     "versions": [
-
         {
             "name": "8.1.120.0",
             "images": {
@@ -93,6 +92,6 @@
                 "hda_disk_image": "empty8G.qcow2",
                 "cdrom_image": "MFG_CTVM_8_3_102_0.iso"
             }
-        }     
+        }
     ]
 }
