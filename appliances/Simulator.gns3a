@@ -47,7 +47,6 @@
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%30disk/",
             "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty30G.qcow2/download"
         }
-    
     ],
     "versions": [
         {
@@ -64,6 +63,5 @@
                 "cdrom_image": "Parrot-security-3.11_amd64.iso"
             }
         }
-        
-]
+    ]
 }

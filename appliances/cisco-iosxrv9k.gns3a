@@ -67,7 +67,8 @@
             "filesize": 1311703040,
             "download_url": "https://software.cisco.com/download/home/286288939/type/280805694/release/6.4.2"
         },
-        {   "filename": "xrv9k-fullk9-x-6.4.1.qcow2",
+        {
+            "filename": "xrv9k-fullk9-x-6.4.1.qcow2",
             "version": "6.4.1",
             "md5sum": "9c56b684e307706005a503e289cb9317",
             "filesize": 1304887296,

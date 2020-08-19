@@ -1,7 +1,7 @@
 {
     "name": "vSRX",
     "category": "firewall",
-    "description": "The vSRX delivers core firewall, networking, advanced security, and automated lifecycle management capabilities for enterprises and service providers. The industry\u2019s fastest virtual security platform, the vSRX offers firewall speeds up to 17 Gbps using only two virtual CPUs, providing scalable, secure protection across private, public, and hybrid clouds.\n\nJuniper version 12 can support only 1GB of ram.",
+    "description": "The vSRX delivers core firewall, networking, advanced security, and automated lifecycle management capabilities for enterprises and service providers. The industry's fastest virtual security platform, the vSRX offers firewall speeds up to 17 Gbps using only two virtual CPUs, providing scalable, secure protection across private, public, and hybrid clouds.\n\nJuniper version 12 can support only 1GB of ram.",
     "vendor_name": "Juniper",
     "vendor_url": "https://www.juniper.net/us/en/",
     "documentation_url": "http://www.juniper.net/techpubs/",

@@ -202,7 +202,7 @@
                 "hda_disk_image": "Aboot-veos-serial-8.0.0.iso",
                 "hdb_disk_image": "vEOS-lab-4.22.0F.vmdk"
             }
-        },    
+        },
         {
             "name": "4.21.1F",
             "images": {

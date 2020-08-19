@@ -40,6 +40,5 @@
                 "hda_disk_image": "opennac_3711_img.qcow2"
             }
         }
-        
-]
+    ]
 }
