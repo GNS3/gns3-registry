@@ -139,14 +139,14 @@
         },
         {
             "filename": "junos-vsrx-vmdisk-15.1X49-D20.2.qcow2",
-            "version": "15.1X49-D20.2",
+            "version": "15.1X49-D20",
             "md5sum": "43e8000870207db47c1382192319eb45",
             "filesize": 2904096768,
             "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/"
         },
         {
             "filename": "junos-vsrx-12.1X47-D20.7-domestic-disk1.vmdk",
-            "version": "12.1X47-D20.7",
+            "version": "12.1X47-D20",
             "md5sum": "d22ed7a7eb131984e892a4430c5f4730",
             "filesize": 235894272,
             "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/"

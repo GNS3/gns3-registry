@@ -24,7 +24,7 @@
     "images": [
         {
             "filename": "BCF-Controller-BCF-CE-3.5.0-2016-01-22.qcow2",
-            "version": "3.5.0-2016-01-22",
+            "version": "3.5.0",
             "md5sum": "d1c2ecf0db8101f6b6d311470697545a",
             "filesize": 2860253184,
             "download_url": "http://www.bigswitch.com/community-edition"
@@ -32,7 +32,7 @@
     ],
     "versions": [
         {
-            "name": "3.5",
+            "name": "3.5.0",
             "images": {
                 "hda_disk_image": "BCF-Controller-BCF-CE-3.5.0-2016-01-22.qcow2"
             }

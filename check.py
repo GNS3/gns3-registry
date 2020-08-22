@@ -27,7 +27,10 @@ from picture import get_size
 
 SCHEMA_VERSIONS = [3, 4, 5, 6]
 
+warnings = 0
+
 def validate_schema(appliance_json, name, schemas):
+    global warnings
 
     version = appliance_json['registry_version']
     if version not in SCHEMA_VERSIONS:
@@ -42,9 +45,8 @@ def validate_schema(appliance_json, name, schemas):
             appliance_json = appliance_json.copy()
             appliance_json['registry_version'] = version
             jsonschema.validate(appliance_json, schemas[version])
-            print('Appliance {name} can be downgraded to registry version {version}'.format(name=name,
-                                                                                            version=version))
-            sys.exit(1)
+            print('Appliance {name} can be downgraded to registry version {version}'.format(name=name, version=version))
+            warnings += 1
         except jsonschema.exceptions.ValidationError:
             pass
 
@@ -57,9 +59,8 @@ def signal_abort(sig, frame):
 
 
 def check_appliance(appliance):
-    global images
-    images = set()
-    global md5sums
+    global warnings
+    images = {}
     md5sums = set()
 
     schemas = {}
@@ -80,19 +81,27 @@ def check_appliance(appliance):
             if image['md5sum'] in md5sums:
                 print('Duplicate image md5sum ' + image['md5sum'])
                 sys.exit(1)
-            images.add(image['filename'])
+            versions_found = False
+            for version in appliance_json['versions']:
+                if image['filename'] in version['images'].values():
+                    versions_found = True
+            if not versions_found:
+                print('Unused image ' + image['filename'] + ' in ' + appliance)
+                warnings += 1
+            images[image['filename']] = image['version']
             md5sums.add(image['md5sum'])
 
         for version in appliance_json['versions']:
+            version_match = False
             for image in version['images'].values():
-                found = False
-                for i in appliance_json['images']:
-                    if i['filename'] in image:
-                        found = True
-
-                if not found:
+                if image not in images:
                     print('Missing relation ' + image + ' in ' + appliance + ' for version ' + version['name'])
                     sys.exit(1)
+                if images[image] == version['name']:
+                    version_match = True
+            if not version_match:
+                print('Version mismatch for version ' + version['name'] + ' in ' + appliance)
+                sys.exit(1)
 
 
 def check_packer(packer):
@@ -130,6 +139,8 @@ def check_symbol(symbol):
 
 
 def main():
+    global warnings
+
     signal.signal(signal.SIGINT, signal_abort)
     print("=> Check appliances")
     for appliance in os.listdir('appliances'):
@@ -143,7 +154,10 @@ def main():
     print("=> Check packer files")
     for packer in os.listdir('packer'):
         check_packer(packer)
-    print("Everything is ok!")
+    if warnings:
+        print("{} warning!".format(warnings))
+    else:
+        print("Everything is ok!")
 
 if __name__ == '__main__':
     main()

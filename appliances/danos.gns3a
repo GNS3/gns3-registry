@@ -46,7 +46,7 @@
     ],
     "versions": [
         {
-            "name": "danos-1908-amd64-vrouter",
+            "name": "1908",
             "images": {
                 "hda_disk_image": "empty8G.qcow2",
                 "cdrom_image": "danos-1908-amd64-vrouter.iso"
