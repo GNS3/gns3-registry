@@ -49,7 +49,7 @@
         },
         {
             "filename": "vEOS-lab-4.21.1.1F.vmdk",
-            "version": "4.21.1.1F",
+            "version": "4.21.1F",
             "md5sum": "02bfb7e53781fd44ff02357f201586d9",
             "filesize": 358809600,
             "download_url": "https://www.arista.com/en/support/software-download"

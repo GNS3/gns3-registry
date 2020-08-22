@@ -468,7 +468,7 @@
             }
         },
         {
-            "name": "15.1F6.9",
+            "name": "15.1F6.9-KVM",
             "images": {
                 "hda_disk_image": "junos-vmx-x86-64-15.1F6.9.qcow2",
                 "hdb_disk_image": "vmxhdd-15.1F6.9.img",
