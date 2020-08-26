@@ -29,6 +29,18 @@ SCHEMA_VERSIONS = [3, 4, 5, 6]
 
 warnings = 0
 
+
+def no_additional_properties(schema):
+    if 'items' in schema:
+        schema = schema['items']
+    if 'properties' in schema:
+        if 'additionalProperties' not in schema:
+            schema['additionalProperties'] = False
+        for key in schema['properties']:
+            if isinstance(schema['properties'][key], dict):
+                no_additional_properties(schema['properties'][key])
+
+
 def validate_schema(appliance_json, name, schemas):
     global warnings
 
@@ -51,11 +63,9 @@ def validate_schema(appliance_json, name, schemas):
             pass
 
 
-
 def signal_abort(sig, frame):
     print('\n\n=> Check aborted\n')
     sys.exit(0)
-
 
 
 def check_appliance(appliance):
@@ -68,6 +78,7 @@ def check_appliance(appliance):
         schema_filename = "schemas/appliance_v{}.json".format(version)
         with open(schema_filename) as f:
             schemas[version] = json.load(f)
+            no_additional_properties(schemas[version])
 
     with open(os.path.join('appliances', appliance)) as f:
         appliance_json = json.load(f)
@@ -124,6 +135,7 @@ def image_get_height(filename):
 
 use_imagemagick = shutil.which("identify")
 
+
 def check_symbol(symbol):
     licence_file = os.path.join('symbols', symbol.replace('.svg', '.txt'))
     if not os.path.exists(licence_file):
@@ -158,6 +170,7 @@ def main():
         print("{} warning!".format(warnings))
     else:
         print("Everything is ok!")
+
 
 if __name__ == '__main__':
     main()
