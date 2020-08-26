@@ -26,6 +26,13 @@
         "options": "-nographic -enable-kvm -smp cpus=3"
     },
     "images": [
+		{
+            "filename": "vFPC-20200526.img",
+            "version": "20.2R1.10-KVM",
+            "md5sum": "400652d7e450b0bf8ad4cc37db46b78c",
+            "filesize": 2447376384,
+            "download_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/"
+        },
         {
             "filename": "vFPC-20190819.img",
             "version": "19.3R1.8-KVM",
@@ -147,6 +154,12 @@
         }
     ],
     "versions": [
+		{
+            "name": "20.2R1.10-KVM",
+            "images": {
+                "hda_disk_image": "vFPC-20200526.img"
+            }
+        },
         {
             "name": "19.3R1.8-KVM",
             "images": {
