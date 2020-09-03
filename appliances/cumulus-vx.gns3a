@@ -25,6 +25,14 @@
     },
     "images": [
         {
+            "filename": "cumulus-linux-4.2.0-vx-amd64-qemu.qcow2",
+            "version": "4.2.0",
+            "md5sum": "b746616189a7d5cc69de4015e5c8b1d4",
+            "filesize": 2322137088,
+            "download_url": "https://cumulusnetworks.com/cumulus-vx/download/",
+            "direct_download_url": "https://d2cd9e7ca6hntp.cloudfront.net/public/CumulusLinux-4.2.0/cumulus-linux-4.2.0-vx-amd64-qemu.qcow2"
+        },
+        {
             "filename": "cumulus-linux-3.7.10-vx-amd64-qemu.qcow2",
             "version": "3.7.10",
             "md5sum": "3474c950f9d348a6c9f0ce52b5698369",
@@ -214,6 +222,12 @@
         }
     ],
     "versions": [
+        {
+            "name": "4.2.0",
+            "images": {
+                "hda_disk_image": "cumulus-linux-4.2.0-vx-amd64-qemu.qcow2"
+            }
+        },
         {
             "name": "3.7.10",
             "images": {
