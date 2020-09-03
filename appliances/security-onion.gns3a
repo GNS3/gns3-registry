@@ -1,7 +1,7 @@
 {
     "name": "Security Onion",
     "category": "guest",
-    "description": "Security Onion is a Linux distro for intrusion detection, network security monitoring, and log management. It’s based on Ubuntu and contains Snort, Suricata, Bro, OSSEC, Sguil, Squert, ELSA, Xplico, NetworkMiner, and many other security tools. The easy-to-use Setup wizard allows you to build an army of distributed sensors for your enterprise in minutes!",
+    "description": "Security Onion is a Linux distro for intrusion detection, network security monitoring, and log management. It's based on Ubuntu and contains Snort, Suricata, Bro, OSSEC, Sguil, Squert, ELSA, Xplico, NetworkMiner, and many other security tools. The easy-to-use Setup wizard allows you to build an army of distributed sensors for your enterprise in minutes!",
     "vendor_name": "Security Onion Solutions, LLC",
     "vendor_url": "https://securityonion.net/",
     "documentation_url": "https://github.com/Security-Onion-Solutions/security-onion/wiki",
@@ -17,6 +17,7 @@
         "adapter_type": "e1000",
         "adapters": 2,
         "ram": 3072,
+        "hda_disk_interface": "ide",
         "arch": "x86_64",
         "console_type": "vnc",
         "kvm": "allow"
@@ -54,7 +55,6 @@
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%30disk/",
             "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty30G.qcow2/download"
         }
-    
     ],
     "versions": [
         {
@@ -78,6 +78,5 @@
                 "cdrom_image": "securityonion-14.04.5.4.iso"
             }
         }
-        
-]
+    ]
 }

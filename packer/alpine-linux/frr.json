@@ -1,0 +1,4 @@
+{
+    "vm_name": "frr.qcow2",
+    "setup_script": "frr.sh"
+}

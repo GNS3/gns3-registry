@@ -1,0 +1,20 @@
+#!/bin/sh
+
+alpine_version=3.12
+
+mkdir -p "$alpine_version"
+docker run --rm -i -v "$PWD/$alpine_version:/package" alpine:$alpine_version << 'EOF'
+cd
+apk add alpine-sdk
+mkdir -p .abuild
+echo 'PACKAGER="GNS3 Packer <packer@gns3-registry>"' > .abuild/abuild.conf
+abuild-keygen -a -n -q
+
+git clone --depth 1 git://git.alpinelinux.org/aports
+cd aports/*/ostinato
+abuild -F -r
+cd
+
+cp -p packages/*/*/*.apk /package
+chown $(stat -c '%u:%g' /package) /package/*
+EOF

@@ -1,43 +1,50 @@
-#!/bin/sh
-#
-# Copyright (C) 2015 GNS3 Technologies Inc.
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# install additional packages
+apk add nano busybox-extras
 
-set -e
+# create .profile
+cat > /root/.profile << 'EOF'
+# ~/.profile: executed by Bourne-compatible login shells.
 
-export KEYMAPOPTS="us us"
-export HOSTNAMEOPTS="-n alpine"
-export INTERFACESOPTS="
+# reset terminal modes
+[ -t 1 ] && printf '\e[?5l\e[?7h\e[?8h'
+
+if [ "$BASH" ]; then
+  if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+  fi
+fi
+
+mesg n || true
+EOF
+
+find /home -type d -mindepth 1 -maxdepth 1 | while read -r home; do
+	cp -p /root/.profile "$home/"
+	chown $(stat -c '%u:%g' "$home") "$home/.profile"
+done
+
+# network configuration
+cat > /etc/network/interfaces << EOF
+#
+# This is a sample network config, uncomment lines to configure the network
+#
+
+# Loopback interface
 auto lo
 iface lo inet loopback
 
-auto eth0
-iface eth0 inet dhcp"
-export TIMEZONEOPTS="-z UTC"
-export PROXYOPTS="none"
-export APKREPOSOPTS="-r"
-export SSHDOPTS="-c openssh"
-export NTPOPTS="-c none"
-export SWAP_SIZE=0
+# Static config for eth0
+#auto eth0
+#iface eth0 inet static
+#	address 192.168.0.2
+#	netmask 255.255.255.0
+#	gateway 192.168.0.1
+#	up echo nameserver 192.168.0.1 > /etc/resolv.conf
 
-# Answer to password question twice and yes to format drive
-setup-alpine <<EOF
-gns3
-gns3
-sda
-sys
-y
+# DHCP config for eth0
+#auto eth0
+#iface eth0 inet dhcp
+#	hostname $(hostname)
 EOF
 
+cat > /etc/resolv.conf << EOF
+EOF

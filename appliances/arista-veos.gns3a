@@ -19,6 +19,8 @@
         "adapter_type": "e1000",
         "adapters": 13,
         "ram": 2048,
+        "hda_disk_interface": "ide",
+        "hdb_disk_interface": "ide",
         "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "require"
@@ -47,7 +49,7 @@
         },
         {
             "filename": "vEOS-lab-4.21.1.1F.vmdk",
-            "version": "4.21.1.1F",
+            "version": "4.21.1F",
             "md5sum": "02bfb7e53781fd44ff02357f201586d9",
             "filesize": 358809600,
             "download_url": "https://www.arista.com/en/support/software-download"
@@ -200,7 +202,7 @@
                 "hda_disk_image": "Aboot-veos-serial-8.0.0.iso",
                 "hdb_disk_image": "vEOS-lab-4.22.0F.vmdk"
             }
-        },    
+        },
         {
             "name": "4.21.1F",
             "images": {
