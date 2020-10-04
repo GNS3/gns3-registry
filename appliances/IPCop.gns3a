@@ -11,8 +11,8 @@
     "maintainer": "Brent Stewart",
     "maintainer_email": "brent@stewart.tc",
     "usage": "",
+    "symbol": "shieldedtux.png",
     "port_name_format": "eth{0}",
-        "symbol": "shieldedtux.png",
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 3,

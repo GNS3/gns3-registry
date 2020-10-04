@@ -69,7 +69,8 @@
                 "hda_disk_image": "empty100G.qcow2",
                 "cdrom_image": "dcnm-va.11.4.1.iso"
             }
-        },        {
+        },
+        {
             "name": "11.2.1",
             "images": {
                 "hda_disk_image": "empty100G.qcow2",
