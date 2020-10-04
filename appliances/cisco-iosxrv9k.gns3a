@@ -105,6 +105,12 @@
     ],
     "versions": [
         {
+            "name": "7.1.1",
+            "images": {
+                "hda_disk_image": "xrv9k-fullk9-x-7.1.1.qcow2"
+            }
+        },
+        {
             "name": "7.0.1",
             "images": {
                 "hda_disk_image": "xrv9k-fullk9-x-7.0.1.qcow2"
