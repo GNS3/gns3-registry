@@ -1,0 +1,48 @@
+{
+    "category": "firewall", 
+    "status": "experimental", 
+    "maintainer": "none", 
+    "description": "Huawei USG6000V is a virtual service gateway based on Network Functions Virtualization (NFV). It features high virtual resource usage and provides virtualized gateway services, such as vFW, vIPsec, vLB, vIPS, vAV, and vURL Remote Query.\nHuawei USG6000V is compatible with most mainstream virtual platforms. It provides standard APIs, together with the OpenStack cloud platform, SDN Controller, and MANO to achieve intelligent solutions for cloud security. This gateway meets flexible service customization requirements for frequent security service changes, elastic and on-demand resource allocation, visualized network management, and rapid rollout.", 
+    "versions": [
+        {
+            "images": {
+                "hda_disk_image": "usg6kv-v2-V500R001C10.qcow2"
+            }, 
+            "name": "V500R001C10"
+        }
+    ], 
+    "product_name": "HuaWei USG6000v", 
+    "registry_version": 5, 
+    "maintainer_email": "none", 
+    "product_url": "https://e.huawei.com/en/products/enterprise-networking/security/firewall-gateway/usg6000v", 
+    "images": [
+        {
+            "filesize": 737476608, 
+            "md5sum": "07f87aaa4f4d8b9a713d90eb32f89111", 
+            "version": "V500R001C10", 
+            "filename": "usg6kv-v2-V500R001C10.qcow2"
+        }
+    ], 
+    "first_port_name": "GigabitEthernet0/0/0", 
+    "usage": "Default password is admin. Default username and password for web is admin/Admin@123.", 
+    "port_name_format": "GigabitEthernet1/0/{0}", 
+    "vendor_name": "HuaWei", 
+    "qemu": {
+        "ram": 4096, 
+        "hdc_disk_interface": "ide", 
+        "arch": "x86_64", 
+        "console_type": "telnet", 
+        "kvm": "require", 
+        "adapter_type": "virtio-net-pci", 
+        "cpus": 2, 
+        "hdd_disk_interface": "ide", 
+        "hda_disk_interface": "ide", 
+        "adapters": 6, 
+        "boot_priority": "dc", 
+        "hdb_disk_interface": "ide", 
+        "options": "-machine type=pc,accel=kvm -vga std -usbdevice tablet"
+    }, 
+    "availability": "service-contract", 
+    "vendor_url": "https://www.huawei.com", 
+    "name": "HuaWei USG6000v"
+}
