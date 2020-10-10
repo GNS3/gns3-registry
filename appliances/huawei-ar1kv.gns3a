@@ -11,8 +11,8 @@
     "availability": "service-contract",
     "maintainer": "none",
     "maintainer_email": "none",
-    "port_name_format": "GigabitEthernet0/0/{0}",
     "usage": "Default user is super, default password is super.",
+    "port_name_format": "GigabitEthernet0/0/{0}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 6,
@@ -35,10 +35,10 @@
     ],
     "versions": [
         {
+            "name": "V300R019C00SPC300",
             "images": {
                 "hda_disk_image": "ar1k-V300R019C00SPC300.qcow2"
-            },
-            "name": "V300R019C00SPC300"
+            }
         }
     ]
 }
