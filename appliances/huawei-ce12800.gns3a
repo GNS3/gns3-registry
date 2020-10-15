@@ -27,7 +27,8 @@
             "filename": "ce12800-V200R005C10SPC607B607.qcow2",
             "version": "V200R005C10SPC607B607",
             "md5sum": "a6f2b358b299e2b5f0da2820ef315368",
-            "filesize": 707002368
+            "filesize": 707002368,
+            "download_url": "https://support.huawei.com/enterprise/en/switches/cloudengine-12800-pid-7542409/software"
         }
     ],
     "versions": [
