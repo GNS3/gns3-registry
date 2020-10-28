@@ -1,0 +1,45 @@
+{
+    "name": "Ubuntu Desktop",
+    "category": "guest",
+    "description": "Ubuntu is a full-featured Linux operating system which is based on Debian distribution and freely available with both community and professional support, it comes with Unity as its default desktop environment. There are other flavors of Ubuntu available with other desktops as default like Ubuntu Gnome, Lubuntu, Xubuntu, and so on. A tightly-integrated selection of excellent applications is included, and an incredible variety of add-on software is just a few clicks away. A default installation of Ubuntu contains a wide range of software that includes LibreOffice, Firefox, Empathy, Transmission, etc. This is a minimal Ubuntu install that auto boots into the root account for ease of labbing. Python, Sublime Text, and Conky are the only pre-installed packages",
+    "vendor_name": "Canonical Inc.",
+    "vendor_url": "https://www.ubuntu.com",
+    "documentation_url": "https://help.ubuntu.com",
+    "product_name": "Ubuntu",
+    "product_url": "https://www.ubuntu.com/desktop",
+    "registry_version": 3,
+    "status": "stable",
+    "maintainer": "Aaron (imome9a) Francis",
+    "maintainer_email": "aaron@techfu.net",
+    "usage": "* root is configured as auto-login\nUsername: root\nPassword: toor",
+    "symbol": "ubuntu.svg",
+    "port_name_format": "ens3",
+    "qemu": {
+        "adapter_type": "virtio-net-pci",
+        "adapters": 1,
+        "ram": 1024,
+        "hda_disk_interface": "virtio",
+        "arch": "x86_64",
+        "console_type": "vnc",
+        "boot_priority": "c",
+        "kvm": "require",
+        "options": "-vga virtio"
+    },
+    "images": [
+        {
+            "filename": "Ubuntu Desktop.vmdk",
+            "version": "20.04",
+            "md5sum": "eb04922aec08f115866cdfbf948b7277",
+            "filesize": 8434548736,
+            "download_url": "https://mega.nz/file/EKxQXKiL#vJsmkXtZc9Kl1tc9gEiLg1rG8abFEGzIaq4XEWshoCg"
+        }
+    ],
+    "versions": [
+        {
+            "name": "20.04",
+            "images": {
+                "hda_disk_image": "Ubuntu Desktop.vmdk"
+            }
+        }
+    ]
+}
