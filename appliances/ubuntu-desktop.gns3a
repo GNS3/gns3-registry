@@ -7,7 +7,7 @@
     "documentation_url": "https://help.ubuntu.com",
     "product_name": "Ubuntu",
     "product_url": "https://www.ubuntu.com/desktop",
-    "registry_version": 3,
+    "registry_version": 4,
     "status": "stable",
     "maintainer": "Aaron (imome9a) Francis",
     "maintainer_email": "aaron@techfu.net",
