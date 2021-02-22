@@ -10,7 +10,7 @@
     "status": "stable",
     "maintainer": "Savio D'souza",
     "maintainer_email": "savio2002@yahoo.in",
-    "usage": "No Password by default\nRun installer & install to local disk"\nEject the ISO and reboot.",
+    "usage": "No Password by default\nRun installer & install to local disk\nEject the ISO and reboot.",
     "port_name_format": "eth{0}",
     "qemu": {
         "adapter_type": "e1000",
@@ -57,21 +57,21 @@
     ],
     "versions": [
         {
-            "name": "fossapup64-9.5",
+            "name": "9.5",
             "images": {
                 "hda_disk_image": "empty8G.qcow2",
                 "cdrom_image": "fossapup64-9.5.iso"
             }
         },
         {
-            "name": "bionicpup64-8.0",
+            "name": "8.0",
             "images": {
                 "hda_disk_image": "empty8G.qcow2",
                 "cdrom_image": "bionicpup64-8.0-uefi.iso"
             }
         },
         {
-            "name": "xenialpup64-7.5",
+            "name": "7.5",
             "images": {
                 "hda_disk_image": "empty8G.qcow2",
                 "cdrom_image": "xenialpup64-7.5-uefi.iso"
