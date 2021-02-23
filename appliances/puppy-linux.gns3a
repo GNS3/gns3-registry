@@ -10,7 +10,7 @@
     "status": "stable",
     "maintainer": "Savio D'souza",
     "maintainer_email": "savio2002@yahoo.in",
-    "usage": "No Password by default\nRun installer & install to local disk"\nEject the ISO and reboot.",
+    "usage": "No Password by default\nRun installer & install to local disk\nEject the ISO and reboot.",
     "port_name_format": "eth{0}",
     "qemu": {
         "adapter_type": "e1000",
