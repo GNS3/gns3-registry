@@ -34,7 +34,7 @@
         },
         {
             "filename": "junos-vsrx3-x86-64-20.4R1.12.qcow2",
-            "version": "20.4R1",
+            "version": "20.4R1 3.0",
             "md5sum": "0e7a44a56c0326908fcbdc70451e08f5",
             "filesize": 942211072,
             "download_url": "https://www.juniper.net/us/en/dm/free-vsrx-trial/"
