@@ -13,7 +13,7 @@
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username / password is tmpuser / tmppwd.  DANOS will live boot and drop into a shell. DANOS can then be installed inside the VM by typing install image.  Defaults to using a telnet console, but the vnc console can provide additional help if it's not booting.",
     "symbol": ":/symbols/affinity/circle/gray/router_cloud.svg",
-    "port_name_format": "dp0p{1}s{0}",
+    "port_name_format": "dp0s{3}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
         "adapters": 8,
