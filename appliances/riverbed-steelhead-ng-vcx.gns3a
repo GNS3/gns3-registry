@@ -47,13 +47,6 @@
             "download_url": "https://support.riverbed.com/content/support/software/steelhead/cx-appliance.html#software-alert"
         },
         {
-            "filename": "mgmt.qcow2",
-            "version": "9.10.1",
-            "md5sum": "c29c209938675212be5b897b12eeb25b",
-            "filesize": 2101149696,
-            "download_url": "https://support.riverbed.com/content/support/software/steelhead/cx-appliance.html#software-alert"
-        },
-        {
             "filename": "empty100G.qcow2",
             "version": "1.0",
             "md5sum": "5d9fec18a980f13002028491259f158d",
@@ -65,13 +58,6 @@
     "versions": [
         {
             "name": "9.12.0",
-            "images": {
-                "hda_disk_image": "mgmt.qcow2",
-                "hdb_disk_image": "empty100G.qcow2"
-            }
-        },
-        {
-            "name": "9.10.1",
             "images": {
                 "hda_disk_image": "mgmt.qcow2",
                 "hdb_disk_image": "empty100G.qcow2"
