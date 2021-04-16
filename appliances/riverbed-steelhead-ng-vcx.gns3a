@@ -6,6 +6,7 @@
     "vendor_url": "http://www.riverbed.com",
     "documentation_url": "https://github.com/riverbed/Riverbed-Community-Toolkit/tree/master/SteelHead/GNS3",
     "product_name": "SteelHead",
+    "product_url": "https://support.riverbed.com/content/support/software/steelhead/cx-appliance.html",
     "registry_version": 6,
     "status": "stable",
     "maintainer": "Riverbed Community",
@@ -13,27 +14,27 @@
     "usage": "Download the KVM image Next Generation Virtual SteelHead VCX Software Image (KVM) from https://support.riverbed.com/content/support/software/steelhead/cx-appliance.html\n Uncompress the .tgz archive using this command: tar xzSf <image_file>\nDefault credentials: admin / password",
     "symbol": "steelhead-vcx.png",
     "first_port_name": "PRI",
-    "custom_adapters": [
-        {
-            "adapter_number": 1,
-            "port_name": "AUX"
-        },
-        {
-            "adapter_number": 2,
-            "port_name": "LAN0_0"
-        },
-        {
-            "adapter_number": 3,
-            "port_name": "WAN0_0"
-        }
-    ],
     "qemu": {
+        "arch": "x86_64",
         "adapter_type": "virtio-net-pci",
         "adapters": 4,
+        "custom_adapters": [
+            {
+                "adapter_number": 1,
+                "port_name": "AUX"
+            },
+            {
+                "adapter_number": 2,
+                "port_name": "LAN0_0"
+            },
+            {
+                "adapter_number": 3,
+                "port_name": "WAN0_0"
+            }
+        ],
         "ram": 2048,
         "hda_disk_interface": "virtio",
         "hdb_disk_interface": "virtio",
-        "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "require"
     },
@@ -71,13 +72,6 @@
         },
         {
             "name": "9.10.1",
-            "images": {
-                "hda_disk_image": "mgmt.qcow2",
-                "hdb_disk_image": "empty100G.qcow2"
-            }
-        },
-        {
-            "name": "9.9.2",
             "images": {
                 "hda_disk_image": "mgmt.qcow2",
                 "hdb_disk_image": "empty100G.qcow2"
