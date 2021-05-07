@@ -5,6 +5,17 @@ For building a MicroCore / TinyCore appliance.
 
 http://tinycorelinux.net/
 
+
+Packer Version Dependency
+*************************
+
+Packer versions 1.6.0 or later do not accept templates
+that use the ``iso_checksum_type`` attribute.
+To use these newer versions, you must delete the line
+containing ``iso_checksum_type`` from core-linux.json,
+core64-linux.json and tinycore-linux.json.
+
+
 Clean core Linux installation
 *****************************
 
