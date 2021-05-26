@@ -1,12 +1,12 @@
 # install additional packages
 apk add nano busybox-extras
 
+# reset terminal modes
+sed -i "$(printf '1i\e[?5l\e[?7h\e[?8h')" /etc/motd
+
 # create .profile
 cat > /root/.profile << 'EOF'
 # ~/.profile: executed by Bourne-compatible login shells.
-
-# reset terminal modes
-[ -t 1 ] && printf '\e[?5l\e[?7h\e[?8h'
 
 if [ "$BASH" ]; then
   if [ -f ~/.bashrc ]; then
