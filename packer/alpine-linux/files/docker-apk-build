@@ -1,0 +1,34 @@
+#!/bin/sh
+
+package=$1
+version=$2
+if [ -z "$package" ]; then
+	echo "Usage: docker-apk-build <package> [<alpine version>]" >&2
+	exit 1
+fi
+[ -z "$version" ] && version="latest"
+
+mkdir -p "$package"
+docker run --rm -i -v "$PWD/$package:/package" -e "package=$package" alpine:$version << 'EOF'
+apk add alpine-sdk
+
+adduser -D builder
+addgroup builder abuild
+mkdir -p /var/cache/distfiles
+
+su - builder << END_OF_SU
+mkdir -p .abuild
+echo 'PACKAGER="GNS3 Packer <packer@gns3-registry>"' > .abuild/abuild.conf
+abuild-keygen -a -n -q
+
+git clone --depth 1 git://git.alpinelinux.org/aports
+cd aports/*/"$package"
+abuild -r
+END_OF_SU
+
+alpine_version=$(cat /etc/alpine-release)
+alpine_version=${alpine_version%.*}
+mkdir -p "/package/${alpine_version}"
+cp -p /home/builder/packages/*/*/*.apk "/package/${alpine_version}"
+chown -R $(stat -c '%u:%g' /package) "/package/${alpine_version}"
+EOF

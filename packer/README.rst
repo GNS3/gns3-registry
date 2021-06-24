@@ -21,6 +21,12 @@ If you want logs:
     PACKER_LOG=1 packer build template.json
 
 
+Packer versions 1.6.0 or later do not accept templates
+that use the ``iso_checksum_type`` attribute.
+To use these newer versions, you must delete the line
+containing ``iso_checksum_type`` from the template.json.
+
+
 Conventions
 ************
 User should be gns3 or root.
