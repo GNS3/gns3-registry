@@ -14,7 +14,8 @@
     "symbol": ":/symbols/multilayer_switch.svg",
     "first_port_name": "Mgmt",
     "port_name_format": "1/{port1}",
-    "qemu": {
+    "qemu":
+    {
         "adapter_type": "e1000",
         "adapters": 9,
         "ram": 2048,
@@ -25,7 +26,16 @@
         "kvm": "allow",
         "options": "-nographic"
     },
-    "images": [
+
+    "images":
+    [
+        {
+            "filename": "VOSSGNS3.8.4.0.0.qcow2",
+            "version": "v8.4.0.0",
+            "md5sum": "f457e7da3c1dec50670624c421333ef3",
+            "filesize": 386203648,
+			"direct_download_url": "https://akamai-ep.extremenetworks.com/Extreme_P/github-en/Virtual_VOSS/VOSSGNS3.8.4.0.0.qcow2"
+        },
         {
             "filename": "VOSSGNS3.8.3.0.0.qcow2",
             "version": "v8.3.0.0",
@@ -33,7 +43,7 @@
             "filesize": 384696320,
 			"direct_download_url": "https://akamai-ep.extremenetworks.com/Extreme_P/github-en/Virtual_VOSS/VOSSGNS3.8.3.0.0.qcow2"
         },
-	{
+		{
             "filename": "VOSSGNS3.8.2.0.0.qcow2",
             "version": "v8.2.0.0",
             "md5sum": "9a0cd77c08644abbf3a69771c125c011",
@@ -45,64 +55,79 @@
             "version": "8.1.5.0",
             "md5sum": "dff95f67fc04f82f627209ff7b7b3860",
             "filesize": 331087872,
-            "direct_download_url": "https://akamai-ep.extremenetworks.com/Extreme_P/github-en/Virtual_VOSS/VOSSGNS3.8.1.5.0.qcow2"
+			"direct_download_url": "https://akamai-ep.extremenetworks.com/Extreme_P/github-en/Virtual_VOSS/VOSSGNS3.8.1.5.0.qcow2"
         },
-        {
+		{
             "filename": "VOSSGNS3.8.1.0.0.qcow2",
             "version": "8.1.0.0",
             "md5sum": "6b46fd54999a4cd2369440809ccc5099",
             "filesize": 311820288,
-            "direct_download_url": "https://akamai-ep.extremenetworks.com/Extreme_P/github-en/Virtual_VOSS/VOSSGNS3.8.1.0.0.qcow2"
+			"direct_download_url": "https://akamai-ep.extremenetworks.com/Extreme_P/github-en/Virtual_VOSS/VOSSGNS3.8.1.0.0.qcow2"
         },
-        {
+		{
             "filename": "VOSSGNS3.7.1.0.0.qcow2",
             "version": "7.1.0.0",
             "md5sum": "7bb2974efe1a1ab857debd9fa894dbe7",
             "filesize": 193724416,
             "direct_download_url": "https://akamai-ep.extremenetworks.com/Extreme_P/github-en/Virtual_VOSS/VOSSGNS3.7.1.0.0.qcow2"
         },
-        {
+		{
             "filename": "VOSSGNS3.7.0.0.0.img",
             "version": "7.0.0.0",
             "md5sum": "65fe97461156aa88c836a90be1287649",
             "filesize": 419430400,
             "direct_download_url": "https://akamai-ep.extremenetworks.com/Extreme_P/github-en/Virtual_VOSS/VOSSGNS3.7.0.0.0.img"
-        }
+    	}
     ],
-    "versions": [
+
+    "versions":
+    [
+        {
+            "name": "v8.4.0.0",
+            "images":
+            {
+                "hda_disk_image": "VOSSGNS3.8.4.0.0.qcow2"
+            }
+        },
         {
             "name": "v8.3.0.0",
-            "images": {
+            "images":
+            {
                 "hda_disk_image": "VOSSGNS3.8.3.0.0.qcow2"
             }
-	},
-	{
+		},
+		{
             "name": "v8.2.0.0",
-            "images": {
+            "images":
+            {
                 "hda_disk_image": "VOSSGNS3.8.2.0.0.qcow2"
             }
 		},
-        {
+		{
             "name": "8.1.5.0",
-            "images": {
+            "images":
+            {
                 "hda_disk_image": "VOSSGNS3.8.1.5.0.qcow2"
             }
         },
-        {
+		{
             "name": "8.1.0.0",
-            "images": {
+            "images":
+            {
                 "hda_disk_image": "VOSSGNS3.8.1.0.0.qcow2"
             }
         },
-        {
+		{
             "name": "7.1.0.0",
-            "images": {
+            "images":
+            {
                 "hda_disk_image": "VOSSGNS3.7.1.0.0.qcow2"
             }
         },
-        {
+		{
             "name": "7.0.0.0",
-            "images": {
+            "images": 
+            {
                 "hda_disk_image": "VOSSGNS3.7.0.0.0.img"
             }
         }
