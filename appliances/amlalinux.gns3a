@@ -1,0 +1,45 @@
+{
+    "name": "Amla Linux",
+    "category": "guest",
+    "description": "An Open Source, community-governed and forever-free enterprise Linux distribution, focused on long-term stability, providing a robust production-grade platform. AlmaLinux OS is 1:1 binary compatible with RHEL® and pre-Stream CentOS.",
+    "vendor_name": "Amla Linux",
+    "vendor_url": "https://almalinux.org/",
+    "documentation_url": "https://wiki.almalinux.org/",
+    "product_name": "Amla Linux",
+    "product_url": "https://almalinux.org/blog/",
+    "registry_version": 3,
+    "status": "stable",
+    "maintainer": "Savio D'souza",
+    "maintainer_email": "savio2002@yahoo.in",
+    "usage": "Installed from iso image (AlmaLinux-8.4-x86_64-dvd.iso) to 100G empty disk\nDefault options selected during installation\ndnf update till 2021-July-11.\n\nUsername:Passwords = gns3:gns3\nRoot Password Amlalinux",
+    "port_name_format": "eth{0}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 1,
+        "ram": 2048,
+        "hda_disk_interface": "sata",
+        "arch": "x86_64",
+        "console_type": "vnc",
+        "boot_priority": "c",
+        "kvm": "allow"
+    },
+    "images": [
+        {
+            "filename": "amlalinux-8.4.qcow2",
+            "version": "8.4",
+            "md5sum": "c5a805cf51ec0e19457a54fa2e6db77b",
+            "filesize": 5726470144,
+            "download_url": "https://www.mediafire.com/folder/bm8l76uy52bfu/gns3",
+            "direct_download_url": "https://www.mediafire.com/file/pi3lwtedovrozyl/amlalinux-8.4.7z/file",
+            "compression": "7z"
+        }
+    ],
+    "versions": [
+        {
+            "name": "8.4",
+            "images": {
+                "hda_disk_image": "amlalinux-8.4.qcow2"
+            }
+        }
+    ]
+}
