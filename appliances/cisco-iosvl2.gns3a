@@ -11,7 +11,7 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "There is no default password and enable password. There is no default configuration present.",
-    "port_name_format": "Gi{1}/{0}",
+    "port_name_format": "Gi{segment0}/{port0}",
     "port_segment_size": 4,
     "qemu": {
         "adapter_type": "e1000",
