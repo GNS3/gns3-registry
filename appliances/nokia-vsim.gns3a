@@ -7,7 +7,7 @@
     "documentation_url": "https://documentation.nokia.com/",
     "product_name": "Nokia vSIM",
     "product_url": "https://www.nokia.com/networks/products/virtualized-service-router/",
-    "registry_version": 1,
+    "registry_version": 4,
     "status": "experimental",
     "maintainer": "Vinicius Rocha",
     "maintainer_email": "viniciusatr@gmail.com",
