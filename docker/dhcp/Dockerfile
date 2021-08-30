@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.14
 MAINTAINER developers@gns3.net
 
 RUN apk add --update dnsmasq && rm -rf /var/cache/apk/*

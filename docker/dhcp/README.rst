@@ -5,7 +5,7 @@ This container provide a basic DHCP server fro GNS3 topologies
 build on top of dnsmasq.
 
 At first startup a sample config will be write in
-/etc/dnsmasq/dnsmaq.conf
+/etc/dnsmasq/dnsmasq.conf
 
 You can customize the server by editing this file and restarting the container.
 

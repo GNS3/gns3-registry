@@ -18,9 +18,9 @@
 
 mkdir -p /etc/dnsmasq
 
-if [ ! -f /etc/dnsmasq/dnsmaq.conf ]
+if [ ! -f /etc/dnsmasq/dnsmasq.conf ]
 then
-    cat > /etc/dnsmasq/dnsmaq.conf <<EOF
+    cat > /etc/dnsmasq/dnsmasq.conf <<EOF
 # dnsmasq will open tcp/udp port 53 and udp port 67 to world to help with
 # dynamic interfaces (assigning dynamic ips). Dnsmasq will discard world
 # requests to them, but the paranoid might like to close them and let the 
@@ -46,5 +46,5 @@ $$$$$$$/  $$/   $$/  $$$$$$/  $$/
 
 '
 
-echo "Edit /etc/dnsmasq/dnsmaq.conf to change the configuration"
-dnsmasq --log-dhcp --no-daemon --conf-file=/etc/dnsmasq/dnsmaq.conf 
+echo "Edit /etc/dnsmasq/dnsmasq.conf to change the configuration"
+dnsmasq --log-dhcp --no-daemon --conf-file=/etc/dnsmasq/dnsmasq.conf 
