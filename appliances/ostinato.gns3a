@@ -7,7 +7,7 @@
     "documentation_url": "https://ostinato.org/docs",
     "product_name": "Ostinato",
     "product_url": "https://ostinato.org/",
-    "registry_version": 6,
+    "registry_version": 4,
     "status": "stable",
     "availability": "service-contract",
     "maintainer": "Srivats P",
