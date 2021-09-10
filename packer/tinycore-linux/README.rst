@@ -87,18 +87,3 @@ A build of Tiny Core with Firefox preinstalled.
 
     packer build -var-file=tinycore-linux-firefox.json tinycore-linux.json
 
-
-Ostinato
-'''''''''
-
-A build of Tiny Core with Ostinato GUI + drone preinstalled.
-
-.. code:: bash
-
-    packer build -var-file=ostinato.json tinycore-linux.json
-
-A drone-only VM without GUI can be build with:
-
-.. code:: bash
-
-    packer build -var-file=ostinato-drone.json core-linux.json

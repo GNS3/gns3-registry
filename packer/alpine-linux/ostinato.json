@@ -1,7 +1,0 @@
-{
-    "ui_mode": "gui",
-    "vm_name": "ostinato.qcow2",
-    "file_source": "ostinato",
-    "setup_script": "ostinato.sh",
-    "disk_size": "1000"
-}
