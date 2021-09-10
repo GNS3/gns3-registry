@@ -1,7 +1,0 @@
-{
-    "tc_iso_url": "http://distro.ibiblio.org/tinycorelinux/8.x/x86/archive/8.2/Core-8.2.iso",
-    "tc_iso_checksum": "560b6d9da10140f13f22eeea35bf6087",
-    "vm_name": "ostinato.qcow2",
-    "setup_script": "ostinato.sh",
-    "disk_size": "200"
-}
