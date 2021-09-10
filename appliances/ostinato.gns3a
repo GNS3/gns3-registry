@@ -12,7 +12,7 @@
     "availability": "service-contract",
     "maintainer": "Srivats P",
     "maintainer_email": "support@ostinato.org",
-    "symbol": "ostinato-3d-icon.svg",
+    "symbol": ":/symbols/affinity/circle/gray/cog.svg",
     "first_port_name": "eth0/mgmt",
     "port_name_format": "eth{port1}",
     "linked_clone": true,
