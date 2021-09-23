@@ -34,11 +34,11 @@ RUN apt-get update && apt-get -y --no-install-recommends install \
     software-properties-common \
     && apt-add-repository -y ppa:ansible/ansible \
     && apt-get update && apt-get -y --no-install-recommends install ansible \
-    && pip install --upgrade pip \
-    && pip install cryptography netmiko napalm pyntc \
-    && pip install --upgrade paramiko \
-    && pip install pexpect \
-    && pip install docopt==0.6.2 sh
+    && pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir cryptography netmiko napalm pyntc \
+    && pip install --no-cache-dir --upgrade paramiko \
+    && pip install --no-cache-dir pexpect \
+    && pip install --no-cache-dir docopt==0.6.2 sh
 
 RUN export JAVA_HOME=/usr/lib/jvm/default-java
 

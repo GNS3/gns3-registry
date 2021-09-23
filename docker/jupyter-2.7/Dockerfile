@@ -1,6 +1,6 @@
 FROM python:2.7
 
-RUN pip install jupyter
+RUN pip install --no-cache-dir jupyter
 
 ADD jupyter_notebook_config.py /root/.jupyter/jupyter_notebook_config.py
 
