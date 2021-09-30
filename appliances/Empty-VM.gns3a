@@ -1,0 +1,72 @@
+{
+    "name": "Empty VM",
+    "category": "guest",
+    "description": "A empty vm with empty hard disks 8Gig, 30Gig & 100Gig.",
+    "vendor_name": "Qemu-vm",
+    "vendor_url": ".",
+    "documentation_url": "",
+    "product_name": "QEMU",
+    "product_url": ".",
+    "registry_version": 3,
+    "status": "experimental",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "Default at first boot the VM will start from the cdrom.",
+    "port_name_format": "eth{0}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 1,
+        "ram": 1024,
+        "arch": "x86_64",
+        "console_type": "vnc",
+		"hda_disk_interface": "sata",
+        "boot_priority": "d",
+        "kvm": "allow"
+    },
+    "images": [
+        {
+            "filename": "empty8G.qcow2",
+            "version": "08.0",
+            "md5sum": "f1d2c25b6990f99bd05b433ab603bdb4",
+            "filesize": 197120,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty8G.qcow2/download"
+        },
+		    {
+            "filename": "empty30G.qcow2",
+            "version": "30.0",
+            "md5sum": "3411a599e822f2ac6be560a26405821a",
+            "filesize": 197120,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty30G.qcow2/download"
+        },
+		    {
+            "filename": "empty100G.qcow2",
+            "version": "100.0",
+            "md5sum": "1e6409a4523ada212dea2ebc50e50a65",
+            "filesize": 198656,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty100G.qcow2/download"
+        }
+    ],
+    "versions": [
+        {
+            "name": "8G",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2"
+            }
+        },
+        {
+            "name": "30G",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2"
+            }
+        },
+		    {
+            "name": "100G",
+            "images": {
+                "hda_disk_image": "empty100G.qcow2"
+            }
+        }
+	]
+}
