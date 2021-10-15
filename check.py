@@ -78,7 +78,7 @@ def check_appliance(appliance):
         schema_filename = "schemas/appliance_v{}.json".format(version)
         with open(schema_filename) as f:
             schemas[version] = json.load(f)
-            no_additional_properties(schemas[version])
+            #no_additional_properties(schemas[version])
 
     with open(os.path.join('appliances', appliance)) as f:
         appliance_json = json.load(f)
