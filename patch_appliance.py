@@ -60,7 +60,7 @@ def ask_multiple(question, options, optional=False):
                 return options[answer - 1]
 
 
-with open('schemas/appliance.json') as f:
+with open('schemas/appliance_v6.json') as f:
     schema = json.load(f)
 
 for appliance in glob.glob('appliances/*.gns3a'):
@@ -79,4 +79,4 @@ for appliance in glob.glob('appliances/*.gns3a'):
 
     # Save
     with open(appliance, 'w') as f:
-        json.dump(config, f,indent=4)
+        json.dump(config, f, indent=4)

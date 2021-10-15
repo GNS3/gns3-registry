@@ -1,4 +1,5 @@
 {
+    "appliance_id": "c21f6df8-64ab-4e24-921b-ec7f889ce32a",
     "name": "SteelHead",
     "category": "guest",
     "description": "SteelHead is the Riverbed Accelerator",
@@ -15,7 +16,6 @@
     "symbol": "steelhead-vcx.png",
     "first_port_name": "PRI",
     "qemu": {
-        "arch": "x86_64",
         "adapter_type": "virtio-net-pci",
         "adapters": 4,
         "custom_adapters": [
@@ -35,6 +35,7 @@
         "ram": 2048,
         "hda_disk_interface": "virtio",
         "hdb_disk_interface": "virtio",
+        "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "require"
     },
