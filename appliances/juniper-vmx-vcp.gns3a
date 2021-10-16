@@ -7,7 +7,7 @@
     "vendor_url": "https://www.juniper.net/us/en/",
     "documentation_url": "http://www.juniper.net/techpubs/",
     "product_name": "Juniper vMX vCP",
-    "product_url": "http://www.juniper.net/us/en/products-services/routing/mx-series/vmx/",
+    "product_url": "https://www.juniper.net/us/en/products/routers/mx-series/vmx-virtual-router-software.html",
     "registry_version": 3,
     "status": "experimental",
     "maintainer": "none",
@@ -30,16 +30,16 @@
     },
     "images": [
         {
+            "filename": "vmxhdd.img",
+            "version": "1",
+            "md5sum": "ae26e0f32605a53a5c85342bad677c9f",
+            "filesize": 197120
+        },
+        {
             "filename": "junos-vmx-x86-64-20.2R1.10.qcow2",
             "version": "20.2R1.10-KVM",
             "md5sum": "182484474accf07bd403ef17fa2959a9",
             "filesize": 1413349376
-        },
-        {
-            "filename": "vmxhdd-20.2R1.10.img",
-            "version": "20.2R1.10-KVM",
-            "md5sum": "ae26e0f32605a53a5c85342bad677c9f",
-            "filesize": 197120
         },
         {
             "filename": "metadata-usb-re-20.2R1.10.img",
@@ -54,12 +54,6 @@
             "filesize": 1378680832
         },
         {
-            "filename": "vmxhdd.img",
-            "version": "19.4R3-S4.1-OpenStack",
-            "md5sum": "ae26e0f32605a53a5c85342bad677c9f",
-            "filesize": 197120
-        },
-        {
             "filename": "metadata-usb-re.img",
             "version": "19.4R3-S4.1-OpenStack",
             "md5sum": "d08d8d6c288d0d4588e7cc2b65ea1632",
@@ -70,12 +64,6 @@
             "version": "19.3R1.8-KVM",
             "md5sum": "cd14a6884edeb6b337d3c2be02241c63",
             "filesize": 1435238400
-        },
-        {
-            "filename": "vmxhdd-19.3R1.8.img",
-            "version": "19.3R1.8-KVM",
-            "md5sum": "ae26e0f32605a53a5c85342bad677c9f",
-            "filesize": 197120
         },
         {
             "filename": "metadata-usb-re-19.3R1.8.img",
@@ -380,7 +368,7 @@
             "name": "20.2R1.10-KVM",
             "images": {
                 "hda_disk_image": "junos-vmx-x86-64-20.2R1.10.qcow2",
-                "hdb_disk_image": "vmxhdd-20.2R1.10.img",
+                "hdb_disk_image": "vmxhdd.img",
                 "hdc_disk_image": "metadata-usb-re-20.2R1.10.img"
             }
         },
@@ -396,7 +384,7 @@
             "name": "19.3R1.8-KVM",
             "images": {
                 "hda_disk_image": "junos-vmx-x86-64-19.3R1.8.qcow2",
-                "hdb_disk_image": "vmxhdd-19.3R1.8.img",
+                "hdb_disk_image": "vmxhdd.img",
                 "hdc_disk_image": "metadata-usb-re-19.3R1.8.img"
             }
         },
