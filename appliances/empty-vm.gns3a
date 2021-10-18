@@ -5,6 +5,7 @@
     "description": "An empty VM with empty hard disks 8G, 30G & 100G.",
     "vendor_name": "GNS3",
     "vendor_url": "https://gns3.com",
+    "documentation_url": "",
     "product_name": "QEMU",
     "product_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
     "registry_version": 4,
