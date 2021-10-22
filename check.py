@@ -24,7 +24,7 @@ import subprocess
 import jsonschema
 from picture import get_size
 
-
+APPLIANCE_IDS = []
 SCHEMA_VERSIONS = [3, 4, 5, 6]
 
 warnings = 0
@@ -82,7 +82,14 @@ def check_appliance(appliance):
 
     with open(os.path.join('appliances', appliance)) as f:
         appliance_json = json.load(f)
+
     validate_schema(appliance_json, appliance, schemas)
+
+    appliance_id = appliance_json.get("appliance_id")
+    if appliance_id in APPLIANCE_IDS:
+        print('Duplicate appliance UUID detected ' + appliance_id)
+        sys.exit(1)
+    APPLIANCE_IDS.append(appliance_id)
 
     if 'images' in appliance_json:
         for image in appliance_json['images']:

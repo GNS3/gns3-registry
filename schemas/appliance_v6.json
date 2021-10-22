@@ -15,6 +15,7 @@
 
   "properties": {
     "appliance_id": {
+      "title": "Appliance ID",
       "type": "string",
       "minLength": 36,
       "maxLength": 36,
@@ -491,6 +492,7 @@
     }
   },
   "required": [
+    "appliance_id",
     "name",
     "category",
     "description",
