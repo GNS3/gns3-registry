@@ -29,7 +29,8 @@
             "version": "10.50.0145-Rel-KVM",
             "md5sum": "afa50e257d2703acb3ed3257962b2fb5",
             "filesize": 536870912,
-            "download_url": "https://www.lancom-systems.de/download/firmware/?id=fece9b54978e2af8f7a161798fff2a16&file=LC-vRouter/LC-vRouter-10.50.0145-Rel-img.zip",
+            "download_url": "https://www.lancom-systems.de/downloads/",
+            "direct_download_url": "https://www.lancom-systems.de/download/firmware/?id=fece9b54978e2af8f7a161798fff2a16&file=LC-vRouter/LC-vRouter-10.50.0145-Rel-img.zip",
             "compression": "zip"
         }
     ],
