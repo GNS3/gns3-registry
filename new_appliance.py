@@ -23,6 +23,7 @@ Create a new appliance from the terminal
 import json
 import os
 import sys
+import uuid
 
 
 def ask_multiple(question, options, optional=False):
@@ -71,14 +72,19 @@ def ask(question, type='string', optional=False):
 
 def ask_from_schema(schema):
     data = {}
-    for key,val in schema['properties'].items():
-        optional = not key in schema['required']
-        result = None
+    for key, val in schema['properties'].items():
 
-        if 'enum' in val:
-            result = ask_multiple(val['title'], val['enum'], optional=optional)
-        elif val['type'] in ('integer', 'string'):
-            result = ask(val['title'], type=val['type'], optional=optional)
+        if key == "appliance_id":
+            # generate an unique ID for the appliance
+            result = str(uuid.uuid4())
+        else:
+            optional = not key in schema['required']
+            result = None
+
+            if 'enum' in val:
+                result = ask_multiple(val['title'], val['enum'], optional=optional)
+            elif val['type'] in ('integer', 'string'):
+                result = ask(val['title'], type=val['type'], optional=optional)
 
         if result:
             data[key] = result
@@ -89,7 +95,7 @@ with open(os.path.join('schemas', 'appliance_v5.json')) as f:
     schema = json.load(f)
 
 
-appliance_name = ask('Appliance id (example: cisco-asav)')
+appliance_name = ask('Appliance filename (example: cisco-asav)')
 
 # TODO check if file exists
 with open(os.path.join('appliances', appliance_name + '.gns3a'), 'w+') as f:

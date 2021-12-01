@@ -14,13 +14,13 @@ This appliance contains the following networking tools:
 - tcpdump
 - telnet
 
-The /root folder is mount by default
+The /root folder is mounted by default
 
 ## Build and publish the Images
 
 First the base image has to be created:
 
 ```
-docker build -t gns3/ubuntu:xenial .
-docker push gns3/ubuntu:xenial    (optional)
+docker build -t gns3/ubuntu:focal .
+docker push gns3/ubuntu:focal    (optional)
 ```

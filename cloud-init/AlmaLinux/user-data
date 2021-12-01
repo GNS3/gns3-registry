@@ -1,0 +1,5 @@
+#cloud-config
+
+password: almalinux
+chpasswd: { expire: False }
+ssh_pwauth: True
