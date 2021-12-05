@@ -7,7 +7,7 @@
     "vendor_url": "https://rockylinux.org",
     "documentation_url": "https://docs.rockylinux.org",
     "product_name": "Rocky Linux",
-    "registry_version": 4,
+    "registry_version": 3,
     "status": "stable",
     "maintainer": "Da-Geek",
     "maintainer_email": "dageek@dageeks-geeks.gg",
@@ -29,10 +29,10 @@
         {
             "filename": "Rocky-8-GenericCloud-8.5-20211114.2.x86_64.qcow2",
             "version": "8.5",
-            "md5sum": "sha44982ddace75a1dba17942401086d72c",
+            "md5sum": "44982ddace75a1dba17942401086d72c",
             "filesize": 1502701568,
-            "download_url": "https://download.rockylinux.org/pub/rocky/8/images/,
-            "direct_download_url": "https://download.rockylinux.org/pub/rocky/8/images/Rocky-8-GenericCloud-8.5-20211114.2.x86_64.qcow2",
+            "download_url": "https://download.rockylinux.org/pub/rocky/8/images/",
+            "direct_download_url": "https://download.rockylinux.org/pub/rocky/8/images/Rocky-8-GenericCloud-8.5-20211114.2.x86_64.qcow2"
         },
         {
             "filename": "rocky-cloud-init-data.iso",
@@ -47,7 +47,7 @@
             "name": "8.5",
             "images": {
                 "hda_disk_image": "Rocky-8-GenericCloud-8.5-20211114.2.x86_64.qcow2",
-                "cdrom": "rocky-cloud-init-data.iso"
+                "cdrom_image": "rocky-cloud-init-data.iso"
             }
         }
     ]
