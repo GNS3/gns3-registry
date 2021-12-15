@@ -30,25 +30,25 @@
         {
             "filename": "chr-7.1rc7.img",
             "version": "7.1rc7",
-            "md5sum": "b33b4f15e4057a3f85aa705f286b1f57",
-            "filesize": 36716924,
+            "md5sum": "04bc0ae1e5fbbda1522135bc57cf6560",
+            "filesize": 134217728,
             "download_url": "http://www.mikrotik.com/download",
             "direct_download_url": "https://download.mikrotik.com/routeros/7.1rc7/chr-7.1rc7.img.zip",
             "compression": "zip"
         },
         {
-            "filename": "chr-7.1.img.zip",
+            "filename": "chr-7.1.img",
             "version": "7.1",
-            "md5sum": "d50d9b7da335bcfcf7a91ee801b4b517",
-            "filesize": 67108864,
+            "md5sum": "41545bc7b55717fe5bb1e489ee39ca45",
+            "filesize": 134217728,
             "download_url": "http://www.mikrotik.com/download",
             "direct_download_url": "https://download.mikrotik.com/routeros/7.1/chr-7.1.img.zip",
             "compression": "zip"
         },
         {
-            "filename": "chr-6.49rc2.img.zip",
+            "filename": "chr-6.49rc2.img",
             "version": "6.49rc2",
-            "md5sum": "7a6048cc1c088d2056105b25b6a51c31",
+            "md5sum": "e1088f8f64ac3d6ecf2e56ac96261226",
             "filesize": 67108864,
             "download_url": "http://www.mikrotik.com/download",
             "direct_download_url": "https://download.mikrotik.com/routeros/6.49rc2/chr-6.49rc2.img.zip",
@@ -57,8 +57,8 @@
         {
             "filename": "chr-6.49.1.img",
             "version": "6.49.1",
-            "md5sum": "f80525300f779eeba8d5cf35fbc4adfd",
-            "filesize": 34339050,
+            "md5sum": "6c896c4c853de99f2ea77f0f4b102261",
+            "filesize": 67108864,
             "download_url": "http://www.mikrotik.com/download",
             "direct_download_url": "https://download.mikrotik.com/routeros/6.49.1/chr-6.49.1.img.zip",
             "compression": "zip"
@@ -66,8 +66,8 @@
         {
             "filename": "chr-6.48.5.img",
             "version": "6.48.5",
-            "md5sum": "979a79a7c4659c629ad707f1b09a1cca",
-            "filesize": 34326017,
+            "md5sum": "d14debd4cd989f16f695b5b075960703",
+            "filesize": 67108864,
             "download_url": "http://www.mikrotik.com/download",
             "direct_download_url": "https://download.mikrotik.com/routeros/6.48.5/chr-6.48.5.img.zip",
             "compression": "zip"
