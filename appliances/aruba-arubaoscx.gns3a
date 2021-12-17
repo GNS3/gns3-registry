@@ -11,7 +11,7 @@
     "availability": "service-contract",
     "maintainer": "Aruba",
     "maintainer_email": "vincent.giles@hpe.com",
-    "usage": "Default username admin has to be set at first login.",
+    "usage": "Default username: admin, no password. New Password has to be set at first login.",
     "symbol": ":/symbols/route_switch_processor.svg",
     "first_port_name": "mgmt",
     "port_name_format": "1/1/{port1}",
