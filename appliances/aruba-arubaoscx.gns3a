@@ -96,7 +96,7 @@
         {
             "name": "10.07.0010",
             "images": {
-                "hda_disk_image": "arubaoscx-disk-image-genericx86-p4-20210610000730.ovf"
+                "hda_disk_image": "arubaoscx-disk-image-genericx86-p4-20210610000730.vmdk"
             }
         },
         {
