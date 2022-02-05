@@ -68,17 +68,27 @@ done
 
 /sbin/udhcpc -R --timeout=1 --tryagain=1 -b -p /var/run/udhcpc.$MGMT_IF.pid -i $MGMT_IF
 
-[ "$LLDP" == "1" ] && /usr/sbin/lldpd -x
-[ "$SNMP" == "1" ] && /usr/sbin/snmpd
 
 if [ -n "$LLDP_CHASSIS_ID" ]; then
-    lldpcli configure system chassisid $LLDP_CHASSIS_ID
+    echo "Setting LLDP chassis ID to '$LLDP_CHASSIS_ID' "
+    echo "configure system chassisid $LLDP_CHASSIS_ID" > /etc/lldpd.d/90_chassis-id.conf
+else
+    echo "" > /etc/lldpd.d/90_chassis-id.conf
 fi
 
 if [ "$LLDP_PID_TYPE" == "ifname" ]; then
-    lldpcli configure lldp portidsubtype ifname
+    echo "Setting LLDP port ID type to '$LLDP_PID_TYPE' "
+    echo "configure lldp portidsubtype ifname" > /etc/lldpd.d/90_portidsubtype.conf
 elif [ "$LLDP_PID_TYPE" == "mac" ]; then
-    lldpcli configure lldp portidsubtype macaddress
+    echo "Setting LLDP port ID type to '$LLDP_PID_TYPE' "
+    echo "configure lldp portidsubtype macaddress" > /etc/lldpd.d/90_portidsubtype.conf
+else
+    echo "" > /etc/lldpd.d/90_portidsubtype.conf
+fi
+
+[ "$SNMP" == "1" ] && /usr/sbin/snmpd
+if [ "$LLDP" == "1" ]; then
+    /usr/sbin/lldpd -x
 fi
 
 /bin/sh
