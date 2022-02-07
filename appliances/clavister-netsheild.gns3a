@@ -29,7 +29,7 @@
     "images": [
         {
             "filename": "clavister-cos-stream-3.80.09.01-virtual-x64-generic.qcow2",
-            "version": "cOS Strean 3.80.09",
+            "version": "cOS Stream 3.80.09",
             "md5sum": "b57d8e0f1a3cdd4b2c96ffbc7d7c4f05",
             "filesize": 134217728,
             "download_url": "https://my.clavister.com/download/c44639bf-b082-ec11-8308-005056956b6b"
@@ -40,7 +40,7 @@
             "images": {
                 "hda_disk_image": "clavister-cos-stream-3.80.09.01-virtual-x64-generic.qcow2"
             },
-            "name": "cOS Strean 3.80.09"
+            "name": "cOS Stream 3.80.09"
         }
     ]
 }
