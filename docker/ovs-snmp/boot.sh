@@ -65,8 +65,10 @@ until [ $x -eq $NUM_BR ]; do
   ip link set dev br$x up
   x=$((x+1))
 done
+HOSTNAME=`hostname`
+echo "$HOSTNAME"
 
-/sbin/udhcpc -R --timeout=1 --tryagain=1 -b -p /var/run/udhcpc.$MGMT_IF.pid -i $MGMT_IF
+/sbin/udhcpc -R --timeout=1 --tryagain=1 -b -p /var/run/udhcpc.$MGMT_IF.pid -i $MGMT_IF -F $HOSTNAME
 
 
 if [ -n "$LLDP_CHASSIS_ID" ]; then
