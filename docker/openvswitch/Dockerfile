@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:latest
 
 RUN apk add --update openvswitch nano && rm -rf /var/cache/apk/*
 

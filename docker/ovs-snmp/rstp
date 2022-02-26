@@ -1,0 +1,59 @@
+#!/bin/sh
+BR="br0"
+
+usage() {
+    echo "Usage $0 command [bridge]"
+    echo "	status 		show status"
+    echo "	enable		enable RSTP"
+    echo "	disable		disable RSTP and forward BPDU"
+    echo "	primary		configure bridge as primary root"
+    echo "	secondary	configure bridge as secondary root"
+    exit 1
+}
+
+status() {
+    ovs-appctl rstp/show $1
+}
+
+rstp_enable() {
+    echo "Enabling RSTP on '$1'"
+    ovs-vsctl set bridge $1 rstp_enable=true
+    ovs-vsctl set bridge $1 other-config:forward-bpdu=false
+}
+
+rstp_disable() {
+    echo "Disabling RSTP on '$1'"
+    ovs-vsctl set bridge $1 rstp_enable=false
+    ovs-vsctl set bridge $1 other-config:forward-bpdu=true
+}
+
+rstp_setprio() {
+    echo "Setting RSTP bridge priority for '$1' to $2"
+    ovs-vsctl set bridge $1 other_config:rstp-priority=$2
+}
+
+[ $# -lt 1 ] && usage
+
+br="br0"; [ -n "$2" ] && br=$2
+
+cmd=$1
+case $cmd in
+    enable)
+	rstp_enable $br
+    ;;
+    disable)
+	rstp_disable $br
+    ;;
+    primary)
+	rstp_setprio $br 24576
+    ;;
+    secondary)
+	rstp_setprio $br 28672
+    ;;
+    status)
+    status $br
+    ;;
+    *)
+    usage
+    ;;
+esac
