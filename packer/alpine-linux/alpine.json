@@ -1,7 +1,7 @@
 {
     "variables": {
-        "iso_url": "http://dl-cdn.alpinelinux.org/alpine/v3.14/releases/x86_64/alpine-virt-3.14.0-x86_64.iso",
-        "iso_checksum": "d568c6c71bb1eee0f65cdf40088daf57032e24f1e3bd2cf8a813f80d2e9e4eab",
+        "iso_url": "https://dl-cdn.alpinelinux.org/alpine/v3.15/releases/x86_64/alpine-virt-3.15.0-x86_64.iso",
+        "iso_checksum": "e97eaedb3bff39a081d1d7e67629d5c0e8fb39677d6a9dd1eaf2752e39061e02",
         "ui_mode": "cli",
         "vm_name": "alpine_cli.qcow2",
         "file_source": "README.rst",

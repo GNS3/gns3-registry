@@ -1,5 +1,5 @@
 # add community repository
-sed -i 's/^#\(.*\/v.*\/community\)$/\1/' /etc/apk/repositories
+sed -i 's/^#\s*\(.*\/v.*\/community\)$/\1/' /etc/apk/repositories
 apk update
 
 # install packages
