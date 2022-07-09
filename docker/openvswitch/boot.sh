@@ -43,8 +43,8 @@ then
     x=$((x+1))
   done
 else
-  ovsdb-server --detach --remote=punix:/var/run/openvswitch/db.sock
-  ovs-vswitchd --detach
+  ovsdb-server --detach --pidfile --remote=punix:/var/run/openvswitch/db.sock
+  ovs-vswitchd --detach --pidfile
 fi
 
 
