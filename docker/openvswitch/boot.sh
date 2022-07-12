@@ -20,8 +20,8 @@ if [ ! -f "/etc/openvswitch/conf.db" ]
 then
   ovsdb-tool create /etc/openvswitch/conf.db /usr/share/openvswitch/vswitch.ovsschema
 
-  ovsdb-server --detach --remote=punix:/var/run/openvswitch/db.sock
-  ovs-vswitchd --detach  
+  ovsdb-server --detach --pidfile --remote=punix:/var/run/openvswitch/db.sock
+  ovs-vswitchd --detach --pidfile
   ovs-vsctl --no-wait init
  
   x=0
