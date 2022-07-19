@@ -1,13 +1,14 @@
 {
+    "appliance_id": "1cfdf900-7c30-4cb7-8f03-3f61d2581633",
     "name": "Empty VM",
     "category": "guest",
-    "description": "A empty vm with empty hard disks 8Gig, 30Gig & 100Gig.",
-    "vendor_name": "Qemu-vm",
-    "vendor_url": ".",
+    "description": "A empty VM with empty hard disks 8G, 30G, 100G & 200G.",
+    "vendor_name": "GNS3",
+    "vendor_url": "https://gns3.com",
     "documentation_url": "",
     "product_name": "QEMU",
-    "product_url": ".",
-    "registry_version": 3,
+    "product_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+    "registry_version": 5,
     "status": "experimental",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
@@ -19,14 +20,14 @@
         "ram": 1024,
         "arch": "x86_64",
         "console_type": "vnc",
-		"hda_disk_interface": "sata",
+		    "hda_disk_interface": "sata",
         "boot_priority": "d",
         "kvm": "allow"
     },
     "images": [
         {
             "filename": "empty8G.qcow2",
-            "version": "08.0",
+            "version": "8G",
             "md5sum": "f1d2c25b6990f99bd05b433ab603bdb4",
             "filesize": 197120,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
@@ -34,7 +35,7 @@
         },
 		    {
             "filename": "empty30G.qcow2",
-            "version": "30.0",
+            "version": "30G",
             "md5sum": "3411a599e822f2ac6be560a26405821a",
             "filesize": 197120,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
@@ -42,7 +43,7 @@
         },
 		    {
             "filename": "empty100G.qcow2",
-            "version": "100.0",
+            "version": "100G",
             "md5sum": "1e6409a4523ada212dea2ebc50e50a65",
             "filesize": 198656,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
@@ -50,7 +51,7 @@
         },
         {
             "filename": "empty200G.qcow2",
-            "version": "200.0",
+            "version": "200G",
             "md5sum": "d1686d2f25695dee32eab9a6f4652c7c",
             "filesize": 200192,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
