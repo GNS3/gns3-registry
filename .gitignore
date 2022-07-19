@@ -5,3 +5,4 @@ __pycache__
 build
 packer_cache
 output-qemu
+.history
