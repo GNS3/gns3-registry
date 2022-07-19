@@ -8,7 +8,7 @@
     "documentation_url": "",
     "product_name": "QEMU",
     "product_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
-    "registry_version": 5,
+    "registry_version": 4,
     "status": "experimental",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
