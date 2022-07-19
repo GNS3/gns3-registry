@@ -26,9 +26,9 @@
     "images": [
         {
             "filename": "2022-07-01-raspios-bullseye-i386.iso",
-            "version": "2021-01-11",
+            "version": "2022-07-01",
             "md5sum": "e57f42852306ac5ed0d9e97bdc3513cb",
-            "filesize": 3091660800,
+            "filesize": 3607101440,
             "download_url": "https://www.raspberrypi.org/downloads/raspberry-pi-desktop/"
         },
         {
