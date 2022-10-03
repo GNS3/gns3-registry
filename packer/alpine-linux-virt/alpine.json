@@ -1,0 +1,35 @@
+{
+    "variables": {
+        "accelerator": "tcg"
+    },
+    "builders": [
+        {
+            "communicator": "none",
+            "type": "qemu",
+            "accelerator": "{{ user `accelerator` }}",
+            "use_default_display": true,
+            "iso_url": "https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.2-x86_64.iso",
+            "iso_checksum": "6c7cb998ec2c8925d5a1239410a4d224b771203f916a18f8015f31169dd767a2",
+            "http_directory": "./files",
+            "vm_name": "alpine-virt-3.16.img",
+            "disk_size": "92M",
+            "format": "raw",
+            "qemu_img_args": {
+                "create": ["-o", "preallocation=off"]
+            },
+            "disk_interface": "virtio",
+            "disk_discard": "unmap",
+            "boot_wait": "15s",
+            "boot_key_interval": "20ms",
+            "boot_keygroup_interval": "100ms",
+            "boot_command": [
+                "root<enter>",
+                "ifconfig lo up<enter>",
+                "ifconfig eth0 up && udhcpc -i eth0<enter><wait5>",
+                "wget -q http://{{ .HTTPIP }}:{{ .HTTPPort }}/alpine.conf && setup-alpine -e -f alpine.conf<enter><wait><enter><wait500ms><enter><wait5><enter><wait500ms><enter><wait500ms>",
+                "wget -q http://{{ .HTTPIP }}:{{ .HTTPPort }}/install.sh && chmod +x install.sh && ./install.sh<enter><wait30s>",
+                "poweroff<enter>"
+            ]
+        }
+    ]
+}
