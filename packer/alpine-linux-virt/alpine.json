@@ -1,6 +1,6 @@
 {
     "variables": {
-        "accelerator": "tcg"
+        "accelerator": "kvm"
     },
     "builders": [
         {
