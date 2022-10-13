@@ -4,13 +4,13 @@ This is the bare version of `Alpine Linux` installed from iso, no extra package 
 
 Build in 1m12s on `macOS Monterey`.
 
-### Linux (untested)
+### Linux (tested)
 
 ```bash
 packer build alpine.json
 ```
 
-> :information_source: Uses `tcg` QEMU accelerator.
+> :information_source: Uses `kvm` QEMU accelerator.
 
 
 ### macOS (tested)
@@ -19,4 +19,4 @@ packer build alpine.json
 packer build -var-file macos.json alpine.json
 ```
 
-> :information_source: Uses `hvf` QEMU accelerator. Actually much much faster than the default one, `packer` will fail on `macOS` without `hvf` (timing issue).
+> :information_source: Uses `hvf` QEMU accelerator. `Packer` will fail on `macOS` without `hvf` (timing issue).
