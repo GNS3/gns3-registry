@@ -16,8 +16,8 @@
     "qemu": {
         "adapter_type": "e1000",
         "adapters": 1,
-        "ram": 2048,
-        "hda_disk_interface": "sata",
+        "ram": 1024,
+        "hda_disk_interface": "ide",
         "arch": "x86_64",
         "console_type": "vnc",
         "kvm": "require"
