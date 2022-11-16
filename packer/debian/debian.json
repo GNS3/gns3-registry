@@ -1,0 +1,43 @@
+{
+    "variables": {
+        "iso_url": "https://cloud.debian.org/images/cloud/bullseye/20220911-1135/debian-11-genericcloud-amd64-20220911-1135.qcow2",
+        "iso_checksum": "2808ca1fa62c6a0a5fa92b49b6bc43755fb30a7eb5d4f753f372017474fbd54c",
+        "disk_size": "2G",
+        "vm_name": "debian.qcow2",
+        "setup_script": "debian.sh"
+    },
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/remove_cloud-init_network.sh"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/{{user `setup_script`}}"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/post_setup.sh"
+        }
+    ],
+    "builders": [
+        {
+            "type": "qemu",
+            "disk_image": true,
+            "disk_size": "{{user `disk_size`}}",
+            "iso_url": "{{user `iso_url`}}",
+            "iso_checksum": "{{user `iso_checksum`}}",
+            "iso_checksum_type": "sha256",
+            "disk_interface": "virtio-scsi",
+            "disk_compression": true,
+            "headless": true,
+            "net_device": "virtio-net-pci",
+            "qemuargs": [ [ "-cdrom", "debian-cloud-init-data.iso" ] ],
+            "shutdown_command": "sudo poweroff",
+            "ssh_username": "debian",
+            "ssh_password": "debian",
+            "ssh_wait_timeout": "30s",
+            "vm_name": "{{user `vm_name`}}"
+        }
+    ]
+}
