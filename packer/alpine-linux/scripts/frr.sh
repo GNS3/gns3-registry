@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # add community repository
 sed -i 's/^#\s*\(.*\/v.*\/community\)$/\1/' /etc/apk/repositories
 apk update

@@ -1,3 +1,4 @@
+#!/bin/sh
 # restore default sshd configuration
 mv /etc/ssh/sshd_config.orig /etc/ssh/sshd_config
 

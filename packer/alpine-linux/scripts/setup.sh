@@ -1,3 +1,4 @@
+#!/bin/sh
 # install additional packages
 apk add nano busybox-extras
 
