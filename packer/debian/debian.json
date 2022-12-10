@@ -9,15 +9,18 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "scripts/remove_cloud-init_network.sh"
+            "script": "scripts/remove_cloud-init_network.sh",
+            "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
         },
         {
             "type": "shell",
-            "script": "scripts/{{user `setup_script`}}"
+            "script": "scripts/{{user `setup_script`}}",
+            "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
         },
         {
             "type": "shell",
-            "script": "scripts/post_setup.sh"
+            "script": "scripts/post_setup.sh",
+            "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
         }
     ],
     "builders": [
@@ -33,7 +36,7 @@
             "headless": true,
             "net_device": "virtio-net-pci",
             "qemuargs": [ [ "-cdrom", "debian-cloud-init-data.iso" ] ],
-            "shutdown_command": "sudo poweroff",
+            "shutdown_command": "sudo shutdown -P now",
             "ssh_username": "debian",
             "ssh_password": "debian",
             "ssh_wait_timeout": "30s",
