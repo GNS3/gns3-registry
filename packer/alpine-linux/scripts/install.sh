@@ -1,28 +1,36 @@
 #!/bin/sh
+# shellcheck disable=SC2034
 
 set -e
 
-export HOSTNAMEOPTS="-n alpine"
-export KEYMAPOPTS="us us"
-export INTERFACESOPTS="auto lo
+# Export most answers for setup-alpine
+set -a
+KEYMAPOPTS="us us"
+HOSTNAMEOPTS="-n alpine"
+INTERFACESOPTS="auto lo
 iface lo inet loopback
 
 auto eth0
 iface eth0 inet dhcp
+    hostname alpine
 "
-export TIMEZONEOPTS="-z UTC"
-export PROXYOPTS="none"
-export APKREPOSOPTS="-1"
-export SSHDOPTS="-c openssh"
-export NTPOPTS="-c none"
-export BOOT_SIZE=50
-export SWAP_SIZE=0
+TIMEZONEOPTS="-z UTC"
+PROXYOPTS="none"
+APKREPOSOPTS="-1"
+SSHDOPTS="-c openssh"
+NTPOPTS="-c none"
+DISKOPTS="-m sys /dev/sda"
+BOOT_SIZE=50
+SWAP_SIZE=0
+set +a
 
-# Answer to password question twice and yes to format drive
+# - Answer to password question twice
+# - Do not create unprivileged user
+# - Select disk
+# - Confirm formatting disk
 setup-alpine <<EOF
 root
 root
-sda
-sys
+no
 y
 EOF
