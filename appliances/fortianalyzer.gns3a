@@ -37,7 +37,7 @@
         {
             "filename": "FAZ_VM64_KVM-v7.0.5-build0365-FORTINET.out.kvm.qcow2",
             "version": "7.0.5",
-            "md5sum": "c13b6c7678a2fc12ab969fc681ad3af5",
+            "md5sum": "6cbc1f865ed285bb3a73323e222f03b8",
             "filesize": 334184448,
             "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
         },
