@@ -1,0 +1,51 @@
+{
+  "builders": [
+    {
+      "disk_compression": true,
+      "disk_image": true,
+      "disk_interface": "virtio-scsi",
+      "disk_size": "{{user `disk_size`}}",
+      "headless": true,
+      "iso_checksum": "sha256:{{user `iso_checksum`}}",
+      "iso_url": "{{user `iso_url`}}",
+      "net_device": "virtio-net-pci",
+      "qemuargs": [
+        [
+          "-cdrom",
+          "oracle-cloud-init-data.iso"
+        ]
+      ],
+      "shutdown_command": "sudo shutdown -P now",
+      "ssh_password": "oracle",
+      "ssh_timeout": "240s",
+      "ssh_username": "cloud-user",
+      "type": "qemu",
+      "vm_name": "{{user `vm_name`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "script": "scripts/upgrade-os.sh",
+      "type": "shell"
+    },
+    {
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "script": "scripts/oracle-gns3-user.sh",
+      "type": "shell"
+    },
+    {
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "script": "scripts/post_setup.sh",
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "disk_size": "40G",
+    "iso_checksum": "4a98e22908333dae1423e0bb4032c88aed60dbf1267addb73a6905778e9930df",
+    "iso_url": "https://yum.oracle.com/templates/OracleLinux/OL8/u7/x86_64/OL8U7_x86_64-kvm-b148.qcow",
+    "setup_script": "oracle8.sh",
+    "vm_name": "oracle8.qcow2"
+  }
+}
+
