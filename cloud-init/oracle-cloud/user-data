@@ -1,0 +1,5 @@
+#cloud-config
+
+password: oracle
+chpasswd: { expire: False }
+ssh_pwauth: True
