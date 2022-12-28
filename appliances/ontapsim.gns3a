@@ -1,0 +1,73 @@
+{
+    "name": "ONTAP Simulator",
+    "category": "guest",
+    "description": "NetApp ONTAP Simulator.",
+    "vendor_name": "NetApp",
+    "vendor_url": "http://www.netapp.com",
+    "documentation_url": "http://www.netapp.com",
+    "product_name": "NetApp ONTAP Simulator",
+    "product_url": "http://www.netapp.com",
+    "registry_version": 4,
+    "status": "stable",
+    "maintainer": "Jose Phillips",
+    "maintainer_email": "jose@hddlive.net",
+    "port_name_format": "em{0}",
+    "qemu": {
+        "adapter_type": "e1000",
+        "adapters": 4,
+        "ram": 8192,
+        "cpus": 2,
+        "hda_disk_interface": "ide",
+        "hdb_disk_interface": "ide",
+        "hdc_disk_interface": "ide",
+        "hdd_disk_interface": "ide",
+        "arch": "x86_64",
+        "console_type": "vnc",
+        "boot_priority": "c",
+        "kvm": "require"
+    },
+    "images": [
+        {
+            "filename": "vsim-esx-DOT9.5-cm-disk1.vmdk",
+            "version": "9.5",
+            "md5sum": "94a3b46fdd5add410a1ec6ac8fd6994f",
+            "filesize": 1220402176
+
+        },
+        {
+            "filename": "vsim-esx-DOT9.5-cm-disk2.vmdk",
+            "version": "9.5",
+            "md5sum": "53e6a05a90819fff6f80c86bbdb9b193",
+            "filesize": 71168
+
+        },
+        {
+            "filename": "vsim-esx-DOT9.5-cm-disk3.vmdk",
+            "version": "9.5",
+            "md5sum": "028cedade23c58d755b1fff0db59d70b",
+            "filesize": 71680
+
+        },
+        {
+            "filename": "vsim-esx-DOT9.5-cm-disk4.vmdk",
+            "version": "9.5",
+            "md5sum": "fb44126d338189ee38ae20b96b702715",
+            "filesize": 100352
+        }
+
+    ],
+    "versions": [
+        {
+            "name": "9.5",
+            "images": {
+                "hda_disk_image": "vsim-esx-DOT9.5-cm-disk1.vmdk",
+                "hdb_disk_image": "vsim-esx-DOT9.5-cm-disk2.vmdk",
+                "hdc_disk_image": "vsim-esx-DOT9.5-cm-disk3.vmdk",
+                "hdd_disk_image": "vsim-esx-DOT9.5-cm-disk4.vmdk"
+
+            }
+
+
+        }
+    ]
+}
