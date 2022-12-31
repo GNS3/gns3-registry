@@ -4,7 +4,7 @@
     "description": "NetApp ONTAP Simulator.\n\nExtract the OVA file with a zip decompressor to get the files required for this installation.",
     "vendor_name": "NetApp",
     "vendor_url": "https://www.netapp.com",
-    "documentation_url": "https://www.netapp.com",
+    "documentation_url": "https://docs.netapp.com/us-en/ontap-family/ ",
     "product_name": "NetApp ONTAP Simulator",
     "product_url": "https://www.netapp.com",
     "registry_version": 4,
