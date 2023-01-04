@@ -362,6 +362,10 @@
             "maximum": 100,
             "title": "Throttle the CPU"
         },
+        "on_close": {
+          "title": "Action to execute on the VM is closed",
+          "enum": ["power_off", "shutdown_signal", "save_vm_state"]
+        },
         "process_priority": {
             "title": "Process priority for QEMU",
             "enum": ["realtime",
@@ -400,7 +404,6 @@
           "md5sum": {
             "type": "string",
             "title": "md5sum of the file",
-            "type": "string",
             "pattern": "^[a-f0-9]{32}$"
           },
           "filesize": {

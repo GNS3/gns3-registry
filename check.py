@@ -25,7 +25,7 @@ import jsonschema
 from picture import get_size
 
 APPLIANCE_IDS = []
-SCHEMA_VERSIONS = [3, 4, 5, 6]
+SCHEMA_VERSIONS = [3, 4, 5, 6, 7],
 
 warnings = 0
 
