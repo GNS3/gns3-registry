@@ -1,10 +1,8 @@
-# FROM ciscotestautomation/pyats:latest-full
 FROM ubuntu:latest
 
 WORKDIR /pyats
 
 RUN apt update
-# RUN apt upgrade -yy
 RUN apt install -y nano
 RUN apt install -y net-tools
 RUN apt install -y openssh-client
