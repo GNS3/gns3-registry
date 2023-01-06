@@ -17,8 +17,8 @@
     "port_name_format": "ether{port1}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
-        "adapters": 2,
-        "ram": 128,
+        "adapters": 8,
+        "ram": 384,
         "hda_disk_interface": "virtio",
         "arch": "x86_64",
         "console_type": "telnet",
@@ -27,6 +27,33 @@
         "options": "-nographic"
     },
     "images": [
+        {
+            "filename": "chr-7.6.img",
+            "version": "7.6",
+            "md5sum": "864482f9efaea9d40910c050318f65b9",
+            "filesize": 134217728,
+            "download_url": "http://www.mikrotik.com/download",
+            "direct_download_url": "https://download.mikrotik.com/routeros/7.6/chr-7.6.img.zip",
+            "compression": "zip"
+        },
+        {
+            "filename": "chr-6.49.7.img",
+            "version": "6.49.7",
+            "md5sum": "0686d07f69d15d41467ada4a58a92cd2",
+            "filesize": 67108864,
+            "download_url": "http://www.mikrotik.com/download",
+            "direct_download_url": "https://download.mikrotik.com/routeros/6.49.7/chr-6.49.7.img.zip",
+            "compression": "zip"
+        },
+        {
+            "filename": "chr-6.48.6.img",
+            "version": "6.48.6",
+            "md5sum": "875574a561570227ff8f395aabe478c6",
+            "filesize": 67108864,
+            "download_url": "http://www.mikrotik.com/download",
+            "direct_download_url": "https://download.mikrotik.com/routeros/6.48.6/chr-6.48.6.img.zip",
+            "compression": "zip"
+        },
         {
             "filename": "chr-7.4rc2.img",
             "version": "7.4rc2",
