@@ -35,6 +35,19 @@ After that you can send us a pull request on Github
 In schemas/appliance.json you have a JSON with a schema for controlling
 the file and can be use as documentation for each field.
 
+### Versioning
+
+GNS3 checks the schema version, if the schema of an appliance is not supported it shows the error "Please update GNS3 in order to install this appliance".
+
+| Schema | min. GNS3 version | Additions |
+| :-: | :-----: | --------- |
+| 2 | 1.4.0 | |
+| 3 | 1.5.0 | docker |
+| 4 | 2.0.0 | availability<br>qemu/cpus<br>qemu/hd?_disk_interface: sata<br>versions/images/bios_image |
+| 5 | 2.1.0 | qemu/console_type: spice |
+| 6 | 2.2.0 | qemu/custom_adapters |
+| 7 | 2.2.36 | qemu/tpm |
+
 Adding a new symbol
 -------------------
 
