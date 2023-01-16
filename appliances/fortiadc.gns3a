@@ -35,6 +35,27 @@
             "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
         },
         {
+            "filename": "FAD_KVM-v700-build0111-FORTINET.out.kvm-boot.qcow2",
+            "version": "7.1.0",
+            "md5sum": "5977fe2e031dfa5759b7b2c9958eeb09",
+            "filesize": 134676480,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
+            "filename": "FAD_KVM-v700-build0048-FORTINET.out.kvm-boot.qcow2",
+            "version": "7.0.4",
+            "md5sum": "ea3329a7e18085838c83436ee7a6e3f8",
+            "filesize": 127664128,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
+            "filename": "FAD_KVM-v600-build0237-FORTINET.out.kvm-boot.qcow2",
+            "version": "6.2.4",
+            "md5sum": "7cf30c1af4891e13b37e6a5c3933169f",
+            "filesize": 125304832,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
             "filename": "FAD_KVM-V500-build0655-FORTINET.out.kvm-boot.qcow2",
             "version": "5.3.3",
             "md5sum": "aa16f574a234ceada5d8ac6cc6536835",
@@ -204,6 +225,27 @@
         }
     ],
     "versions": [
+        {
+            "name": "7.1.0",
+            "images": {
+                "hda_disk_image": "FAD_KVM-v700-build0111-FORTINET.out.kvm-boot.qcow2",
+                "hdb_disk_image": "FAD_KVM-FORTINET.out.kvm-data.qcow2"
+            }
+        },
+        {
+            "name": "7.0.4",
+            "images": {
+                "hda_disk_image": "FAD_KVM-v700-build0048-FORTINET.out.kvm-boot.qcow2",
+                "hdb_disk_image": "FAD_KVM-FORTINET.out.kvm-data.qcow2"
+            }
+        },
+        {
+            "name": "6.2.4",
+            "images": {
+                "hda_disk_image": "FAD_KVM-v600-build0237-FORTINET.out.kvm-boot.qcow2",
+                "hdb_disk_image": "FAD_KVM-FORTINET.out.kvm-data.qcow2"
+            }
+        },
         {
             "name": "5.3.3",
             "images": {
