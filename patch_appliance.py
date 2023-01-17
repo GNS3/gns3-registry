@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
-This file is sample tools for patching all appliances. It's usefull when
+This file is sample tools for patching all appliances. It's useful when
 you need to add a property to all appliances.
 """
 
@@ -60,7 +60,7 @@ def ask_multiple(question, options, optional=False):
                 return options[answer - 1]
 
 
-with open('schemas/appliance_v6.json') as f:
+with open('schemas/appliance_v7.json') as f:
     schema = json.load(f)
 
 for appliance in glob.glob('appliances/*.gns3a'):
