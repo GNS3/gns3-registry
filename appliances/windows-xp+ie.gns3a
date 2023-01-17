@@ -1,6 +1,6 @@
 {
     "appliance_id": "3976f732-7d50-4dba-b5f7-e2f2c17129eb",
-    "name": "Windows",
+    "name": "Windows XP",
     "category": "guest",
     "description": "Microsoft Windows XP is a graphical operating system developed, marketed, and sold by Microsoft.\n\nMicrosoft has released time limited VMs for testing Internet Explorer.",
     "vendor_name": "Microsoft",
