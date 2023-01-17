@@ -45,7 +45,7 @@ GNS3 checks the schema version, if the schema of an appliance is not supported i
 | 3 | 1.5.0 | docker |
 | 4 | 2.0.0 | availability<br>qemu/cpus<br>qemu/hd?_disk_interface: sata<br>versions/images/bios_image |
 | 5 | 2.1.0 | qemu/console_type: spice |
-| 6 | 2.2.0 | qemu/custom_adapters |
+| 6 | 2.2.0 | qemu/custom_adapters<br>qemu/console_type: spice+agent<br>all/console_type: none|
 | 7 | 2.2.36 | qemu/tpm |
 
 Adding a new symbol
@@ -74,10 +74,6 @@ python3 -m pip install -r requirements.txt
 python3 check.py
 python3 check_urls.py
 ```
-
-If imagemagick is installed, it will be used to check the 
-symbol properties. Otherwise, an (experimental) internal function will do 
-take care of it.
 
 ### Create a new appliance
 

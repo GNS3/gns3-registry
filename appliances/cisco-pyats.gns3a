@@ -7,7 +7,7 @@
     "vendor_url": "https://cisco.com",
     "product_name": "PyATS",
     "product_url": "https://developer.cisco.com/pyats/",
-    "registry_version": 3,
+    "registry_version": 4,
     "status": "stable",
     "maintainer": "Xander Petty",
     "maintainer_email": "Xander.Petty@protonmail.com",

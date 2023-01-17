@@ -6,7 +6,7 @@
     "vendor_name": "Microsoft",
     "vendor_url": "http://www.microsoft.com",
     "product_name": "Windows XP",
-    "registry_version": 3,
+    "registry_version": 4,
     "status": "experimental",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",

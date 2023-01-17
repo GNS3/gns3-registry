@@ -49,11 +49,11 @@
     ],
     "versions": [
         {
+            "name": "2212",
             "images": {
                 "bios_image": "OVMF-20160813.fd",
                 "hda_disk_image": "WinDev2212Eval-disk1.vmdk"
-            },
-            "name": "2212"
+            }
         }
     ]
 }
