@@ -21,6 +21,7 @@ appliances). Then we will build on our side, verify and upload the
 image(s) on the GNS3 Sourceforge account.
 
 For Docker appliances, please provide a Dockerfile.
+We will then build and push the image on Docker hub.
 
 Adding a new appliance
 -------------------
