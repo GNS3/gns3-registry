@@ -1,5 +1,7 @@
+#!/bin/sh
+set -ex
+
 # replace cloud-init network configuration
-sudo -- sh -c "
 cat > /etc/network/interfaces <<'EOF'
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
@@ -23,4 +25,3 @@ iface lo inet loopback
 #	dns-nameservers 192.168.1.1
 EOF
 rm -f /etc/network/interfaces.d/50-cloud-init
-"

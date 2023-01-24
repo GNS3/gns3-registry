@@ -6,15 +6,6 @@ For building an Alpine appliance.
 https://alpinelinux.org/
 
 
-Packer Version Dependency
-*************************
-
-Packer versions 1.6.0 or later do not accept templates
-that use the ``iso_checksum_type`` attribute.
-To use these newer versions, you must delete the line
-containing ``iso_checksum_type`` from alpine.json.
-
-
 Alpine CLI installation
 ***********************
 

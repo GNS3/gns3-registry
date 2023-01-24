@@ -1,7 +1,7 @@
 {
     "variables": {
-        "iso_url": "https://cloud.debian.org/images/cloud/bullseye/20220911-1135/debian-11-genericcloud-amd64-20220911-1135.qcow2",
-        "iso_checksum": "2808ca1fa62c6a0a5fa92b49b6bc43755fb30a7eb5d4f753f372017474fbd54c",
+        "iso_url": "https://cloud.debian.org/images/cloud/bullseye/20221219-1234/debian-11-genericcloud-amd64-20221219-1234.qcow2",
+        "iso_checksum": "ba0237232247948abf7341a495dec009702809aa7782355a1b35c112e75cee81",
         "disk_size": "2G",
         "vm_name": "debian.qcow2",
         "setup_script": "debian.sh"
@@ -9,15 +9,18 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "scripts/remove_cloud-init_network.sh"
+            "script": "scripts/remove_cloud-init_network.sh",
+            "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
         },
         {
             "type": "shell",
-            "script": "scripts/{{user `setup_script`}}"
+            "script": "scripts/{{user `setup_script`}}",
+            "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
         },
         {
             "type": "shell",
-            "script": "scripts/post_setup.sh"
+            "script": "scripts/post_setup.sh",
+            "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
         }
     ],
     "builders": [
@@ -33,7 +36,7 @@
             "headless": true,
             "net_device": "virtio-net-pci",
             "qemuargs": [ [ "-cdrom", "debian-cloud-init-data.iso" ] ],
-            "shutdown_command": "sudo poweroff",
+            "shutdown_command": "sudo shutdown -P now",
             "ssh_username": "debian",
             "ssh_password": "debian",
             "ssh_wait_timeout": "30s",

@@ -1,0 +1,51 @@
+{
+  "builders": [
+    {
+      "disk_compression": true,
+      "disk_image": true,
+      "disk_interface": "virtio-scsi",
+      "disk_size": "{{user `disk_size`}}",
+      "headless": true,
+      "iso_checksum": "sha256:{{user `iso_checksum`}}",
+      "iso_url": "{{user `iso_url`}}",
+      "net_device": "virtio-net-pci",
+      "qemuargs": [
+        [
+          "-cdrom",
+          "centos-cloud-init-data.iso"
+        ]
+      ],
+      "shutdown_command": "sudo shutdown -P now",
+      "ssh_password": "centos",
+      "ssh_timeout": "3600s",
+      "ssh_username": "centos",
+      "type": "qemu",
+      "vm_name": "{{user `vm_name`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "script": "scripts/upgrade-os.sh",
+      "type": "shell"
+    },
+    {
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "script": "scripts/centos-gns3-user.sh",
+      "type": "shell"
+    },
+    {
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "script": "scripts/post_setup.sh",
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "disk_size": "20G",
+    "iso_checksum": "8717251f8e4d2fe3e5032799caae89358c1ba68d65a16b5128a59ec6003aac1c",
+    "iso_url": "https://cloud.centos.org/centos/8-stream/x86_64/images/CentOS-Stream-GenericCloud-8-20220913.0.x86_64.qcow2",
+    "setup_script": "centos8.sh",
+    "vm_name": "centos8.qcow2"
+  }
+}
+

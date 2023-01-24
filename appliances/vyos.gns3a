@@ -8,7 +8,7 @@
     "documentation_url": "https://docs.vyos.io/",
     "product_name": "VyOS",
     "product_url": "https://vyos.net/",
-    "registry_version": 3,
+    "registry_version": 4,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
@@ -53,6 +53,13 @@
             "md5sum": "2019bd9c5efa6194e2761de678d0073f",
             "filesize": 338690048,
             "download_url": "https://support.vyos.io/en/downloads/files/vyos-1-3-0-generic-iso-image"
+        },
+        {
+            "filename": "vyos-1.2.9-amd64.iso",
+            "version": "1.2.9",
+            "md5sum": "586be23b6256173e174c82d8f1f699a1",
+            "filesize": 430964736,
+            "download_url": "https://support.vyos.io/en/downloads/files/vyos-1-2-9-generic-iso-image"
         },
         {
             "filename": "vyos-1.2.8-amd64.iso",
@@ -112,6 +119,13 @@
             "images": {
                 "hda_disk_image": "empty8G.qcow2",
                 "cdrom_image": "vyos-1.3.0-amd64.iso"
+            }
+        },
+        {
+            "name": "1.2.9",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "vyos-1.2.9-amd64.iso"
             }
         },
         {

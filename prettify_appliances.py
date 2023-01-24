@@ -42,7 +42,7 @@ def sort_key_using_schema(schema, key):
 
     return list(schema['properties'].keys()).index(key)
 
-with open('schemas/appliance_v6.json') as f:
+with open('schemas/appliance_v7.json') as f:
     schema = json.load(f, object_pairs_hook=OrderedDict)
 
 for appliance in glob.glob('appliances/*.gns3a'):

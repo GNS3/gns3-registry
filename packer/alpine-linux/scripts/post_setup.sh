@@ -1,3 +1,7 @@
+#!/bin/sh
+
+set -e
+
 # restore default sshd configuration
 mv /etc/ssh/sshd_config.orig /etc/ssh/sshd_config
 
@@ -8,4 +12,4 @@ rm -rf /var/cache/apk/*
 rm -rf /tmp/uploads
 
 # Write 0
-dd if=/dev/zero bs=1M of=/zero ; rm -f /zero
+(dd if=/dev/zero bs=1M of=/zero ; rm -f /zero) || true

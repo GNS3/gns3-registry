@@ -1,0 +1,51 @@
+{
+  "builders": [
+    {
+      "disk_compression": true,
+      "disk_image": true,
+      "disk_interface": "virtio-scsi",
+      "disk_size": "{{user `disk_size`}}",
+      "headless": true,
+      "iso_checksum": "sha256:{{user `iso_checksum`}}",
+      "iso_url": "{{user `iso_url`}}",
+      "net_device": "virtio-net-pci",
+      "qemuargs": [
+        [
+          "-cdrom",
+          "ubuntu-cloud-init-data.iso"
+        ]
+      ],
+      "shutdown_command": "sudo shutdown -P now",
+      "ssh_password": "ubuntu",
+      "ssh_timeout": "120s",
+      "ssh_username": "ubuntu",
+      "type": "qemu",
+      "vm_name": "{{user `vm_name`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "script": "scripts/{{user `setup_script`}}",
+      "type": "shell"
+    },
+    {
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "script": "scripts/upgrade-os.sh",
+      "type": "shell"
+    },
+    {
+      "execute_command": "sudo env {{ .Vars }} {{ .Path }}",
+      "script": "scripts/post_setup.sh",
+      "type": "shell"
+    }
+  ],
+  "variables": {
+    "disk_size": "10G",
+    "iso_checksum": "8ae2ebcaf1320ea5b8d7003b44f2dbcb4ecad8cc53a3170e96d9ff1bbe8f78b8",
+    "iso_url": "https://cloud-images.ubuntu.com/jammy/20221219/jammy-server-cloudimg-amd64.img",
+    "setup_script": "jammy.sh",
+    "vm_name": "ubuntu-jammy.qcow2"
+  }
+}
+

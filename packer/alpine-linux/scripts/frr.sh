@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # add community repository
 sed -i 's/^#\s*\(.*\/v.*\/community\)$/\1/' /etc/apk/repositories
 apk update
@@ -42,8 +44,8 @@ sed -i -E '/zebra|bgp|ospf|rip|isis|pim|ldp|eigrp|static|bfd/ s/= *no/=yes/' /et
 echo "service integrated-vtysh-config" > /etc/frr/vtysh.conf
 chown frr:frr /etc/frr/vtysh.conf
 
-# reset terminal modes
-sed -i "$(printf '1i\e[?5l\e[?7h\e[?8h')" /etc/motd
+# Remove default Alpine MOTD
+truncate -s 0 /etc/motd
 
 # run vtysh in .profile
 cat > /root/.profile << 'EOF'

@@ -62,12 +62,16 @@
       "title": "An optional product url on vendor website"
     },
     "registry_version": {
-      "enum": [1, 2, 3],
+      "enum": [1, 2, 3, 4, 5, 6],
       "title": "Version of the registry compatible with this appliance"
     },
     "status": {
       "enum": ["stable", "experimental", "broken"],
       "title": "Document if the appliance is working or not"
+    },
+    "availability": {
+      "enum": ["free", "with-registration", "free-to-try", "service-contract"],
+      "title": "About image availability: can be downloaded directly; download requires a free registration; paid but a trial version (time or feature limited) is available; not available publicly"
     },
     "maintainer": {
       "type": "string",
@@ -98,7 +102,7 @@
         "type": "integer",
         "title": "Optional port segment size. A port segment is a block of port. For example Ethernet0/0 Ethernet0/1 is the module 0 with a port segment size of 2"
     },
-    "linked_base": {
+    "linked_clone": {
         "type": "boolean",
         "title": "False if you don't want to use a single image for all nodes"
     },
@@ -136,13 +140,11 @@
                 "type": "string"
             }
         },
-        "additionalProperties": false,
         "required": [
             "adapters",
             "image"
         ]
     },
-
     "iou": {
         "type": "object",
         "title": "IOU specific options",
@@ -168,7 +170,6 @@
                 "title": "Config loaded at startup"
             }
         },
-        "additionalProperties": false,
         "required": [
             "ethernet_adapters",
             "serial_adapters",
@@ -177,7 +178,6 @@
             "startup_config"
         ]
     },
-
     "dynamips": {
         "type": "object",
         "title": "Dynamips specific options",
@@ -217,7 +217,6 @@
             "midplane": { "enum": ["std", "vxr"] },
             "npe": { "enum": ["npe-100", "npe-150", "npe-175", "npe-200", "npe-225", "npe-300", "npe-400", "npe-g2"] }
         },
-        "additionalProperties": false,
         "required": [
             "platform",
             "ram",
@@ -258,24 +257,79 @@
           "type": "integer",
           "title": "Number of adapters"
         },
+        "custom_adapters": {
+            "type": "array",
+            "title": "Custom adapters",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "adapter_number": {
+                        "title": "Adapter number",
+                        "type": "integer"
+                    },
+                    "port_name": {
+                        "title": "Custom port name",
+                        "type": "string",
+                        "minimum": 1
+                    },
+                    "adapter_type": {
+                        "title": "Custom adapter type",
+                        "type": "string",
+                        "enum": [
+                            "e1000",
+                            "i82550",
+                            "i82551",
+                            "i82557a",
+                            "i82557b",
+                            "i82557c",
+                            "i82558a",
+                            "i82558b",
+                            "i82559a",
+                            "i82559b",
+                            "i82559c",
+                            "i82559er",
+                            "i82562",
+                            "i82801",
+                            "ne2k_pci",
+                            "pcnet",
+                            "rtl8139",
+                            "virtio",
+                            "virtio-net-pci",
+                            "vmxnet3"
+                        ]
+                    },
+                    "mac_address": {
+                        "title": "Custom MAC address",
+                        "type": "string",
+                        "minimum": 1,
+                        "pattern": "^([0-9a-fA-F]{2}[:]){5}([0-9a-fA-F]{2})$"
+                    }
+                },
+                "required": ["adapter_number"]
+            }
+        },
         "ram": {
           "type": "integer",
           "title": "Ram allocated to the appliance (MB)"
         },
+        "cpus": {
+          "type": "integer",
+          "title": "Number of Virtual CPU"
+        },
         "hda_disk_interface": {
-            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio"],
+            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio", "sata"],
             "title": "Disk interface for the installed hda_disk_image"
         },
         "hdb_disk_interface": {
-            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio"],
+            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio", "sata"],
             "title": "Disk interface for the installed hdb_disk_image"
         },
         "hdc_disk_interface": {
-            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio"],
+            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio", "sata"],
             "title": "Disk interface for the installed hdc_disk_image"
         },
         "hdd_disk_interface": {
-            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio"],
+            "enum": ["ide", "scsi", "sd", "mtd", "floppy", "pflash", "virtio", "sata"],
             "title": "Disk interface for the installed hdd_disk_image"
         },
         "arch": {
@@ -283,7 +337,7 @@
           "title": "Architecture emulated"
         },
         "console_type": {
-          "enum": ["telnet", "vnc"],
+          "enum": ["telnet", "vnc", "spice"],
           "title": "Type of console connection for the administration of the appliance"
         },
         "boot_priority": {
@@ -308,6 +362,14 @@
             "maximum": 100,
             "title": "Throttle the CPU"
         },
+        "tpm": {
+            "type": "boolean",
+            "title": "Enable the Trusted Platform Module (TPM)"
+        },
+        "on_close": {
+          "title": "Action to execute on the VM is closed",
+          "enum": ["power_off", "shutdown_signal", "save_vm_state"]
+        },
         "process_priority": {
             "title": "Process priority for QEMU",
             "enum": ["realtime",
@@ -319,7 +381,6 @@
                      "null"]
         }
       },
-      "additionalProperties": false,
       "required": [
           "adapter_type",
           "adapters",
@@ -347,7 +408,6 @@
           "md5sum": {
             "type": "string",
             "title": "md5sum of the file",
-            "type": "string",
             "pattern": "^[a-f0-9]{32}$"
           },
           "filesize": {
@@ -369,7 +429,6 @@
             "title": "Optional, compression type of direct download url image."
           }
         },
-        "additionalProperties": false,
         "required": [
             "filename",
             "version",
@@ -406,6 +465,10 @@
                 "type": "string",
                 "title": "OS image"
               },
+              "bios_image": {
+                "type": "string",
+                "title": "Bios image"
+              },
               "hda_disk_image": {
                 "type": "string",
                 "title": "Hda disk image"
@@ -426,18 +489,15 @@
                 "type": "string",
                 "title": "cdrom image"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "required": [
             "name"
-        ],
-        "additionalProperties": false
+        ]
       }
     }
   },
-  "additionalProperties": false,
   "required": [
     "appliance_id",
     "name",
