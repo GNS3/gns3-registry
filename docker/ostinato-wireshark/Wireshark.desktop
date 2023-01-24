@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Wireshark
+Comment=Network Traffic Anaylser 
+Exec=wireshark %f
+StartUpNotify=false
+Terminal=false
+Hidden=false
+path=
+Icon=org.wireshark.Wireshark
