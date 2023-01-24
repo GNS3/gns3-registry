@@ -29,7 +29,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
 	faenza-icon-theme \
 	bash \
     && addgroup gns3 \
-    && adduser -h /home/gns3 -s /bin/bash -S -D -G gns3 gns3 \ 
+    && adduser -h /home/gns3 -s /bin/bash -S -D -G gns3 gns3 \
 	&& echo -e "gns3\ngns3" | passwd gns3 \
     && addgroup gns3 wireshark \
     && echo 'gns3 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
