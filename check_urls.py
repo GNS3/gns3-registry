@@ -41,6 +41,7 @@ def check_url(url, appliance):
     c = pycurl.Curl()
     try:
         c.setopt(c.URL, url)
+        c.setopt(pycurl.CONNECTTIMEOUT, 30)
         c.setopt(c.USERAGENT, 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)')
         c.setopt(c.HTTPHEADER, ['Accept-Language: en-us'])
         c.setopt(c.FOLLOWLOCATION, True)
