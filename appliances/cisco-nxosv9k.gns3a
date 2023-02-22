@@ -209,7 +209,7 @@
             "name": "9300v 10.1.1",
             "images": {
                 "bios_image": "OVMF-20160813.fd",
-                "hda_disk_image": "	nexus9300v.10.1.1.qcow2"
+                "hda_disk_image": "nexus9300v.10.1.1.qcow2"
             }
         },
         {
