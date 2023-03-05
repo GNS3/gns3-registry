@@ -28,7 +28,7 @@
     },
     "images": [
         {
-            "filename": "FGT_VM64_KVM-v7.2.3.F-build1262-FORTINET.out.kvm.qcow2",
+            "filename": "FGT_VM64_KVM-v7.2.4.F-build1396-FORTINET.out.kvm.qcow2",
             "version": "7.2.4",
             "md5sum": "e3bd5958ff3d4f9363152c340e9b9578",
             "filesize": 95158272,
