@@ -29,6 +29,13 @@
     "images": [
         {
             "filename": "FGT_VM64_KVM-v7.2.3.F-build1262-FORTINET.out.kvm.qcow2",
+            "version": "7.2.4",
+            "md5sum": "e3bd5958ff3d4f9363152c340e9b9578",
+            "filesize": 95158272,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
+            "filename": "FGT_VM64_KVM-v7.2.3.F-build1262-FORTINET.out.kvm.qcow2",
             "version": "7.2.3",
             "md5sum": "e8f3c5879f0d6fe238dc2665a3508694",
             "filesize": 87490560,
@@ -39,6 +46,13 @@
             "version": "7.2.1",
             "md5sum": "e382a1ad5c7c16f49a1c0d3f45e3a3b2",
             "filesize": 86704128,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
+            "filename": "FGT_VM64_KVM-v7.0.10.M-build0450-FORTINET.out.kvm.qcow2",
+            "version": "7.0.10",
+            "md5sum": "c7eb9fad8484405aa5bd8a4dd9e67722",
+            "filesize": 77135872,
             "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
         },
         {
@@ -283,6 +297,13 @@
     ],
     "versions": [
         {
+            "name": "7.2.4",
+            "images": {
+                "hda_disk_image": "FGT_VM64_KVM-v7.2.4.F-build1396-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
+        {
             "name": "7.2.3",
             "images": {
                 "hda_disk_image": "FGT_VM64_KVM-v7.2.3.F-build1262-FORTINET.out.kvm.qcow2",
@@ -293,6 +314,13 @@
             "name": "7.2.1",
             "images": {
                 "hda_disk_image": "FGT_VM64_KVM-v7.2.1.F-build1254-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
+        {
+            "name": "7.0.10",
+            "images": {
+                "hda_disk_image": "FGT_VM64_KVM-v7.0.10.M-build0450-FORTINET.out.kvm.qcow2",
                 "hdb_disk_image": "empty30G.qcow2"
             }
         },
