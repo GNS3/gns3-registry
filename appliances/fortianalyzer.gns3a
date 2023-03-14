@@ -12,7 +12,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "Default username is admin, no password is set.",
+    "usage": "Default username is admin, no password is set.\n\n- Versions 7.0 and higher require:\n--RAM: 8192 MB\n--CPU:4",
     "symbol": "fortinet.svg",
     "port_name_format": "Port{port1}",
     "qemu": {
