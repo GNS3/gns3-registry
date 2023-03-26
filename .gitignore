@@ -1,6 +1,7 @@
 .DS_Store
 __pycache__
 *.pyc
+.idea
 .venv
 build
 packer_cache
