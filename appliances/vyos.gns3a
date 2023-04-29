@@ -27,6 +27,13 @@
     },
     "images": [
         {
+            "filename": "vyos-1.4-rolling-202304290647-amd64.iso",
+            "version": "1.4-rolling-202304290647",
+            "md5sum": "d63d77a0a519cffcece3542b6b17ab89",
+            "filesize": 440401920,
+            "download_url": "https://s3-us.vyos.io/rolling/current/vyos-1.4-rolling-202304290647-amd64.iso"
+        },
+        {
             "filename": "vyos-1.3.2-amd64.iso",
             "version": "1.3.2",
             "md5sum": "070743faac800f9e5197058a8b6b3ba1",
@@ -110,6 +117,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "1.4-rolling-202304290647",
+            "images": {
+                "hda_disk_image": "empty8G.qcow2",
+                "cdrom_image": "vyos-1.4-rolling-202304290647-amd64.iso"
+            }
+        },
         {
             "name": "1.3.2",
             "images": {
