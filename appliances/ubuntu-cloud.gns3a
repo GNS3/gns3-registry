@@ -70,10 +70,10 @@
         },
         {
             "filename": "ubuntu-cloud-init-data.iso",
-            "version": "1.0",
-            "md5sum": "328469100156ae8dbf262daa319c27ff",
-            "filesize": 131072,
-            "download_url": "https://github.com/asenci/gns3-ubuntu-cloud-init-data/raw/master/ubuntu-cloud-init-data.iso"
+            "version": "1.1",
+            "md5sum": "9a90ee8f88736204c756015b3cd86500",
+            "filesize": 374784,
+            "download_url": "https://github.com/GNS3/gns3-registry/raw/master/cloud-init/ubuntu-cloud/ubuntu-cloud-init-data.iso"
         }
     ],
     "versions": [
