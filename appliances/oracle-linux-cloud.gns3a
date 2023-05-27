@@ -23,7 +23,7 @@
         "console_type": "telnet",
         "boot_priority": "c",
         "kvm": "require",
-        "options": "-nographic"
+        "options": "-cpu host -nographic"
     },
     "images": [
         {
@@ -45,7 +45,7 @@
         {
             "filename": "oracle-cloud-init-data.iso",
             "version": "1.1",
-            "md5sum": "c8ab06fd6590eba1c64fa7d6bdb8e2c0",
+            "md5sum": "cb51bc42ae9dfb7345bfa7362a313baf",
             "filesize": 374784,
             "download_url": "https://github.com/GNS3/gns3-registry/tree/master/cloud-init/oracle-cloud",
             "direct_download_url": "https://github.com/GNS3/gns3-registry/raw/master/cloud-init/oracle-cloud/oracle-cloud-init-data.iso"

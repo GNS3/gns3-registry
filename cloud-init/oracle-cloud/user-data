@@ -1,5 +1,19 @@
 #cloud-config
 
-password: oracle
-chpasswd: { expire: False }
 ssh_pwauth: True
+
+# Modified default_user from /etc/cloud/cloud.cfg.d/90_ol.cfg
+users:
+  - name: oracle
+    plain_text_passwd: oracle
+    lock_passwd: false
+    gecos: Cloud User
+    groups: [adm, sytemd-journal]
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    shell: /bin/bash
+
+# Enable serial login
+runcmd:
+  - [ systemctl, start, "serial-getty@ttyS0.service" ]
+  - [ grubby, --update-kernel=ALL, "--args=console=tty0 console=ttyS0,115200" ]
+  - [ grub2-mkconfig, -o, /etc/grub2.cfg ]
