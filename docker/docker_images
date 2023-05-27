@@ -1,0 +1,43 @@
+# Name			Directory	[Base Image]	[Build Options]
+
+--platform=linux/amd64					# global options
+
+# chromium: base image is updated too often, use manual build on base updates
+chromium		chromium	NONE
+# ipterm: base image debian:jessie too old
+#ipterm-base		ipterm/base
+#ipterm			ipterm/cli
+#webterm		ipterm/web
+jupyter:v2		jupyter
+jupyter27:v2		jupyter-2.7
+# kalilinux: base image is updated too often, use manual build on base updates
+kalilinux		kalilinux	NONE
+mikrotik-winbox		mikrotik-winbox
+# ostinato-wireshark: failed to build: mesa-dri-swrast - no such package
+#ostinato-wireshark	ostinato-wireshark
+openvswitch		openvswitch			
+ovs-snmp		ovs-snmp			--platform=linux/arm64
+pyats			pyats
+ubuntu:focal		ubuntu
+
+#
+# The following images are not used by any appliance
+#
+
+# Replaced by https://github.com/adosztal/gns3-containers
+#network_automation	network_automation
+#python-go-perl-php	python-go-perl-php
+
+# AJ Nouri
+#endhost		endhost
+#haproxy		haproxy
+#network_automation_pycharm	network_automation_pycharm
+#openvswitch28		openvswitch28
+
+# GNS3 Developers
+#dhcp			dhcp
+#snmpsimulator		snmpsimulator
+
+# Tests
+#iou			iou
+#xeyes			xeyes
