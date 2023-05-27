@@ -1,4 +1,4 @@
-name: Build Docker images and upload to ghcr.io
+name: Build Docker images and upload to DockerHub
 on:
   push:
     branches:
@@ -32,19 +32,23 @@ jobs:
         # https://github.com/marketplace/actions/docker-login
         uses: docker/login-action@v2
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-        # DockerHub:
-        # with:
-        #   username: ${{ secrets.DOCKERHUB_USERNAME }}
-        #   password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          # GitHub Container Registry:
+          # registry: ghcr.io
+          # username: ${{ github.repository_owner }}
+          # password: ${{ secrets.GITHUB_TOKEN }}
+          # DockerHub:
+          # username: ${{ secrets.DOCKERHUB_USERNAME }}
+          # password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Install python requirements
         run: python3 -m pip install --requirement .github/bin/requirements.txt
       - name: Build and push images
         env:
-          DOCKER_ACCOUNT: ghcr.io/${{ github.repository_owner }}
+          DOCKER_ACCOUNT: ${{ secrets.DOCKERHUB_USERNAME }}
           # DOCKER_PASSWORD is optional, only needed for private repositories
+          # GitHub Container Registry:
+          # DOCKER_ACCOUNT: ghcr.io/${{ github.repository_owner }}
           # DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           # DockerHub:
           # DOCKER_ACCOUNT: ${{ secrets.DOCKERHUB_USERNAME }}
