@@ -20,7 +20,7 @@ metasploit-framework
  * fping
  * hping3
  * tshark
- * python-scapy
+ * python3-scapy
  * yersinia
 
 ## Build and publish the Images
