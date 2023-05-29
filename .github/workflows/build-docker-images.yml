@@ -19,6 +19,8 @@ on:
 jobs:
   docker-images:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Check out repository code
         # https://github.com/marketplace/actions/checkout
