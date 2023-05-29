@@ -53,7 +53,7 @@ jobs:
           # DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           #
           # DockerHub:
-          DOCKER_ACCOUNT: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_ACCOUNT: ${{ secrets.DOCKERHUB_ORG }}
           # DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
           #
           IMAGES: ${{ inputs.images }}
