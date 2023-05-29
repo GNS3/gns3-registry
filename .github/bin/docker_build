@@ -412,7 +412,7 @@ def xor(*params):
 args = parser.parse_args()
 sys.stdout.reconfigure(line_buffering=True)
 
-docker_login = {"account": os.environ.get("DOCKER_ACCOUNT"),
+docker_login = {"account": os.environ.get("DOCKER_ACCOUNT").lower(),
                 "password": os.environ.pop("DOCKER_PASSWORD", None)}
 if docker_login["account"]:
     docker_login["account"] = docker_login["account"].rstrip("/")
