@@ -48,8 +48,8 @@ For that add the list of images or base images, to be rebuild,
 to the arguments. When using the option -a/--all, all images are
 forcibly rebuild, except those specified on the command line.
 
-The environment variable DOCKER_ACCOUNT must be set to the
-registry/user of the Docker account to use.
+The environment variable DOCKER_REPOSITORY must be set to the
+Docker repository to use.
 """
 
 import os
@@ -112,22 +112,20 @@ def parse_repository(repository):
     repo = match.group('repo')
     tag = match.group('digest') or match.group('tag') or "latest"
     len_registry = len(registry)
-    # user is first component of repo, if repo has more than one part
-    user = repo.split("/", 1)[0] if "/" in repo else None
     # special handling for docker.io
     if registry == "docker.io":
         registry = "registry-1.docker.io"
-        if not user:
+        if "/" not in repo:
             repo = "library/" + repo
     # check length of repository string (without tag)
     if len_registry + len(repo) > 254:
         raise ValueError("repository name must not be more than 255 characters")
-    return registry, user, repo, tag
+    return registry, repo, tag
 
 
 def docker_auth_user(docker, response):
     """ authenticate with user/password """
-    docker.authenticate(docker_login["account"], docker_login["password"],
+    docker.authenticate(docker_login["user"], docker_login["password"],
                         response=response)
 
 
@@ -145,7 +143,7 @@ def get_time_layers(repository):
     """
 
     try:
-        registry, _, repo, tag = parse_repository(repository)
+        registry, repo, tag = parse_repository(repository)
         if registry == docker_login["registry"] and \
            docker_login["user"] and docker_login["password"]:
             docker_auth = docker_auth_user
@@ -187,14 +185,14 @@ def get_time_layers(repository):
 
 def expand_base_image(base_name):
     """ expand base image """
-    match = re.match(r"\$\{?DOCKER_ACCOUNT\}?/(.+)", base_name)
+    match = re.match(r"\$\{?DOCKER_REPOSITORY\}?/(.+)", base_name)
     if not match:
         return (base_name, [])
-    if not docker_login["account"]:
-        raise ValueError("Environment variable DOCKER_ACCOUNT "
+    if not docker_login["repository"]:
+        raise ValueError("Environment variable DOCKER_REPOSITORY "
                          "is not defined or is empty")
-    base_name = docker_login["account"] + "/" + match.group(1)
-    options = ["--build-arg", "DOCKER_ACCOUNT=" + docker_login["account"]]
+    base_name = docker_login["repository"] + "/" + match.group(1)
+    options = ["--build-arg", "DOCKER_REPOSITORY=" + docker_login["repository"]]
     return (base_name, options)
 
 
@@ -202,10 +200,10 @@ def full_image_name(image_name):
     """ get full image name """
     if "/" in image_name:
         return image_name
-    if not docker_login["account"]:
-        raise ValueError("Environment variable DOCKER_ACCOUNT "
+    if not docker_login["repository"]:
+        raise ValueError("Environment variable DOCKER_REPOSITORY "
                          "is not defined or is empty")
-    return docker_login["account"] + "/" + image_name
+    return docker_login["repository"] + "/" + image_name
 
 
 def dockerfile_base(directory):
@@ -412,19 +410,18 @@ def xor(*params):
 args = parser.parse_args()
 sys.stdout.reconfigure(line_buffering=True)
 
-docker_login = {"account": os.environ.get("DOCKER_ACCOUNT", "").lower(),
+docker_login = {"repository": os.environ.get("DOCKER_REPOSITORY", "").lower(),
+                "user": os.environ.pop("DOCKER_USERNAME", None),
                 "password": os.environ.pop("DOCKER_PASSWORD", None)}
-if docker_login["account"]:
-    docker_login["account"] = docker_login["account"].rstrip("/")
+if docker_login["repository"]:
+    docker_login["repository"] = docker_login["repository"].rstrip("/")
     try:
-        docker_login["registry"], docker_login["user"], *_ = \
-            parse_repository(docker_login["account"] + "/dummy")
+        docker_login["registry"], *_ = \
+            parse_repository(docker_login["repository"])
     except ValueError as err_info:
-        sys.exit(f"DOCKER_ACCOUNT={docker_login['account']}: {err_info}")
-    if not docker_login["user"]:
-        sys.exit(f"DOCKER_ACCOUNT={docker_login['account']}: missing user")
+        sys.exit(f"DOCKER_REPOSITORY={docker_login['repository']}: {err_info}")
 else:
-    docker_login["registry"] = docker_login["user"] = None
+    docker_login["registry"] = None
 
 if args.dir:
     try:

@@ -46,14 +46,17 @@ jobs:
         run: python3 -m pip install --requirement .github/bin/requirements.txt
       - name: Build and push images
         env:
-          # DOCKER_PASSWORD is optional, only needed for private repositories
+          # DOCKER_USERNAME and DOCKER_PASSWORD are optional, they
+          # are only needed to authenticate into private repositories
           #
           # GitHub Container Registry:
-          # DOCKER_ACCOUNT: ghcr.io/${{ github.repository_owner }}
+          # DOCKER_REPOSITORY: ghcr.io/${{ github.repository_owner }}
+          # DOCKER_USERNAME: ${{ github.repository_owner }}
           # DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           #
           # DockerHub:
-          DOCKER_ACCOUNT: ${{ secrets.DOCKERHUB_ORG }}
+          DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_REPOSITORY }}
+          # DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           # DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
           #
           IMAGES: ${{ inputs.images }}

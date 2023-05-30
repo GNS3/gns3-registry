@@ -72,9 +72,9 @@ The target image may contain the full name, in which
 case it will contain one or more '/' characters.
 
 Another option is to specify only the last part of the
-image name. Then `docker_build` uses the `DOCKER_ACCOUNT`
+image name. Then `docker_build` uses the `DOCKER_REPOSITORY`
 environment variable as its initial part. For example, an
-DOCKER_ACCOUNT value of "ghcr.io/b-ehlers" plus the image
+DOCKER_REPOSITORY value of "ghcr.io/b-ehlers" plus the image
 name of "alpine-1" results in "ghcr.io/b-ehlers/alpine-1".
 
 This method is not applied to the base images, they always
@@ -82,16 +82,16 @@ have to contain the complete name.
 
 But there is a workaround.
 
-If the base image name starts with `$DOCKER_ACCOUNT`
-or `${DOCKER_ACCOUNT}` the variable DOCKER_ACCOUNT
+If the base image name starts with `$DOCKER_REPOSITORY`
+or `${DOCKER_REPOSITORY}` the variable DOCKER_REPOSITORY
 gets replaced by its value from the environment.
 In the Dockerfile the variable must be declared by a
-`ARG DOCKER_ACCOUNT` instruction. A Dockerfile would
+`ARG DOCKER_REPOSITORY` instruction. A Dockerfile would
 then start with:
 
 ```
-ARG DOCKER_ACCOUNT
-FROM $DOCKER_ACCOUNT/base-image
+ARG DOCKER_REPOSITORY
+FROM $DOCKER_REPOSITORY/base-image
 ```
 
 
