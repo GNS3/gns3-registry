@@ -55,7 +55,7 @@ jobs:
           # DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           #
           # DockerHub:
-          DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_ORG }}
+          DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_REPOSITORY }}
           # DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           # DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
           #
