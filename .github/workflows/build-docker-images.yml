@@ -1,4 +1,4 @@
-name: Build Docker images and upload to DockerHub
+name: Build and upload Docker images
 on:
   push:
     branches:
@@ -30,34 +30,45 @@ jobs:
       - name: Set up Docker Buildx
         # https://github.com/marketplace/actions/docker-setup-buildx
         uses: docker/setup-buildx-action@v2
-      - name: Login to GitHub Container Registry
+      - name: Login to DockerHub Registry
         # https://github.com/marketplace/actions/docker-login
+        # set the condition depending on whether you want to login to Docker.
+        if: true
         uses: docker/login-action@v2
         with:
-          # GitHub Container Registry:
-          # registry: ghcr.io
-          # username: ${{ github.repository_owner }}
-          # password: ${{ secrets.GITHUB_TOKEN }}
-          #
-          # DockerHub:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login to GitHub Container Registry
+        # https://github.com/marketplace/actions/docker-login
+        # set the condition depending on whether you want to login to ghcr.io.
+        if: false
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Install python requirements
         run: python3 -m pip install --requirement .github/bin/requirements.txt
       - name: Build and push images
         env:
-          # DOCKER_USERNAME and DOCKER_PASSWORD are optional, they
-          # are only needed to authenticate into private repositories
-          #
-          # GitHub Container Registry:
-          # DOCKER_REPOSITORY: ghcr.io/${{ github.repository_owner }}
-          # DOCKER_USERNAME: ${{ github.repository_owner }}
-          # DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-          #
           # DockerHub:
           DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_REPOSITORY }}
-          # DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-          # DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+          # GitHub Container Registry:
+          # DOCKER_REPOSITORY: ghcr.io/${{ github.repository_owner }}
+          #
+          # Variables whose name are starting with "DOCKER_LOGIN"
+          # contain the user/password for a docker registry.
+          # They are only needed to authenticate into private repositories.
+          # DockerHub:
+          #DOCKER_LOGIN_DH: >-
+          #  docker.io
+          #  ${{ secrets.DOCKERHUB_USERNAME }}
+          #  ${{ secrets.DOCKERHUB_TOKEN }}
+          # GitHub Container Registry:
+          #DOCKER_LOGIN_GH: >-
+          #  ghcr.io
+          #  ${{ github.repository_owner }}
+          #  ${{ secrets.GITHUB_TOKEN }}
           #
           IMAGES: ${{ inputs.images }}
         run: |

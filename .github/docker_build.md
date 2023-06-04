@@ -95,6 +95,21 @@ FROM $DOCKER_REPOSITORY/base-image
 ```
 
 
+## Environment Variables
+
+In addition to the DOCKER_REPOSITORY variable described above
+the build tool uses the environment variables whose names begin
+with "DOCKER_LOGIN". Each variable contains the user/password
+of a docker registry. The format is: `<registry> <user> <password>`.
+
+Example:
+
+```
+DOCKER_LOGIN_DH="docker.io dockerhub-user dockerhub-password"
+DOCKER_LOGIN_GH="ghcr.io github-user github-password"
+```
+
+
 ## Workflow Definition
 
 [GitHub Actions](https://docs.github.com/en/actions)
@@ -107,7 +122,7 @@ need to be done:
 * Check out the repository code
 * Set up QEMU (for multi-arch building)
 * Set up Docker Buildx
-* Login to the Container Registry
+* Login to the Container Registries
 * Install python requirements
 
 Then `docker_build` can be executed,
