@@ -13,3 +13,11 @@ containing `iso_checksum_type` from debian.json.
 ```
 packer build debian.json
 ```
+
+## BIRDv2
+
+A build of Debian with BIRD Internet Routing Daemon v2 preinstalled.
+
+```
+packer build -var-file=bird2.json debian.json
+```

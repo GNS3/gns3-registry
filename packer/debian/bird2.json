@@ -1,0 +1,4 @@
+{
+    "vm_name": "bird2-debian.qcow2",
+    "setup_script": "bird2.sh"
+}
