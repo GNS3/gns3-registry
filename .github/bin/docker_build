@@ -49,7 +49,7 @@ to the arguments. When using the option -a/--all, all images are
 forcibly rebuild, except those specified on the command line.
 
 The environment variable DOCKER_REPOSITORY must be set to the
-Docker repository to use.
+Docker repository to use for name-only targets.
 """
 
 import os
@@ -63,7 +63,7 @@ import dxf
 import requests.exceptions
 import dateutil.parser
 
-base_images = {}
+image_info = {}
 images = []
 
 
@@ -174,27 +174,29 @@ def get_time_layers(repository):
         sys.exit(f"{repository}: missing information from registry")
 
 
-def expand_base_image(base_name):
+def expand_base_image(base_name, target):
     """ expand base image """
-    match = re.match(r"\$\{?DOCKER_REPOSITORY\}?/(.+)", base_name)
-    if not match:
-        return (base_name, [])
-    if not docker_env["repository"]:
-        raise ValueError("Environment variable DOCKER_REPOSITORY "
-                         "is not defined or is empty")
-    base_name = docker_env["repository"] + "/" + match.group(1)
-    options = ["--build-arg", "DOCKER_REPOSITORY=" + docker_env["repository"]]
+    options = []
+    base_split = base_name.split("/", maxsplit=1)
+    if len(base_split) == 2 and \
+       base_split[0] in ("$DOCKER_REPOSITORY", "${DOCKER_REPOSITORY}"):
+        try:
+            target_base = target[:target.rindex("/")]
+        except ValueError as err:
+            raise ValueError(f"{base_name}: "
+                             f"Invalid target repository {target}") from err
+        base_name = target_base + "/" + base_split[1]
+        options = ["--build-arg", "DOCKER_REPOSITORY=" + target_base]
     return (base_name, options)
 
 
-def full_image_name(image_name):
+def full_image_name(image_name, default_repository):
     """ get full image name """
     if "/" in image_name:
         return image_name
-    if not docker_env["repository"]:
-        raise ValueError("Environment variable DOCKER_REPOSITORY "
-                         "is not defined or is empty")
-    return docker_env["repository"] + "/" + image_name
+    if not default_repository:
+        raise ValueError(f"{image_name}: Missing default repository")
+    return default_repository + "/" + image_name
 
 
 def dockerfile_base(directory):
@@ -252,16 +254,15 @@ def get_images(image_file):
                     gbl_options = shlex.split(match.group('gbl_opt'))
                 if match.group('name') and match.group('dir'):
                     name = match.group('name')
-                    full_name = full_image_name(name)
                     try:
-                        parse_repository(full_name)
+                        parse_repository(full_image_name(name, "test.io/test"))
                     except ValueError:
                         sys.exit(f"{image_file} line {lineno}: "
-                                 f"invalid image name '{full_name}'")
-                    if full_name in name_set:
+                                 f"invalid image name '{name}'")
+                    if name in name_set:
                         sys.exit(f"{image_file}: "
-                                 f"multiple entries for {full_name}")
-                    name_set.add(full_name)
+                                 f"multiple entries for {name}")
+                    name_set.add(name)
                     directory = match.group('dir')
                     if not os.path.isdir(directory):
                         sys.exit(f"{image_file} line {lineno}: "
@@ -269,8 +270,7 @@ def get_images(image_file):
                     base = match.group('base')
                     if not base:	# extract base repo from Dockerfile
                         base = dockerfile_base(directory)
-                    (base, options) = expand_base_image(base)
-                    options += gbl_options
+                    options = gbl_options.copy()
                     if match.group('opt'):
                         options += shlex.split(match.group('opt'))
                     images.append({"name": name, "dir": directory,
@@ -283,14 +283,10 @@ def get_images(image_file):
         sys.exit("Empty image configuration")
 
 
-def init_base_images():
+def init_image_info():
     """ initialize base image data structure """
-    for image in images:
-        base_name = image["base"]
-        if base_name not in base_images:
-            base_images[base_name] = {"layer": False}
-    base_images["scratch"] = {"layer": None}
-    base_images["NONE"] = {"layer": None}
+    image_info["scratch"] = None
+    image_info["NONE"] = None
 
 
 def mtime_tree(directory):
@@ -303,28 +299,29 @@ def mtime_tree(directory):
     return mtime
 
 
-def needs_rebuild(image):
+def needs_rebuild(image, default_repository=None):
     """ check if an image needs rebuilding """
-    # update base_image layer, if empty
-    base_img = base_images[image["base"]]
-    if base_img["layer"] is False:
-        _, layers = get_time_layers(image["base"])
+    full_name = full_image_name(image["name"], default_repository)
+    base_name, _ = expand_base_image(image["base"], full_name)
+
+    # update base_image information, if empty
+    if base_name not in image_info:
+        _, layers = get_time_layers(base_name)
         # store last layer
         if layers:
-            base_img["layer"] = layers[-1]
+            image_info[base_name] = layers[-1]
         else:
-            sys.exit(f"Missing base image: {image['base']}")
+            sys.exit(f"Missing base image: {base_name}")
 
     # get image data
-    full_name = full_image_name(image["name"])
     itime, layers = get_time_layers(full_name)
-    if layers and full_name in base_images:	# image is a base image
-        base_images[full_name]["layer"] = layers[-1]
+    if layers:				# update image information
+        image_info[full_name] = layers[-1]
 
     # check if base image has changed
     if not layers:
         return "Image missing in repository"
-    if base_img["layer"] and base_img["layer"] not in layers:
+    if image_info[base_name] and image_info[base_name] not in layers:
         return "Base image has changed"
 
     # check if build directory has changed, needs full git history
@@ -367,11 +364,13 @@ def needs_rebuild(image):
     return rebuild_reason if mtime > itime.timestamp() else None
 
 
-def build(image):
+def build(image, default_repository=None):
     """ build image """
-    full_name = full_image_name(image["name"])
+    full_name = full_image_name(image["name"], default_repository)
+    _, options = expand_base_image(image["base"], full_name)
+    options += image["options"]
     try:
-        subprocess.run(["docker", "buildx", "build"] + image["options"] + \
+        subprocess.run(["docker", "buildx", "build"] + options + \
                        ["--push", "--tag", full_name, image["dir"]],
                        check=True)
     except OSError as err:
@@ -380,13 +379,7 @@ def build(image):
         sys.exit(err.returncode)
     print()
 
-    if full_name in base_images:	# just modified a base image
-        _, layers = get_time_layers(full_name)
-        # store last layer
-        if layers:
-            base_images[full_name]["layer"] = layers[-1]
-        else:
-            sys.exit(f"{image['name']}: Can't get image layers")
+    image_info.pop(full_name, None)	# remove outdated image information
 
 
 def fill_login_table():
@@ -420,15 +413,13 @@ args = parser.parse_args()
 sys.stdout.reconfigure(line_buffering=True)
 
 # DOCKER_REPOSITORY environment
-docker_env = {"repository": os.environ.get("DOCKER_REPOSITORY", "")
-                            .lower().rstrip("/")}
-if docker_env["repository"]:
+docker_repositories = os.environ.get("DOCKER_REPOSITORY", "") \
+                      .strip().lower().split()
+for docker_repo in docker_repositories:
     try:
-        docker_env["registry"], *_ = parse_repository(docker_env["repository"])
+        parse_repository(docker_repo)
     except ValueError as err_info:
-        sys.exit(f"DOCKER_REPOSITORY={docker_env['repository']}: {err_info}")
-else:
-    docker_env["repository"] = docker_env["registry"] = None
+        sys.exit(f"DOCKER_REPOSITORY: {docker_repo}: {err_info}")
 
 # fill user/password table
 docker_login = fill_login_table()
@@ -439,22 +430,35 @@ if args.dir:
     except OSError as err_info:
         sys.exit(f"Can't change directory: {err_info}")
 get_images(args.file)
-init_base_images()
+init_image_info()
 
 # check arguments
-all_inames = {img["name"] for img in images}.union(base_images.keys())
+all_inames = {img["name"] for img in images} \
+             .union(img["base"] for img in images)
 for iname in args.image:
     if iname not in all_inames:
         sys.exit(f"Image {iname} not found in '{args.file}' configuration file")
 
 # rebuild images
 for img in images:
+    # pragma pylint: disable=invalid-name
+    cmd_reason = False
     if xor(args.all, img["name"] in args.image or img["base"] in args.image):
-        # pragma pylint: disable=invalid-name
-        reason = "Rebuild triggered by command line"
+        cmd_reason = "Rebuild triggered by command line"
+    if "/" in img["name"]:
+        # full target image name
+        reason = cmd_reason or needs_rebuild(img)
+        if reason:
+            print(f"*** {img['name']}\nReason: {reason}\n")
+            if not args.dry_run:
+                build(img)
     else:
-        reason = needs_rebuild(img)
-    if reason:
-        print(f"*** {img['name']}\nReason: {reason}\n")
-        if not args.dry_run:
-            build(img)
+        # name-only target image name
+        if not docker_repositories:
+            sys.exit("Environment variable DOCKER_REPOSITORY is not defined")
+        for docker_repo in docker_repositories:
+            reason = cmd_reason or needs_rebuild(img, docker_repo)
+            if reason:
+                print(f"*** {docker_repo}/{img['name']}\nReason: {reason}\n")
+                if not args.dry_run:
+                    build(img, docker_repo)

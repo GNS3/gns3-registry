@@ -58,10 +58,15 @@ jobs:
 
       - name: Build and push images
         env:
+          # DOCKER_REPOSITORY - Repository for name-only images
           # DockerHub:
           DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_REPOSITORY }}
           # GitHub Container Registry:
-          # DOCKER_REPOSITORY: ghcr.io/${{ github.repository_owner }}
+          #DOCKER_REPOSITORY: ghcr.io/${{ github.repository_owner }}
+          # Both DockerHub and GitHub Container Registry:
+          #DOCKER_REPOSITORY: >-
+          #  ${{ secrets.DOCKERHUB_REPOSITORY }}
+          #  ghcr.io/${{ github.repository_owner }}
           #
           # Variables whose name are starting with "DOCKER_LOGIN"
           # contain the user/password for a docker registry.
