@@ -24,6 +24,6 @@ This appliance contains the following networking tools:
 Before ipterm-base has to be build.
 
 ```
-docker build -t gns3/ipterm .
+docker build --build-arg DOCKER_REPOSITORY=gns3 -t gns3/ipterm .
 docker push gns3/ipterm
 ```
