@@ -442,12 +442,12 @@ for iname in args.image:
 # rebuild images
 for img in images:
     # pragma pylint: disable=invalid-name
-    cmd_reason = False
+    reason = False
     if xor(args.all, img["name"] in args.image or img["base"] in args.image):
-        cmd_reason = "Rebuild triggered by command line"
+        reason = "Rebuild triggered by command line"
     if "/" in img["name"]:
         # full target image name
-        reason = cmd_reason or needs_rebuild(img)
+        reason = reason or needs_rebuild(img)
         if reason:
             print(f"*** {img['name']}\nReason: {reason}\n")
             if not args.dry_run:
@@ -456,9 +456,14 @@ for img in images:
         # name-only target image name
         if not docker_repositories:
             sys.exit("Environment variable DOCKER_REPOSITORY is not defined")
-        for docker_repo in docker_repositories:
-            reason = cmd_reason or needs_rebuild(img, docker_repo)
+        build_repositories = []
+        for docker_idx, docker_repo in enumerate(docker_repositories):
+            reason = reason or needs_rebuild(img, docker_repo)
             if reason:
-                print(f"*** {docker_repo}/{img['name']}\nReason: {reason}\n")
-                if not args.dry_run:
-                    build(img, docker_repo)
+                build_repositories = docker_repositories[docker_idx:] + \
+                                     docker_repositories[:docker_idx]
+                break
+        for docker_repo in build_repositories:
+            print(f"*** {docker_repo}/{img['name']}\nReason: {reason}\n")
+            if not args.dry_run:
+                build(img, docker_repo)
