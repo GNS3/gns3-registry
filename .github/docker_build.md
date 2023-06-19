@@ -76,6 +76,8 @@ image name. Then `docker_build` uses the `DOCKER_REPOSITORY`
 environment variable as its initial part. For example, an
 DOCKER_REPOSITORY value of "ghcr.io/b-ehlers" plus the image
 name of "alpine-1" results in "ghcr.io/b-ehlers/alpine-1".
+When `DOCKER_REPOSITORY` contains a list of repositories,
+then the name-only targets will be build for all of them.
 
 This method is not applied to the base images, they always
 have to contain the complete name.
@@ -84,7 +86,7 @@ But there is a workaround.
 
 If the base image name starts with `$DOCKER_REPOSITORY`
 or `${DOCKER_REPOSITORY}` the variable DOCKER_REPOSITORY
-gets replaced by its value from the environment.
+gets replaced by the base part of the target image.
 In the Dockerfile the variable must be declared by a
 `ARG DOCKER_REPOSITORY` instruction. A Dockerfile would
 then start with:
