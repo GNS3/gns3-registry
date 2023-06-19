@@ -1,59 +1,93 @@
-# docker image with basic networking tools and web browser
+# docker image with firefox web browser and basic networking tools
 
-FROM gns3/ipterm-base
+ARG DOCKER_REPOSITORY
+FROM $DOCKER_REPOSITORY/ipterm-base
 
-# minimal init, see https://github.com/Yelp/dumb-init
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 /usr/local/sbin/dumb-init
-
-RUN set -ex \
-    && chmod 755 /usr/local/sbin/dumb-init \
-    && apt-get update \
+RUN set -e -x \
 #
 # install web tools
 #
-    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-        firefox-esr lxterminal jwm menu leafpad apache2-utils \
+    && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get update \
+    && apt-get -y --no-install-recommends install \
+        firefox-esr lxterminal jwm menu xfe wmctrl \
     && rm -rf /var/lib/apt/lists/* \
-    && /bin/echo -e '\
-\x23!/bin/sh\n\
-\n\
-\x23 use home page on first start\n\
-[ -e "$HOME/.mozilla" ] || start_url="about:home"\n\
-\n\
-\x23 start firefox\n\
-start=$(date +%s)\n\
-firefox $start_url\n\
-status=$?\n\
-\n\
-\x23 workaround: restart firefox, if it crashes during initialization\n\
-if [ $status -eq 139 -a $(($(date +%s)-start)) -le 10 ]; then\n\
-	firefox $start_url\n\
-fi' \
-        > /usr/local/bin/start-firefox && chmod +x /usr/local/bin/start-firefox \
-    && /bin/echo -e '\
+#
+# update firefox preferences
+#
+    && printf '\n\
+// Disable welcome page on first start and when showing about:home\n\
+pref("browser.startup.homepage_override.mstone","ignore");\n\
+pref("trailhead.firstrun.branches", "nofirstrun-empty");\n' \
+	>> /etc/firefox-esr/firefox-esr.js \
+#
+# customize jwm menu
+#
+    && printf '\
 ?package(firefox-esr):\\\n\
  needs="x11"\\\n\
  section="Applications"\\\n\
  title="Mozilla Firefox"\\\n\
- command="start-firefox"' \
+ command="firefox"\n' \
         > /etc/menu/firefox \
-    && echo "postrun="\""sed -i '/^    </ d' debian-menu"\" >> /etc/menu-methods/jwm \
+    && printf '\
+?package(xfe):\\\n\
+ needs="x11"\\\n\
+ section="/"\\\n\
+ title="File Manager"\\\n\
+ command="xfe"\n' \
+        > /etc/menu/xfe \
+    && printf '\
+?package(xfe):\\\n\
+ needs="x11"\\\n\
+ section="Applications/TextEditor"\\\n\
+ title="X File Write"\\\n\
+ command="xfwrite"\n' \
+        > /etc/menu/xfwrite \
+    && echo "postrun=\"sed -i '/^    </ d' debian-menu\"" >> /etc/menu-methods/jwm \
     && sed -i 's/\(Desktops width\)="[0-9]*"/\1="2"/' /etc/jwm/system.jwmrc \
+    && sed -i '/<Font>/ s/-[0-9]\+/-10/' /etc/jwm/system.jwmrc \
+    && sed -i 's/xterm/x-terminal-emulator/g' /etc/jwm/system.jwmrc \
     && update-menus \
+#
+# set lxterminal defaults
+#
     && mkdir -p /root/.config/lxterminal \
-    && /bin/echo -e '\
+    && printf '\
 [general]\n\
 scrollback=1000\n\
-fgcolor=#ffffff' \
+fgcolor=#ffffff\n' \
         > /root/.config/lxterminal/lxterminal.conf \
-    && /bin/echo -e '\
-\x23!/bin/sh\n\
-[ $$ -eq 1 ] && exec dumb-init "$0" "$@"\n\
+#
+# set xfe defaults
+#
+    && mkdir -p /root/.config/xfe \
+    && printf '\
+[OPTIONS]\n\
+root_warn=0\n\
+\n\
+[PROGS]\n\
+xterm=x-terminal-emulator\n' \
+        > /root/.config/xfe/xferc \
+#
+# startup script
+#
+    && printf '\
+\043!/bin/sh\n\
+[ $$ -eq 1 ] && exec dumb-init -- "$0" "$@"\n\
 \n\
 cd\n\
 export SHELL=/bin/bash\n\
-start-firefox &\n\
-jwm' \
+\n\
+\043 start firefox\n\
+firefox &\n\
+\n\
+\043 start a windows manager if none is active\n\
+if wmctrl -m > /dev/null 2>&1; then\n\
+	wait $!\n\
+else\n\
+	jwm\n\
+fi\n' \
         > /etc/init.sh && chmod +x /etc/init.sh
 
 VOLUME [ "/root" ]

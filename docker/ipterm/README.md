@@ -41,11 +41,11 @@ docker push gns3/ipterm-base    (optional)
 Afterwards the cli and/or the web image can be built:
 
 ```
-docker build -t gns3/ipterm cli
+docker build --build-arg DOCKER_REPOSITORY=gns3 -t gns3/ipterm cli
 docker push gns3/ipterm
 ```
 
 ```
-docker build -t gns3/webterm web
+docker build --build-arg DOCKER_REPOSITORY=gns3 -t gns3/webterm web
 docker push gns3/webterm
 ```

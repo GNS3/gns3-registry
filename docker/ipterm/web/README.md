@@ -20,11 +20,20 @@ This appliance contains the following networking tools:
 - mtools (multicast tools msend & mreceive),
   see https://github.com/troglobit/mtools
 
+This appliance is optimized to run within GNS3.
+To run it locally use xhost to allow access to X and
+then start the image.
+
+```text
+xhost +local:
+docker run -it --ipc=host -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix gns3/webterm
+```
+
 ## Build and publish the Images
 
 Before ipterm-base has to be build.
 
 ```
-docker build -t gns3/webterm .
+docker build --build-arg DOCKER_REPOSITORY=gns3 -t gns3/webterm .
 docker push gns3/webterm
 ```

@@ -4,10 +4,9 @@
 
 # chromium: base image is updated too often, use manual build on base updates
 chromium		chromium	NONE
-# ipterm: base image debian:jessie too old
-#ipterm-base		ipterm/base
-#ipterm			ipterm/cli
-#webterm		ipterm/web
+ipterm-base		ipterm/base
+ipterm			ipterm/cli
+webterm			ipterm/web
 jupyter:v2		jupyter
 jupyter27:v2		jupyter-2.7
 # kalilinux: base image is updated too often, use manual build on base updates
@@ -15,7 +14,7 @@ kalilinux		kalilinux	NONE
 mikrotik-winbox		mikrotik-winbox
 # ostinato-wireshark: failed to build: mesa-dri-swrast - no such package
 #ostinato-wireshark	ostinato-wireshark
-openvswitch		openvswitch			
+openvswitch		openvswitch
 ovs-snmp		ovs-snmp			--platform=linux/arm64
 pyats			pyats
 ubuntu:focal		ubuntu
