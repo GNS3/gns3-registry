@@ -3,6 +3,7 @@ set -ex
 
 # clear repository
 apt-get clean
+rm -rf /var/lib/apt/lists/*
 
 # clear unused space
 echo 'Clearing unused space...'

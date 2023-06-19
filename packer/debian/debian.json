@@ -1,7 +1,7 @@
 {
     "variables": {
-        "iso_url": "https://cloud.debian.org/images/cloud/bullseye/20221219-1234/debian-11-genericcloud-amd64-20221219-1234.qcow2",
-        "iso_checksum": "ba0237232247948abf7341a495dec009702809aa7782355a1b35c112e75cee81",
+        "iso_url": "https://cloud.debian.org/images/cloud/bookworm/20230612-1409/debian-12-genericcloud-amd64-20230612-1409.qcow2",
+        "iso_checksum": "9a18ee4954800113ee130b66ef24c0e27124aaf90cff1eb339f744a52354f788",
         "disk_size": "2G",
         "vm_name": "debian.qcow2",
         "setup_script": "debian.sh"
@@ -9,7 +9,7 @@
     "provisioners": [
         {
             "type": "shell",
-            "script": "scripts/remove_cloud-init_network.sh",
+            "script": "scripts/networking.sh",
             "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
         },
         {
