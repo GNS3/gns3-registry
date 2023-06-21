@@ -48,6 +48,7 @@ GNS3 checks the schema version, if the schema of an appliance is not supported i
 | 5 | 2.1.0 | qemu/console_type: spice |
 | 6 | 2.2.0 | qemu/custom_adapters<br>qemu/console_type: spice+agent<br>all/console_type: none|
 | 7 | 2.2.36 | qemu/tpm |
+| 8 | 3.0.0 | qemu/uefi |
 
 Adding a new symbol
 -------------------
