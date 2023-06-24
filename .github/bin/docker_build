@@ -103,7 +103,7 @@ RE_REPOSITORY = re.compile(r'''
 ''', re.VERBOSE)
 
 def parse_repository(repository):
-    """ extract registry, user, repo and tag from repository """
+    """ extract registry, repo and tag from repository """
     # verify repository format and extract components
     match = RE_REPOSITORY.fullmatch(repository)
     if not match:
@@ -284,7 +284,7 @@ def get_images(image_file):
 
 
 def init_image_info():
-    """ initialize base image data structure """
+    """ initialize image info structure """
     image_info["scratch"] = None
     image_info["NONE"] = None
 
@@ -304,7 +304,7 @@ def needs_rebuild(image, default_repository=None):
     full_name = full_image_name(image["name"], default_repository)
     base_name, _ = expand_base_image(image["base"], full_name)
 
-    # update base_image information, if empty
+    # update information of base image, if empty
     if base_name not in image_info:
         _, layers = get_time_layers(base_name)
         # store last layer
@@ -442,28 +442,24 @@ for iname in args.image:
 # rebuild images
 for img in images:
     # pragma pylint: disable=invalid-name
+    if "/" in img["name"]:		# full image name
+        base_repositories = [None]
+    else:				# name-only image name
+        if not docker_repositories:
+            sys.exit(f"{img['name']}: "
+                     "Environment variable DOCKER_REPOSITORY is not defined")
+        base_repositories = docker_repositories
     reason = False
     if xor(args.all, img["name"] in args.image or img["base"] in args.image):
         reason = "Rebuild triggered by command line"
-    if "/" in img["name"]:
-        # full target image name
-        reason = reason or needs_rebuild(img)
-        if reason:
-            print(f"*** {img['name']}\nReason: {reason}\n")
-            if not args.dry_run:
-                build(img)
-    else:
-        # name-only target image name
-        if not docker_repositories:
-            sys.exit("Environment variable DOCKER_REPOSITORY is not defined")
-        build_repositories = []
-        for docker_idx, docker_repo in enumerate(docker_repositories):
-            reason = reason or needs_rebuild(img, docker_repo)
+    else:			# check if image needs rebuilding
+        for docker_repo in base_repositories:
+            reason = needs_rebuild(img, docker_repo)
             if reason:
-                build_repositories = docker_repositories[docker_idx:] + \
-                                     docker_repositories[:docker_idx]
                 break
-        for docker_repo in build_repositories:
-            print(f"*** {docker_repo}/{img['name']}\nReason: {reason}\n")
+    if reason:				# rebuild image
+        for docker_repo in base_repositories:
+            print(f"*** {full_image_name(img['name'], docker_repo)}\n"
+                  f"Reason: {reason}\n")
             if not args.dry_run:
                 build(img, docker_repo)
