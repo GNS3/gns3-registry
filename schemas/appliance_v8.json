@@ -727,7 +727,7 @@
         "required": [
           "filename",
           "version",
-          "md5sum",
+          "checksum",
           "filesize"
         ]
       }
