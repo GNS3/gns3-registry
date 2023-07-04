@@ -18,7 +18,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositori
 	ostinato-gui \
 	xterm wget \
 	font-adobe-100dpi \
- 	mesa-dri-swrast \
+	mesa-dri-gallium \
 	ca-certificates \
 	curl \
 	openssl \
@@ -44,6 +44,7 @@ COPY Ostinato.desktop /home/gns3/.config/autostart
 COPY Ostinato.desktop /home/gns3/Desktop/Ostinato.desktop
 COPY Wireshark.desktop /home/gns3/Desktop/Wireshark.desktop
 RUN  sudo chmod 775 /home/gns3/Desktop/Ostinato.desktop
+RUN  sudo chmod 775 /home/gns3/Desktop/Wireshark.desktop
 RUN  sudo chown gns3:gns3 /home/gns3/Desktop/
 RUN  sudo chown gns3:gns3 /home/gns3/Desktop/Ostinato.desktop
 RUN  sudo chown gns3:gns3 /home/gns3/.config/autostart
