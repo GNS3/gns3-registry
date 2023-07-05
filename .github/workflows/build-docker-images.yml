@@ -93,5 +93,21 @@ jobs:
           set -f
           set -- $IMAGES
           set +f
+
+          # get image version
+          get_image_version() {
+            docker buildx imagetools inspect --format '{{json .Image}}' "$1" | \
+              sed -n 's/^ *"org\.opencontainers\.image\.version": *"\([^"]*\).*/\1/p' | \
+              head -n 1
+          }
+
+          # special treatment for kalilinux: rebuild when image version changes
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            basever=$(get_image_version kalilinux/kali-last-release:amd64)
+            imagever=$(get_image_version gns3/kalilinux)
+            [ -z "$basever" ] || [ "$basever" = "$imagever" ] || \
+              set -- "$@" kalilinux
+          fi
+
           # use option --dir to use a subdirectory as a docker base dir
           python3 "$GITHUB_WORKSPACE/.github/bin/docker_build" --dir "docker" "$@"
