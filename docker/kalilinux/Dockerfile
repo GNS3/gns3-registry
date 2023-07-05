@@ -1,4 +1,4 @@
-FROM kalilinux/kali-rolling
+FROM kalilinux/kali-last-release
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y tshark && apt-get install -y --no-install-recommends metasploit-framework nmap hydra sqlmap telnet openssh-client dnsutils yersinia ettercap-text-only cisco-global-exploiter cisco-auditing-tool snmp dsniff dnschef fping hping3 python3-scapy\
     && rm -rf /var/lib/apt/lists/*
