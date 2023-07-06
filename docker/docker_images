@@ -22,10 +22,6 @@ ubuntu:focal		ubuntu
 # The following images are not used by any appliance
 #
 
-# Replaced by https://github.com/adosztal/gns3-containers
-#network_automation	network_automation
-#python-go-perl-php	python-go-perl-php
-
 # AJ Nouri
 #endhost		endhost
 #haproxy		haproxy
