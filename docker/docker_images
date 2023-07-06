@@ -18,6 +18,9 @@ ovs-snmp		ovs-snmp			--platform=linux/arm64
 pyats			pyats
 ubuntu:focal		ubuntu
 
+# Tests
+xeyes			xeyes
+
 #
 # The following images are not used by any appliance
 #
@@ -31,7 +34,3 @@ ubuntu:focal		ubuntu
 # GNS3 Developers
 #dhcp			dhcp
 #snmpsimulator		snmpsimulator
-
-# Tests
-#iou			iou
-#xeyes			xeyes
