@@ -96,9 +96,10 @@ jobs:
 
           # get image version
           get_image_version() {
+            local object
+            object='config.Labels."org.opencontainers.image.version"'
             docker buildx imagetools inspect --format '{{json .Image}}' "$1" | \
-              sed -n 's/^ *"org\.opencontainers\.image\.version": *"\([^"]*\).*/\1/p' | \
-              head -n 1
+              jq -r ".$object // .\"linux/amd64\".$object // empty"
           }
 
           # special treatment for kalilinux: rebuild when image version changes
