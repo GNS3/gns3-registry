@@ -2,8 +2,7 @@
 
 --platform=linux/amd64					# global options
 
-# chromium: base image is updated too often, use manual build on base updates
-chromium		chromium	NONE
+chromium		chromium
 ipterm-base		ipterm/base
 ipterm			ipterm/cli
 webterm			ipterm/web
