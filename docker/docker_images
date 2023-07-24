@@ -27,8 +27,6 @@ xeyes			xeyes
 # AJ Nouri
 #endhost		endhost
 #haproxy		haproxy
-#network_automation_pycharm	network_automation_pycharm
-#openvswitch28		openvswitch28
 
 # GNS3 Developers
 #dhcp			dhcp
