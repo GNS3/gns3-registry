@@ -3,6 +3,8 @@
 --platform=linux/amd64					# global options
 
 chromium		chromium
+endhost			endhost
+haproxy			haproxy
 ipterm-base		ipterm/base
 ipterm			ipterm/cli
 webterm			ipterm/web
@@ -23,10 +25,6 @@ xeyes			xeyes
 #
 # The following images are not used by any appliance
 #
-
-# AJ Nouri
-#endhost		endhost
-#haproxy		haproxy
 
 # GNS3 Developers
 #dhcp			dhcp
