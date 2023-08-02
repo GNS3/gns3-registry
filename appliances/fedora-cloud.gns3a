@@ -27,20 +27,12 @@
     },
     "images": [
         {
-            "filename": "Fedora-Cloud-Base-35-1.2.x86_64.qcow2",
-            "version": "35-1.2",
-            "md5sum": "cfa9cdcfb946e5f4cf9dd4d7906008d0",
-            "filesize": 376897536,
-            "download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/35/Cloud/x86_64/images",
-            "direct_download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/35/Cloud/x86_64/images/Fedora-Cloud-Base-35-1.2.x86_64.qcow2"
-        },
-        {
-            "filename": "Fedora-Cloud-Base-36-1.5.x86_64.qcow2",
-            "version": "36-1.5",
-            "md5sum": "7f7cdad25b77f232078bf454c39529d3",
-            "filesize": 448266240,
-            "download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/36/Cloud/x86_64/images",
-            "direct_download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/36/Cloud/x86_64/images/Fedora-Cloud-Base-36-1.5.x86_64.qcow2"
+            "filename": "Fedora-Cloud-Base-38-1.6.x86_64.qcow2",
+            "version": "38-1.6",
+            "md5sum": "53ddfe7b28666d5ddc55e93ff06abad2",
+            "filesize": 497287168,
+            "download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
+            "direct_download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images/Fedora-Cloud-Base-38-1.6.x86_64.qcow2"
         },
         {
             "filename": "Fedora-Cloud-Base-37-1.7.x86_64.qcow2",
@@ -51,12 +43,20 @@
             "direct_download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/37/Cloud/x86_64/images/Fedora-Cloud-Base-37-1.7.x86_64.qcow2"
         },
         {
-            "filename": "Fedora-Cloud-Base-38-1.6.x86_64.qcow2",
-            "version": "38-1.6",
-            "md5sum": "53ddfe7b28666d5ddc55e93ff06abad2",
-            "filesize": 497287168,
-            "download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images",
-            "direct_download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/38/Cloud/x86_64/images/Fedora-Cloud-Base-38-1.6.x86_64.qcow2"
+            "filename": "Fedora-Cloud-Base-36-1.5.x86_64.qcow2",
+            "version": "36-1.5",
+            "md5sum": "7f7cdad25b77f232078bf454c39529d3",
+            "filesize": 448266240,
+            "download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/36/Cloud/x86_64/images",
+            "direct_download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/36/Cloud/x86_64/images/Fedora-Cloud-Base-36-1.5.x86_64.qcow2"
+        },
+        {
+            "filename": "Fedora-Cloud-Base-35-1.2.x86_64.qcow2",
+            "version": "35-1.2",
+            "md5sum": "cfa9cdcfb946e5f4cf9dd4d7906008d0",
+            "filesize": 376897536,
+            "download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/35/Cloud/x86_64/images",
+            "direct_download_url": "https://download.fedoraproject.org/pub/fedora/linux/releases/35/Cloud/x86_64/images/Fedora-Cloud-Base-35-1.2.x86_64.qcow2"
         },
         {
             "filename": "fedora-cloud-init-data.iso",
