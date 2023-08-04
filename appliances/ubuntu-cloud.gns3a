@@ -90,7 +90,7 @@
             }
         },
         {
-            "name": "Ubuntu 18.04 LTS (Bionic Beaver))",
+            "name": "Ubuntu 18.04 LTS (Bionic Beaver)",
             "images": {
                 "hda_disk_image": "ubuntu-18.04-server-cloudimg-amd64.img",
                 "cdrom_image": "ubuntu-cloud-init-data.iso"
