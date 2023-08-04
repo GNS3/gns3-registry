@@ -71,7 +71,7 @@
         {
             "name": "Ubuntu 23.04 (Lunar Lobster)",
             "images": {
-                "hda_disk_image": "ubuntu-23.04-server-cloudimg-arm64.imgg",
+                "hda_disk_image": "ubuntu-23.04-server-cloudimg-arm64.img",
                 "cdrom_image": "ubuntu-cloud-init-data.iso"
             }
         },
