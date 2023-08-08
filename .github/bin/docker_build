@@ -55,6 +55,7 @@ Docker repository to use for name-only targets.
 import os
 import sys
 import argparse
+import concurrent.futures
 import datetime
 import json
 import re
@@ -418,6 +419,32 @@ def fill_login_table():
     return login_table
 
 
+def get_images_info(all_flag, forced_images):
+    """ get information of all images and base images """
+    image_list = set()
+    for image in images:
+        if "/" in image["image"]:	# full image name
+            base_repos = [None]
+        else:				# name-only image name
+            base_repos = docker_repositories
+        if xor(all_flag, image["image"] in forced_images or \
+                         image["base"] in forced_images):
+            continue			# no need to get info of forced images
+        for repo in base_repos:
+            full_name = full_image_name(image["image"], repo)
+            base_name, _ = expand_base_image(image["base"], full_name)
+            image_list.add(base_name)
+            image_list.add(full_name)
+    for image in image_info:
+        image_list.discard(image)	# image info already available
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {executor.submit(get_time_layers, image): image
+                   for image in image_list}
+        for future in concurrent.futures.as_completed(futures):
+            image_info[futures[future]] = future.result()
+
+
 def rebuild_images(dry_run, all_flag, forced_images):
     """ rebuild images """
     for image in images:
@@ -489,4 +516,5 @@ for img in images:
                  "Environment variable DOCKER_REPOSITORY is not defined")
 
 # rebuild images
+get_images_info(args.all, args.image)
 rebuild_images(args.dry_run, args.all, args.image)
