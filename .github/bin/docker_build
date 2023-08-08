@@ -438,8 +438,8 @@ def rebuild_images(dry_run, all_flag, forced_images):
             for repo in base_repos:
                 print(f"*** {full_image_name(image['name'], repo)}\n"
                       f"Reason: {reason}\n")
-            if not dry_run:
-                build(image, repo)
+                if not dry_run:
+                    build(image, repo)
 
 
 def xor(*params):
