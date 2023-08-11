@@ -61,6 +61,7 @@ import json
 import re
 import shlex
 import subprocess
+import time
 import dxf
 import requests.exceptions
 import dateutil.parser
@@ -132,6 +133,23 @@ def docker_auth(docker, response):
                         response=response)
 
 
+def retry(tries, func, *func_args, **func_kwargs):
+    """ retry requests based function """
+    while True:
+        tries -= 1
+        try:
+            return func(*func_args, **func_kwargs)
+        except (requests.exceptions.ConnectionError,
+                requests.exceptions.Timeout):
+            if tries <= 0:
+                raise
+        except requests.exceptions.HTTPError as err:
+            if tries <= 0 or err.response.status_code not in \
+                             (429, 500, 502, 503, 504):
+                raise
+        time.sleep(3)
+
+
 def get_time_layers(repository):
     """
     get created time and layer info from the docker registry
@@ -148,16 +166,16 @@ def get_time_layers(repository):
             docker.registry_auth = docker_login.get(registry, [None, None])
             # get config digest
             try:
-                digest = docker.get_digest(tag, platform="linux/amd64")
+                digest = retry(3, docker.get_digest, tag, platform="linux/amd64")
             except dxf.exceptions.DXFUnauthorizedError:
                 return None
             except requests.exceptions.HTTPError as err:
-                if err.response.status_code not in (401, 403, 404):
-                    raise
-                return None
+                if err.response.status_code in (401, 403, 404):
+                    return None
+                raise
 
             # get config: pull_blob(digest)
-            data = json.loads(b''.join(docker.pull_blob(digest)))
+            data = json.loads(b''.join(retry(3, docker.pull_blob, digest)))
 
         return {"created": dateutil.parser.parse(data["created"]),
                 "layers": data["rootfs"]["diff_ids"]}
