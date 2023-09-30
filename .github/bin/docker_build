@@ -62,9 +62,9 @@ import re
 import shlex
 import subprocess
 import time
+import dateutil.parser
 import dxf
 import requests.exceptions
-import dateutil.parser
 
 docker_login = {}
 image_info = {}
@@ -379,7 +379,8 @@ def needs_rebuild(image, default_repository=None):
             rebuild_reason = "Files in docker context more recent than image"
         else:
             # clean git repository: use "git log" to get commit time
-            proc = subprocess.run(["git", "-C", image["dir"], "log", "-n", "1",
+            proc = subprocess.run(["git", "-C", image["dir"], "log",
+                                   "--show-pulls", "-n", "1",
                                    "--pretty=tformat:%ct", "--", "."],
                                   capture_output=True,
                                   check=True,
