@@ -84,6 +84,8 @@ def check_urls(appliance):
 
     if 'vendor_url' in appliance_json:
         urls.add(appliance_json['vendor_url'])
+    if 'vendor_logo_url' in appliance_json:
+        urls.add(appliance_json['vendor_logo_url'])
     if 'documentation_url' in appliance_json:
         urls.add(appliance_json['documentation_url'])
     if 'product_url' in appliance_json:
