@@ -1,0 +1,5 @@
+{
+    "iso_url": "https://cloud.debian.org/images/cloud/bullseye/20231013-1532/debian-11-genericcloud-amd64-20231013-1532.qcow2",
+    "iso_checksum": "b3b2f6b3411ea6e2f097a91b579ad2838611d5cdf8fbd1089435c55f9c6bb398",
+    "vm_name": "debian-11.qcow2"
+}
