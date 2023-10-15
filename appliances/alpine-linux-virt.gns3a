@@ -28,10 +28,10 @@
         {
             "filename": "alpine-virt-3.18.4.qcow2",
             "version": "3.18.4",
-            "md5sum": "5a2df124b1b2b2ede01fc0ec0ca685f6",
-            "filesize": 50989056,
-            "download_url": "https://drive.google.com/file/d/1QLXafdEJm6hwInMzoo8HrZWC04Hspm-U/view?usp=share_link",
-            "direct_download_url": "https://drive.google.com/uc?id=1QLXafdEJm6hwInMzoo8HrZWC04Hspm-U&export=download"
+            "md5sum": "99d393c16c870e12c4215aadd82ca998",
+            "filesize": 51066880,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
+            "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/alpine-virt-3.18.4.qcow2/download"
         },
         {
             "filename": "alpine-virt-3.16.img",
