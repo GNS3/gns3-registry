@@ -1,6 +1,7 @@
 {
     "variables": {
-        "accelerator": "kvm"
+        "accelerator": "kvm",
+        "img_name": "alpine-virt-3.18.4"
     },
     "builders": [
         {
@@ -8,11 +9,11 @@
             "type": "qemu",
             "accelerator": "{{ user `accelerator` }}",
             "use_default_display": true,
-            "iso_url": "https://dl-cdn.alpinelinux.org/alpine/v3.16/releases/x86_64/alpine-virt-3.16.2-x86_64.iso",
-            "iso_checksum": "6c7cb998ec2c8925d5a1239410a4d224b771203f916a18f8015f31169dd767a2",
+            "iso_url": "https://dl-cdn.alpinelinux.org/alpine/v3.18/releases/x86_64/alpine-virt-3.18.4-x86_64.iso",
+            "iso_checksum": "24d79bc148c05a864c2914dfa41a6ffbf808973e44de88c7700d30b4517965b2",
             "http_directory": "./files",
-            "vm_name": "alpine-virt-3.16.img",
-            "disk_size": "92M",
+            "vm_name": "{{ user `img_name` }}.img",
+            "disk_size": "200M",
             "format": "raw",
             "qemu_img_args": {
                 "create": ["-o", "preallocation=off"]
@@ -29,6 +30,15 @@
                 "wget -q http://{{ .HTTPIP }}:{{ .HTTPPort }}/alpine.conf && setup-alpine -e -f alpine.conf<enter><wait><enter><wait500ms><enter><wait5><enter><wait500ms><enter><wait500ms>",
                 "wget -q http://{{ .HTTPIP }}:{{ .HTTPPort }}/install.sh && chmod +x install.sh && ./install.sh<enter><wait30s>",
                 "poweroff<enter>"
+            ]
+        }
+    ],
+    "post-processors": [
+        {
+            "type": "shell-local",
+            "inline": [
+                "qemu-img convert -c -O qcow2 output-qemu/{{ user `img_name` }}.img output-qemu/{{ user `img_name` }}.qcow2",
+                "rm output-qemu/{{ user `img_name` }}.img"
             ]
         }
     ]
