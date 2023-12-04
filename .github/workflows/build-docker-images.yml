@@ -63,13 +63,11 @@ jobs:
       - name: Build and push images
         env:
           # DOCKER_REPOSITORY - Repository for name-only images
-          # DockerHub:
-          #DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_REPOSITORY }}
-          # GitHub Container Registry:
-          #DOCKER_REPOSITORY: ghcr.io/${{ github.repository_owner }}
-          # Both DockerHub and GitHub Container Registry:
-          DOCKER_REPOSITORY: >-
+          # Using multiple repositories will build images in all of them.
+          DOCKER_REPOSITORY: |
+            # DockerHub:
             ${{ secrets.DOCKERHUB_REPOSITORY }}
+            # GitHub Container Registry:
             ghcr.io/${{ github.repository_owner }}
           #
           # Variables whose name are starting with "DOCKER_LOGIN"
@@ -90,6 +88,7 @@ jobs:
           #
           IMAGES: ${{ inputs.images }}
         run: |
+          DOCKER_REPOSITORY=$(echo "$DOCKER_REPOSITORY" | sed '/^#/d')
           set -f
           set -- $IMAGES
           set +f

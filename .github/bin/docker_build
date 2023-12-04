@@ -345,7 +345,7 @@ def needs_rebuild(image, default_repository=None):
     if base_name not in image_info:
         image_info[base_name] = get_time_layers(base_name)
     if not image_info[base_name]:
-        sys.exit(f"Missing base image: {base_name}")
+        sys.exit(f"{image['name']}: Missing base image: {base_name}")
 
     # get information of image, if unknown
     if full_name not in image_info:
