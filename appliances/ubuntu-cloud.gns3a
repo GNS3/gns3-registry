@@ -30,8 +30,8 @@
         {
             "filename": "ubuntu-23.04-server-cloudimg-amd64.img",
             "version": "Ubuntu 23.04 (Lunar Lobster)",
-            "md5sum": "2d00a7e53dfde5ecd3fc8f5fb9f5be8a",
-            "filesize": 755367936,
+            "md5sum": "369e3b1f68416c39245a8014172406dd",
+            "filesize": 756678656,
             "download_url": "https://cloud-images.ubuntu.com/releases/23.04/release/",
             "direct_download_url": "https://cloud-images.ubuntu.com/releases/23.04/release/ubuntu-23.04-server-cloudimg-amd64.img"
         },
