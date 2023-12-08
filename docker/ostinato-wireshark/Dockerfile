@@ -6,10 +6,7 @@ ENV DISPLAY :99
 ENV RESOLUTION 1920x1080x24
 
 
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
-    && echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories \
-    && apk add --no-cache \
+RUN apk add --no-cache \
 	libprotobuf \
 	tshark \
 	wireshark \
