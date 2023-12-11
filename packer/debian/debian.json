@@ -1,7 +1,7 @@
 {
     "variables": {
-        "iso_url": "https://cloud.debian.org/images/cloud/bookworm/20231013-1532/debian-12-genericcloud-amd64-20231013-1532.qcow2",
-        "iso_checksum": "3a5fd3f38f055ceb1a2f84c6184ca4de3566e29e519b405865719cc43426afdf",
+        "iso_url": "https://cloud.debian.org/images/cloud/bookworm/20231210-1591/debian-12-genericcloud-amd64-20231210-1591.qcow2",
+        "iso_checksum": "16e360b50572092ff5c1ed994285bcca961df28c081b7bb5d7c006d35bce4914",
         "disk_size": "2G",
         "vm_name": "debian.qcow2",
         "setup_script": "debian.sh"
