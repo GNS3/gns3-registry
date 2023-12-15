@@ -16,10 +16,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 """
-docker_build - (re)build outdated docker images
+docker_make - (re)build outdated docker images
 
-usage: docker_build [--help] [--all] [--dir DIR] [--dry-run] [--file FILE]
-                    [image ...]
+usage: docker_make [--help] [--all] [--dir DIR] [--dry-run] [--file FILE]
+                   [image ...]
 
 positional arguments:
   image                 images to build additionally
