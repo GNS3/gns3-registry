@@ -110,4 +110,4 @@ jobs:
           fi
 
           # use option --dir to use a subdirectory as a docker base dir
-          python3 "$GITHUB_WORKSPACE/.github/bin/docker_build" --dir "docker" "$@"
+          python3 "$GITHUB_WORKSPACE/.github/bin/docker_make" --dir "docker" "$@"

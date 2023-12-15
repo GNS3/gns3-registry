@@ -18,17 +18,17 @@ files, that got an update. Then a manual trigger is needed.
 
 ## Build Tool
 
-The `docker_build` tool reads a configuration file and
+The `docker_make` tool reads a configuration file and
 then starts building images with `docker buildx build`.
 
-If `docker_build` is launched without arguments, it checks
+If `docker_make` is launched without arguments, it checks
 all configured images for an update of the base image.
 Additionally it checks, if `git` shows an update of
 the directory containing the docker build context.
 When at least one of these conditions is met, the tool
 starts a rebuild of that image.
 
-When `docker_build` is run with some image names as
+When `docker_make` is run with some image names as
 arguments, then these images are additionally built.
 When using a base image name as an argument, then all
 images with that base image are rebuilt.
@@ -72,7 +72,7 @@ The target image may contain the full name, in which
 case it will contain one or more '/' characters.
 
 Another option is to specify only the last part of the
-image name. Then `docker_build` uses the `DOCKER_REPOSITORY`
+image name. Then `docker_make` uses the `DOCKER_REPOSITORY`
 environment variable as its initial part. For example, an
 DOCKER_REPOSITORY value of "ghcr.io/b-ehlers" plus the image
 name of "alpine-1" results in "ghcr.io/b-ehlers/alpine-1".
@@ -118,7 +118,7 @@ DOCKER_LOGIN_GH="ghcr.io github-user github-password"
 uses YAML files in the .github/workflows directory
 to define, which tasks should be run.
 
-Before `docker_build` can be run the following steps
+Before `docker_make` can be run the following steps
 need to be done:
 
 * Check out the repository code
@@ -127,7 +127,7 @@ need to be done:
 * Login to the Container Registries
 * Install python requirements
 
-Then `docker_build` can be executed,
+Then `docker_make` can be executed,
 normally without any arguments.
 
 But what, when an image build needs to be forced?  
