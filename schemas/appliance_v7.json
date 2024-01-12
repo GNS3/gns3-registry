@@ -133,7 +133,7 @@
                 "title": "One KEY=VAR environment by line"
             },
             "console_type": {
-              "enum": ["telnet", "vnc", "http", "https"],
+              "enum": ["telnet", "vnc", "http", "https", "none"],
               "title": "Type of console connection for the administration of the appliance"
             },
             "console_http_port": {
@@ -344,7 +344,7 @@
           "title": "Architecture emulated"
         },
         "console_type": {
-          "enum": ["telnet", "vnc", "spice"],
+          "enum": ["telnet", "vnc", "spice", "spice+agent", "none"],
           "title": "Type of console connection for the administration of the appliance"
         },
         "boot_priority": {
