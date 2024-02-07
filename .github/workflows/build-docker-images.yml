@@ -1,10 +1,12 @@
-name: Build and upload Docker images
+name: Build Docker images
 
 on:
   push:
     branches:
       - main
       - master
+    paths:
+      - 'docker/**'
   schedule:
     - cron: '37 7 * * 3'
   workflow_dispatch:
