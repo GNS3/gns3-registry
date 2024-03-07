@@ -12,7 +12,7 @@ fi
 cp /etc/resolv.conf /etc/resolv.conf.orig
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get upgrade
+apt-get -y upgrade
 apt-get -y install --purge ifupdown resolvconf
 cat /etc/resolv.conf.orig > /etc/resolv.conf
 rm -f /etc/resolv.conf.orig
