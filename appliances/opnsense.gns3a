@@ -27,10 +27,10 @@
     "images": [
         {
             "filename": "OPNsense-24.1-OpenSSL-nano-amd64.img",
-            "version": "23.1",
+            "version": "24.1",
             "md5sum": "ea8472df2c272419b7834cddaf68048d",
             "filesize": 3221225472,
-            "download_url": "https://opnsense.c0urier.net/releases/23.1/"
+            "download_url": "https://opnsense.c0urier.net/releases/24.1/"
         },
         {
             "filename": "OPNsense-23.1-OpenSSL-nano-amd64.img",
