@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 #
-# Copyright (C) 2015 GNS3 Technologies Inc.
+# Copyright (C) 2024 GNS3 Technologies Inc.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-if [ ! -f "/etc/openvswitch/conf.db" ]
+if [[ ! -f "/etc/openvswitch/conf.db" ]]
 then
   ovsdb-tool create /etc/openvswitch/conf.db /usr/share/openvswitch/vswitch.ovsschema
 
@@ -25,20 +25,20 @@ then
   ovs-vsctl --no-wait init
  
   x=0
-  until [ $x = "4" ]; do
+  until [[ $x = "4" ]]; do
     ovs-vsctl add-br br$x
     ovs-vsctl set bridge br$x datapath_type=netdev
     x=$((x+1))
   done
 
-  if [ $MANAGEMENT_INTERFACE == 1 ]
+  if [[ $MANAGEMENT_INTERFACE == 1 ]]
   then
     x=1
   else
     x=0
   fi
 
-  until [ $x = "16" ]; do
+  until [[ $x = "16" ]]; do
     ovs-vsctl add-port br0 eth$x
     x=$((x+1))
   done
@@ -49,9 +49,9 @@ fi
 
 
 x=0
-until [ $x = "4" ]; do
+until [[ $x = "4" ]]; do
   ip link set dev br$x up
   x=$((x+1))
 done
 
-/bin/sh
+/bin/bash
