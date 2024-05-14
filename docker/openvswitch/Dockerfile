@@ -6,7 +6,7 @@ RUN apk add --no-cache openvswitch nano bash bash-completion
 RUN sed -i s,/bin/ash,/bin/bash, /etc/passwd
 
 # Enable bash completion
-RUN echo -e "source /etc/profile.d/bash_completion.sh" >> ~/.bashrc
+RUN echo -e "source /etc/bash/bash_completion.sh" >> ~/.bashrc
 
 # Enable openvswitch bash completion
 RUN echo -e "source /usr/share/bash-completion/completions/ovs-vsctl-bashcomp.bash" >> ~/.bashrc
@@ -15,10 +15,8 @@ RUN echo -e "source /usr/share/bash-completion/completions/ovs-appctl-bashcomp.b
 # Configure the prompt
 RUN echo -e "PS1='\h:\w\$ '" >> ~/.bashrc
 
-RUN mkdir /var/run/openvswitch
+VOLUME [ "/root", "/etc/openvswitch" ]
 
-VOLUME /etc/openvswitch/
+ADD init.sh /etc/openvswitch/
 
-ADD boot.sh /bin/boot.sh
-
-CMD /bin/bash /bin/boot.sh
+CMD /etc/openvswitch/init.sh; bash
