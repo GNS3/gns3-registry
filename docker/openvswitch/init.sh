@@ -46,7 +46,9 @@ if [ $firstrun -ne 0 ]; then
   done
 fi
 
-# activate br0..br3
-for intf in br0 br1 br2 br3; do
-  ip link set dev $intf up
+# activate bridge interfaces
+ovs-vsctl --bare -f table --columns=name find interface type=internal | \
+while read -r intf; do
+  ip link set dev "$intf" up
+  ifup -f "$intf"
 done
