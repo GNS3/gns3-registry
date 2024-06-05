@@ -29,6 +29,13 @@
     },
     "images": [
         {
+            "filename": "FGT_VM64_KVM-v7.4.4.F-build2573-FORTINET.out.kvm.qcow2",
+            "version": "7.4.4",
+            "md5sum": "dfe0e78827ec728631539669001bb23f",
+            "filesize": 100728832,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
             "filename": "FGT_VM64_KVM-v7.4.3.F-build2573-FORTINET.out.kvm.qcow2",
             "version": "7.4.3",
             "md5sum": "e7517095c91dce1a76a9bcf114b5fa15",
@@ -75,6 +82,13 @@
             "version": "7.2.1",
             "md5sum": "e382a1ad5c7c16f49a1c0d3f45e3a3b2",
             "filesize": 86704128,
+            "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
+        },
+        {
+            "filename": "FGT_VM64_KVM-v7.0.15.M-build0601-FORTINET.out.kvm.qcow2",
+            "version": "7.0.15",
+            "md5sum": "423f50378b7e93098ab765c3dd3a788f",
+            "filesize": 77398016,
             "download_url": "https://support.fortinet.com/Download/FirmwareImages.aspx"
         },
         {
@@ -368,6 +382,13 @@
     ],
     "versions": [
         {
+            "name": "7.4.4",
+            "images": {
+                "hda_disk_image": "FGT_VM64_KVM-v7.4.4.F-build2573-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
+        {
             "name": "7.4.3",
             "images": {
                 "hda_disk_image": "FGT_VM64_KVM-v7.4.3.F-build2573-FORTINET.out.kvm.qcow2",
@@ -413,6 +434,13 @@
             "name": "7.2.1",
             "images": {
                 "hda_disk_image": "FGT_VM64_KVM-v7.2.1.F-build1254-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
+        {
+            "name": "7.0.15",
+            "images": {
+                "hda_disk_image": "FGT_VM64_KVM-v7.0.15.M-build0601-FORTINET.out.kvm.qcow2",
                 "hdb_disk_image": "empty30G.qcow2"
             }
         },
