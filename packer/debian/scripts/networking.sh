@@ -8,14 +8,17 @@ else
 	printf '127.0.1.1\t%s\t%s\n' "$(hostname -f)" "$(hostname)" >> /etc/hosts
 fi
 
-# replace systemd-resolved by resolvconf
-cp /etc/resolv.conf /etc/resolv.conf.orig
+# replace netplan and systemd-resolved by ifupdown and resolvconf
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get -y upgrade
+cp /etc/resolv.conf /etc/resolv.conf.orig
 apt-get -y install --purge ifupdown resolvconf
 cat /etc/resolv.conf.orig > /etc/resolv.conf
 rm -f /etc/resolv.conf.orig
+echo "network: {config: disabled}" > /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+rm -rf /etc/netplan
+apt-get -y autoremove --purge netplan.io
 
 # replace cloud-init network configuration
 cat > /etc/network/interfaces <<'EOF'
