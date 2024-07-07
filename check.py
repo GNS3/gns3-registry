@@ -96,8 +96,9 @@ def check_appliance(appliance):
             if image['filename'] in images:
                 print('Duplicate image filename ' + image['filename'])
                 warnings += 1
-            if image['md5sum'] in md5sums:
-                print('Duplicate image md5sum ' + image['md5sum'])
+            md5sum = image.get('checksum') or image.get('md5sum')
+            if md5sum in md5sums:
+                print('Duplicate image md5sum ' + md5sum)
                 sys.exit(1)
             versions_found = False
             for version in appliance_json['versions']:
@@ -107,7 +108,7 @@ def check_appliance(appliance):
                 print('Unused image ' + image['filename'] + ' in ' + appliance)
                 warnings += 1
             images[image['filename']] = image['version']
-            md5sums.add(image['md5sum'])
+            md5sums.add(md5sum)
 
         for version in appliance_json['versions']:
             version_match = False
