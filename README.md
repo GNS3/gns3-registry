@@ -52,7 +52,7 @@ GNS3 checks the schema version, if the schema of an appliance is not supported i
 
 ### Schema version 8
 
-Schema version 8 is introduced many changes in the appliance schema. The most important changes are:
+Schema version 8 has introduced many changes in the appliance schema. The most important are:
 
 * Support for `uefi_boot_mode` property in Qemu template properties.
 * Possibility to have multiple set of settings to use with different image versions. Default settings are specified if 
