@@ -21,6 +21,6 @@ The /root folder is mounted by default
 First the base image has to be created:
 
 ```
-docker build -t gns3/ubuntu:focal .
-docker push gns3/ubuntu:focal    (optional)
+docker build -t gns3/ubuntu:noble .
+docker push gns3/ubuntu:nobel (optional)
 ```
