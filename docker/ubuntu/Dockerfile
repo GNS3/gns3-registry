@@ -1,10 +1,22 @@
-# docker base image for basic networking tools
+# Ubuntu Docker base image with basic networking tools installed
 
-FROM ubuntu:focal
+FROM ubuntu:noble
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-recommends install \
-    net-tools tcpdump telnet traceroute curl iperf3 knot-host openssh-client mtr-tiny socat nano vim-tiny \
-    nmap iputils-ping \ 
+RUN DEBIAN_FRONTEND=noninteractive apt update && apt -y --no-install-recommends install \
+    net-tools  \
+    iproute2 \
+    tcpdump \
+    telnet \
+    traceroute \
+    curl \
+    iperf3 \
+    knot-host \
+    openssh-client \
+    mtr-tiny \
+    socat \
+    nano \
+    nmap \
+    iputils-ping \
     && rm -rf /var/lib/apt/lists/*
 
 VOLUME [ "/root" ]
