@@ -28,6 +28,14 @@
     },
     "images": [
         {
+            "filename": "ubuntu-24.04-server-cloudimg-amd64.img",
+            "version": "Ubuntu 24.04 (Noble Numbat)",
+            "md5sum": "a6c7febaf6d0bf2bed6b6fe68a342234",
+            "filesize": 586022912,
+            "download_url": "https://cloud-images.ubuntu.com/releases/24.04/release/",
+            "direct_download_url": "https://cloud-images.ubuntu.com/releases/24.04/release/ubuntu-24.04-server-cloudimg-amd64.img"
+        },
+        {
             "filename": "ubuntu-23.04-server-cloudimg-amd64.img",
             "version": "Ubuntu 23.04 (Lunar Lobster)",
             "md5sum": "369e3b1f68416c39245a8014172406dd",
@@ -69,6 +77,13 @@
         }
     ],
     "versions": [
+        {
+            "name": "Ubuntu 24.04 (Noble Numbat)",
+            "images": {
+                "hda_disk_image": "ubuntu-24.04-server-cloudimg-amd64.img",
+                "cdrom_image": "ubuntu-cloud-init-data.iso"
+            }
+        },
         {
             "name": "Ubuntu 23.04 (Lunar Lobster)",
             "images": {
