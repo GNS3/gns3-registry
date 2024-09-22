@@ -42,6 +42,22 @@
             "direct_download_url": "https://download-core.sys.truenas.net/13.3/STABLE/RELEASE/x64/TrueNAS-13.3-RELEASE.iso"
         },
         {
+            "filename": "TrueNAS-SCALE-24.04.2.2.iso",
+            "version": "SCALE 24.04.2.2",
+            "md5sum": "47d9026254a0775800bb2b8ab6d874fd",
+            "filesize": 1630355456,
+            "download_url": "https://www.truenas.com/download-truenas-scale/",
+            "direct_download_url": "https://download.sys.truenas.net/TrueNAS-SCALE-Dragonfish/24.04.2.2/TrueNAS-SCALE-24.04.2.2.iso"
+        },
+        {
+            "filename": "TrueNAS-SCALE-24.10-BETA.1.iso",
+            "version": "SCALE 24.10-BETA.1",
+            "md5sum": "cc3d5758d1db3d55ae9c8716f5d43b88",
+            "filesize": 1491378176,
+            "download_url": "https://www.truenas.com/download-truenas-scale/",
+            "direct_download_url": "https://download.sys.truenas.net/TrueNAS-SCALE-ElectricEel-BETA/24.10-BETA.1/TrueNAS-SCALE-24.10-BETA.1.iso"
+        },
+        {
             "filename": "empty30G.qcow2",
             "version": "1.0",
             "md5sum": "3411a599e822f2ac6be560a26405821a",
@@ -65,6 +81,22 @@
                 "hda_disk_image": "empty30G.qcow2",
                 "hdb_disk_image": "empty30G.qcow2",
                 "cdrom_image": "TrueNAS-13.3-RELEASE.iso"
+            }
+        },
+        {
+            "name": "SCALE 24.04.2.2",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "hdb_disk_image": "empty30G.qcow2",
+                "cdrom_image": "TrueNAS-SCALE-24.04.2.2.iso"
+            }
+        },
+        {
+            "name": "SCALE 24.10-BETA.1",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "hdb_disk_image": "empty30G.qcow2",
+                "cdrom_image": "TrueNAS-SCALE-24.10-BETA.1.iso"
             }
         }
     ]
