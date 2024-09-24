@@ -12,7 +12,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "To install TrueNAS SCALE you may have to select the Legacy BIOS option",
+    "usage": "To install TrueNAS SCALE you may have to select the Legacy BIOS option.",
     "port_name_format": "eth{0}",
     "qemu": {
         "adapter_type": "e1000",
