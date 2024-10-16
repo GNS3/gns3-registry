@@ -60,7 +60,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install python requirements
-        run: python3 -m pip install --requirement .github/bin/requirements.txt
+        run: python3 -m pip install --break-system-packages --requirement .github/bin/requirements.txt
 
       - name: Build and push images
         env:
