@@ -59,7 +59,7 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install python requirements
+      - name: Setup Virtual Environment & Install python requirements
         run: |
           python3 -m venv venv
           source ./venv/bin/activate
@@ -93,6 +93,7 @@ jobs:
           #
           IMAGES: ${{ inputs.images }}
         run: |
+          source ./venv/bin/activate
           DOCKER_REPOSITORY=$(echo "$DOCKER_REPOSITORY" | sed '/^#/d')
           set -f
           set -- $IMAGES
