@@ -9,7 +9,7 @@
     "documentation_url": "https://github.com/ob7/gns3-nixos-appliance",
     "product_name": "NixOS",
     "product_url": "https://github.com/NixOS/nixpkgs",
-    "registry_version": 5,
+    "registry_version": 4,
     "status": "experimental",
     "availability": "free",
     "maintainer": "ob7dev",
