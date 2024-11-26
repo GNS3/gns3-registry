@@ -12,7 +12,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "There is no default password and enable password. A default configuration is present. ASAv goes through a double-boot before becoming active. This is normal and expected.",
+    "usage": "There is no default password and enable password. A default configuration is present. ASAv goes through a double-boot before becoming active. This is normal and expected. Switch to the Telnet console type after the first boot.",
     "symbol": ":/symbols/asa.svg",
     "first_port_name": "Management0/0",
     "port_name_format": "Gi0/{0}",
