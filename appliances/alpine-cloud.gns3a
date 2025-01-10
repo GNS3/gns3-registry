@@ -13,7 +13,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "Username: alpine\nPassword: alpine",
+    "usage": "\nUsername: alpine\nPassword: alpine",
     "port_name_format": "Ethernet{0}",
     "qemu": {
         "adapter_type": "virtio-net-pci",
@@ -28,17 +28,17 @@
     },
     "images": [
         {
-            "filename": "generic_alpine-3.20.3-x86_64-bios-cloudinit-r0.qcow2",
-            "version": "3.20.3",
-            "md5sum": "97ea89bbb8abd17c81c53148d6644796",
-            "filesize": 187826176,
+            "filename": "generic_alpine-3.21.2-x86_64-bios-cloudinit-r0.qcow2",
+            "version": "3.21.2",
+            "md5sum": "b40825dff2867e0ffaffbc4c87674462",
+            "filesize": 189726720,
             "download_url": "https://www.alpinelinux.org/cloud/",
-            "direct_download_url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/cloud/generic_alpine-3.20.3-x86_64-bios-cloudinit-r0.qcow2"
+            "direct_download_url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/cloud/generic_alpine-3.21.2-x86_64-bios-cloudinit-r0.qcow2"
         },
         {
             "filename": "alpine-cloud-init-data.iso",
             "version": "1.0",
-            "md5sum": "5e7edd015dab0a0327c8641d5633de6a",
+            "md5sum": "b1b4b16cc3bf0250c0fa377c19c97683",
             "filesize": 374784,
             "download_url": "https://github.com/GNS3/gns3-registry/tree/master/cloud-init/alpine-cloud",
             "direct_download_url": "https://github.com/GNS3/gns3-registry/raw/master/cloud-init/alpine-cloud/alpine-cloud-init-data.iso"
@@ -46,9 +46,9 @@
     ],
     "versions": [
         {
-            "name": "3.20.3",
+            "name": "3.21.2",
             "images": {
-                "hda_disk_image": "generic_alpine-3.20.3-x86_64-bios-cloudinit-r0.qcow2",
+                "hda_disk_image": "generic_alpine-3.21.2-x86_64-bios-cloudinit-r0.qcow2",
                 "cdrom_image": "alpine-cloud-init-data.iso"
             }
         }
