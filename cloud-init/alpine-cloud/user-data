@@ -1,0 +1,14 @@
+#cloud-config
+
+package_update: false
+package_upgrade: false
+package_reboot_if_required: false
+
+ssh_pwauth: true
+password: alpine
+
+chpasswd:
+  expire: false
+
+users:
+- default
