@@ -15,7 +15,7 @@
     "maintainer": "Samy SCANNA",
     "maintainer_email": "samy.scanna@outlook.com",
     "usage": "After the first boot, the appliance automatically runs the configuration script to set up the password, and network interfaces.",
-    "symbol": "storm.png",
+    "symbol": "stormshield.png",
     "port_name_format": "eth{0}",
     "qemu": {
         "adapter_type": "vmxnet3",
