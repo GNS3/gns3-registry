@@ -1,6 +1,6 @@
 {
     "appliance_id": "60801097-332e-4f40-a63e-8ad62047c01f",
-    "name": "Stormshield EVA1",
+    "name": "Stormshield EVA",
     "category": "firewall",
     "description": "Stormshield EVA (Elastic Virtual Appliance) is a french virtual firewall designed to protect network infrastructures. It offers advanced features such as filtering, intrusion prevention (IPS), VPN management (IPSec/SSL), and access control.",
     "vendor_name": "Stormshield",
