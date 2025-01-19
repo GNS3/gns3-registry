@@ -35,7 +35,8 @@
             "filename": "utm-SNS-EVA-4.3.33-kvm.qcow2",
             "version": "4.3.33",
             "md5sum": "21d94d0e20f2e270f06c5853fd750d5b",
-            "filesize": 284360704
+            "filesize": 284360704,
+            "download_url": "https://mystormshield.eu/product/download/"
         }
     ],
     "versions": [
