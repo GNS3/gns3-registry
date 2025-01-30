@@ -1,4 +1,5 @@
 {
+    "appliance_id": "4d351078-c6f5-444c-ab30-0ef20e3d8c53",
     "name": "infix",
     "category": "router",
     "description": "Infix is a Network Operating System based on Linux.  It can be set up both as a switch, with offloading using switchdev, and a router with firewalling.",
@@ -35,14 +36,14 @@
             "filesize": 4194304,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
             "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/OVMF-edk2-stable202305.fd.zip/download",
-             "compression": "zip"
+            "compression": "zip"
        },
         {
             "filename": "infix-x86_64-disk-24.11.1.img",
             "filesize": 536870912,
             "md5sum": "673a123fe122d1c2f5724baf9965a19d",
             "version": "24.11.1",
-	    "download_url": "https://github.com/kernelkit/infix/releases/download/v24.11.1/infix-x86_64-24.11.1.tar.gz",
+            "download_url": "https://github.com/kernelkit/infix/releases/download/v24.11.1/infix-x86_64-24.11.1.tar.gz",
             "compression": "gzip"
         }
     ],
