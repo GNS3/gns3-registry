@@ -48,25 +48,63 @@
             "filesize": 22544384,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
             "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/linux-tinycore-linux-6.4.img"
+        },
+        {
+            "filename": "Core-15.0.iso",
+            "version": "15.0",
+            "md5sum": "9f031b429a5c871523a4b377612812a7",
+            "filesize": 18616320,
+            "download_url": "http://www.tinycorelinux.net/downloads.html",
+            "direct_download_url": "http://www.tinycorelinux.net/15.x/x86/release/Core-15.0.iso"
+        },
+        {
+            "filename": "CorePlus-15.0.iso",
+            "version": "15.0",
+            "md5sum": "6a4e997ad2cde8c3c4a1dcc48216cbee",
+            "filesize": 261095424,
+            "download_url": "http://www.tinycorelinux.net/downloads.html",
+            "direct_download_url": "http://www.tinycorelinux.net/15.x/x86/release/CorePlus-15.0.iso"
+        },
+        {
+            "filename": "empty30G.qcow2",
+            "version": "1.0",
+            "md5sum": "3411a599e822f2ac6be560a26405821a",
+            "filesize": 197120,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty30G.qcow2/download"
         }
     ],
     "versions": [
         {
-            "name": "11.1",
+            "name": "TinyCore 11.1",
             "images": {
                 "hda_disk_image": "linux-tinycore-11.1.qcow2"
             }
         },
         {
-            "name": "6.4~2",
+            "name": "TinyCore 6.4~2",
             "images": {
                 "hda_disk_image": "linux-tinycore-6.4-2.img"
             }
         },
         {
-            "name": "6.4~1",
+            "name": "TinyCore 6.4~1",
             "images": {
                 "hda_disk_image": "linux-tinycore-6.4.img"
+            }
+        },
+        {
+            "name": "Core 15.0",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "Core-15.0.iso"
+            }
+        },
+        {
+            "name": "CorePlus 15.0",
+            "images": {
+                "hda_disk_image": "empty30G.qcow2",
+                "cdrom_image": "CorePlus-15.0.iso"
             }
         }
     ]
