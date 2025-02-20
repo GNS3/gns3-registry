@@ -299,6 +299,27 @@
     ],
     "versions": [
         {
+            "name": "7.4.6",
+            "images": {
+                "hda_disk_image": "FAZ_VM64_KVM-v7.4.6.M-build2588-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
+        {
+            "name": "7.4.5",
+            "images": {
+                "hda_disk_image": "FAZ_VM64_KVM-v7.4.5.M-build2553-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
+        {
+            "name": "7.4.4",
+            "images": {
+                "hda_disk_image": "FAZ_VM64_KVM-v7.4.4.F-build2550-FORTINET.out.kvm.qcow2",
+                "hdb_disk_image": "empty30G.qcow2"
+            }
+        },
+        {
             "name": "7.4.3",
             "images": {
                 "hda_disk_image": "FAZ_VM64_KVM-v7.4.3-build2487-FORTINET.out.kvm.qcow2",
