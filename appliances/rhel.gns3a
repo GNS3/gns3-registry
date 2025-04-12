@@ -29,14 +29,14 @@
         {
             "filename": "rhel-9.5-x86_64-kvm.qcow2",
             "version": "9.5",
-            "md5sum": "8174396D5CB47727C59DD04DD9A05418",
+            "md5sum": "8174396d5cb47727c59dd04dd9a05418",
             "filesize": 974389248,
             "download_url": "https://access.redhat.com/downloads/content/479/ver=/rhel---9/9.5/x86_64/product-software"
         },
         {
             "filename": "rhel-9.4-x86_64-kvm.qcow2",
             "version": "9.4",
-            "md5sum": "8174396D5CB47727C59DD04DD9A05418",
+            "md5sum": "77a2ca9a4cb0448260e04f0d2ebf9807",
             "filesize": 957218816,
             "download_url": "https://access.redhat.com/downloads/content/479/ver=/rhel---9/9.4/x86_64/product-software"
         },
@@ -71,14 +71,14 @@
         {
             "filename": "rhel-8.10-x86_64-kvm.qcow2",
             "version": "8.10",
-            "md5sum": "5FDA99FCAB47E3B235C6CCDB6E80D362",
+            "md5sum": "5fda99fcab47e3b235c6ccdb6e80d362",
             "filesize": 1065091072,
             "download_url": "https://access.redhat.com/downloads/content/479/ver=/rhel---8/8.10/x86_64/product-software"
         },
         {
             "filename": "rhel-8.9-x86_64-kvm.qcow2",
             "version": "8.9",
-            "md5sum": "23295FE508678CBDEBFBDBD41EF6E6E2",
+            "md5sum": "23295fe508678cbdebfbdbd41ef6e6e2",
             "filesize": 971833344,
             "download_url": "https://access.redhat.com/downloads/content/479/ver=/rhel---8/8.9/x86_64/product-software"
         },
