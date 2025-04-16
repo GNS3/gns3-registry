@@ -12,7 +12,7 @@
     "maintainer_email": "developers@gns3.net",
     "docker": {
         "adapters": 8,
-        "image": "quay.io/frrouting/frr",
+        "image": "quay.io/frrouting/frr:master",
         "console_type": "telnet"
     }
 }
