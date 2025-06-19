@@ -1,22 +1,28 @@
-FROM alpine:latest
+FROM alpine:3.22
 
-RUN apk add --no-cache openvswitch nano bash bash-completion
+LABEL maintainer="developers@gns3.net"
+
+# --- Install base packages ---
+RUN apk add --no-cache \
+    openvswitch \
+    nano \
+    bash \
+    bash-completion
 
 # Make bash the default shell
-RUN sed -i s,/bin/ash,/bin/bash, /etc/passwd
+RUN sed -i 's|/bin/ash|/bin/bash|' /etc/passwd
 
-# Enable bash completion
-RUN echo -e "source /etc/bash/bash_completion.sh" >> ~/.bashrc
+# Configure bash completion
+RUN echo "" >> /root/.bashrc
+RUN echo "source /etc/bash/bash_completion.sh" >> /root/.bashrc
+RUN echo "source /usr/share/bash-completion/completions/ovs-vsctl-bashcomp.bash" >> /root/.bashrc
+RUN echo "source /usr/share/bash-completion/completions/ovs-appctl-bashcomp.bash" >> /root/.bashrc
+RUN echo "PS1='\\h:\\w\\$ '" >> /root/.bashrc
 
-# Enable openvswitch bash completion
-RUN echo -e "source /usr/share/bash-completion/completions/ovs-vsctl-bashcomp.bash" >> ~/.bashrc
-RUN echo -e "source /usr/share/bash-completion/completions/ovs-appctl-bashcomp.bash" >> ~/.bashrc
 
-# Configure the prompt
-RUN echo -e "PS1='\h:\w\$ '" >> ~/.bashrc
+VOLUME ["/root", "/etc/openvswitch"]
 
-VOLUME [ "/root", "/etc/openvswitch" ]
+COPY init.sh /etc/openvswitch/init.sh
+RUN chmod +x /etc/openvswitch/init.sh
 
-ADD init.sh /etc/openvswitch/
-
-CMD /etc/openvswitch/init.sh; bash
+CMD ["/bin/bash", "-c", "/etc/openvswitch/init.sh && exec bash"]

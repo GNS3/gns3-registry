@@ -1,17 +1,25 @@
-FROM alpine
-RUN apk update
-RUN apk add openssh
-RUN apk add mtr
-RUN apk add nmap
-RUN apk add iperf
-RUN apk add socat
-RUN apk add vim
-RUN apk add nano
-RUN apk add curl
-RUN apk add links
-RUN apk add iputils
-RUN apk add bind-tools
-RUN apk add rsync
-RUN apk add bash
-VOLUME /root/.ssh /etc/ssh /data
-ADD start-ssh.sh /bin/start-ssh.sh
+FROM alpine:3.22
+
+LABEL maintainer="developers@gns3.net"
+
+RUN apk add --no-cache \
+    openssh \
+    mtr \
+    nmap \
+    iperf \
+    socat \
+    vim \
+    nano \
+    curl \
+    links \
+    iputils \
+    bind-tools \
+    rsync \
+    bash
+
+VOLUME ["/root/.ssh", "/etc/ssh", "/data"]
+
+COPY start-ssh.sh /bin/start-ssh.sh
+RUN chmod +x /bin/start-ssh.sh
+
+CMD ["/bin/start-ssh.sh"]
