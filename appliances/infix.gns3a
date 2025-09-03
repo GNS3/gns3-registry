@@ -2,13 +2,13 @@
     "appliance_id": "4d351078-c6f5-444c-ab30-0ef20e3d8c53",
     "name": "Infix",
     "category": "router",
-    "description": "Infix - Embedded done right. Infix is a free, Linux-based system, built on Buildroot and sysrepo. A powerful mix that eases porting to different platforms, simplifies long-term maintenance, and provides easy management using NETCONF, RESTCONF, or the built-in command line interface (CLI). Infix is suitable for switches/routers/other with built-in Docker container support (OCI).",
+    "description": "Infix OS is a free Linux-based operating system with made-easy management using NETCONF, RESTCONF, or the built-in command line interface (CLI). It is suitable for both end-devices with a single Ethernet port and switches/routers with multiple ports. Immutable by design, extensions are possible using Docker containers.",
     "vendor_name": "KernelKit",
     "vendor_url": "https://github.com/kernelkit",
     "vendor_logo_url": "https://kernelkit.org/assets/img/jack.png",
     "product_name": "Infix",
     "registry_version": 4,
-    "documentation_url": "https://github.com/kernelkit/infix/tree/main/doc",
+    "documentation_url": "https://kernelkit.org/infix/latest/",
     "status": "stable",
     "availability": "free",
     "maintainer": "KernelKit",
@@ -77,16 +77,29 @@
             "version": "25.04.0",
             "direct_download_url": "https://github.com/kernelkit/infix/releases/download/v25.04.0/infix-x86_64-disk-25.04.0.qcow2"
         },
-	{
+        {
             "filename": "infix-x86_64-disk-25.05.0.qcow2",
             "filesize": 259958784,
             "md5sum": "a6b1b3a6bccc60bb5214f2b864602fde",
             "version": "25.05.0",
             "direct_download_url": "https://github.com/kernelkit/infix/releases/download/v25.05.0/infix-x86_64-disk-25.05.0.qcow2"
+        },
+        {
+            "filename": "infix-x86_64-disk-25.08.0.qcow2",
+            "filesize": 284453888,
+            "md5sum": "5fbf146d2ac73d1bd8fa1c509d6169b1",
+            "version": "25.08.0",
+            "direct_download_url": "https://github.com/kernelkit/infix/releases/download/v25.08.0/infix-x86_64-disk-25.08.0.qcow2"
         }
-
     ],
     "versions": [
+        {
+            "name": "25.08.0",
+            "images": {
+                "bios_image": "OVMF-edk2-stable202305.fd",
+                "hda_disk_image": "infix-x86_64-disk-25.08.0.qcow2"
+            }
+        },
         {
             "name": "25.05.0",
             "images": {
