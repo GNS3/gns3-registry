@@ -13,11 +13,11 @@ RUN apk add --no-cache \
 RUN sed -i 's|/bin/ash|/bin/bash|' /etc/passwd
 
 # Configure bash completion
-RUN echo "" >> /root/.bashrc
-RUN echo "source /etc/bash/bash_completion.sh" >> /root/.bashrc
-RUN echo "source /usr/share/bash-completion/completions/ovs-vsctl-bashcomp.bash" >> /root/.bashrc
-RUN echo "source /usr/share/bash-completion/completions/ovs-appctl-bashcomp.bash" >> /root/.bashrc
-RUN echo "PS1='\\h:\\w\\$ '" >> /root/.bashrc
+RUN echo "" >> /root/.bashrc && \
+    echo "source /etc/bash/bash_completion.sh" >> /root/.bashrc && \
+    echo "source /usr/share/bash-completion/completions/ovs-vsctl-bashcomp.bash" >> /root/.bashrc && \
+    echo "source /usr/share/bash-completion/completions/ovs-appctl-bashcomp.bash" >> /root/.bashrc && \
+    echo "PS1='\\h:\\w\\$ '" >> /root/.bashrc
 
 
 VOLUME ["/root", "/etc/openvswitch"]
