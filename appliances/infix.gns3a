@@ -97,9 +97,23 @@
             "md5sum": "9761968406780a5b28311b8527f8629f",
             "version": "25.09.0",
             "direct_download_url": "https://github.com/kernelkit/infix/releases/download/v25.09.0/infix-x86_64-disk-25.09.0.qcow2"
+        },
+        {
+            "filename": "infix-x86_64-disk-25.10.0.qcow2",
+            "filesize": 288818688,
+            "md5sum": "781d0fce9fbf789f6ea6ff10dc104afb",
+            "version": "25.10.0",
+            "direct_download_url": "https://github.com/kernelkit/infix/releases/download/v25.10.0/infix-x86_64-disk-25.10.0.qcow2"
         }
     ],
     "versions": [
+        {
+            "name": "25.10.0",
+            "images": {
+                "bios_image": "OVMF-edk2-stable202305.fd",
+                "hda_disk_image": "infix-x86_64-disk-25.10.0.qcow2"
+            }
+        },
         {
             "name": "25.09.0",
             "images": {
