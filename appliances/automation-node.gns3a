@@ -1,0 +1,47 @@
+{
+  "appliance_id": "e8f5d3a2-4bfc-4a1f-9f99-123456789abc",
+  "name": "Automation Node",
+  "category": "guest",
+  "description": "Ubuntu 24.04 server configured as a control node for network automation labs.",
+  "vendor_name": "CISCONET Training Solutions",
+  "vendor_url": "https://www.cisconetsolutions.com",
+  "product_name": "Automation Node",
+  "registry_version": 4,
+  "status": "stable",
+  "maintainer": "CISCONET Training Solutions",
+  "maintainer_email": "ccna@cisconetsolutions.com",
+  "usage": "Default username is ubuntu. password is automation.",
+  "port_name_format": "eth{0}",
+  "symbol": "automation.png",
+  "vendor_logo_url": "https://www.cisconetsolutions.com/automation.png",
+  "qemu": {
+    "adapter_type": "virtio-net-pci",
+    "adapters": 1,
+    "arch": "x86_64",
+    "boot_priority": "c",
+    "console_type": "vnc",
+    "hda_disk_interface": "virtio",
+    "kvm": "allow",
+    "cpus": 1,
+    "ram": 1024,
+    "qemu_path": "qemu-system-x86_64"
+  },
+  "images": [
+    {
+      "filename": "automation-node.qcow2",
+      "version": "latest",
+      "md5sum": "5d781604f49523f31ef5171597995a5f",
+      "filesize": 3633709056,
+      "download_url": "https://www.dropbox.com/scl/fi/xippuqwbg6jl3mk2oeyqd/automation-node.qcow2?rlkey=pstar9mngg5a8gvb3to4v9iy5&dl=1"
+    }
+  ],
+  "versions": [
+    {
+      "name": "",
+      "images": {
+        "hda_disk_image": "automation-node.qcow2"
+      }
+    }
+  ]
+}
+
