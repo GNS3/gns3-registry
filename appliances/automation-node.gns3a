@@ -30,9 +30,9 @@
     {
       "filename": "automation-node.qcow2",
       "version": "latest",
-      "md5sum": "639F732D3619A5A421805B16A19630E7",
-      "filesize": 1475652800,
-      "download_url": "https://www.dropbox.com/scl/fi/i3wn4cyy737ede3pofdmv/automation-node.zip?rlkey=jm6ymgfa4xldby6536fg3shxs&dl=1"
+      "md5sum": "5d781604f49523f31ef5171597995a5f",
+      "filesize": 3633709056,
+      "download_url": "https://www.dropbox.com/scl/fi/xippuqwbg6jl3mk2oeyqd/automation-node.qcow2?rlkey=pstar9mngg5a8gvb3to4v9iy5&dl=1"
     }
   ],
   "versions": [
@@ -44,3 +44,4 @@
     }
   ]
 }
+
