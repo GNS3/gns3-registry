@@ -11,14 +11,15 @@
     "status": "stable",
     "maintainer": "Asterfusion Product Team",
     "maintainer_email": "bd@cloudswit.ch",
+    "availability": "with-registration",
     "images": [
         {
-            "filename": "AsterNOS-VPP_V6.1-R0101P02_x86.img.gz",
-            "version": "V6.1",
+            "filename": "AsterNOS-VPP_V6.1-R0101P02_x86.img",
+            "version": "6.1",
             "md5sum": "55834c3e8849ab226144d79ef76acf81",
             "filesize": 1318201015,
             "download_url": "https://asternos.dev/api/file/b2c9fd83-a9d3-46f3-9676-6b49dd481d6c",
-            "comments": "Registration is required to download the image."
+            "compression": "gzip"
         }
     ],
     "qemu": {
@@ -29,5 +30,13 @@
         "arch": "x86_64",
         "console_type": "telnet",
         "kvm": "require"
-    }
+    },
+    "versions": [
+        {
+            "name": "6.1",
+            "images": {
+                "hda_disk_image": "AsterNOS-VPP_V6.1-R0101P02_x86.img"
+            }
+        }
+    ]
 }
