@@ -1,9 +1,12 @@
-FROM alpine:3.14
-MAINTAINER developers@gns3.net
+FROM alpine:3.22
 
-RUN apk add --update dnsmasq && rm -rf /var/cache/apk/*
+LABEL maintainer="developers@gns3.net"
 
-VOLUME /etc/dnsmasq
-COPY boot.sh .
+RUN apk add --no-cache dnsmasq
 
-CMD /bin/sh boot.sh
+VOLUME ["/etc/dnsmasq"]
+
+COPY boot.sh /boot.sh
+RUN chmod +x /boot.sh
+
+CMD ["/bin/sh", "/boot.sh"]
