@@ -14,7 +14,7 @@
   "availability": "free",
   "maintainer": "Neyder Achahuanco Apaza",
   "maintainer_email": "gns3@neyder.net",
-  "usage": "you will be able to reach Home Assistant on homeassistant.local:8123, you might need to access Home Assistant at homeassistant:8123 or http://X.X.X.X:8123 (replace X.X.X.X with your virtual machine’s IP address).\nYou can access trough console with root user without password.",
+  "usage": "IMPORTANT: You must mark \"Enable UEFI boot mode\" in \"Configure Template\" > \"Advanced\" to this image to boot.\n\nyou will be able to reach Home Assistant on homeassistant.local:8123, you might need to access Home Assistant at homeassistant:8123 or http://X.X.X.X:8123 (replace X.X.X.X with your virtual machine’s IP address).\nYou can access trough console with root user without password.\n\nWARNING: sometimes even the VM is off, and qemu process has finished VM still reports as started \"green\"",
   "symbol": "home-assistant-logomark-color-on-light.svg",
   "qemu": {
     "adapter_type": "virtio-net-pci",
@@ -26,8 +26,7 @@
     "console_type": "telnet",
     "boot_priority": "cd",
     "kvm": "allow",
-    "on_close": "shutdown_signal",
-    "uefi": true
+    "on_close": "shutdown_signal"
   },
   "images": [
     {
