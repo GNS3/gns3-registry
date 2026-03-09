@@ -19,8 +19,6 @@ import os
 import json
 import signal
 import sys
-import shutil
-import subprocess
 import jsonschema
 from picture import get_size
 
@@ -49,7 +47,13 @@ def validate_schema(appliance_json, name, schemas):
         print('Schema version {} is not supported'.format(version))
         sys.exit(1)
 
-    jsonschema.validate(appliance_json, schemas[version])
+    v = jsonschema.Draft4Validator(schemas[version])
+    try:
+        v.validate(appliance_json)
+    except jsonschema.ValidationError:
+        error = jsonschema.exceptions.best_match(v.iter_errors(appliance_json)).message
+        print('Appliance {} does not validate against schema version {}: {}'.format(name, version, error))
+        sys.exit(1)
 
     if version != SCHEMA_VERSIONS[0]:
         try:
