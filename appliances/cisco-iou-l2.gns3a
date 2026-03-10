@@ -15,8 +15,8 @@
     "iou": {
         "ethernet_adapters": 4,
         "serial_adapters": 0,
-        "nvram": 512,
-        "ram": 768,
+        "nvram": 256,
+        "ram": 1024,
         "startup_config": "iou_l2_base_startup-config.txt"
     },
     "images": [
