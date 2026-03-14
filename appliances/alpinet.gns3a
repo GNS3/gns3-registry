@@ -11,7 +11,7 @@
     "maintainer": "nazDridoy",
     "maintainer_email": "nazdridoy399@gmail.com",
     "usage": "The /root directory is persistent across restarts. Type 'alpinet-tools' to see all available utilities.",
-    "symbol": "linux_guest.svg",
+    "symbol": "AlpiNet.svg",
     "docker": {
         "adapters": 1,
         "image": "gns3/alpinet:latest",
