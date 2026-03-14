@@ -1,0 +1,4 @@
+#cloud-config
+password: redhat
+chpasswd: { expire: False }
+ssh_pwauth: True
