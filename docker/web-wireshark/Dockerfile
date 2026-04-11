@@ -3,13 +3,12 @@ FROM debian:trixie
 # Prevent interactive prompts during build
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Set timezone to UTC
+ENV TZ=UTC
+
 # Set UTF-8 locale to avoid Qt warnings
 ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
-
-# Use Alibaba Cloud Debian mirror for faster downloads in China (Debian Trixie uses deb822 format)
-#RUN sed -i 's|http://deb.debian.org/debian|http://mirrors.aliyun.com/debian|g' /etc/apt/sources.list.d/debian.sources \
-#    && sed -i 's|http://security.debian.org/debian-security|http://mirrors.aliyun.com/debian-security|g' /etc/apt/sources.list.d/debian.sources
 
 # Add xpra official repository
 RUN apt-get update && apt-get install -y \
@@ -21,14 +20,20 @@ RUN apt-get update && apt-get install -y \
     && apt-get update
 
 # Install xpra and dependencies
+# Lock xpra version for reproducible builds
 RUN apt-get install -y \
     wireshark-common \
     wireshark \
-    xpra \
+    xpra=6.4.3* \
+    xpra-x11 \
     xvfb \
     curl \
     x11-utils \
     && rm -rf /var/lib/apt/lists/*
+
+# Metadata
+LABEL maintainer="YueGuobin <yueguobin@outlook.com>"
+LABEL description="Web Wireshark container with xpra for GNS3"
 
 # Create gns3 user
 RUN groupadd -g 1000 gns3 && \
@@ -43,26 +48,6 @@ RUN mkdir -p /run/user/1000 && chown -R gns3:gns3 /run/user/1000 && chmod 700 /r
 # Set XDG environment variables
 ENV XDG_RUNTIME_DIR=/run/user/1000
 
-# Configure xpra HTML5 client defaults - disable unused features
-RUN cat >> /usr/share/xpra/www/default-settings.txt << 'EOF'
-file_transfer=false
-printing=false
-sound=false
-audio=false
-fullscreen_button=false
-keyboard_button=false
-cursor_lock_button=false
-keyboard=false
-mediasource=false
-aurora=false
-http-stream=false
-EOF
-
-# Copy GNS3 icon as background image with modern gradient background
-COPY gns3_icon_black.svg /usr/share/xpra/www/background.svg
-RUN sed -i 's|url(../background.jpg)|url(../background.svg), linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 50%, #e8e8e8 100%)|g' /usr/share/xpra/www/css/client.css \
-    && sed -i 's/.*background-size.*/  background-size: 700px 700px, cover;/' /usr/share/xpra/www/css/client.css \
-    && sed -i 's|background-color: #021d3a;|background-color: #e8e8e8;|g' /usr/share/xpra/www/css/client.css
 
 # Set default user
 USER gns3
