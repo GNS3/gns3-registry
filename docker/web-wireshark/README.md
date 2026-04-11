@@ -6,19 +6,9 @@ Docker image for Web Wireshark - provides browser-based packet capture viewing u
 
 ## Features
 
-- **xpra HTML5 client** - Browser-based VNC alternative with HTML5 frontend
+- **xpra HTML5 client** - Browser-based VNC alternative with HTML5 frontend (version 6.4.3)
 - **Wireshark** - Network protocol analyzer for packet capture
-- **Custom background** - GNS3 branded background with gradient styling
-- **Optimized defaults** - Disabled unused features for better security
-
-## Container Features
-
-| Feature | Status | Description |
-|---------|--------|-------------|
-| File Transfer | Disabled | Prevents file upload/download |
-| Printing | Disabled | No printer forwarding |
-| Sound | Disabled | No audio forwarding |
-| Fullscreen Button | Hidden | Cleaner interface |
+- **Non-root user** - Runs as gns3 user (UID 1000) for better security
 
 ## Build
 
@@ -31,64 +21,27 @@ docker build -t gns3/web-wireshark:latest .
 | Variable | Value | Description |
 |----------|-------|-------------|
 | DEBIAN_FRONTEND | noninteractive | Skip apt prompts |
+| TZ | UTC | Timezone |
 | LANG | C.UTF-8 | UTF-8 locale |
 | LC_ALL | C.UTF-8 | UTF-8 locale |
 | XDG_RUNTIME_DIR | /run/user/1000 | Runtime directory |
 
 ## Ports
 
-Dynamic - xpra binds to TCP port specified at runtime (typically 10000-19999 based on link ID).
+Dynamic - Port will be dynamically allocated at runtime by GNS3.
 
 ## Usage
 
-This image is used by GNS3 Web Wireshark integration. Sessions are started via the `manage_wireshark.py` script which handles:
+This image is used by GNS3 Web Wireshark integration. The container runs with `tail -f /dev/null` to stay alive and is managed by GNS3 which handles:
 
 1. Container lifecycle (create/start/stop/delete)
 2. xpra session management
 3. Wireshark launch with capture stream
 
-## XPra Command Options
-
-Key xpra options used:
-
-```
-xpra start :{display}
-  --xvfb="Xvfb -screen 0 1920x1080x24 +extension RANDR"
-  --html=on
-  --bind-tcp=0.0.0.0:{port}
-  --dpi=96
-  --daemon=yes
-  --dbus-launch=no
-  --resize-display=yes
-  XPRA_CLIENT_CAN_SHUTDOWN=false
-```
-
-## Customization
-
-### Background Image
-
-The GNS3 icon SVG is used as background. To customize:
-
-1. Replace `/usr/share/xpra/www/background.svg`
-2. Modify `/usr/share/xpra/www/css/client.css` for CSS changes
-
-### HTML5 Client Settings
-
-Edit `/usr/share/xpra/www/default-settings.txt` to change client defaults:
-
-```
-file_transfer=false
-printing=false
-sound=false
-fullscreen_button=false
-```
-
 ## Security Notes
 
 - Runs as non-root user `gns3` (UID 1000)
-- File transfer and printing disabled
-- Shutdown menu hidden from HTML5 client
-- No exposure of sensitive ports
+- Sessions directory at `/tmp/sessions` with proper permissions (1777)
 
 ## Base Image
 
