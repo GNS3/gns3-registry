@@ -1,5 +1,6 @@
 {
     "appliance_id": "3bf492b6-5717-4257-9bfd-b34617c6f133",
+    "tags": ["device_type:cisco_ios_telnet"],
     "name": "Cisco IOSv",
     "category": "router",
     "description": "Cisco Virtual IOS allows user to run IOS on a standard computer.",
