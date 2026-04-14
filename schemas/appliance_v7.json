@@ -25,6 +25,13 @@
       "type": "string",
       "title": "Appliance name"
     },
+    "tags": {
+      "type": "array",
+      "title": "Tags for the appliance",
+      "items": {
+        "type": "string"
+      }
+    },
     "category": {
       "enum": [
           "router",
