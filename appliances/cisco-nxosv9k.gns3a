@@ -1,5 +1,5 @@
 {
-    "appliance_id": "f739d949-136b-4a56-8b0f-d39832e5aa30",
+    "appliance_id": "4c7fd5da-be86-4168-8484-7071dc9c71fb",
     "name": "Cisco NX-OSv 9000",
     "category": "multilayer_switch",
     "description": "The NX-OSv 9000 is a virtual platform that is designed to simulate the control plane aspects of a network element running Cisco Nexus 9000 software. The NX-OSv 9000 shares the same software image running on Cisco Nexus 9000 hardware platform although no specific hardware emulation is implemented. When the software runs as a virtual machine, line card (LC) ASIC provisioning or any interaction from the control plane to hardware ASIC is handled by the NX-OSv 9000 software data plane.\nThe NX-OSv 9000 for the Cisco Nexus 9000 Series provides a useful tool to enable the devops model and rapidly test changes to the infrastructure or to infrastructure automation tools. This enables network simulations in large scale for customers to validate configuration changes on a simulated network prior to applying them on a production network. Some users have also expressed interest in using the simulation system for feature test ,verification, and automation tooling development and test simualtion prior to deployment. NX-OSv 9000 can be used as a programmability vehicle to validate software defined networks (SDNs) and Network Function Virtualization (NFV) based solutions.",
@@ -27,6 +27,20 @@
         "kvm": "require"
     },
     "images": [
+        {
+            "filename": "nexus9500v64.10.5.5.M.qcow2",
+            "version": "9500v 10.5.5.M",
+            "md5sum": "c1d34bb3331d958d3219a56b6885150e",
+            "filesize": 2919170048,
+            "download_url": "https://software.cisco.com/download/home/286312239/type/282088129/release/10.5(5)"
+        },
+        {
+            "filename": "nexus9300v64.10.5.5.M.qcow2",
+            "version": "9300v 10.5.5.M",
+            "md5sum": "f1cc2342b920320654d232b68551ccfd",
+            "filesize": 2919104512,
+            "download_url": "https://software.cisco.com/download/home/286312239/type/282088129/release/10.5(5)"
+        },
         {
             "filename": "nexus9500v64.10.5.1.F.qcow2",
             "version": "9500v 10.5.1.F",
@@ -80,6 +94,20 @@
         }
     ],
     "versions": [
+        {
+            "name": "9500v 10.5.5.M",
+            "images": {
+                "bios_image": "OVMF-edk2-stable202305.fd",
+                "hda_disk_image": "nexus9500v64.10.5.5.M.qcow2"
+            }
+        },
+        {
+            "name": "9300v 10.5.5.M",
+            "images": {
+                "bios_image": "OVMF-edk2-stable202305.fd",
+                "hda_disk_image": "nexus9300v64.10.5.5.M.qcow2"
+            }
+        },
         {
             "name": "9500v 10.5.1.F",
             "images": {
