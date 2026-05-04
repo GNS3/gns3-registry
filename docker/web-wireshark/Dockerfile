@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get install -y \
     wireshark-common \
     wireshark \
-    xpra=6.4.3* \
+    xpra=6.4* \
     xpra-x11 \
     xvfb \
     curl \
