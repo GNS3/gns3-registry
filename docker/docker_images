@@ -18,7 +18,7 @@ openvswitch		openvswitch
 ovs-snmp		ovs-snmp			--platform=linux/arm64
 pyats			pyats
 ubuntu:noble	ubuntu
-web-wireshark   web-wireshark
+web-wireshark	web-wireshark
 
 # Tests
 xeyes			xeyes
