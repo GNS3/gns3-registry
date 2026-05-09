@@ -1,6 +1,6 @@
 {
     "appliance_id": "8fecbf89-5cd1-4aea-b735-5f36cf0efbb7",
-    "name": "BIRD2",
+    "name": "BIRD",
     "category": "router",
     "description": "The BIRD project aims to develop a fully functional dynamic IP routing daemon primarily targeted on (but not limited to) Linux, FreeBSD and other UNIX-like systems and distributed under the GNU General Public License.",
     "vendor_name": "CZ.NIC Labs",
