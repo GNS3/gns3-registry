@@ -11,6 +11,7 @@ ENV LANG=C.UTF-8
 ENV LC_ALL=C.UTF-8
 
 # Add xpra official repository
+COPY pin-xpra /etc/apt/preferences.d/
 RUN apt-get update && apt-get install -y \
     ca-certificates \
     wget \
@@ -20,11 +21,11 @@ RUN apt-get update && apt-get install -y \
     && apt-get update
 
 # Install xpra and dependencies
-# Lock xpra version for reproducible builds
+# Locking of xpra version is done in /etc/apt/preferences.d/pin-xpra
 RUN apt-get install -y \
     wireshark-common \
     wireshark \
-    xpra=6.4* \
+    xpra \
     xpra-x11 \
     xvfb \
     curl \
