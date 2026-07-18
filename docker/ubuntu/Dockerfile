@@ -1,6 +1,6 @@
 # Ubuntu Docker base image with basic networking tools installed
 
-FROM ubuntu:resolute
+FROM ubuntu:noble
 
 RUN DEBIAN_FRONTEND=noninteractive apt update && apt -y --no-install-recommends install \
     net-tools  \
