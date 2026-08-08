@@ -1,0 +1,49 @@
+#!/bin/sh
+# GNS3-tailored FRR start script.
+#
+# GNS3 wires the node's telnet console to this container's PID 1 via the Docker
+# attach websocket (stdin/stdout). We therefore cannot simply run watchfrr in the
+# foreground (that would expose watchfrr's log instead of a shell). Instead:
+#
+#   1. enable IP forwarding inside the container network namespace
+#   2. start the daemons enabled in /etc/frr/daemons, supervised by watchfrr
+#   3. hand the console to an interactive login shell; /root/.profile runs vtysh
+#
+# The daemons stay up under watchfrr while the operator works in the CLI. Exiting
+# the shell stops the container (standard GNS3 Docker node behaviour).
+set -e
+
+# routing needs forwarding on inside the container netns (GNS3 runs us privileged)
+sysctl -w net.ipv4.ip_forward=1           >/dev/null 2>&1 || true
+sysctl -w net.ipv6.conf.all.forwarding=1  >/dev/null 2>&1 || true
+
+# FRR 10+ logs a noisy "FD Limit ... stupidly large" warning when RLIMIT_NOFILE is
+# very high (the GNS3/Docker default is ~1048576). Cap it to 65536 — ample for a
+# router and under FRR's own 100000 threshold — to keep the console clean.
+ulimit -n 65536
+
+# Which protocol daemons run is selected by FRR_PROFILE (lite|standard|full), set
+# per-appliance via the GNS3 "environment" field. zebra/staticd/mgmtd are always
+# started by frrinit.sh and have no toggle here; fabricd/sharpd are left out
+# (monolithic/test daemons that conflict with or duplicate the standalone ones).
+FRR_FLAGS="bgpd ospfd ospf6d ripd ripngd isisd pimd pim6d ldpd nhrpd eigrpd babeld pbrd bfdd vrrpd pathd"
+apply_frr_profile() {
+    profile="${FRR_PROFILE:-standard}"
+    f=/etc/frr/daemons
+    for d in $FRR_FLAGS; do sed -i -E "s/^${d}=.*/${d}=no/" "$f"; done
+    case "$profile" in
+        lite)     enable="ospfd ospf6d" ;;
+        standard) enable="bgpd ospfd ospf6d" ;;
+        full)     enable="$FRR_FLAGS" ;;
+        *) echo "FRR_PROFILE='$profile' unknown, using standard"; enable="bgpd ospfd ospf6d" ;;
+    esac
+    for d in $enable; do sed -i -E "s/^${d}=.*/${d}=yes/" "$f"; done
+    echo "FRR profile '$profile': enabled ${enable}"
+}
+apply_frr_profile
+
+# start the daemons (per /etc/frr/daemons) under watchfrr
+/usr/lib/frr/frrinit.sh start
+
+# console: interactive login shell -> /root/.profile -> vtysh
+exec /bin/bash -l
