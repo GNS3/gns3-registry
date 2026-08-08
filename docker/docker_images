@@ -19,7 +19,7 @@ ovs-snmp		ovs-snmp			--platform=linux/arm64
 pyats			pyats
 ubuntu:resolute	ubuntu
 web-wireshark	web-wireshark
-ffr	ffr
+frr	frr
 
 # Tests
 xeyes			xeyes
