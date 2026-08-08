@@ -19,6 +19,6 @@
         "image": "gns3/frr:latest",
         "console_type": "telnet",
         "start_command": "/usr/lib/frr/docker-start",
-        "environment": "TERM=xterm"
+        "environment": "FRR_PROFILE=standard,\nTERM=xterm"
     }
 }

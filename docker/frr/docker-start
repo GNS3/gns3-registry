@@ -22,7 +22,27 @@ sysctl -w net.ipv6.conf.all.forwarding=1  >/dev/null 2>&1 || true
 # router and under FRR's own 100000 threshold — to keep the console clean.
 ulimit -n 65536
 
-# start zebra + bgpd/ospfd/ospf6d (per /etc/frr/daemons) under watchfrr
+# Which protocol daemons run is selected by FRR_PROFILE (lite|standard|full), set
+# per-appliance via the GNS3 "environment" field. zebra/staticd/mgmtd are always
+# started by frrinit.sh and have no toggle here; fabricd/sharpd are left out
+# (monolithic/test daemons that conflict with or duplicate the standalone ones).
+FRR_FLAGS="bgpd ospfd ospf6d ripd ripngd isisd pimd pim6d ldpd nhrpd eigrpd babeld pbrd bfdd vrrpd pathd"
+apply_frr_profile() {
+    profile="${FRR_PROFILE:-standard}"
+    f=/etc/frr/daemons
+    for d in $FRR_FLAGS; do sed -i -E "s/^${d}=.*/${d}=no/" "$f"; done
+    case "$profile" in
+        lite)     enable="ospfd ospf6d" ;;
+        standard) enable="bgpd ospfd ospf6d" ;;
+        full)     enable="$FRR_FLAGS" ;;
+        *) echo "FRR_PROFILE='$profile' unknown, using standard"; enable="bgpd ospfd ospf6d" ;;
+    esac
+    for d in $enable; do sed -i -E "s/^${d}=.*/${d}=yes/" "$f"; done
+    echo "FRR profile '$profile': enabled ${enable}"
+}
+apply_frr_profile
+
+# start the daemons (per /etc/frr/daemons) under watchfrr
 /usr/lib/frr/frrinit.sh start
 
 # console: interactive login shell -> /root/.profile -> vtysh

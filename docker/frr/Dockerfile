@@ -41,10 +41,10 @@ RUN apt-get update \
 RUN mkdir -p /var/run/frr \
     && chown -R frr:frr /etc/frr /var/run/frr
 
-# enable the default daemon set (zebra, bgpd, ospfd, ospf6d) + integrated vtysh
-# config, by flipping the package-shipped /etc/frr/daemons (version-agnostic).
-RUN sed -i -E '/^(zebra|bgpd|ospfd|ospf6d)=/ s/= *no/=yes/' /etc/frr/daemons \
-    && sed -i -E '/^vtysh_enable=/ s/= *no/=yes/' /etc/frr/daemons \
+# integrated vtysh config + permissions. Which protocol daemons run is chosen at
+# runtime by docker-start from FRR_PROFILE (lite|standard|full), so the package's
+# default /etc/frr/daemons is left as-is here.
+RUN sed -i -E '/^vtysh_enable=/ s/= *no/=yes/' /etc/frr/daemons \
     && printf 'service integrated-vtysh-config\n' > /etc/frr/vtysh.conf \
     && chown frr:frr /etc/frr/daemons /etc/frr/frr.conf /etc/frr/vtysh.conf \
     && chmod 640 /etc/frr/*
