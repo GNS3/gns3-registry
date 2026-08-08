@@ -61,6 +61,14 @@ RUN printf '%s\n' \
 COPY docker-start /usr/lib/frr/docker-start
 RUN chmod +x /usr/lib/frr/docker-start
 
+# GNS3 Docker-node persistence: GNS3 keeps only the /etc/network it generates plus
+# the image's declared VOLUMEs (read from Config.Volumes), so /etc/frr must be a
+# volume for 'write memory' (vtysh) to survive container recreation between lab
+# sessions. /var/lib/frr holds per-daemon saved state (*.sav) restored at boot.
+# Docker seeds an empty named volume with the image's content on first use, so the
+# packaged daemons/frr.conf/vtysh.conf are preserved.
+VOLUME /etc/frr /var/lib/frr
+
 USER root
 
 # Default entrypoint for standalone use (GNS3 execs start_command directly).
