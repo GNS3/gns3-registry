@@ -8,7 +8,7 @@
     "documentation_url": "https://docs.armbian.com/",
     "product_name": "Armbian UEFI x86",
     "product_url": "https://armbian.com/boards/uefi-x86",
-    "registry_version": 4,
+    "registry_version": 6,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
@@ -21,7 +21,6 @@
         "hda_disk_interface": "virtio",
         "arch": "x86_64",
         "console_type": "spice+agent",
-        "uefi": false,
         "boot_priority": "c",
         "kvm": "require",
         "options": "-nographic"
