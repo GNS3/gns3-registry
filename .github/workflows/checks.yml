@@ -20,6 +20,6 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install -r requirements.txt
 
-    - name: Run checks
+    - name: Run appliance checks
       run: |
-        python3 check.py
+        python3 checks.py
