@@ -1,4 +1,4 @@
-name: checks.yml
+name: Appliance checks
 
 on: [pull_request]
 
@@ -22,4 +22,4 @@ jobs:
 
     - name: Run checks
       run: |
-        python3 -m check.py
+        python3 check.py
