@@ -43,7 +43,7 @@
         {
             "name": "1.4",
             "images": {
-                "hda_disk_image": "AsterNOS-VPP_NEW_VERSION_x86.img"
+                "hda_disk_image": "AsterNOS-VPP_V6.1-R0104P02_x86.img"
             }
         },
         {
