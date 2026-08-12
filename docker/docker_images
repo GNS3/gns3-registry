@@ -17,8 +17,9 @@ ostinato-wireshark	ostinato-wireshark
 openvswitch		openvswitch
 ovs-snmp		ovs-snmp			--platform=linux/arm64
 pyats			pyats
-ubuntu:noble	ubuntu
+ubuntu:resolute	ubuntu
 web-wireshark	web-wireshark
+frr	frr
 
 # Tests
 xeyes			xeyes
