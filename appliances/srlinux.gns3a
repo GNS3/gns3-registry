@@ -9,7 +9,7 @@
     "documentation_url": "https://documentation.nokia.com/srlinux/",
     "product_name": "SR Linux",
     "product_url": "https://www.nokia.com/ip-networks/service-router-linux-NOS/",
-    "registry_version": 7,
+    "registry_version": 6,
     "status": "experimental",
     "availability": "free",
     "maintainer": "GNS3 Team",
