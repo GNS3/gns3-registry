@@ -175,6 +175,24 @@
                 "items": {
                     "type": "string"
                 }
+            },
+            "extra_configs": {
+                "type": "array",
+                "title": "Configuration files injected into the container (bind-mounted read-only)",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "target": {
+                            "title": "Absolute path inside the container where the file is mounted",
+                            "type": "string"
+                        },
+                        "content": {
+                            "title": "File content",
+                            "type": "string"
+                        }
+                    },
+                    "required": ["target"]
+                }
             }
         },
         "required": [
