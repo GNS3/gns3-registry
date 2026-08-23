@@ -13,7 +13,7 @@
     "availability": "free",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "The Web console opens directly in the SR Linux CLI (sr_cli).\n\nData interfaces default to admin-state disable; enable them before use:\n  enter candidate\n  interface ethernet-1/1\n    admin-state enable\n  commit now\n\nTo make a data interface carry traffic, also bind it to a network-instance (default VRF 'default'). The first port (mgmt0) is the management interface.\n\nSave the running config with 'save config' (persisted across node stop/start via /etc/opt/srlinux). The CLI auto-logs out after 300s idle; just reopen the console, or disable it: enter candidate -> /system cli idle-timeout disable -> commit now.",
+    "usage": "The Web console opens directly in the SR Linux CLI (`sr_cli`).\n\nData interfaces default to `admin-state disable`; enable them before use:\n\n```\nenter candidate\ninterface ethernet-1/1\n  admin-state enable\ncommit now\n```\n\nTo make a data interface carry traffic, also bind it to a network-instance (default VRF `default`). The first port (mgmt0) is the management interface.\n\nSave the running config with `save config` (persisted across node stop/start via `/etc/opt/srlinux`).\n\nThe CLI auto-logs out after 300s idle; just reopen the console, or disable it:\n\n```\nenter candidate\n/system cli idle-timeout disable\ncommit now\n```",
     "netmiko_device_type": "nokia_sros_telnet",
     "symbol": ":/symbols/affinity/circle/blue/router_cloud.svg",
     "settings": [
