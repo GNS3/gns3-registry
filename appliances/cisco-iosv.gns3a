@@ -30,7 +30,7 @@
             "filename": "vios-adventerprisek9-m.spa.159-3.m12.qcow2",
             "version": "15.9(3)M12",
             "md5sum": "61d2d7cf16c8a3efa01db6545dcecdfd",
-            "filesize": "57326080",
+            "filesize": 57326080,
             "download_url": "https://u.cisco.com/my-learning/my-account"
         },
         {
