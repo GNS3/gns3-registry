@@ -1,6 +1,6 @@
-Explanation: Lock Xpra packages to v6.4
+Explanation: Lock Xpra packages to v6.4.3
 Package: xpra*
-Pin: version 6.4*
+Pin: version 6.4.3*
 Pin-Priority: 1000
 
 Explanation: xpra-html5 uses different version scheme, lock it to v19
