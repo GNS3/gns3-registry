@@ -101,18 +101,39 @@ jobs:
 
           # get image version
           get_image_version() {
-            local object
-            object='config.Labels."org.opencontainers.image.version"'
+            local image="$1"
+            local platform="$2"
             docker buildx imagetools inspect --format '{{json .Image}}' "$1" | \
-              jq -r ".$object // .\"linux/amd64\".$object // empty"
+              jq -r --arg platform "$platform" '
+                if ($platform | length) > 0 then
+                  .[$platform].config.Labels["org.opencontainers.image.version"] // empty
+                else
+                  .config.Labels["org.opencontainers.image.version"]
+                  // .["linux/amd64"].config.Labels["org.opencontainers.image.version"]
+                  // empty
+                end
+              '
           }
 
           # special treatment for kalilinux: rebuild when image version changes
           if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
-            basever=$(get_image_version kalilinux/kali-last-release:amd64)
-            imagever=$(get_image_version gns3/kalilinux)
-            [ -z "$basever" ] || [ "$basever" = "$imagever" ] || \
+            rebuild_kali=false
+
+            basever_amd64=$(get_image_version kalilinux/kali-last-release:amd64)
+            imagever_amd64=$(get_image_version gns3/kalilinux linux/amd64)
+            if [ -n "$basever_amd64" ] && [ "$basever_amd64" != "$imagever_amd64" ]; then
+              rebuild_kali=true
+            fi
+
+            basever_arm64=$(get_image_version kalilinux/kali-last-release:arm64)
+            imagever_arm64=$(get_image_version gns3/kalilinux linux/arm64)
+            if [ -n "$basever_arm64" ] && [ "$basever_arm64" != "$imagever_arm64" ]; then
+              rebuild_kali=true
+            fi
+
+            if [ "$rebuild_kali" = true ]; then
               set -- "$@" kalilinux
+            fi
           fi
 
           # use option --dir to use a subdirectory as a docker base dir

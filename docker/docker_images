@@ -1,6 +1,6 @@
 # Name			Directory	[Base Image]	[Build Options]
 
---platform=linux/amd64					# global options
+--platform=linux/amd64,linux/arm64					# global options
 
 chromium		chromium
 endhost			endhost
@@ -11,11 +11,11 @@ webterm			ipterm/web
 jupyter:v2		jupyter
 jupyter27:v2		jupyter-2.7
 # kalilinux: base image is updated too often, use manual build on base updates
-kalilinux		kalilinux	NONE
+kalilinux		kalilinux	NONE	--platform=linux/amd64,linux/arm64
 mikrotik-winbox		mikrotik-winbox
 ostinato-wireshark	ostinato-wireshark
 openvswitch		openvswitch
-ovs-snmp		ovs-snmp			--platform=linux/arm64
+ovs-snmp		ovs-snmp
 pyats			pyats
 ubuntu:resolute	ubuntu
 web-wireshark	web-wireshark
