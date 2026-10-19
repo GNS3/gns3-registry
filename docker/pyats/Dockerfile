@@ -12,7 +12,6 @@ RUN apt install -y python3
 RUN apt install -y python3-pip
 RUN apt install -y traceroute
 RUN apt install -y iputils-ping
-RUN python3 -m pip install --upgrade pip wheel setuptools
 RUN python3 -m pip install "pyats[full]"
 
 ENTRYPOINT [ "/bin/bash" ]
