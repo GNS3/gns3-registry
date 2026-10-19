@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       images:
-        description: 'List of images to be built'
+        description: 'List of images to be built (separated by space). `--all` to build all images.'
         required: false
         type: string
 
