@@ -168,7 +168,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Download build plan
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: docker-build-plan
 
@@ -218,12 +218,12 @@ jobs:
       packages: write
     steps:
       - name: Download build plan
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: docker-build-plan
 
       - name: Download image digests
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: docker-digests-*
           path: digests
