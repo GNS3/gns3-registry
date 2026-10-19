@@ -2,7 +2,7 @@
 
 --platform=linux/amd64,linux/arm64					# global options
 
-chromium		chromium        --platform=linux/amd64
+chromium		chromium			--platform=linux/amd64
 endhost			endhost
 haproxy			haproxy
 ipterm-base		ipterm/base
