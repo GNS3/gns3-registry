@@ -49,7 +49,6 @@ RUN mkdir -p /run/user/1000 && chown -R gns3:gns3 /run/user/1000 && chmod 700 /r
 # Set XDG environment variables
 ENV XDG_RUNTIME_DIR=/run/user/1000
 
-
 # Set default user
 USER gns3
 
