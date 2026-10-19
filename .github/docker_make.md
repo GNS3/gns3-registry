@@ -36,6 +36,17 @@ images with that base image are rebuilt.
 When using the option -a/--all, all images are forcibly
 rebuild, except those specified on the command line.
 
+Use `--plan FILE` to save the selected images as JSON without
+building them. Images depending on a selected base image are
+included in configuration order. Use `--build-plan FILE` to
+build exactly that selection, without checking for updates again.
+Plan paths are relative to the directory selected by `--dir`.
+
+`--platform PLATFORM` overrides the platforms in the configuration.
+When building a saved plan, `--tag-suffix SUFFIX` appends a suffix
+to each image tag. Dependent builds use the suffixed base images
+already built in that plan through Buildx named contexts.
+
 
 ## Configuration File
 
@@ -122,13 +133,21 @@ Before `docker_make` can be run the following steps
 need to be done:
 
 * Check out the repository code
-* Set up QEMU (for multi-arch building)
 * Set up Docker Buildx
 * Login to the Container Registries
 * Install python requirements
 
 Then `docker_make` can be executed,
 normally without any arguments.
+
+The Docker image workflow selects images once, then builds the
+saved plan in parallel on native AMD64 (`ubuntu-24.04`) and ARM64
+(`ubuntu-24.04-arm`) runners. No QEMU emulation is needed.
+Each build pushes run-specific architecture tags to both registries.
+Only after both native builds succeed does a final job combine
+their manifests under the original multi-platform tags. Intermediate
+tags remain in the registries and can be removed by retention policies.
+Images must appear after their base images in the configuration.
 
 But what, when an image build needs to be forced?  
 For that, run the action manually and enter the list

@@ -19,7 +19,8 @@
 docker_make - (re)build outdated docker images
 
 usage: docker_make [--help] [--all] [--dir DIR] [--dry-run] [--file FILE]
-                   [image ...]
+                   [--plan FILE | --build-plan FILE] [--platform PLATFORM]
+                   [--tag-suffix SUFFIX] [image ...]
 
 positional arguments:
   image                 images to build additionally
@@ -30,6 +31,10 @@ optional arguments:
   --dir DIR, -C DIR     change directory before building
   --dry-run, -n         do not build images, just print them
   --file FILE, -f FILE  use FILE as image config (default: 'docker_images')
+  --plan FILE          write a build plan instead of building images
+  --build-plan FILE    build exactly the images in a saved plan
+  --platform PLATFORM override the configured build platforms
+  --tag-suffix SUFFIX  append SUFFIX to tags when building a saved plan
 
 The docker images and their properties are configured in a
 file, by default 'docker_images' in the current directory.
@@ -83,6 +88,11 @@ parser.add_argument('--dry-run', '-n', action='store_true',
                     help='do not build images, just print them')
 parser.add_argument('--file', '-f', default='docker_images',
                     help="use FILE as image config (default: '%(default)s')")
+plan_group = parser.add_mutually_exclusive_group()
+plan_group.add_argument('--plan', help='write a build plan instead of building')
+plan_group.add_argument('--build-plan', help='build images from a saved plan')
+parser.add_argument('--platform', help='override configured build platforms')
+parser.add_argument('--tag-suffix', help='tag suffix for saved-plan builds')
 parser.add_argument('image', nargs="*",
                     help='images to build additionally')
 
@@ -402,11 +412,27 @@ def needs_rebuild(image, default_repository=None):
     return None
 
 
-def build(image, default_repository=None):
+def build(image, default_repository=None, platform=None, tag_suffix=None,
+          planned_targets=()):
     """ build image """
     full_name = full_image_name(image["image"], default_repository)
     _, options = expand_base_image(image["base"], full_name)
     options += image["options"]
+    if platform:
+        configured_options = iter(options)
+        options = []
+        for option in configured_options:
+            if option == "--platform":
+                next(configured_options)
+            elif not option.startswith("--platform="):
+                options.append(option)
+        options += ["--platform", platform]
+    if tag_suffix:
+        base_name, _ = expand_base_image(image["base"], full_name)
+        if base_name in planned_targets:
+            options += ["--build-context",
+                        f"{base_name}=docker-image://{base_name}-{tag_suffix}"]
+        full_name += "-" + tag_suffix
     try:
         subprocess.run(["docker", "buildx", "build"] + options + \
                        ["--push", "--tag", full_name, image["dir"]],
@@ -464,8 +490,10 @@ def get_images_info(all_flag, forced_images):
             image_info[futures[future]] = future.result()
 
 
-def rebuild_images(dry_run, all_flag, forced_images):
+def rebuild_images(dry_run, all_flag, forced_images, plan_file=None):
     """ rebuild images """
+    plan = []
+    planned_targets = set()
     for image in images:
         if "/" in image["image"]:	# full image name
             base_repos = [None]
@@ -477,15 +505,27 @@ def rebuild_images(dry_run, all_flag, forced_images):
             reason = "Rebuild triggered by command line"
         else:				# check if image needs rebuilding
             for repo in base_repos:
-                reason = needs_rebuild(image, repo)
+                full_name = full_image_name(image["image"], repo)
+                base_name, _ = expand_base_image(image["base"], full_name)
+                if base_name in planned_targets:
+                    reason = "Base image is being rebuilt"
+                else:
+                    reason = needs_rebuild(image, repo)
                 if reason:
                     break
         if reason:			# rebuild image
             for repo in base_repos:
                 print(f"*** {full_image_name(image['name'], repo)}\n"
                       f"Reason: {reason}\n")
-                if not dry_run:
-                    build(image, repo)
+                target = full_image_name(image["image"], repo)
+                plan.append({"image": image, "repository": repo,
+                             "target": target})
+                planned_targets.add(target)
+                if not dry_run and not plan_file:
+                    build(image, repo, platform=args.platform)
+    if plan_file:
+        with open(plan_file, "w", encoding="utf-8") as output:
+            json.dump(plan, output, indent=2)
 
 
 def xor(*params):
@@ -518,6 +558,24 @@ if args.dir:
     except OSError as err_info:
         sys.exit(f"Can't change directory: {err_info}")
 
+if args.tag_suffix and not args.build_plan:
+    parser.error('--tag-suffix requires --build-plan')
+
+if args.build_plan:
+    with open(args.build_plan, encoding="utf-8") as plan_input:
+        build_plan = json.load(plan_input)
+    built_targets = set()
+    for entry in build_plan:
+        target = entry["target"]
+        if args.tag_suffix:
+            target += "-" + args.tag_suffix
+        print(f"*** {target}\n")
+        if not args.dry_run:
+            build(entry["image"], entry["repository"], args.platform,
+                  args.tag_suffix, built_targets)
+        built_targets.add(entry["target"])
+    sys.exit(0)
+
 get_images(args.file)
 init_image_info()
 
@@ -536,4 +594,4 @@ for img in images:
 
 # rebuild images
 get_images_info(args.all, args.image)
-rebuild_images(args.dry_run, args.all, args.image)
+rebuild_images(args.dry_run, args.all, args.image, args.plan)
