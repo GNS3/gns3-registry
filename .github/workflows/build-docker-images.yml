@@ -7,12 +7,14 @@ on:
       - master
     paths:
       - 'docker/**'
+      - '.github/bin/docker_make'
+      - '.github/workflows/build-docker-images.yml'
   schedule:
     - cron: '37 7 * * 3'
   workflow_dispatch:
     inputs:
       images:
-        description: 'List of images to be built'
+        description: 'List of images to be built (separated by space). `--all` to build all images.'
         required: false
         type: string
 
@@ -21,8 +23,10 @@ concurrency:
   group: build-docker-images
 
 jobs:
-  docker-images:
+  prepare:
     runs-on: ubuntu-latest
+    outputs:
+      has-images: ${{ steps.plan.outputs.has-images }}
     permissions:
       packages: write
     steps:
@@ -31,10 +35,6 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
-
-      - name: Set up QEMU
-        # https://github.com/marketplace/actions/docker-setup-qemu
-        uses: docker/setup-qemu-action@v4
 
       - name: Set up Docker Buildx
         # https://github.com/marketplace/actions/docker-setup-buildx
@@ -65,7 +65,8 @@ jobs:
           source ./venv/bin/activate
           python3 -m pip install --requirement .github/bin/requirements.txt
 
-      - name: Build and push images
+      - name: Select images to build
+        id: plan
         env:
           # DOCKER_REPOSITORY - Repository for name-only images
           # Using multiple repositories will build images in all of them.
@@ -101,19 +102,161 @@ jobs:
 
           # get image version
           get_image_version() {
-            local object
-            object='config.Labels."org.opencontainers.image.version"'
+            local image="$1"
+            local platform="$2"
             docker buildx imagetools inspect --format '{{json .Image}}' "$1" | \
-              jq -r ".$object // .\"linux/amd64\".$object // empty"
+              jq -r --arg platform "$platform" '
+                if ($platform | length) > 0 then
+                  .[$platform].config.Labels["org.opencontainers.image.version"] // empty
+                else
+                  .config.Labels["org.opencontainers.image.version"]
+                  // .["linux/amd64"].config.Labels["org.opencontainers.image.version"]
+                  // empty
+                end
+              '
           }
 
           # special treatment for kalilinux: rebuild when image version changes
           if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
-            basever=$(get_image_version kalilinux/kali-last-release:amd64)
-            imagever=$(get_image_version gns3/kalilinux)
-            [ -z "$basever" ] || [ "$basever" = "$imagever" ] || \
+            rebuild_kali=false
+
+            basever_amd64=$(get_image_version kalilinux/kali-last-release:amd64)
+            imagever_amd64=$(get_image_version gns3/kalilinux linux/amd64)
+            if [ -n "$basever_amd64" ] && [ "$basever_amd64" != "$imagever_amd64" ]; then
+              rebuild_kali=true
+            fi
+
+            basever_arm64=$(get_image_version kalilinux/kali-last-release:arm64)
+            imagever_arm64=$(get_image_version gns3/kalilinux linux/arm64)
+            if [ -n "$basever_arm64" ] && [ "$basever_arm64" != "$imagever_arm64" ]; then
+              rebuild_kali=true
+            fi
+
+            if [ "$rebuild_kali" = true ]; then
               set -- "$@" kalilinux
+            fi
           fi
 
           # use option --dir to use a subdirectory as a docker base dir
-          python3 "$GITHUB_WORKSPACE/.github/bin/docker_make" --dir "docker" "$@"
+          python3 "$GITHUB_WORKSPACE/.github/bin/docker_make" --dir "docker" \
+            --plan "$GITHUB_WORKSPACE/build-plan.json" "$@"
+          jq -r '"has-images=\(length > 0)"' build-plan.json >> "$GITHUB_OUTPUT"
+
+      - name: Upload build plan
+        uses: actions/upload-artifact@v7
+        with:
+          name: docker-build-plan
+          path: build-plan.json
+          retention-days: 1
+
+  build:
+    needs: prepare
+    if: needs.prepare.outputs.has-images == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: amd64
+            runner: ubuntu-24.04
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    permissions:
+      packages: write
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v7
+
+      - name: Download build plan
+        uses: actions/download-artifact@v8
+        with:
+          name: docker-build-plan
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+        with:
+          platforms: linux/${{ matrix.arch }}
+
+      - name: Login to DockerHub Registry
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install python requirements
+        run: |
+          python3 -m venv venv
+          ./venv/bin/python -m pip install --requirement .github/bin/requirements.txt
+
+      - name: Build and push native images
+        env:
+          PLATFORM: linux/${{ matrix.arch }}
+        run: |
+          ./venv/bin/python .github/bin/docker_make --dir docker \
+            --build-plan "$GITHUB_WORKSPACE/build-plan.json" \
+            --platform "$PLATFORM" --digest-file "$GITHUB_WORKSPACE/digests.json"
+
+      - name: Upload image digests
+        uses: actions/upload-artifact@v7
+        with:
+          name: docker-digests-${{ matrix.arch }}
+          path: digests.json
+          if-no-files-found: error
+          retention-days: 1
+
+  merge:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - name: Download build plan
+        uses: actions/download-artifact@v8
+        with:
+          name: docker-build-plan
+
+      - name: Download image digests
+        uses: actions/download-artifact@v8
+        with:
+          pattern: docker-digests-*
+          path: digests
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Login to DockerHub Registry
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish multi-platform images
+        run: |
+          jq -r '.[] | [.target, ((.platforms // ["linux/amd64", "linux/arm64"]) | join(","))] | @tsv' \
+            build-plan.json | while IFS=$'\t' read -r image platforms; do
+            references=()
+            IFS=',' read -ra platform_list <<< "$platforms"
+            for platform in "${platform_list[@]}"; do
+              case "$platform" in
+                linux/amd64|linux/arm64) arch=${platform#linux/} ;;
+                *) echo "Unsupported platform for $image: $platform" >&2; exit 1 ;;
+              esac
+              reference=$(jq -er --arg image "$image" '.[$image]' "digests/docker-digests-$arch/digests.json")
+              references+=("$reference")
+            done
+            docker buildx imagetools create --tag "$image" "${references[@]}"
+          done

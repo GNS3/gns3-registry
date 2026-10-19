@@ -19,7 +19,8 @@
 docker_make - (re)build outdated docker images
 
 usage: docker_make [--help] [--all] [--dir DIR] [--dry-run] [--file FILE]
-                   [image ...]
+                   [--plan FILE | --build-plan FILE] [--platform PLATFORM]
+                   [--digest-file FILE] [image ...]
 
 positional arguments:
   image                 images to build additionally
@@ -30,6 +31,10 @@ optional arguments:
   --dir DIR, -C DIR     change directory before building
   --dry-run, -n         do not build images, just print them
   --file FILE, -f FILE  use FILE as image config (default: 'docker_images')
+  --plan FILE          write a build plan instead of building images
+  --build-plan FILE    build exactly the images in a saved plan
+  --platform PLATFORM override the configured build platforms
+  --digest-file FILE   push saved-plan builds by digest and save references
 
 The docker images and their properties are configured in a
 file, by default 'docker_images' in the current directory.
@@ -61,6 +66,7 @@ import json
 import re
 import shlex
 import subprocess
+import tempfile
 import time
 import dateutil.parser
 import dxf
@@ -83,6 +89,12 @@ parser.add_argument('--dry-run', '-n', action='store_true',
                     help='do not build images, just print them')
 parser.add_argument('--file', '-f', default='docker_images',
                     help="use FILE as image config (default: '%(default)s')")
+plan_group = parser.add_mutually_exclusive_group()
+plan_group.add_argument('--plan', help='write a build plan instead of building')
+plan_group.add_argument('--build-plan', help='build images from a saved plan')
+parser.add_argument('--platform', help='override configured build platforms')
+parser.add_argument('--digest-file',
+                    help='push saved-plan builds by digest and save references')
 parser.add_argument('image', nargs="*",
                     help='images to build additionally')
 
@@ -402,15 +414,65 @@ def needs_rebuild(image, default_repository=None):
     return None
 
 
-def build(image, default_repository=None):
+def configured_platforms(image):
+    """ return the last platform setting, including image-specific overrides """
+    platforms = None
+    options = iter(image["options"])
+    for option in options:
+        if option == "--platform":
+            value = next(options, "")
+        elif option.startswith("--platform="):
+            value = option.split("=", maxsplit=1)[1]
+        else:
+            continue
+        platforms = value.split(",")
+        if not value or any(not platform for platform in platforms):
+            sys.exit(f"{image['name']}: Invalid --platform option")
+    return platforms
+
+
+def build(image, default_repository=None, platform=None, push_by_digest=False,
+          built_references=None):
     """ build image """
     full_name = full_image_name(image["image"], default_repository)
     _, options = expand_base_image(image["base"], full_name)
     options += image["options"]
+    if platform:
+        configured_options = iter(options)
+        options = []
+        for option in configured_options:
+            if option == "--platform":
+                next(configured_options)
+            elif not option.startswith("--platform="):
+                options.append(option)
+        options += ["--platform", platform]
+    if built_references:
+        base_name, _ = expand_base_image(image["base"], full_name)
+        if base_name in built_references:
+            options += ["--build-context",
+                        f"{base_name}=docker-image://"
+                        f"{built_references[base_name]}"]
+    reference = None
     try:
-        subprocess.run(["docker", "buildx", "build"] + options + \
-                       ["--push", "--tag", full_name, image["dir"]],
-                       check=True)
+        with tempfile.TemporaryDirectory() as directory:
+            metadata_file = os.path.join(directory, "metadata.json")
+            if push_by_digest:
+                repository = full_name.rsplit(":", maxsplit=1)[0]
+                output_options = [
+                    "--output", f"type=image,name={repository},"
+                    "push-by-digest=true,name-canonical=true,push=true",
+                    "--metadata-file", metadata_file]
+            else:
+                output_options = ["--push", "--tag", full_name]
+            subprocess.run(["docker", "buildx", "build"] + options +
+                           output_options + [image["dir"]], check=True)
+            if push_by_digest:
+                with open(metadata_file, encoding="utf-8") as metadata_input:
+                    metadata = json.load(metadata_input)
+                digest = metadata.get("containerimage.digest", "")
+                if not re.fullmatch(r"sha256:[0-9a-f]{64}", digest):
+                    sys.exit(f"{full_name}: Missing or invalid build digest")
+                reference = f"{repository}@{digest}"
     except OSError as err:
         sys.exit(f"Can't run docker: {err}")
     except subprocess.CalledProcessError as err:
@@ -418,6 +480,7 @@ def build(image, default_repository=None):
     print()
 
     image_info.pop(full_name, None)	# remove outdated image information
+    return reference
 
 
 def fill_login_table():
@@ -464,8 +527,10 @@ def get_images_info(all_flag, forced_images):
             image_info[futures[future]] = future.result()
 
 
-def rebuild_images(dry_run, all_flag, forced_images):
+def rebuild_images(dry_run, all_flag, forced_images, plan_file=None):
     """ rebuild images """
+    plan = []
+    planned_targets = set()
     for image in images:
         if "/" in image["image"]:	# full image name
             base_repos = [None]
@@ -477,15 +542,28 @@ def rebuild_images(dry_run, all_flag, forced_images):
             reason = "Rebuild triggered by command line"
         else:				# check if image needs rebuilding
             for repo in base_repos:
-                reason = needs_rebuild(image, repo)
+                full_name = full_image_name(image["image"], repo)
+                base_name, _ = expand_base_image(image["base"], full_name)
+                if base_name in planned_targets:
+                    reason = "Base image is being rebuilt"
+                else:
+                    reason = needs_rebuild(image, repo)
                 if reason:
                     break
         if reason:			# rebuild image
             for repo in base_repos:
                 print(f"*** {full_image_name(image['name'], repo)}\n"
                       f"Reason: {reason}\n")
-                if not dry_run:
-                    build(image, repo)
+                target = full_image_name(image["image"], repo)
+                plan.append({"image": image, "repository": repo,
+                             "target": target,
+                             "platforms": configured_platforms(image)})
+                planned_targets.add(target)
+                if not dry_run and not plan_file:
+                    build(image, repo, platform=args.platform)
+    if plan_file:
+        with open(plan_file, "w", encoding="utf-8") as output:
+            json.dump(plan, output, indent=2)
 
 
 def xor(*params):
@@ -518,6 +596,32 @@ if args.dir:
     except OSError as err_info:
         sys.exit(f"Can't change directory: {err_info}")
 
+if args.digest_file and not args.build_plan:
+    parser.error('--digest-file requires --build-plan')
+
+if args.build_plan:
+    with open(args.build_plan, encoding="utf-8") as plan_input:
+        build_plan = json.load(plan_input)
+    built_references = {}
+    for entry in build_plan:
+        platforms = configured_platforms(entry["image"])
+        if args.platform and platforms is not None and \
+           args.platform not in platforms:
+            print(f"Skipping {entry['target']}: "
+                  f"{args.platform} is not a configured platform")
+            continue
+        print(f"*** {entry['target']}\n")
+        if not args.dry_run:
+            reference = build(entry["image"], entry["repository"],
+                              args.platform, bool(args.digest_file),
+                              built_references)
+            if args.digest_file:
+                built_references[entry["target"]] = reference
+    if args.digest_file and not args.dry_run:
+        with open(args.digest_file, "w", encoding="utf-8") as digest_output:
+            json.dump(built_references, digest_output, indent=2)
+    sys.exit(0)
+
 get_images(args.file)
 init_image_info()
 
@@ -536,4 +640,4 @@ for img in images:
 
 # rebuild images
 get_images_info(args.all, args.image)
-rebuild_images(args.dry_run, args.all, args.image)
+rebuild_images(args.dry_run, args.all, args.image, args.plan)

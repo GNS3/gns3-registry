@@ -1,4 +1,4 @@
-FROM ubuntu:jammy
+FROM ubuntu:latest
 
 WORKDIR /pyats
 
@@ -12,7 +12,6 @@ RUN apt install -y python3
 RUN apt install -y python3-pip
 RUN apt install -y traceroute
 RUN apt install -y iputils-ping
-RUN python3 -m pip install --upgrade pip wheel setuptools
-RUN python3 -m pip install "pyats[full]"
+RUN python3 -m pip install "pyats[full]" --break-system-packages
 
 ENTRYPOINT [ "/bin/bash" ]

@@ -23,7 +23,7 @@ then starts building images with `docker buildx build`.
 
 If `docker_make` is launched without arguments, it checks
 all configured images for an update of the base image.
-Additionally it checks, if `git` shows an update of
+Additionally, it checks if `git` shows an update of
 the directory containing the docker build context.
 When at least one of these conditions is met, the tool
 starts a rebuild of that image.
@@ -35,6 +35,22 @@ images with that base image are rebuilt.
 
 When using the option -a/--all, all images are forcibly
 rebuild, except those specified on the command line.
+
+Use `--plan FILE` to save the selected images as JSON without
+building them. Images depending on a selected base image are
+included in configuration order. Use `--build-plan FILE` to
+build exactly that selection, without checking for updates again.
+Plan paths are relative to the directory selected by `--dir`.
+
+`--platform PLATFORM` overrides the platforms in the configuration.
+For saved-plan builds, it selects one of the image's configured
+platforms; images not supporting that platform are skipped.
+The last `--platform` setting takes precedence, so an image-specific
+setting can restrict the global platform list.
+When building a saved plan, `--digest-file FILE` pushes images by
+digest without assigning tags and saves a JSON mapping from target
+tags to pushed digest references. Dependent builds use the base image
+digests already built in that plan through Buildx named contexts.
 
 
 ## Configuration File
@@ -77,7 +93,7 @@ environment variable as its initial part. For example, an
 DOCKER_REPOSITORY value of "ghcr.io/b-ehlers" plus the image
 name of "alpine-1" results in "ghcr.io/b-ehlers/alpine-1".
 When `DOCKER_REPOSITORY` contains a list of repositories,
-then the name-only targets will be build for all of them.
+then the name-only targets will be built for all of them.
 
 This method is not applied to the base images, they always
 have to contain the complete name.
@@ -99,7 +115,7 @@ FROM $DOCKER_REPOSITORY/base-image
 
 ## Environment Variables
 
-In addition to the DOCKER_REPOSITORY variable described above
+In addition to the DOCKER_REPOSITORY variable described above,
 the build tool uses the environment variables whose names begin
 with "DOCKER_LOGIN". Each variable contains the user/password
 of a docker registry. The format is: `<registry> <user> <password>`.
@@ -116,19 +132,32 @@ DOCKER_LOGIN_GH="ghcr.io github-user github-password"
 
 [GitHub Actions](https://docs.github.com/en/actions)
 uses YAML files in the .github/workflows directory
-to define, which tasks should be run.
+to define which tasks should be run.
 
 Before `docker_make` can be run the following steps
 need to be done:
 
 * Check out the repository code
-* Set up QEMU (for multi-arch building)
 * Set up Docker Buildx
 * Login to the Container Registries
 * Install python requirements
 
 Then `docker_make` can be executed,
 normally without any arguments.
+
+The Docker image workflow selects images once, then builds the
+saved plan in parallel on native AMD64 (`ubuntu-24.04`) and ARM64
+(`ubuntu-24.04-arm`) runners. No QEMU emulation is needed.
+Each build pushes images by digest to both registries, without
+creating intermediate architecture tags.
+Images restricted to `linux/amd64` are skipped on the ARM64 runner.
+Only after both native builds succeed does a final job combine
+the configured platform digests under the original tags. AMD64-only
+images are published without requiring an ARM64 digest. The architecture
+manifests remain in the registries as untagged content referenced by
+the multi-platform image. Existing tags from older workflow runs are
+not removed automatically.
+Images must appear after their base images in the configuration.
 
 But what, when an image build needs to be forced?  
 For that, run the action manually and enter the list
