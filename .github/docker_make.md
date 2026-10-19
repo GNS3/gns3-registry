@@ -23,7 +23,7 @@ then starts building images with `docker buildx build`.
 
 If `docker_make` is launched without arguments, it checks
 all configured images for an update of the base image.
-Additionally it checks, if `git` shows an update of
+Additionally, it checks if `git` shows an update of
 the directory containing the docker build context.
 When at least one of these conditions is met, the tool
 starts a rebuild of that image.
@@ -89,7 +89,7 @@ environment variable as its initial part. For example, an
 DOCKER_REPOSITORY value of "ghcr.io/b-ehlers" plus the image
 name of "alpine-1" results in "ghcr.io/b-ehlers/alpine-1".
 When `DOCKER_REPOSITORY` contains a list of repositories,
-then the name-only targets will be build for all of them.
+then the name-only targets will be built for all of them.
 
 This method is not applied to the base images, they always
 have to contain the complete name.
@@ -111,7 +111,7 @@ FROM $DOCKER_REPOSITORY/base-image
 
 ## Environment Variables
 
-In addition to the DOCKER_REPOSITORY variable described above
+In addition to the DOCKER_REPOSITORY variable described above,
 the build tool uses the environment variables whose names begin
 with "DOCKER_LOGIN". Each variable contains the user/password
 of a docker registry. The format is: `<registry> <user> <password>`.
@@ -128,7 +128,7 @@ DOCKER_LOGIN_GH="ghcr.io github-user github-password"
 
 [GitHub Actions](https://docs.github.com/en/actions)
 uses YAML files in the .github/workflows directory
-to define, which tasks should be run.
+to define which tasks should be run.
 
 Before `docker_make` can be run the following steps
 need to be done:
