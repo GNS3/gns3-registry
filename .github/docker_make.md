@@ -43,9 +43,10 @@ build exactly that selection, without checking for updates again.
 Plan paths are relative to the directory selected by `--dir`.
 
 `--platform PLATFORM` overrides the platforms in the configuration.
-When building a saved plan, `--tag-suffix SUFFIX` appends a suffix
-to each image tag. Dependent builds use the suffixed base images
-already built in that plan through Buildx named contexts.
+When building a saved plan, `--digest-file FILE` pushes images by
+digest without assigning tags and saves a JSON mapping from target
+tags to pushed digest references. Dependent builds use the base image
+digests already built in that plan through Buildx named contexts.
 
 
 ## Configuration File
@@ -143,10 +144,13 @@ normally without any arguments.
 The Docker image workflow selects images once, then builds the
 saved plan in parallel on native AMD64 (`ubuntu-24.04`) and ARM64
 (`ubuntu-24.04-arm`) runners. No QEMU emulation is needed.
-Each build pushes run-specific architecture tags to both registries.
+Each build pushes images by digest to both registries, without
+creating intermediate architecture tags.
 Only after both native builds succeed does a final job combine
-their manifests under the original multi-platform tags. Intermediate
-tags remain in the registries and can be removed by retention policies.
+their digests under the original multi-platform tags. The architecture
+manifests remain in the registries as untagged content referenced by
+the multi-platform image. Existing tags from older workflow runs are
+not removed automatically.
 Images must appear after their base images in the configuration.
 
 But what, when an image build needs to be forced?  

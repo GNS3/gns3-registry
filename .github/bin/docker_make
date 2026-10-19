@@ -20,7 +20,7 @@ docker_make - (re)build outdated docker images
 
 usage: docker_make [--help] [--all] [--dir DIR] [--dry-run] [--file FILE]
                    [--plan FILE | --build-plan FILE] [--platform PLATFORM]
-                   [--tag-suffix SUFFIX] [image ...]
+                   [--digest-file FILE] [image ...]
 
 positional arguments:
   image                 images to build additionally
@@ -34,7 +34,7 @@ optional arguments:
   --plan FILE          write a build plan instead of building images
   --build-plan FILE    build exactly the images in a saved plan
   --platform PLATFORM override the configured build platforms
-  --tag-suffix SUFFIX  append SUFFIX to tags when building a saved plan
+  --digest-file FILE   push saved-plan builds by digest and save references
 
 The docker images and their properties are configured in a
 file, by default 'docker_images' in the current directory.
@@ -66,6 +66,7 @@ import json
 import re
 import shlex
 import subprocess
+import tempfile
 import time
 import dateutil.parser
 import dxf
@@ -92,7 +93,8 @@ plan_group = parser.add_mutually_exclusive_group()
 plan_group.add_argument('--plan', help='write a build plan instead of building')
 plan_group.add_argument('--build-plan', help='build images from a saved plan')
 parser.add_argument('--platform', help='override configured build platforms')
-parser.add_argument('--tag-suffix', help='tag suffix for saved-plan builds')
+parser.add_argument('--digest-file',
+                    help='push saved-plan builds by digest and save references')
 parser.add_argument('image', nargs="*",
                     help='images to build additionally')
 
@@ -412,8 +414,8 @@ def needs_rebuild(image, default_repository=None):
     return None
 
 
-def build(image, default_repository=None, platform=None, tag_suffix=None,
-          planned_targets=()):
+def build(image, default_repository=None, platform=None, push_by_digest=False,
+          built_references=None):
     """ build image """
     full_name = full_image_name(image["image"], default_repository)
     _, options = expand_base_image(image["base"], full_name)
@@ -427,16 +429,33 @@ def build(image, default_repository=None, platform=None, tag_suffix=None,
             elif not option.startswith("--platform="):
                 options.append(option)
         options += ["--platform", platform]
-    if tag_suffix:
+    if built_references:
         base_name, _ = expand_base_image(image["base"], full_name)
-        if base_name in planned_targets:
+        if base_name in built_references:
             options += ["--build-context",
-                        f"{base_name}=docker-image://{base_name}-{tag_suffix}"]
-        full_name += "-" + tag_suffix
+                        f"{base_name}=docker-image://"
+                        f"{built_references[base_name]}"]
+    reference = None
     try:
-        subprocess.run(["docker", "buildx", "build"] + options + \
-                       ["--push", "--tag", full_name, image["dir"]],
-                       check=True)
+        with tempfile.TemporaryDirectory() as directory:
+            metadata_file = os.path.join(directory, "metadata.json")
+            if push_by_digest:
+                repository = full_name.rsplit(":", maxsplit=1)[0]
+                output_options = [
+                    "--output", f"type=image,name={repository},"
+                    "push-by-digest=true,name-canonical=true,push=true",
+                    "--metadata-file", metadata_file]
+            else:
+                output_options = ["--push", "--tag", full_name]
+            subprocess.run(["docker", "buildx", "build"] + options +
+                           output_options + [image["dir"]], check=True)
+            if push_by_digest:
+                with open(metadata_file, encoding="utf-8") as metadata_input:
+                    metadata = json.load(metadata_input)
+                digest = metadata.get("containerimage.digest", "")
+                if not re.fullmatch(r"sha256:[0-9a-f]{64}", digest):
+                    sys.exit(f"{full_name}: Missing or invalid build digest")
+                reference = f"{repository}@{digest}"
     except OSError as err:
         sys.exit(f"Can't run docker: {err}")
     except subprocess.CalledProcessError as err:
@@ -444,6 +463,7 @@ def build(image, default_repository=None, platform=None, tag_suffix=None,
     print()
 
     image_info.pop(full_name, None)	# remove outdated image information
+    return reference
 
 
 def fill_login_table():
@@ -558,22 +578,24 @@ if args.dir:
     except OSError as err_info:
         sys.exit(f"Can't change directory: {err_info}")
 
-if args.tag_suffix and not args.build_plan:
-    parser.error('--tag-suffix requires --build-plan')
+if args.digest_file and not args.build_plan:
+    parser.error('--digest-file requires --build-plan')
 
 if args.build_plan:
     with open(args.build_plan, encoding="utf-8") as plan_input:
         build_plan = json.load(plan_input)
-    built_targets = set()
+    built_references = {}
     for entry in build_plan:
-        target = entry["target"]
-        if args.tag_suffix:
-            target += "-" + args.tag_suffix
-        print(f"*** {target}\n")
+        print(f"*** {entry['target']}\n")
         if not args.dry_run:
-            build(entry["image"], entry["repository"], args.platform,
-                  args.tag_suffix, built_targets)
-        built_targets.add(entry["target"])
+            reference = build(entry["image"], entry["repository"],
+                              args.platform, bool(args.digest_file),
+                              built_references)
+            if args.digest_file:
+                built_references[entry["target"]] = reference
+    if args.digest_file and not args.dry_run:
+        with open(args.digest_file, "w", encoding="utf-8") as digest_output:
+            json.dump(built_references, digest_output, indent=2)
     sys.exit(0)
 
 get_images(args.file)

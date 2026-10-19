@@ -198,11 +198,18 @@ jobs:
       - name: Build and push native images
         env:
           PLATFORM: linux/${{ matrix.arch }}
-          TAG_SUFFIX: build-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.arch }}
         run: |
           ./venv/bin/python .github/bin/docker_make --dir docker \
             --build-plan "$GITHUB_WORKSPACE/build-plan.json" \
-            --platform "$PLATFORM" --tag-suffix "$TAG_SUFFIX"
+            --platform "$PLATFORM" --digest-file "$GITHUB_WORKSPACE/digests.json"
+
+      - name: Upload image digests
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-digests-${{ matrix.arch }}
+          path: digests.json
+          if-no-files-found: error
+          retention-days: 1
 
   merge:
     needs: build
@@ -214,6 +221,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: docker-build-plan
+
+      - name: Download image digests
+        uses: actions/download-artifact@v4
+        with:
+          pattern: docker-digests-*
+          path: digests
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
@@ -232,10 +245,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish multi-platform images
-        env:
-          TAG_SUFFIX: build-${{ github.run_id }}-${{ github.run_attempt }}
         run: |
           jq -r '.[].target' build-plan.json | while IFS= read -r image; do
+            amd64=$(jq -er --arg image "$image" '.[$image]' digests/docker-digests-amd64/digests.json)
+            arm64=$(jq -er --arg image "$image" '.[$image]' digests/docker-digests-arm64/digests.json)
             docker buildx imagetools create --tag "$image" \
-              "$image-$TAG_SUFFIX-amd64" "$image-$TAG_SUFFIX-arm64"
+              "$amd64" "$arm64"
           done
