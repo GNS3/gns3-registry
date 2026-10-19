@@ -414,6 +414,23 @@ def needs_rebuild(image, default_repository=None):
     return None
 
 
+def configured_platforms(image):
+    """ return the last platform setting, including image-specific overrides """
+    platforms = None
+    options = iter(image["options"])
+    for option in options:
+        if option == "--platform":
+            value = next(options, "")
+        elif option.startswith("--platform="):
+            value = option.split("=", maxsplit=1)[1]
+        else:
+            continue
+        platforms = value.split(",")
+        if not value or any(not platform for platform in platforms):
+            sys.exit(f"{image['name']}: Invalid --platform option")
+    return platforms
+
+
 def build(image, default_repository=None, platform=None, push_by_digest=False,
           built_references=None):
     """ build image """
@@ -539,7 +556,8 @@ def rebuild_images(dry_run, all_flag, forced_images, plan_file=None):
                       f"Reason: {reason}\n")
                 target = full_image_name(image["image"], repo)
                 plan.append({"image": image, "repository": repo,
-                             "target": target})
+                             "target": target,
+                             "platforms": configured_platforms(image)})
                 planned_targets.add(target)
                 if not dry_run and not plan_file:
                     build(image, repo, platform=args.platform)
@@ -586,6 +604,12 @@ if args.build_plan:
         build_plan = json.load(plan_input)
     built_references = {}
     for entry in build_plan:
+        platforms = configured_platforms(entry["image"])
+        if args.platform and platforms is not None and \
+           args.platform not in platforms:
+            print(f"Skipping {entry['target']}: "
+                  f"{args.platform} is not a configured platform")
+            continue
         print(f"*** {entry['target']}\n")
         if not args.dry_run:
             reference = build(entry["image"], entry["repository"],

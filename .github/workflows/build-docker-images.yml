@@ -246,9 +246,17 @@ jobs:
 
       - name: Publish multi-platform images
         run: |
-          jq -r '.[].target' build-plan.json | while IFS= read -r image; do
-            amd64=$(jq -er --arg image "$image" '.[$image]' digests/docker-digests-amd64/digests.json)
-            arm64=$(jq -er --arg image "$image" '.[$image]' digests/docker-digests-arm64/digests.json)
-            docker buildx imagetools create --tag "$image" \
-              "$amd64" "$arm64"
+          jq -r '.[] | [.target, ((.platforms // ["linux/amd64", "linux/arm64"]) | join(","))] | @tsv' \
+            build-plan.json | while IFS=$'\t' read -r image platforms; do
+            references=()
+            IFS=',' read -ra platform_list <<< "$platforms"
+            for platform in "${platform_list[@]}"; do
+              case "$platform" in
+                linux/amd64|linux/arm64) arch=${platform#linux/} ;;
+                *) echo "Unsupported platform for $image: $platform" >&2; exit 1 ;;
+              esac
+              reference=$(jq -er --arg image "$image" '.[$image]' "digests/docker-digests-$arch/digests.json")
+              references+=("$reference")
+            done
+            docker buildx imagetools create --tag "$image" "${references[@]}"
           done

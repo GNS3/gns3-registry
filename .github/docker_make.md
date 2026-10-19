@@ -43,6 +43,10 @@ build exactly that selection, without checking for updates again.
 Plan paths are relative to the directory selected by `--dir`.
 
 `--platform PLATFORM` overrides the platforms in the configuration.
+For saved-plan builds, it selects one of the image's configured
+platforms; images not supporting that platform are skipped.
+The last `--platform` setting takes precedence, so an image-specific
+setting can restrict the global platform list.
 When building a saved plan, `--digest-file FILE` pushes images by
 digest without assigning tags and saves a JSON mapping from target
 tags to pushed digest references. Dependent builds use the base image
@@ -146,8 +150,10 @@ saved plan in parallel on native AMD64 (`ubuntu-24.04`) and ARM64
 (`ubuntu-24.04-arm`) runners. No QEMU emulation is needed.
 Each build pushes images by digest to both registries, without
 creating intermediate architecture tags.
+Images restricted to `linux/amd64` are skipped on the ARM64 runner.
 Only after both native builds succeed does a final job combine
-their digests under the original multi-platform tags. The architecture
+the configured platform digests under the original tags. AMD64-only
+images are published without requiring an ARM64 digest. The architecture
 manifests remain in the registries as untagged content referenced by
 the multi-platform image. Existing tags from older workflow runs are
 not removed automatically.
