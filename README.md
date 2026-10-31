@@ -34,7 +34,7 @@ There are two ways to create a new appliance:
 After that you can send us a pull request on Github
 
 In schemas/appliance.json you have a JSON with a schema for controlling
-the file and can be use as documentation for each field.
+the file and can be used as documentation for each field.
 
 ### Versioning
 
@@ -242,6 +242,8 @@ All template specific properties are defined in a `template_properties` field.
     ]
 }
 ```
+
+The schema can be found in `schemas/appliance_v8.json` and the markdown documentation in `docs/appliance_v8.md`.
 
 Adding a new symbol
 -------------------
