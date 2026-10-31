@@ -1,2 +1,2 @@
 jsonschema==4.26.0
-pycurl==7.47.0
+pycurl==7.49.0
