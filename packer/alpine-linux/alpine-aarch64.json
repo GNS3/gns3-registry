@@ -1,0 +1,50 @@
+{
+    "variables": {
+        "version": "3.24.3",
+        "iso_url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/aarch64/alpine-virt-3.24.3-aarch64.iso",
+        "iso_checksum": "file:https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/aarch64/alpine-virt-3.24.3-aarch64.iso.sha256",
+        "ui_mode": "cli-aarch64",
+        "vm_name": "alpine-virt-{{user `version`}}-aarch64.qcow2",
+        "file_source": "README.rst",
+        "setup_script": "setup.sh",
+        "disk_size": "500",
+        "disk_device": "/dev/vda",
+        "efi_firmware_code": "/usr/share/AAVMF/AAVMF_CODE.fd",
+        "efi_firmware_vars": "/usr/share/AAVMF/AAVMF_VARS.fd"
+    },
+    "builders": [
+        {
+            "type": "qemu",
+            "communicator": "none",
+            "http_directory": ".",
+            "qemu_binary": "qemu-system-aarch64",
+            "machine_type": "virt",
+            "vga": "none",
+            "cpu_model": "neoverse-n1",
+            "accelerator": "tcg",
+            "efi_boot": true,
+            "efi_firmware_code": "{{user `efi_firmware_code`}}",
+            "efi_firmware_vars": "{{user `efi_firmware_vars`}}",
+            "qemuargs": [
+                ["-chardev", "vc,id=console,logfile=serial.out"],
+                ["-serial", "chardev:console"]
+            ],
+            "iso_url": "{{user `iso_url`}}",
+            "iso_checksum": "{{user `iso_checksum`}}",
+            "shutdown_timeout": "60m",
+            "headless": true,
+            "vm_name": "{{user `vm_name`}}",
+            "disk_interface": "virtio",
+            "disk_compression": true,
+            "net_device": "virtio-net-pci",
+            "disk_size": "{{user `disk_size`}}",
+            "boot_wait": "30s",
+            "boot_command": [
+                "root<enter><wait>",
+                "ifconfig lo up<enter>",
+                "ifconfig eth0 up && udhcpc -i eth0<enter><wait10>",
+                "wget -O /tmp/install-aarch64.sh http://{{ .HTTPIP }}:{{ .HTTPPort }}/scripts/install-aarch64.sh && sh /tmp/install-aarch64.sh http://{{ .HTTPIP }}:{{ .HTTPPort }} '{{user `disk_device`}}' '{{user `ui_mode`}}' '{{user `file_source`}}' '{{user `setup_script`}}' && poweroff<enter>"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "ui_mode": "gui-aarch64",
+    "vga": "std",
+    "vm_name": "alpine-virt-{{user `version`}}-gui-aarch64.qcow2",
+    "disk_size": "1000"
+}

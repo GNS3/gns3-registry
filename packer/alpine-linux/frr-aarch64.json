@@ -1,0 +1,5 @@
+{
+    "frr_version": "10.6.1",
+    "vm_name": "alpine-virt-{{user `version`}}-frr-{{user `frr_version`}}-aarch64.qcow2",
+    "setup_script": "frr.sh"
+}

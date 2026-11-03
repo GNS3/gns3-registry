@@ -15,3 +15,4 @@ rc-update add lxdm
 # create user account
 adduser -D -g "Linux User" user
 passwd -u user
+sed -i 's/^#*[[:space:]]*autologin=.*/autologin=user/' /etc/lxdm/lxdm.conf

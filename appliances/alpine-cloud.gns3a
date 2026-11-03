@@ -20,6 +20,7 @@
             "default": true,
             "template_type": "qemu",
             "template_properties": {
+                "platform": "x86_64",
                 "port_name_format": "eth{0}",
                 "adapter_type": "virtio-net-pci",
                 "adapters": 1,
@@ -27,22 +28,15 @@
                 "hda_disk_interface": "virtio",
                 "console_type": "telnet",
                 "boot_priority": "c",
-                "options": "-nographic",
-                "uefi": true
-            }
-        },
-        {
-            "name": "x86_64",
-            "template_type": "qemu",
-            "template_properties": {
-                "platform": "x86_64"
+                "options": "-nographic"
             }
         },
         {
             "name": "aarch64",
             "template_type": "qemu",
             "template_properties": {
-                "platform": "aarch64"
+                "platform": "aarch64",
+                "uefi": true
             }
         }
     ],
@@ -75,7 +69,6 @@
     "versions": [
         {
             "name": "3.24.3 (x86_64)",
-            "settings": "x86_64",
             "images": {
                 "hda_disk_image": "alpine-3.24.3-x86_64-cloudinit-r0.qcow2",
                 "cdrom_image": "alpine-cloud-init-data.iso"

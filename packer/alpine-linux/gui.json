@@ -1,5 +1,5 @@
 {
     "ui_mode": "gui",
-    "vm_name": "alpine_gui.qcow2",
+    "vm_name": "alpine-virt-{{user `version`}}-gui.qcow2",
     "disk_size": "1000"
 }
