@@ -6,7 +6,7 @@
     "vendor_name": "FRRouting Project",
     "vendor_url": "https://frrouting.org",
     "product_name": "FRR",
-    "registry_version": 4,
+    "registry_version": 8,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
@@ -23,7 +23,7 @@
                 "adapters": 8,
                 "ram": 256,
                 "hda_disk_interface": "virtio",
-                "console_type": "telnet",
+                "console_type": "telnet"
             }
         },
         {

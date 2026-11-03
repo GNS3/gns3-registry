@@ -7,7 +7,7 @@
     "vendor_url": "http://alpinelinux.org",
     "documentation_url": "http://wiki.alpinelinux.org",
     "product_name": "Alpine Linux Virt",
-    "registry_version": 4,
+    "registry_version": 8,
     "status": "stable",
     "availability": "free",
     "maintainer": "GNS3 Team",
@@ -26,7 +26,7 @@
                 "adapters": 1,
                 "ram": 128,
                 "hda_disk_interface": "virtio",
-                "console_type": "telnet",
+                "console_type": "telnet"
             }
         },
         {

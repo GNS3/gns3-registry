@@ -1,5 +1,5 @@
 {
-    "appliance_id": "3da5c614-772c-4963-af86-f24e058c9216",
+    "appliance_id": "854abf3b-6175-48fc-9c01-6e89e25214fa",
     "name": "Alpine Linux Virt GUI",
     "category": "guest",
     "description": "Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.\n\nThis is the qemu version of Alpine Linux, stripped down to the maximum, only the default packages are installed without an SSH server.",
@@ -7,7 +7,7 @@
     "vendor_url": "http://alpinelinux.org",
     "documentation_url": "http://wiki.alpinelinux.org",
     "product_name": "Alpine Linux Virt GUI",
-    "registry_version": 4,
+    "registry_version": 8,
     "status": "stable",
     "availability": "free",
     "maintainer": "GNS3 Team",
@@ -26,7 +26,7 @@
                 "adapters": 1,
                 "ram": 256,
                 "hda_disk_interface": "virtio",
-                "console_type": "vnc",
+                "console_type": "vnc"
             }
         },
         {
