@@ -24,7 +24,7 @@
                 "port_name_format": "eth{0}",
                 "adapter_type": "virtio-net-pci",
                 "adapters": 1,
-                "ram": 256,
+                "ram": 512,
                 "hda_disk_interface": "virtio",
                 "console_type": "vnc"
             }
