@@ -19,7 +19,7 @@ PROXYOPTS="none"
 APKREPOSOPTS="-1"
 SSHDOPTS="-c openssh"
 NTPOPTS="-c none"
-DISKOPTS="-m sys /dev/sda"
+DISKOPTS="-m sys ${DISK_DEVICE:-/dev/sda}"
 BOOT_SIZE=50
 SWAP_SIZE=0
 set +a

@@ -1,0 +1,74 @@
+{
+    "appliance_id": "854abf3b-6175-48fc-9c01-6e89e25214fa",
+    "name": "Alpine Linux Virt GUI",
+    "category": "guest",
+    "description": "Alpine Linux is a security-oriented, lightweight Linux distribution based on musl libc and busybox.\n\nThis is the qemu version of Alpine Linux, stripped down to the maximum, only the default packages are installed without an SSH server.",
+    "vendor_name": "Alpine Linux Development Team",
+    "vendor_url": "http://alpinelinux.org",
+    "documentation_url": "http://wiki.alpinelinux.org",
+    "product_name": "Alpine Linux Virt GUI",
+    "registry_version": 8,
+    "status": "stable",
+    "availability": "free",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "The network interfaces aren't configured, you can do either of the following:\n- Use alpine's DHCP client: `udhcpc`\n- Configure them manually (ip address add \u2026, ip route add \u2026)\n- Modify interfaces file in /etc/network/interfaces\n- Use alpine's wizard: `setup-interfaces`",
+    "symbol": "alpine-virt-qemu.svg",
+    "settings": [
+        {
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "eth{0}",
+                "adapter_type": "virtio-net-pci",
+                "adapters": 1,
+                "ram": 512,
+                "hda_disk_interface": "virtio",
+                "console_type": "vnc"
+            }
+        },
+        {
+            "name": "aarch64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true
+            }
+        }
+    ],
+    "images": [
+        {
+            "filename": "alpine-virt-3.24.3-gui-x86_64.qcow2",
+            "version": "3.24.3 (x86_64)",
+            "md5sum": "f8196e4476491e94eb6b4a784136faae",
+            "filesize": 221219840,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/alpine/",
+            "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/alpine/alpine-virt-3.24.3-gui-x86_64.qcow2/download"
+        },
+        {
+            "filename": "alpine-virt-3.24.3-gui-aarch64.qcow2",
+            "version": "3.24.3 (aarch64)",
+            "md5sum": "ab0eda98fb72ec1927095cc72b93a0ff",
+            "filesize": 227147776,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/alpine/",
+            "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/alpine/alpine-virt-3.24.3-gui-aarch64.qcow2/download"
+        }
+    ],
+    "versions": [
+        {
+            "name": "3.24.3 (x86_64)",
+            "images": {
+                "hda_disk_image": "alpine-virt-3.24.3-gui-x86_64.qcow2"
+            }
+        },
+        {
+            "name": "3.24.3 (aarch64)",
+            "settings": "aarch64",
+            "images": {
+                "hda_disk_image": "alpine-virt-3.24.3-gui-aarch64.qcow2"
+            }
+        }
+    ]
+}

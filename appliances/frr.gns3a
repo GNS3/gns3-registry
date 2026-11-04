@@ -6,78 +6,65 @@
     "vendor_name": "FRRouting Project",
     "vendor_url": "https://frrouting.org",
     "product_name": "FRR",
-    "registry_version": 4,
+    "registry_version": 8,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Credentials: root / root\nIf you exit from the router CLI, you can get back by typing 'vtysh' to the console.",
-    "port_name_format": "eth{0}",
-    "qemu": {
-        "adapter_type": "e1000",
-        "adapters": 8,
-        "ram": 256,
-        "hda_disk_interface": "ide",
-        "arch": "x86_64",
-        "console_type": "telnet",
-        "kvm": "allow"
-    },
+    "settings": [
+        {
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "eth{0}",
+                "adapter_type": "e1000",
+                "adapters": 8,
+                "ram": 256,
+                "hda_disk_interface": "virtio",
+                "console_type": "telnet"
+            }
+        },
+        {
+            "name": "aarch64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true
+            }
+        }
+    ],
     "images": [
         {
-            "filename": "frr-8.2.2.qcow2",
-            "version": "8.2.2",
-            "md5sum": "45cda6b991a1b9e8205a3a0ecc953640",
-            "filesize": 56609280,
+            "filename": "alpine-virt-3.24.3-frr-10.6.1-x86_64.qcow2",
+            "version": "10.6.1 (x86_64)",
+            "md5sum": "0531957387fd3d7d2938142ff28974d6",
+            "filesize": 80178176,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/frr-8.2.2.qcow2"
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/alpine/alpine-virt-3.24.3-frr-10.6.1-x86_64.qcow2"
         },
         {
-            "filename": "frr-8.1.0.qcow2",
-            "version": "8.1.0",
-            "md5sum": "836d6a207f63f99a4039378f2b0c6123",
-            "filesize": 54063616,
+            "filename": "alpine-virt-3.24.3-frr-10.6.1-aarch64.qcow2",
+            "version": "10.6.1 (aarch64)",
+            "md5sum": "0be058fd2737b3d9aa4ae1fcab736e86",
+            "filesize": 88279040,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/frr-8.1.0.qcow2"
-        },
-        {
-            "filename": "frr-7.5.1.qcow2",
-            "version": "7.5.1",
-            "md5sum": "4b3ca0932a396b282ba35f102be1ed3b",
-            "filesize": 51169280,
-            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/frr-7.5.1.qcow2"
-        },
-        {
-            "filename": "frr-7.3.1.qcow2",
-            "version": "7.3.1",
-            "md5sum": "e6bd9591a5c630bfe2c8688dc043b20b",
-            "filesize": 47348224,
-            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/frr-7.3.1.qcow2"
+            "direct_download_url": "http://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/alpine/alpine-virt-3.24.3-frr-10.6.1-aarch64.qcow2"
         }
     ],
     "versions": [
         {
-            "name": "8.2.2",
+            "name": "10.6.1 (x86_64)",
             "images": {
-                "hda_disk_image": "frr-8.2.2.qcow2"
+                "hda_disk_image": "alpine-virt-3.24.3-frr-10.6.1-x86_64.qcow2"
             }
         },
         {
-            "name": "8.1.0",
+            "name": "10.6.1 (aarch64)",
+            "settings": "aarch64",
             "images": {
-                "hda_disk_image": "frr-8.1.0.qcow2"
-            }
-        },
-        {
-            "name": "7.5.1",
-            "images": {
-                "hda_disk_image": "frr-7.5.1.qcow2"
-            }
-        },
-        {
-            "name": "7.3.1",
-            "images": {
-                "hda_disk_image": "frr-7.3.1.qcow2"
+                "hda_disk_image": "alpine-virt-3.24.3-frr-10.6.1-aarch64.qcow2"
             }
         }
     ]
