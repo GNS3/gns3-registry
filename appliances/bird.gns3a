@@ -7,50 +7,67 @@
     "vendor_url": "https://bird.network.cz",
     "documentation_url": "https://bird.network.cz/?get_doc&f=bird.html&v=20",
     "product_name": "BIRD internet routing daemon",
-    "registry_version": 4,
+    "registry_version": 8,
     "status": "stable",
-    "maintainer": "Bernhard Ehlers",
-    "maintainer_email": "dev-ehlers@mailbox.org",
-    "usage": "Username:\tgns3\nPassword:\tgns3\nTo become root, use \"sudo -s\".\n\nNetwork configuration:\nsudo nano /etc/network/interfaces\nsudo systemctl restart networking\n\nBIRD:\nRestart: sudo systemctl restart bird\nReconfigure: birdc configure",
-    "port_name_format": "eth{0}",
-    "qemu": {
-        "adapter_type": "virtio-net-pci",
-        "adapters": 4,
-        "ram": 512,
-        "hda_disk_interface": "scsi",
-        "arch": "x86_64",
-        "console_type": "telnet",
-        "kvm": "allow"
-    },
-    "images": [
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "To become root, use 'sudo -s'.\n\nNetwork configuration:\nsudo nano /etc/network/interfaces\nsudo systemctl restart networking\n\nBIRD:\nRestart: sudo systemctl restart bird\nReconfigure: birdc configure",
+    "default_username": "gns3",
+    "default_password": "gns3",
+    "settings": [
         {
-            "filename": "bird2-debian-2.14.qcow2",
-            "version": "2.14",
-            "md5sum": "029cf1756201ee79497c169502b08b88",
-            "filesize": 303717376,
-            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/bird2-debian-2.14.qcow2"
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "eth{0}",
+                "adapter_type": "virtio-net-pci",
+                "adapters": 4,
+                "ram": 256,
+                "hda_disk_interface": "virtio",
+                "console_type": "telnet"
+            }
         },
         {
-            "filename": "bird2-debian-2.0.12.qcow2",
-            "version": "2.0.12",
-            "md5sum": "435218a2e90cba921cc7fde1d64a9419",
-            "filesize": 287965184,
+            "name": "arm64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true
+            }
+        }
+    ],
+    "images": [
+        {
+            "filename": "debian-13.7-bird2-2.17.5-amd64.qcow2",
+            "version": "2.17.5 (x86_64)",
+            "md5sum": "5b836eea43e1e3d66beb7bc199b603d0",
+            "filesize": 276758528,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/bird2-debian-2.0.12.qcow2"
+            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/debian/debian-13.7-bird2-2.17.5-amd64.qcow2"
+        },
+        {
+            "filename": "debian-13.7-bird2-2.17.5-arm64.qcow2",
+            "version": "2.17.5 (arm64)",
+            "md5sum": "f853fe167b1ed4e499a6b71e179a8d68",
+            "filesize": 273350656,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
+            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/debian/debian-13.7-bird2-2.17.5-arm64.qcow2"
         }
     ],
     "versions": [
         {
-            "name": "2.14",
+            "name": "2.17.5 (x86_64)",
             "images": {
-                "hda_disk_image": "bird2-debian-2.14.qcow2"
+                "hda_disk_image": "debian-13.7-bird2-2.17.5-amd64.qcow2"
             }
         },
         {
-            "name": "2.0.12",
+            "name": "2.17.5 (arm64)",
+            "settings": "arm64",
             "images": {
-                "hda_disk_image": "bird2-debian-2.0.12.qcow2"
+                "hda_disk_image": "debian-13.7-bird2-2.17.5-arm64.qcow2"
             }
         }
     ]

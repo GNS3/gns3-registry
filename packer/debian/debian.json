@@ -1,45 +1,117 @@
 {
     "variables": {
-        "iso_url": "https://cloud.debian.org/images/cloud/bookworm/20240702-1796/debian-12-genericcloud-amd64-20240702-1796.qcow2",
-        "iso_checksum": "a4bc7fa86ef51d2b059ce0abd9c6130b4c36a3449b8a130bb509602924e9e6e7",
-        "disk_size": "2G",
+        "iso_url": "https://cloud.debian.org/images/cloud/trixie/latest/debian-13-genericcloud-amd64.qcow2",
+        "iso_checksum": "file:https://cloud.debian.org/images/cloud/trixie/latest/SHA512SUMS",
+        "arm64_iso_url": "https://cloud.debian.org/images/cloud/trixie/latest/debian-13-genericcloud-arm64.qcow2",
+        "efi_firmware_code": "/usr/share/AAVMF/AAVMF_CODE.fd",
+        "efi_firmware_vars": "/usr/share/AAVMF/AAVMF_VARS.fd",
+        "disk_size": "10G",
         "vm_name": "debian.qcow2",
-        "setup_script": "debian.sh"
+        "setup_script": "debian.sh",
+        "ssh_username": "debian",
+        "ssh_password": "debian"
     },
     "provisioners": [
         {
             "type": "shell",
             "script": "scripts/networking.sh",
-            "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
+            "execute_command": "sudo env {{ .Vars }} {{ .Path }}"
         },
         {
             "type": "shell",
             "script": "scripts/{{user `setup_script`}}",
-            "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
+            "execute_command": "sudo env {{ .Vars }} {{ .Path }}"
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "{ cat /etc/debian_version; cat /tmp/packer-app-version 2>/dev/null || true; } > /tmp/packer-image-version"
+            ]
+        },
+        {
+            "type": "file",
+            "direction": "download",
+            "source": "/tmp/packer-image-version",
+            "destination": "image_version-{{build_name}}"
         },
         {
             "type": "shell",
             "script": "scripts/post_setup.sh",
-            "execute_command" : "sudo env {{ .Vars }} {{ .Path }}"
+            "execute_command": "sudo env {{ .Vars }} {{ .Path }}"
+        }
+    ],
+    "post-processors": [
+        {
+            "type": "shell-local",
+            "inline": [
+                "set -e",
+                "version_file=\"image_version-$PACKER_BUILD_NAME\"",
+                "debian_version=$(sed -n 1p \"$version_file\" | tr -d '[:space:]')",
+                "app_version=$(sed -n 2p \"$version_file\" | tr -d '[:space:]')",
+                "echo \"$debian_version\" | grep -Eq '^[0-9]+(\\.[0-9]+)*$' || { echo \"Unexpected Debian version: $debian_version\" >&2; exit 1; }",
+                "[ -z \"$app_version\" ] || echo \"$app_version\" | grep -Eq '^[0-9][0-9A-Za-z.+~]*$' || { echo \"Unexpected application version: $app_version\" >&2; exit 1; }",
+                "output_dir=\"output-$PACKER_BUILD_NAME\"",
+                "base_name=$(basename '{{user `vm_name`}}' .qcow2)",
+                "case \"$base_name\" in debian-*) image_name=\"debian-$debian_version-${base_name#debian-}\" ;; *) image_name=\"$base_name-$debian_version\" ;; esac",
+                "image_name=\"$image_name${app_version:+-$app_version}-$PACKER_BUILD_NAME.qcow2\"",
+                "mv \"$output_dir/{{user `vm_name`}}\" \"$output_dir/$image_name\"",
+                "rm -f \"$version_file\"",
+                "echo \"Disk image: $output_dir/$image_name\""
+            ]
         }
     ],
     "builders": [
         {
             "type": "qemu",
+            "name": "amd64",
             "disk_image": true,
             "disk_size": "{{user `disk_size`}}",
             "iso_url": "{{user `iso_url`}}",
             "iso_checksum": "{{user `iso_checksum`}}",
-            "iso_checksum_type": "sha256",
             "disk_interface": "virtio-scsi",
             "disk_compression": true,
             "headless": true,
             "net_device": "virtio-net-pci",
-            "qemuargs": [ [ "-cdrom", "debian-cloud-init-data.iso" ] ],
+            "cd_files": [
+                "user-data",
+                "meta-data"
+            ],
+            "cd_label": "cidata",
             "shutdown_command": "sudo shutdown -P now",
-            "ssh_username": "debian",
-            "ssh_password": "debian",
+            "ssh_username": "{{user `ssh_username`}}",
+            "ssh_password": "{{user `ssh_password`}}",
             "ssh_wait_timeout": "30s",
+            "vm_name": "{{user `vm_name`}}"
+        },
+        {
+            "type": "qemu",
+            "name": "arm64",
+            "qemu_binary": "qemu-system-aarch64",
+            "machine_type": "virt",
+            "cpu_model": "neoverse-n1",
+            "accelerator": "tcg",
+            "efi_boot": true,
+            "efi_firmware_code": "{{user `efi_firmware_code`}}",
+            "efi_firmware_vars": "{{user `efi_firmware_vars`}}",
+            "disk_image": true,
+            "disk_size": "{{user `disk_size`}}",
+            "iso_url": "{{user `arm64_iso_url`}}",
+            "iso_checksum": "{{user `iso_checksum`}}",
+            "disk_interface": "virtio",
+            "disk_compression": true,
+            "headless": true,
+            "vga": "none",
+            "net_device": "virtio-net-pci",
+            "cd_files": [
+                "user-data",
+                "meta-data"
+            ],
+            "cd_label": "cidata",
+            "cdrom_interface": "virtio-scsi",
+            "shutdown_command": "sudo shutdown -P now",
+            "ssh_username": "{{user `ssh_username`}}",
+            "ssh_password": "{{user `ssh_password`}}",
+            "ssh_wait_timeout": "60s",
             "vm_name": "{{user `vm_name`}}"
         }
     ]

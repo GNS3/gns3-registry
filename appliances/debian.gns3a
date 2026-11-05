@@ -6,79 +6,67 @@
     "vendor_name": "Debian",
     "vendor_url": "https://www.debian.org",
     "product_name": "Debian",
-    "registry_version": 4,
-    "status": "experimental",
-    "maintainer": "Bernhard Ehlers",
-    "maintainer_email": "dev-ehlers@mailbox.org",
-    "usage": "Username:\tdebian\nPassword:\tdebian\nTo become root, use \"sudo -s\".\n",
-    "symbol": "linux_guest.svg",
-    "port_name_format": "ens{port4}",
-    "qemu": {
-        "adapter_type": "virtio-net-pci",
-        "adapters": 1,
-        "ram": 512,
-        "hda_disk_interface": "scsi",
-        "arch": "x86_64",
-        "console_type": "telnet",
-        "kvm": "allow"
-    },
+    "registry_version": 8,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "To become root, use 'sudo -s'",
+    "default_username": "debian",
+    "default_password": "debian",
+    "settings": [
+        {
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "enp{port1}s0",
+                "adapter_type": "virtio-net-pci",
+                "adapters": 1,
+                "ram": 256,
+                "hda_disk_interface": "virtio",
+                "console_type": "telnet"
+            }
+        },
+        {
+            "name": "arm64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true
+            }
+        }
+    ],
     "images": [
         {
-            "filename": "debian-12.6.qcow2",
-            "version": "12.6",
-            "md5sum": "04753ba14295c6414d49bffe27b676ae",
-            "filesize": 280907776,
+            "filename": "debian-13.7-amd64.qcow2",
+            "version": "13.7 (x86_64)",
+            "md5sum": "c31d2dec7d446c84c76c9c45da9721d1",
+            "filesize": 275251200,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/debian-12.6.qcow2"
+            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/debian/debian-13.7-amd64.qcow2"
         },
         {
-            "filename": "debian-12.4.qcow2",
-            "version": "12.4",
-            "md5sum": "adcf7fdc25e10b3d2d9e2ef91168bffd",
-            "filesize": 286179840,
+            "filename": "debian-13.7-arm64.qcow2",
+            "version": "13.7 (arm64)",
+            "md5sum": "a3f3bdefc1703873247c82e2acb561a9",
+            "filesize": 271515648,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/debian-12.4.qcow2"
-        },
-        {
-            "filename": "debian-11.10.qcow2",
-            "version": "11.10",
-            "md5sum": "99a1dc8e110d641309674e69b630e732",
-            "filesize": 263520256,
-            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/debian-11.10.qcow2"
-        },
-        {
-            "filename": "debian-11.8.qcow2",
-            "version": "11.8",
-            "md5sum": "95bf44716c7fa1a1da290fd3c98591f2",
-            "filesize": 264933376,
-            "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
-            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/debian-11.8.qcow2"
+            "direct_download_url": "https://downloads.sourceforge.net/project/gns-3/Qemu%20Appliances/debian/debian-13.7-arm64.qcow2"
         }
     ],
     "versions": [
         {
-            "name": "12.6",
+            "name": "13.7 (x86_64)",
             "images": {
-                "hda_disk_image": "debian-12.6.qcow2"
+                "hda_disk_image": "debian-13.7-amd64.qcow2"
             }
         },
         {
-            "name": "12.4",
+            "name": "13.7 (arm64)",
+            "settings": "arm64",
             "images": {
-                "hda_disk_image": "debian-12.4.qcow2"
-            }
-        },
-        {
-            "name": "11.10",
-            "images": {
-                "hda_disk_image": "debian-11.10.qcow2"
-            }
-        },
-        {
-            "name": "11.8",
-            "images": {
-                "hda_disk_image": "debian-11.8.qcow2"
+                "hda_disk_image": "debian-13.7-arm64.qcow2"
             }
         }
     ]
