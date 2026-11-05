@@ -3,7 +3,7 @@ set -ex
 
 # Install bird2 (plus telnet)
 export DEBIAN_FRONTEND=noninteractive
-apt-get update
+apt-get update --error-on=any
 apt-get -y install bird2 inetutils-telnet
 chmod g+rw /etc/bird
 chmod g+rw /etc/bird/*.conf
@@ -11,7 +11,7 @@ chmod g+rw /etc/bird/*.conf
 # Use traditional style interface names eth*
 sed -i '/^GRUB_CMDLINE_LINUX=/ s/"$/ net.ifnames=0"/' /etc/default/grub
 update-grub
-sed -i 's/\bens4\b/eth0/g' /etc/network/interfaces
+sed -i 's/\enp1s0\b/eth0/g' /etc/network/interfaces
 
 # Enable IP forwarding
 cat > /etc/sysctl.d/50-ip_forwarding.conf << 'EOF'
@@ -61,3 +61,6 @@ defshell -bash
 #screen 1
 EOF
 chown gns3:gns3 /home/gns3/.screenrc
+
+# Record the BIRD version for the output disk name
+dpkg-query -W -f='${source:Upstream-Version}\n' bird2 > /tmp/packer-app-version
