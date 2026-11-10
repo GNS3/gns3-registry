@@ -70,6 +70,6 @@
             "images": {
                 "hda_disk_image": "ipfire-2.29-core205-aarch64.img"
             }
-        },
+        }
     ]
 }
