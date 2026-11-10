@@ -20,7 +20,7 @@
             "template_type": "qemu",
             "template_properties": {
                 "platform": "x86_64",
-                "port_name_format": "enp{port1}s0",
+                "port_name_format": "Ethernet{0}",
                 "adapter_type": "virtio-net-pci",
                 "adapters": 1,
                 "ram": 256,
