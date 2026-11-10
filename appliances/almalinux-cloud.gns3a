@@ -1,0 +1,87 @@
+{
+    "appliance_id": "5c09a704-0e38-48ac-8392-52e0c5890cf3",
+    "name": "AlmaLinux Cloud Guest",
+    "category": "guest",
+    "description": "An Open Source, community-governed and forever-free enterprise Linux distribution, focused on long-term stability, providing a robust production-grade platform. AlmaLinux OS is 1:1 binary compatible with RHEL and pre-Stream CentOS.",
+    "vendor_name": "Alma Linux",
+    "vendor_url": "https://almalinux.org/",
+    "documentation_url": "https://wiki.almalinux.org/",
+    "product_name": "Alma Linux",
+    "product_url": "https://almalinux.org/",
+    "registry_version": 8,
+    "status": "stable",
+    "maintainer": "Da-Geek",
+    "maintainer_email": "dageek@dageeks-geeks.gg",
+    "usage": "Username:\talmalinux\nPassword:\talmalinux\nTo become root, use \"sudo -i\".\n",
+    "default_username": "almalinux",
+    "default_password": "almalinux",
+    "settings": [
+        {
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "eth{0}",
+                "adapter_type": "virtio-net-pci",
+                "adapters": 1,
+                "ram": 1536,
+                "hda_disk_interface": "virtio",
+                "console_type": "telnet",
+                "options": "-cpu host"
+            }
+        },
+        {
+            "name": "aarch64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true,
+                "options": "-cpu neoverse-n1"
+            }
+        }
+    ],
+    "images": [
+        {
+            "filename": "AlmaLinux-10-GenericCloud-10.0-20250528.0.x86_64.qcow2",
+            "version": "10.0 (x86_64)",
+            "md5sum": "e5099e33f16014b6cc851482d865720d",
+            "filesize": 460062720,
+            "download_url": "https://vault.almalinux.org/10.0/cloud/x86_64/images/",
+            "direct_download_url": "https://vault.almalinux.org/10.0/cloud/x86_64/images/AlmaLinux-10-GenericCloud-10.0-20250528.0.x86_64.qcow2"
+        },
+        {
+            "filename": "AlmaLinux-10-GenericCloud-10.0-20250528.0.aarch64.qcow2",
+            "version": "10.0 (aarch64)",
+            "md5sum": "f7d51777eac1e3526bfa1a1edbf25147",
+            "filesize": 440926208,
+            "download_url": "https://vault.almalinux.org/10.0/cloud/aarch64/images/",
+            "direct_download_url": "https://vault.almalinux.org/10.0/cloud/aarch64/images/AlmaLinux-10-GenericCloud-10.0-20250528.0.aarch64.qcow2"
+        },
+        {
+            "filename": "almalinux-cloud-init-data.iso",
+            "version": "1.0",
+            "md5sum": "72fb52af76e9561d125dd99224e2c1d1",
+            "filesize": 374784,
+            "download_url": "https://github.com/GNS3/gns3-registry/tree/master/cloud-init/AlmaLinux",
+            "direct_download_url": "https://github.com/GNS3/gns3-registry/raw/master/cloud-init/AlmaLinux/almalinux-cloud-init-data.iso"
+        }
+    ],
+    "versions": [
+        {
+            "name": "10.0 (x86_64)",
+            "images": {
+                "hda_disk_image": "AlmaLinux-10-GenericCloud-10.0-20250528.0.x86_64.qcow2",
+                "cdrom_image": "almalinux-cloud-init-data.iso"
+            }
+        },
+        {
+            "name": "10.0 (aarch64)",
+            "settings": "aarch64",
+            "images": {
+                "hda_disk_image": "AlmaLinux-10-GenericCloud-10.0-20250528.0.aarch64.qcow2",
+                "cdrom_image": "almalinux-cloud-init-data.iso"
+            }
+        }
+    ]
+}
