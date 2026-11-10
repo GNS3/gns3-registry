@@ -8,55 +8,55 @@
     "documentation_url": "https://docs.oracle.com/en-us/iaas/images/",
     "product_name": "Oracle Linux Cloud Guest",
     "product_url": "https://www.oracle.com/au/linux/",
-    "registry_version": 4,
+    "registry_version": 8,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Username: oracle\nPassword: oracle",
-    "port_name_format": "Ethernet{0}",
-    "qemu": {
-        "adapter_type": "virtio-net-pci",
-        "adapters": 1,
-        "ram": 1536,
-        "hda_disk_interface": "virtio",
-        "arch": "x86_64",
-        "console_type": "telnet",
-        "boot_priority": "c",
-        "kvm": "require",
-        "options": "-cpu host -nographic"
-    },
+    "default_username": "oracle",
+    "default_password": "oracle",
+    "settings": [
+        {
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "eth{0}",
+                "adapter_type": "virtio-net-pci",
+                "adapters": 1,
+                "ram": 1536,
+                "hda_disk_interface": "virtio",
+                "console_type": "telnet",
+                "options": "-cpu host"
+            }
+        },
+        {
+            "name": "aarch64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true,
+                "options": "-cpu neoverse-n1"
+            }
+        }
+    ],
     "images": [
         {
-            "filename": "OL10U1_x86_64-kvm-b270.qcow2",
-            "version": "10.1",
-            "md5sum": "c3ed48965110e0cbbd75734d3c23a2ce",
-            "filesize": 1044119552,
+            "filename": "OL10U1_x86_64-kvm-b291.qcow2",
+            "version": "10.1 (x86_64)",
+            "md5sum": "3f1e4eaf088ae3ce3b0abba2382d75cc",
+            "filesize": 1073872896,
             "download_url": "https://yum.oracle.com/oracle-linux-templates.html",
-            "direct_download_url": "https://yum.oracle.com/templates/OracleLinux/OL10/u1/x86_64/OL10U1_x86_64-kvm-b270.qcow2"
+            "direct_download_url": "https://yum.oracle.com/templates/OracleLinux/OL10/u1/x86_64/OL10U1_x86_64-kvm-b291.qcow2"
         },
         {
-            "filename": "OL9U7_x86_64-kvm-b269.qcow2",
-            "version": "9.7",
-            "md5sum": "fe0c555620d2001bb4d4d95a53b43738",
-            "filesize": 792985600,
+            "filename": "OL10U1_aarch64-kvm-b177.qcow2",
+            "version": "10.1 (aarch64)",
+            "md5sum": "47246490357fdf3eea399fa630808ebc",
+            "filesize": 1424883712,
             "download_url": "https://yum.oracle.com/oracle-linux-templates.html",
-            "direct_download_url": "https://yum.oracle.com/templates/OracleLinux/OL9/u7/x86_64/OL9U7_x86_64-kvm-b269.qcow2"
-        },
-        {
-            "filename": "OL8U10_x86_64-kvm-b271.qcow2",
-            "version": "8.10",
-            "md5sum": "f3184e536af1c2aba6b6f499b1a7085a",
-            "filesize": 1585643520,
-            "download_url": "https://yum.oracle.com/oracle-linux-templates.html",
-            "direct_download_url": "https://yum.oracle.com/templates/OracleLinux/OL8/u10/x86_64/OL8U10_x86_64-kvm-b271.qcow2"
-        },
-        {
-            "filename": "OL7U9_x86_64-kvm-b257.qcow2",
-            "version": "7.9",
-            "md5sum": "d3af7cf0b8f44d298a67ce9ebe184494",
-            "filesize": 998244352,
-            "download_url": "https://yum.oracle.com/oracle-linux-templates.html",
-            "direct_download_url": "https://yum.oracle.com/templates/OracleLinux/OL7/u9/x86_64/OL7U9_x86_64-kvm-b257.qcow2"
+            "direct_download_url": "https://yum.oracle.com/templates/OracleLinux/OL10/u1/aarch64/OL10U1_aarch64-kvm-b177.qcow2"
         },
         {
             "filename": "oracle-cloud-init-data.iso",
@@ -69,30 +69,17 @@
     ],
     "versions": [
         {
-            "name": "10.1",
+            "name": "10.1 (x86_64)",
             "images": {
-                "hda_disk_image": "OL10U1_x86_64-kvm-b270.qcow2",
+                "hda_disk_image": "OL10U1_x86_64-kvm-b291.qcow2",
                 "cdrom_image": "oracle-cloud-init-data.iso"
             }
         },
         {
-            "name": "9.7",
+            "name": "10.1 (aarch64)",
+            "settings": "aarch64",
             "images": {
-                "hda_disk_image": "OL9U7_x86_64-kvm-b269.qcow2",
-                "cdrom_image": "oracle-cloud-init-data.iso"
-            }
-        },
-        {
-            "name": "8.10",
-            "images": {
-                "hda_disk_image": "OL8U10_x86_64-kvm-b271.qcow2",
-                "cdrom_image": "oracle-cloud-init-data.iso"
-            }
-        },
-        {
-            "name": "7.9",
-            "images": {
-                "hda_disk_image": "OL7U9_x86_64-kvm-b257.qcow2",
+                "hda_disk_image": "OL10U1_aarch64-kvm-b177.qcow2",
                 "cdrom_image": "oracle-cloud-init-data.iso"
             }
         }
