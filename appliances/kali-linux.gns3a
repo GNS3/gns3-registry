@@ -7,38 +7,79 @@
     "vendor_url": "https://www.kali.org/",
     "documentation_url": "https://www.kali.org/kali-linux-documentation/",
     "product_name": "Kali Linux",
-    "registry_version": 4,
+    "registry_version": 8,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default username is kali and the default password is kali",
-    "port_name_format": "eth{0}",
-    "qemu": {
-        "adapter_type": "e1000",
-        "adapters": 8,
-        "ram": 2048,
-        "cpus": 2,
-        "hda_disk_interface": "ide",
-        "arch": "x86_64",
-        "console_type": "vnc",
-        "kvm": "require"
-    },
+    "default_username": "kali",
+    "default_password": "kali",
+    "settings": [
+        {
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "eth{0}",
+                "adapter_type": "virtio-net-pci",
+                "adapters": 8,
+                "ram": 2048,
+                "cpus": 2,
+                "hda_disk_interface": "virtio",
+                "console_type": "vnc"
+            }
+        },
+        {
+            "name": "arm64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true,
+                "boot_priority": "cd"
+            }
+        }
+    ],
     "images": [
       {
-            "filename": "kali-linux-2025.4-qemu-amd64.qcow2",
-            "version": "2025.4",
+            "filename": "kali-linux-2026.3-qemu-amd64.qcow2",
+            "version": "2026.3 (amd64)",
             "md5sum": "a4be43351b5deb5b2823cb38a73b2095",
             "filesize": 15719268352,
-            "download_url": "https://cdimage.kali.org/kali-2025.4/",
-            "direct_download_url": "https://cdimage.kali.org/kali-2025.4/kali-linux-2025.4-qemu-amd64.7z",
+            "download_url": "https://cdimage.kali.org/kali-2026.3/",
+            "direct_download_url": "https://cdimage.kali.org/kali-2026.3/kali-linux-2026.3-qemu-amd64.7z",
             "compression": "7z"
-        }
+      },
+      {
+            "filename": "kali-linux-2026.3-installer-arm64.iso",
+            "version": "2026.3 installer (arm64)",
+            "md5sum": "17fbc7bbd293ad87a3c026efcdeeda63",
+            "filesize": 4051513344,
+            "download_url": "https://cdimage.kali.org/kali-2026.3/",
+            "direct_download_url": "https://cdimage.kali.org/kali-2026.3/kali-linux-2026.3-installer-arm64.iso"
+      },
+      {
+            "filename": "empty100G.qcow2",
+            "version": "1.0",
+            "md5sum": "1e6409a4523ada212dea2ebc50e50a65",
+            "filesize": 197120,
+            "download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/",
+            "direct_download_url": "https://sourceforge.net/projects/gns-3/files/Empty%20Qemu%20disk/empty100G.qcow2/download"
+      }
     ],
     "versions": [
         {
-            "name": "2025.4",
+            "name": "2026.3 (amd64)",
             "images": {
-                "hda_disk_image": "kali-linux-2025.4-qemu-amd64.qcow2"
+                "hda_disk_image": "kali-linux-2026.3-qemu-amd64.qcow2"
+            }
+        },
+        {
+            "name": "2026.3 installer (arm64)",
+            "settings": "arm64",
+            "images": {
+                "hda_disk_image": "empty100G.qcow2",
+                "cdrom_image": "kali-linux-2026.3-installer-arm64.iso"
             }
         }
     ]
