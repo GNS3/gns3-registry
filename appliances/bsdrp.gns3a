@@ -3,114 +3,72 @@
     "name": "BSDRP",
     "category": "router",
     "description": "BSD Router Project (BSDRP) is an embedded free and open source router distribution based on FreeBSD with Quagga and Bird.",
-    "vendor_name": "Olivier Cochard-Labbe",
+    "vendor_name": "The BSDRP Development Team",
     "vendor_url": "https://bsdrp.net/",
     "product_name": "BSDRP",
-    "registry_version": 4,
+    "registry_version": 8,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Default user: root (no password set)",
-    "qemu": {
-        "adapter_type": "e1000",
-        "adapters": 4,
-        "ram": 256,
-        "hda_disk_interface": "ide",
-        "arch": "x86_64",
-        "console_type": "telnet",
-        "kvm": "allow"
-    },
+    "default_username": "root",
+    "default_password": "",
+    "settings": [
+        {
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "eth{0}",
+                "adapter_type": "virtio-net-pci",
+                "adapters": 4,
+                "ram": 1024,
+                "hda_disk_interface": "virtio",
+                "console_type": "telnet"
+            }
+        },
+        {
+            "name": "aarch64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true
+            }
+        }
+    ],
     "images": [
         {
-            "filename": "BSDRP-1.95-full-amd64-serial.img",
-            "version": "1.95",
-            "md5sum": "f1e080506a965e46503673c426b9c764",
-            "filesize": 2000000000,
+            "filename": "BSDRP-2.3-full-amd64.img",
+            "version": "2.3 (amd64)",
+            "md5sum": "529aa88b20d042fbd895a17d3dbb2fcc",
+            "filesize": 4041269248,
             "download_url": "https://bsdrp.net/downloads",
-            "direct_download_url": "https://sourceforge.net/projects/bsdrp/files/BSD_Router_Project/1.95/amd64/BSDRP-1.95-full-amd64-serial.img.xz/download",
+            "direct_download_url": "https://sourceforge.net/projects/bsdrp/files/BSD_Router_Project/2.3/amd64/BSDRP-2.3-full-amd64.img.xz/download",
             "compression": "xz"
         },
         {
-            "filename": "BSDRP-1.92-full-amd64-serial.img",
-            "version": "1.92",
-            "md5sum": "b02f2502188915490bb9756ffca36910",
-            "filesize": 1000000000,
+            "filename": "BSDRP-2.3-full-aarch64.img",
+            "version": "2.3 (aarch64)",
+            "md5sum": "6d71669d543ee4994a613224249a3f4c",
+            "filesize": 4041246208,
             "download_url": "https://bsdrp.net/downloads",
-            "direct_download_url": "https://sourceforge.net/projects/bsdrp/files/BSD_Router_Project/1.92/amd64/BSDRP-1.92-full-amd64-serial.img.xz/download",
-            "compression": "xz"
-        },
-        {
-            "filename": "BSDRP-1.91-full-amd64-serial.img",
-            "version": "1.91",
-            "md5sum": "cea67b29ce94e66b617e7dc90956af45",
-            "filesize": 1000000000,
-            "download_url": "https://bsdrp.net/downloads",
-            "direct_download_url": "https://sourceforge.net/projects/bsdrp/files/BSD_Router_Project/1.91/amd64/BSDRP-1.91-full-amd64-serial.img.xz/download",
-            "compression": "xz"
-        },
-        {
-            "filename": "BSDRP-1.90-full-amd64-serial.img",
-            "version": "1.90",
-            "md5sum": "78b7182bed93888d17d18a67d5fec3a7",
-            "filesize": 1000000000,
-            "download_url": "https://bsdrp.net/downloads",
-            "direct_download_url": "https://sourceforge.net/projects/bsdrp/files/BSD_Router_Project/1.90/amd64/BSDRP-1.90-full-amd64-serial.img.xz/download",
-            "compression": "xz"
-        },
-        {
-            "filename": "BSDRP-1.80-full-amd64-serial.img",
-            "version": "1.80",
-            "md5sum": "a4285be15ac85f67b3c7f044872a54b6",
-            "filesize": 1000000000,
-            "download_url": "https://bsdrp.net/downloads",
-            "direct_download_url": "https://sourceforge.net/projects/bsdrp/files/BSD_Router_Project/1.80/amd64/BSDRP-1.80-full-amd64-serial.img.xz/download",
-            "compression": "xz"
-        },
-        {
-            "filename": "BSDRP-1.70-full-amd64-serial.img",
-            "version": "1.70",
-            "md5sum": "9c11f61ddf03ee9a9ae4149676175821",
-            "filesize": 1000000000,
-            "download_url": "https://bsdrp.net/downloads",
-            "direct_download_url": "https://sourceforge.net/projects/bsdrp/files/BSD_Router_Project/1.70/amd64/BSDRP-1.70-full-amd64-serial.img.xz/download",
+            "direct_download_url": "https://sourceforge.net/projects/bsdrp/files/BSD_Router_Project/2.3/aarch64/BSDRP-2.3-full-aarch64.img.xz/download",
             "compression": "xz"
         }
     ],
     "versions": [
         {
-            "name": "1.95",
+            "name": "2.3 (amd64)",
             "images": {
-                "hda_disk_image": "BSDRP-1.95-full-amd64-serial.img"
+                "hda_disk_image": "BSDRP-2.3-full-amd64.img"
             }
         },
         {
-            "name": "1.92",
+            "name": "2.3 (aarch64)",
+            "settings": "aarch64",
             "images": {
-                "hda_disk_image": "BSDRP-1.92-full-amd64-serial.img"
-            }
-        },
-        {
-            "name": "1.91",
-            "images": {
-                "hda_disk_image": "BSDRP-1.91-full-amd64-serial.img"
-            }
-        },
-        {
-            "name": "1.90",
-            "images": {
-                "hda_disk_image": "BSDRP-1.90-full-amd64-serial.img"
-            }
-        },
-        {
-            "name": "1.80",
-            "images": {
-                "hda_disk_image": "BSDRP-1.80-full-amd64-serial.img"
-            }
-        },
-        {
-            "name": "1.70",
-            "images": {
-                "hda_disk_image": "BSDRP-1.70-full-amd64-serial.img"
+                "hda_disk_image": "BSDRP-2.3-full-aarch64.img"
             }
         }
     ]

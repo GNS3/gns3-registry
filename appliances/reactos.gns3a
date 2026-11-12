@@ -24,20 +24,12 @@
     },
     "images": [
         {
-            "filename": "ReactOS-0.4.14-release-21-g1302c1b.iso",
-            "version": "Installer-0.4.14-release-21",
-            "md5sum": "a30bc9143788c76ed584ffd5d25fddfe",
-            "filesize": 140509184,
+            "filename": "ReactOS-0.4.16-i386.iso",
+            "version": "0.4.16-i386",
+            "md5sum": "20fd12cea301653e0240c6950a8aac66",
+            "filesize": 406847488,
             "download_url": "https://reactos.org/download",
-            "direct_download_url": "https://sourceforge.net/projects/reactos/files/ReactOS/0.4.14/ReactOS-0.4.14-release-21-g1302c1b-iso.zip/download"
-        },
-        {
-            "filename": "ReactOS-0.4.14-release-21-g1302c1b-Live.iso",
-            "version": "Live-0.4.14-release-21",
-            "md5sum": "fc362820069adeea088b3a48dcfa3f9e",
-            "filesize": 267386880,
-            "download_url": "https://reactos.org/download",
-            "direct_download_url": "https://sourceforge.net/projects/reactos/files/ReactOS/0.4.14/ReactOS-0.4.14-release-21-g1302c1b-live.zip/download"
+            "direct_download_url": "https://sourceforge.net/projects/reactos/files/ReactOS/0.4.16/ReactOS-0.4.16-i386.iso/download"
         },
         {
             "filename": "empty30G.qcow2",
@@ -50,17 +42,10 @@
     ],
     "versions": [
         {
-            "name": "Installer-0.4.14-release-21",
+            "name": "0.4.16-i386",
             "images": {
                 "hda_disk_image": "empty30G.qcow2",
-                "cdrom_image": "ReactOS-0.4.14-release-21-g1302c1b.iso"
-            }
-        },
-        {
-            "name": "Live-0.4.14-release-21",
-            "images": {
-                "hda_disk_image": "empty30G.qcow2",
-                "cdrom_image": "ReactOS-0.4.14-release-21-g1302c1b-Live.iso"
+                "cdrom_image": "ReactOS-0.4.16-i386.iso"
             }
         }
     ]

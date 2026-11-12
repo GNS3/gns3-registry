@@ -1,0 +1,87 @@
+{
+    "appliance_id": "3c38885f-71c3-4d9c-976c-cf5515b1c875",
+    "name": "RockyLinux Cloud Guest",
+    "category": "guest",
+    "description": "Rocky Linux is a community enterprise operating system designed to be 100% bug-for-bug compatible with Red Hat Enterprise Linux (RHEL).",
+    "vendor_name": "Rocky Enterprise Software Foundation",
+    "vendor_url": "https://rockylinux.org",
+    "documentation_url": "https://docs.rockylinux.org",
+    "product_name": "Rocky Linux",
+    "registry_version": 8,
+    "status": "stable",
+    "maintainer": "Da-Geek",
+    "maintainer_email": "dageek@dageeks-geeks.gg",
+    "usage": "Username:\trocky\nPassword:\trocky\nTo become root, use \"sudo -i\".\n\nTo improve performance, increase RAM and vCPUs in the VM settings.",
+    "symbol": "linux_guest.svg",
+    "default_username": "rocky",
+    "default_password": "rocky",
+    "settings": [
+        {
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "Ethernet{0}",
+                "adapter_type": "virtio-net-pci",
+                "adapters": 1,
+                "ram": 1536,
+                "hda_disk_interface": "virtio",
+                "console_type": "telnet",
+                "options": "-cpu host"
+            }
+        },
+        {
+            "name": "aarch64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true,
+                "options": "-cpu max"
+            }
+        }
+    ],
+    "images": [
+        {
+            "filename": "Rocky-10-GenericCloud-Base-10.2-20260525.0.x86_64.qcow2",
+            "version": "10.2 (x86_64)",
+            "md5sum": "b001cda47dd78cfe06f46b5fd95c65f8",
+            "filesize": 544997376,
+            "download_url": "https://download.rockylinux.org/pub/rocky/10/images/x86_64/",
+            "direct_download_url": "https://download.rockylinux.org/pub/rocky/10/images/x86_64/Rocky-10-GenericCloud-Base-10.2-20260525.0.x86_64.qcow2"
+        },
+        {
+            "filename": "Rocky-10-GenericCloud-Base-10.2-20260525.0.aarch64.qcow2",
+            "version": "10.2 (aarch64)",
+            "md5sum": "4cd1189ece5d1a8c07ee2862fd729aa3",
+            "filesize": 469368832,
+            "download_url": "https://download.rockylinux.org/pub/rocky/10/images/aarch64/",
+            "direct_download_url": "https://download.rockylinux.org/pub/rocky/10/images/aarch64/Rocky-10-GenericCloud-Base-10.2-20260525.0.aarch64.qcow2"
+        },
+        {
+            "filename": "rocky-cloud-init-data.iso",
+            "version": "1.0",
+            "md5sum": "33ffda3a81436e305f37fb913edd6d43",
+            "filesize": 374784,
+            "download_url": "https://github.com/GNS3/gns3-registry/tree/master/cloud-init/rocky-cloud",
+            "direct_download_url": "https://github.com/GNS3/gns3-registry/raw/master/cloud-init/rocky-cloud/rocky-cloud-init-data.iso"
+        }
+    ],
+    "versions": [
+        {
+            "name": "10.2 (x86_64)",
+            "images": {
+                "hda_disk_image": "Rocky-10-GenericCloud-Base-10.2-20260525.0.x86_64.qcow2",
+                "cdrom_image": "rocky-cloud-init-data.iso"
+            }
+        },
+        {
+            "name": "10.2 (aarch64)",
+            "settings": "aarch64",
+            "images": {
+                "hda_disk_image": "Rocky-10-GenericCloud-Base-10.2-20260525.0.aarch64.qcow2",
+                "cdrom_image": "rocky-cloud-init-data.iso"
+            }
+        }
+    ]
+}

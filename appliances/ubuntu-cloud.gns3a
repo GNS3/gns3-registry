@@ -9,63 +9,69 @@
     "documentation_url": "https://help.ubuntu.com/community/UEC/Images",
     "product_name": "Ubuntu Cloud Guest",
     "product_url": "https://www.ubuntu.com/cloud",
-    "registry_version": 4,
+    "registry_version": 8,
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "Username: ubuntu\nPassword: ubuntu",
-    "port_name_format": "Ethernet{0}",
-    "qemu": {
-        "adapter_type": "virtio-net-pci",
-        "adapters": 1,
-        "ram": 1024,
-        "hda_disk_interface": "virtio",
-        "arch": "x86_64",
-        "console_type": "telnet",
-        "boot_priority": "c",
-        "kvm": "require",
-        "options": "-nographic"
-    },
+    "default_username": "ubuntu",
+    "default_password": "ubuntu",
+    "settings": [
+        {
+            "name": "default",
+            "default": true,
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "x86_64",
+                "port_name_format": "Ethernet{0}",
+                "adapter_type": "virtio-net-pci",
+                "adapters": 1,
+                "ram": 1024,
+                "hda_disk_interface": "virtio",
+                "console_type": "telnet"
+            }
+        },
+        {
+            "name": "arm64",
+            "template_type": "qemu",
+            "template_properties": {
+                "platform": "aarch64",
+                "uefi": true
+            }
+        }
+    ],
     "images": [
         {
-            "filename": "ubuntu-24.10-server-cloudimg-amd64.img",
-            "version": "Ubuntu 24.10 (Oracular Oriole)",
-            "md5sum": "f2960f8743efedd0a4968bfcd9451782",
-            "filesize": 627360256,
-            "download_url": "https://cloud-images.ubuntu.com/releases/oracular/release-20241009/",
-            "direct_download_url": "https://cloud-images.ubuntu.com/releases/oracular/release-20241009/ubuntu-24.10-server-cloudimg-amd64.img"
+            "filename": "ubuntu-26.04-server-cloudimg-amd64.img",
+            "version": "Ubuntu 26.04 LTS (amd64)",
+            "md5sum": "9e43da0ab6132275111fb69054eea1a4",
+            "filesize": 859090944,
+            "download_url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/",
+            "direct_download_url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-amd64.img"
+        },
+        {
+            "filename": "ubuntu-26.04-server-cloudimg-arm64.img",
+            "version": "Ubuntu 26.04 LTS (arm64)",
+            "md5sum": "735d52171d07a0dead9a6608629eb9dd",
+            "filesize": 940373504,
+            "download_url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/",
+            "direct_download_url": "https://cloud-images.ubuntu.com/releases/resolute/release-20261016/ubuntu-26.04-server-cloudimg-arm64.img"
         },
         {
             "filename": "ubuntu-24.04-server-cloudimg-amd64.img",
-            "version": "Ubuntu 24.04 LTS (Noble Numbat)",
-            "md5sum": "a1c8a01953578ad432cbef03db2f3161",
-            "filesize": 587241984,
-            "download_url": "https://cloud-images.ubuntu.com/releases/noble/release-20241004/",
-            "direct_download_url": "https://cloud-images.ubuntu.com/releases/noble/release-20241004/ubuntu-24.04-server-cloudimg-amd64.img"
+            "version": "Ubuntu 24.04 LTS (amd64)",
+            "md5sum": "4fe3c9dbc21d6ff86cd81f33cd27367e",
+            "filesize": 621284352,
+            "download_url": "https://cloud-images.ubuntu.com/releases/noble/release-20261017/",
+            "direct_download_url": "https://cloud-images.ubuntu.com/releases/noble/release-20261017/ubuntu-24.04-server-cloudimg-amd64.img"
         },
         {
-            "filename": "ubuntu-22.04-server-cloudimg-amd64.img",
-            "version": "Ubuntu 22.04 LTS (Jammy Jellyfish)",
-            "md5sum": "8f9a70435dc5b0b86cf5d0d4716b6091",
-            "filesize": 653668352,
-            "download_url": "https://cloud-images.ubuntu.com/releases/jammy/release-20241002/",
-            "direct_download_url": "https://cloud-images.ubuntu.com/releases/jammy/release-20241002/ubuntu-22.04-server-cloudimg-amd64.img"
-        },
-        {
-            "filename": "ubuntu-20.04-server-cloudimg-amd64.img",
-            "version": "Ubuntu 20.04 LTS (Focal Fossa)",
-            "md5sum": "1dff90e16acb0167c27ff82e4ac1813a",
-            "filesize": 627310592,
-            "download_url": "https://cloud-images.ubuntu.com/releases/focal/release-20240821/",
-            "direct_download_url": "https://cloud-images.ubuntu.com/releases/focal/release-20240821/ubuntu-20.04-server-cloudimg-amd64.img"
-        },
-        {
-            "filename": "ubuntu-18.04-server-cloudimg-amd64.img",
-            "version": "Ubuntu 18.04 LTS (Bionic Beaver)",
-            "md5sum": "62fa110eeb0459c1ff166f897aeb9f78",
-            "filesize": 405667840,
-            "download_url": "https://cloud-images.ubuntu.com/releases/bionic/release-20230607/",
-            "direct_download_url": "https://cloud-images.ubuntu.com/releases/bionic/release-20230607/ubuntu-18.04-server-cloudimg-amd64.img"
+            "filename": "ubuntu-24.04-server-cloudimg-arm64.img",
+            "version": "Ubuntu 24.04 LTS (arm64)",
+            "md5sum": "eed67a90d1160c786843919773f7e003",
+            "filesize": 616522752,
+            "download_url": "https://cloud-images.ubuntu.com/releases/noble/release-20261017/",
+            "direct_download_url": "https://cloud-images.ubuntu.com/releases/noble/release-20261017/ubuntu-24.04-server-cloudimg-arm64.img"
         },
         {
             "filename": "ubuntu-cloud-init-data.iso",
@@ -78,37 +84,32 @@
     ],
     "versions": [
         {
-            "name": "Ubuntu 24.10 (Oracular Oriole)",
+            "name": "Ubuntu 26.04 LTS (amd64)",
             "images": {
-                "hda_disk_image": "ubuntu-24.10-server-cloudimg-amd64.img",
+                "hda_disk_image": "ubuntu-26.04-server-cloudimg-amd64.img",
                 "cdrom_image": "ubuntu-cloud-init-data.iso"
             }
         },
         {
-            "name": "Ubuntu 24.04 LTS (Noble Numbat)",
+            "name": "Ubuntu 26.04 LTS (arm64)",
+            "settings": "arm64",
+            "images": {
+                "hda_disk_image": "ubuntu-26.04-server-cloudimg-arm64.img",
+                "cdrom_image": "ubuntu-cloud-init-data.iso"
+            }
+        },
+        {
+            "name": "Ubuntu 24.04 LTS (amd64)",
             "images": {
                 "hda_disk_image": "ubuntu-24.04-server-cloudimg-amd64.img",
                 "cdrom_image": "ubuntu-cloud-init-data.iso"
             }
         },
         {
-            "name": "Ubuntu 22.04 LTS (Jammy Jellyfish)",
+            "name": "Ubuntu 24.04 LTS (arm64)",
+            "settings": "arm64",
             "images": {
-                "hda_disk_image": "ubuntu-22.04-server-cloudimg-amd64.img",
-                "cdrom_image": "ubuntu-cloud-init-data.iso"
-            }
-        },
-        {
-            "name": "Ubuntu 20.04 LTS (Focal Fossa)",
-            "images": {
-                "hda_disk_image": "ubuntu-20.04-server-cloudimg-amd64.img",
-                "cdrom_image": "ubuntu-cloud-init-data.iso"
-            }
-        },
-        {
-            "name": "Ubuntu 18.04 LTS (Bionic Beaver)",
-            "images": {
-                "hda_disk_image": "ubuntu-18.04-server-cloudimg-amd64.img",
+                "hda_disk_image": "ubuntu-24.04-server-cloudimg-arm64.img",
                 "cdrom_image": "ubuntu-cloud-init-data.iso"
             }
         }
