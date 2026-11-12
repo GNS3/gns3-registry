@@ -14,6 +14,8 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "\nUsername: alpine\nPassword: alpine",
+    "default_username": "alpine",
+    "default_password": "alpine",
     "settings": [
         {
             "name": "default",

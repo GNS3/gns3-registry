@@ -41,7 +41,7 @@
     "images": [
         {
             "filename": "Parrot-security-7.4_amd64.iso",
-            "version": "Security Build 7.4 (x86_64)",
+            "version": "Security Build 7.4 (amd64)",
             "md5sum": "a3ddddeb89af1768ff28d45dce5c6285",
             "filesize": 8682078208,
             "download_url": "https://www.parrotsec.org/download-security.php",
@@ -66,7 +66,7 @@
     ],
     "versions": [
         {
-            "name": "Security Build 7.4 (x86_64)",
+            "name": "Security Build 7.4 (amd64)",
             "images": {
                 "hda_disk_image": "empty30G.qcow2",
                 "cdrom_image": "Parrot-security-7.4_amd64.iso"

@@ -10,7 +10,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
-    "usage": "To become root, use 'sudo -s'",
+    "usage": "Username:\tdebian\nPassword:\tdebian\nTo become root, use \"sudo -s\".\n",
     "default_username": "debian",
     "default_password": "debian",
     "settings": [
@@ -40,7 +40,7 @@
     "images": [
         {
             "filename": "debian-13.7-amd64.qcow2",
-            "version": "13.7 (x86_64)",
+            "version": "13.7 (amd64)",
             "md5sum": "c31d2dec7d446c84c76c9c45da9721d1",
             "filesize": 275251200,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
@@ -57,7 +57,7 @@
     ],
     "versions": [
         {
-            "name": "13.7 (x86_64)",
+            "name": "13.7 (amd64)",
             "images": {
                 "hda_disk_image": "debian-13.7-amd64.qcow2"
             }

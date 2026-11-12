@@ -10,6 +10,7 @@
     "status": "stable",
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
+    "usage": "Default user: root (no password set)",
     "default_username": "root",
     "default_password": "",
     "settings": [
@@ -39,7 +40,7 @@
     "images": [
         {
             "filename": "BSDRP-2.3-full-amd64.img",
-            "version": "2.3 (x86_64)",
+            "version": "2.3 (amd64)",
             "md5sum": "529aa88b20d042fbd895a17d3dbb2fcc",
             "filesize": 4041269248,
             "download_url": "https://bsdrp.net/downloads",
@@ -58,7 +59,7 @@
     ],
     "versions": [
         {
-            "name": "2.3 (x86_64)",
+            "name": "2.3 (amd64)",
             "images": {
                 "hda_disk_image": "BSDRP-2.3-full-amd64.img"
             }

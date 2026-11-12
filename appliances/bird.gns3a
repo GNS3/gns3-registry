@@ -41,7 +41,7 @@
     "images": [
         {
             "filename": "debian-13.7-bird2-2.17.5-amd64.qcow2",
-            "version": "2.17.5 (x86_64)",
+            "version": "2.17.5 (amd64)",
             "md5sum": "5b836eea43e1e3d66beb7bc199b603d0",
             "filesize": 276758528,
             "download_url": "https://sourceforge.net/projects/gns-3/files/Qemu%20Appliances/",
@@ -58,7 +58,7 @@
     ],
     "versions": [
         {
-            "name": "2.17.5 (x86_64)",
+            "name": "2.17.5 (amd64)",
             "images": {
                 "hda_disk_image": "debian-13.7-bird2-2.17.5-amd64.qcow2"
             }

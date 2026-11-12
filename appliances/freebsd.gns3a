@@ -13,6 +13,8 @@
     "maintainer": "GNS3 Team",
     "maintainer_email": "developers@gns3.net",
     "usage": "User: root, not password is set.",
+    "default_username": "root",
+    "default_password": "",
     "settings": [
         {
             "name": "default",
@@ -40,7 +42,7 @@
     "images": [
          {
             "filename": "FreeBSD-15.1-RELEASE-amd64-ufs.qcow2",
-	        "version": "15.1-ufs (x86_64)",
+	        "version": "15.1-ufs (amd64)",
 	        "md5sum": "e98a44f577161ba8e5429ad3ffab7fff",
 	        "filesize": 2671312896,
 	        "download_url": "https://www.freebsd.org/where.html",
@@ -77,7 +79,7 @@
     ],
     "versions": [
         {
-            "name": "15.1-ufs (x86_64)",
+            "name": "15.1-ufs (amd64)",
             "images": {
                 "hda_disk_image": "FreeBSD-15.1-RELEASE-amd64-ufs.qcow2"
             }
