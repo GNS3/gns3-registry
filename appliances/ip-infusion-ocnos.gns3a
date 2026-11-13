@@ -1,0 +1,47 @@
+{
+    "appliance_id": "aa642c97-8822-43c2-abba-f3193ad89333",
+    "name": "IP Infusion OcNOS-SP",
+    "category": "router",
+    "description": "OcNOS-SP is IP Infusion's service provider network operating system. The free VM runs on x86 and provides the OcNOS CLI for Layer 2, Layer 3, MPLS, and multicast features. It includes a 365-day license. Data plane forwarding is limited. Use it for feature and configuration testing, not performance or full-bandwidth traffic testing.",
+    "vendor_name": "IP Infusion",
+    "vendor_url": "https://www.ipinfusion.com/",
+    "documentation_url": "https://documentation.ipinfusion.com/home/Content/LibraryPages/Library.htm",
+    "product_name": "OcNOS-SP VM",
+    "product_url": "https://www.ipinfusion.com/free-software-demos/?vm=GNS3&utm_source=gns3&utm_medium=marketplace&utm_campaign=ocnos-vm",
+    "registry_version": 4,
+    "status": "experimental",
+    "availability": "with-registration",
+    "maintainer": "IP Infusion",
+    "maintainer_email": "IPI-TAC-Global@ipinfusion.com",
+    "usage": "Download the image from the IP Infusion page after free registration, then decompress it before importing: xz -d OcNOS-SP-PLUS-x86-7.0.0-262-GA.qcow2.xz. On Windows, use 7-Zip. The console is serial over telnet. The node takes a few minutes to boot. Default login: ocnos / ocnos. eth0 is the management port (VRF management); data ports start at eth1. The VM includes a 365-day license and is licensed for non-production evaluation only under the OcNOS EULA: https://www.ipinfusion.com/eula/",
+    "symbol": ":/symbols/router.svg",
+    "first_port_name": "eth0",
+    "port_name_format": "eth{0}",
+    "qemu": {
+        "adapter_type": "virtio-net-pci",
+        "adapters": 8,
+        "ram": 4096,
+        "cpus": 2,
+        "hda_disk_interface": "virtio",
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "kvm": "require"
+    },
+    "images": [
+        {
+            "filename": "OcNOS-SP-PLUS-x86-7.0.0-262-GA.qcow2",
+            "version": "7.0.0-262",
+            "md5sum": "8c6f3a35c431924149fb43143ae35a62",
+            "filesize": 3995074560,
+            "download_url": "https://www.ipinfusion.com/free-software-demos/?vm=GNS3&utm_source=gns3&utm_medium=marketplace&utm_campaign=ocnos-vm"
+        }
+    ],
+    "versions": [
+        {
+            "name": "7.0.0-262",
+            "images": {
+                "hda_disk_image": "OcNOS-SP-PLUS-x86-7.0.0-262-GA.qcow2"
+            }
+        }
+    ]
+}
