@@ -1,0 +1,34 @@
+{
+    "appliance_id": "f5f55dbb-0afb-4e9f-aa91-17145450679e",
+    "name": "OpenLDAP",
+    "category": "guest",
+    "description": "OpenLDAP is a free, open source implementation of the Lightweight Directory Access Protocol (LDAP) developed by the OpenLDAP Project. This appliance runs the slapd server in a Docker container (osixia/openldap image) and can be used for labs involving centralized authentication, directory lookups or AAA testing.",
+    "vendor_name": "OpenLDAP Foundation",
+    "vendor_url": "https://www.openldap.org/",
+    "documentation_url": "https://github.com/osixia/container-openldap",
+    "product_name": "OpenLDAP",
+    "product_url": "https://github.com/osixia/container-openldap",
+    "registry_version": 8,
+    "status": "stable",
+    "maintainer": "YueGuobin",
+    "maintainer_email": "yueguobin@outlook.com",
+    "usage": "Default directory: dc=example,dc=org. Admin DN: cn=admin,dc=example,dc=org with password admin.\n\nThe console opens a root shell inside the container with ldap-utils installed, e.g.:\n\nldapsearch -x -b dc=example,dc=org -D \"cn=admin,dc=example,dc=org\" -w admin \"(objectClass=*)\"\n\nTo change the organisation, domain or passwords, edit the template's environment before starting the node for the first time (bootstrap only happens once): LDAP_ORGANISATION, LDAP_DOMAIN, LDAP_ADMIN_PASSWORD, LDAP_CONFIG_PASSWORD.\n\nTLS is enabled by default with an auto-generated certificate, so ldaps://:636 and STARTTLS are available; plain ldap://:389 works without certificates (STARTTLS is optional). For a plaintext-only lab setup, set LDAP_TLS=false in the template environment before the first start. TLS settings are applied at bootstrap and cannot be changed afterwards without recreating the node.\n\nThe image is very minimal (Debian buster-slim with only slapd and ldap-utils): there is no ip, ping, ss, nc or net-tools. Debug connectivity from a client node, or from this console test the LDAP port with bash's built-in TCP support:\n\ntimeout 2 bash -c \"cat < /dev/null > /dev/tcp/<IP>/389\" && echo reachable\n\nTypical ldapsearch errors tell you which layer fails: 'Can't contact LDAP server (-1)' means a network/port problem, 'Invalid credentials (49)' means the network is fine but the bind DN or password is wrong.\n\nThe directory can also be managed remotely with GUI tools (Apache Directory Studio, LDAP Admin, JXplorer) connecting to the node IP on port 389.\n\nThe LDAP database (/var/lib/ldap) and configuration (/etc/ldap/slapd.d) are persisted as Docker volumes per project. Delete and re-add the node to start from an empty directory.\n\nContainer logs are available with 'docker logs <container>' on the GNS3 server host.",
+    "symbol": ":/symbols/affinity/circle/blue/ldap.svg",
+    "settings": [
+        {
+            "name": "Default template settings",
+            "default": true,
+            "template_type": "docker",
+            "template_properties": {
+                "adapters": 1,
+                "image": "osixia/openldap:1.5.0",
+                "console_type": "docker_exec",
+                "environment": "LDAP_ORGANISATION=Example Inc.\nLDAP_DOMAIN=example.org\nLDAP_ADMIN_PASSWORD=admin\nLDAP_CONFIG_PASSWORD=config",
+                "extra_volumes": [
+                    "/var/lib/ldap",
+                    "/etc/ldap/slapd.d"
+                ]
+            }
+        }
+    ]
+}
