@@ -1,0 +1,54 @@
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name _;
+
+    # Self-signed certificate generated at first startup by
+    # /docker-entrypoint.d/40-generate-self-signed-cert.sh; /etc/nginx is
+    # volume-backed by the GNS3 appliance, so the certificate persists.
+    ssl_certificate     /etc/nginx/certs/server.crt;
+    ssl_certificate_key /etc/nginx/certs/server.key;
+
+    # Serves the version selected by the 'current' symlink:
+    # - image build context: /srv/ui/current -> /srv/ui/app (created in the Dockerfile)
+    # - persistent volume swap: 'current' is repointed inside /srv/ui
+    root /srv/ui/current;
+
+    # SPA fallback: let Angular handle client-side routes
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # index.html must never be cached, otherwise stale builds keep being
+    # served after a version swap (hashed asset filenames change per build)
+    location = /index.html {
+        add_header Cache-Control "no-cache";
+    }
+
+    # Same-origin reverse proxy to the GNS3 controller API.
+    #
+    # Static proxy_pass: the upstream hostname must be resolvable at startup
+    # (via /etc/hosts or DNS). CONTROLLER_URL is set in the node environment
+    # to an address reachable from the node's topology network. The variable
+    # deliberately does NOT start with GNS3_: the GNS3 server silently drops
+    # user environment variables whose name begins with "GNS3_" (reserved
+    # namespace for its own init.sh knobs), so such a variable would never
+    # reach the container.
+    #
+    # CONTROLLER_URL is substituted at container start by the official
+    # nginx image envsubst mechanism; nginx built-in variables ($uri, $host,
+    # ...) are left untouched because no environment variable shares their name.
+    location /v3/ {
+        proxy_pass ${CONTROLLER_URL};
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # WebSocket upgrade (notifications, consoles)
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_read_timeout 3600s;
+        proxy_send_timeout 3600s;
+    }
+}
