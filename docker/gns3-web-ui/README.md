@@ -105,31 +105,40 @@ work with several controllers.
 
 ## Deploying / swapping a build
 
-The served files live directly in the persistent `/srv/ui` volume. Deploying
-(or rolling back) a build is a single copy-paste that replaces them:
+The served files live directly in the persistent `/srv/ui` volume — a plain
+directory on the compute host (bind-mounted into the container). Deploying a
+build is a manual copy-paste on the host:
 
 ```bash
-NODE=GNS3.GNS3WebUI-1.<project-id>
+# the volume backing directory (one per node; see how to look it up below)
+D=<project-files>/docker/<node-id>/srv/ui
 
-# replace the served files with a new build (the trailing /. copies contents)
-docker cp <path-to>/ui-versions/<version+commit>/. "$NODE":/gns3volumes/srv/ui/
+rm -rf "$D"/* && cp -r <path-to-web-ui>/dist/browser/. "$D"/
 
 # verify
 curl http://<node-ip>/VERSION.txt
 ```
 
-- `/gns3volumes/srv/ui/` is the volume backing directory as seen inside the
-  container. Do **not** copy into `/srv/ui/` itself: it is a bind mount
-  created inside the container by init.sh, and `docker cp` does not traverse
-  container-namespace mounts — files silently land in a shadowed overlay
-  path while docker reports success.
-- Effective immediately, no restart; persists across node restarts and image
-  rebuilds. Stale hashed assets from previous builds may remain (harmless —
-  nothing references them); for an exact replace, clear first:
-  `docker exec "$NODE" sh -c 'rm -rf /gns3volumes/srv/ui/*'` (the dotfile
-  `.gns3_perms` seeding marker survives the glob).
-- The web-ui repository's `scripts/deploy-node.sh` automates build + upload
-  for iterative development.
+- Effective immediately (nginx resolves the path per request), no restart;
+  persists across node restarts and image rebuilds.
+- `rm -rf "$D"/*` does not match dotfiles, so the `.gns3_perms` seeding
+  marker survives.
+- Look up the backing directory for a node:
+
+```bash
+docker inspect <node-container> --format \
+  '{{range .Mounts}}{{if eq .Destination "/gns3volumes/srv/ui"}}{{.Source}}{{end}}{{end}}'
+```
+
+- If the compute runs on a remote machine, copy to the same path there
+  (`scp`/`rsync`) instead.
+
+Alternative (local compute): `docker cp <build>/. <node>:/gns3volumes/srv/ui/`
+— the `/gns3volumes/srv/ui` path is the same volume backing directory seen
+from inside the container. Do **not** copy into `/srv/ui/` itself: it is a
+bind mount created inside the container by init.sh, and `docker cp` does not
+traverse container-namespace mounts — files silently land in a shadowed
+overlay path while docker reports success.
 
 When a GNS3 appliance mounts `/srv/ui` as an `extra_volumes` entry, seeding
 from the image happens on **first boot only** (it seeds the placeholder
