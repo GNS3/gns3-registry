@@ -9,10 +9,9 @@ server {
     ssl_certificate     /etc/nginx/certs/server.crt;
     ssl_certificate_key /etc/nginx/certs/server.key;
 
-    # Serves the version selected by the 'current' symlink:
-    # - image build context: /srv/ui/current -> /srv/ui/app (created in the Dockerfile)
-    # - persistent volume swap: 'current' is repointed inside /srv/ui
-    root /srv/ui/current;
+    # Serves the Web UI build deployed into the persistent /srv/ui volume
+    # (deploying = replacing the volume contents)
+    root /srv/ui;
 
     # SPA fallback: let Angular handle client-side routes
     location / {

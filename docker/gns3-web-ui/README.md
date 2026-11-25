@@ -19,9 +19,10 @@ to a GNS3 controller, so the browser only ever talks to this container
 
 The image NEVER contains a Web UI build — it is a template shell only. Builds
 (version builds, PR builds) are supplied **at runtime** through the persistent
-`/srv/ui` volume: upload a build as `/srv/ui/<version+commit>/` and repoint the
-`/srv/ui/current` symlink. Swapping versions never requires rebuilding the
-image.
+`/srv/ui` volume: deploying a build simply **replaces the contents of
+`/srv/ui`**. Swapping versions never requires rebuilding the image, and the
+version history lives on the build side (`ui-versions/` in the web-ui repo
+workflow), not in the container.
 
 ## Layout
 
@@ -102,38 +103,33 @@ Note: because the proxy is same-origin, one container instance serves exactly
 one controller. Run one instance per controller (different ports or hosts) to
 work with several controllers.
 
-## Version swapping
+## Deploying / swapping a build
 
-The served version is whatever `/srv/ui/current` points to:
+The served files live directly in the persistent `/srv/ui` volume. Deploying
+(or rolling back) a build is a single copy-paste that replaces them:
 
 ```bash
 NODE=GNS3.GNS3WebUI-1.<project-id>
-VER=3.1.0.dev8+fb53938aa
 
-# 1. upload the build into the persistent volume.
-#    NOTE: /srv/ui is a bind mount created inside the container by init.sh;
-#    `docker cp` does not traverse it (files silently land in a shadowed
-#    overlay path). Write into the volume backing directory instead:
-docker cp <path-to>/ui-versions/$VER "$NODE":/gns3volumes/srv/ui/
+# replace the served files with a new build (the trailing /. copies contents)
+docker cp <path-to>/ui-versions/<version+commit>/. "$NODE":/gns3volumes/srv/ui/
 
-# 1b. verify the files actually landed
-docker exec "$NODE" test -f /srv/ui/$VER/VERSION.txt && echo OK
-
-# 2. select it
-docker exec "$NODE" ln -snf "$VER" /srv/ui/current
-
-# 3. refresh the browser (hard-refresh the first time)
+# verify
+curl http://<node-ip>/VERSION.txt
 ```
 
-Effective immediately (nginx resolves `root /srv/ui/current` per request and
-`index.html` is served with `Cache-Control: no-cache`), no restart needed;
-the build persists across node restarts and image rebuilds. Rollback =
-repoint `current` at the previous directory.
-
-Note: `docker cp` (or copying on the server host into the volume's backing
-directory under `<project-files>/docker/<node-id>/srv/ui/`) is the practical
-channel for a whole build tree; the node file manager suits single files such
-as certificates.
+- `/gns3volumes/srv/ui/` is the volume backing directory as seen inside the
+  container. Do **not** copy into `/srv/ui/` itself: it is a bind mount
+  created inside the container by init.sh, and `docker cp` does not traverse
+  container-namespace mounts — files silently land in a shadowed overlay
+  path while docker reports success.
+- Effective immediately, no restart; persists across node restarts and image
+  rebuilds. Stale hashed assets from previous builds may remain (harmless —
+  nothing references them); for an exact replace, clear first:
+  `docker exec "$NODE" sh -c 'rm -rf /gns3volumes/srv/ui/*'` (the dotfile
+  `.gns3_perms` seeding marker survives the glob).
+- The web-ui repository's `scripts/deploy-node.sh` automates build + upload
+  for iterative development.
 
 When a GNS3 appliance mounts `/srv/ui` as an `extra_volumes` entry, seeding
 from the image happens on **first boot only** (it seeds the placeholder
@@ -141,7 +137,7 @@ page). A populated volume is never updated by newer images — upload files or
 clear the volume to re-seed.
 
 `index.html` is served with `Cache-Control: no-cache`; hashed asset filenames
-make version swaps safe without browser cache busting.
+make swaps safe without browser cache busting.
 
 ## Nginx configuration persistence
 
@@ -158,7 +154,8 @@ already-populated config volume.
 
 The web-ui build script writes `VERSION.txt` (for example
 `3.1.0.dev8+fb53938a`) into the artifact directory; after upload it ends up at
-`/srv/ui/<version>/VERSION.txt` and can be checked from the container console.
+`/srv/ui/VERSION.txt`, served at `/VERSION.txt`, and can be checked from the
+container console.
 
 ## Related appliance
 
