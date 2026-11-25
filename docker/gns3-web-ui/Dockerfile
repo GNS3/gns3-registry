@@ -27,7 +27,8 @@ COPY runtime/entrypoint.d/ /docker-entrypoint.d/
 
 # Placeholder page until a Web UI build is uploaded into the persistent
 # /srv/ui volume (deploying replaces the volume contents)
-RUN echo '<html><body><p>GNS3 Web UI: no build artifact present. Upload a build into /srv/ui/ (see the appliance usage notes).</p></body></html>' \
+RUN mkdir -p /srv/ui \
+    && echo '<html><body><p>GNS3 Web UI: no build artifact present. Upload a build into /srv/ui/ (see the appliance usage notes).</p></body></html>' \
     > /srv/ui/index.html
 
 EXPOSE 80 443
