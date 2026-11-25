@@ -1,0 +1,32 @@
+{
+  "appliance_id": "10f5ac6f-3cd7-42d6-a4b3-c3ab67a03807",
+  "name": "GNS3 Web UI",
+  "category": "guest",
+  "description": "Web-based graphical user interface for GNS3, for development and testing. Run it as a node in a GNS3 server project topology: the container serves the Angular application and reverse-proxies the controller API (/v3, including WebSockets) so the browser only talks to this node and no CORS configuration is needed on the controller. Web UI builds (versions, PR builds) can be swapped inside the persistent volume without rebuilding.",
+  "vendor_name": "GNS3",
+  "vendor_url": "https://www.gns3.com/",
+  "documentation_url": "https://github.com/GNS3/gns3-web-ui",
+  "product_name": "GNS3 Web UI",
+  "product_url": "https://github.com/GNS3/gns3-web-ui",
+  "registry_version": 8,
+  "status": "experimental",
+  "availability": "free",
+  "maintainer": "YueGuobin",
+  "maintainer_email": "yueguobin@outlook.com",
+  "usage": "Development and testing appliance — run it as a node in a GNS3 server project topology; not part of a production GNS3 deployment.\n\nConnect this node to a NAT or Cloud node so it can reach the GNS3 controller.\n\nConfiguration:\nCONTROLLER_URL (node environment) is the controller address. After creating the node, edit the node environment and set it to your gns3server address, reachable from this node's topology network — e.g. http://192.168.122.1:3080 with the NAT node (server default_nat_interface, default virbr0), or the host address on the interface a Cloud node is bridged to. The GNS3 server must listen on it. CERT_SAN (optional) adds extra certificate SAN entries, e.g. IP:192.168.1.50,DNS:lab.gns3.local.\n\nUsage:\nStart the node, then open http://<node IP> or https://<node IP> (port 443 uses a self-signed certificate generated at startup, covering the node IP, and kept in the persistent volume) in a browser. In the controllers page, register the controller as this node itself: Host = <node IP>, Port = 80. All API and console traffic flows through this node, so the controller address is never exposed to the browser.\n\nPersistence and version swapping:\n/srv/ui and /etc/nginx are persistent volumes seeded from the image on first boot. The image is a serving shell only: /srv/ui directly holds the served files. Installing or swapping a Web UI build simply replaces the contents of /srv/ui (a plain directory on the compute host, bind-mounted into the container) — copy the build output there, effective immediately; survives node restarts and image rebuilds. The served version is recorded in /srv/ui/VERSION.txt (served at /VERSION.txt). Until a build is installed the node serves a placeholder page.\n\nCertificates:\nthe self-signed certificate lives in /etc/nginx/certs (persistent volume). To install a valid certificate, upload server.crt and server.key there and restart the node — externally provided certificates are never overwritten.\n\nNginx customization:\nedit /etc/nginx/templates/*.template inside the volume (environment variables in it are substituted at every startup). Files regenerated at startup (for example /etc/nginx/conf.d/default.conf) must not be edited directly — changes there are overwritten on restart.",
+  "settings": [
+    {
+      "name": "default",
+      "default": true,
+      "template_type": "docker",
+      "template_properties": {
+        "image": "gns3/gns3-web-ui:latest",
+        "adapters": 1,
+        "console_type": "telnet",
+        "environment": "CONTROLLER_URL=http://host.docker.internal:3080",
+        "extra_hosts": "host.docker.internal:172.17.0.1",
+        "extra_volumes": ["/srv/ui", "/etc/nginx"]
+      }
+    }
+  ]
+}
